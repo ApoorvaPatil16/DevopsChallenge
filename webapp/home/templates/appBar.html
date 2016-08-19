@@ -1,0 +1,53 @@
+<div>
+    <div layout="row"></div>
+    <md-content>
+        <md-toolbar class="md-hue-2">
+            <div class="md-toolbar-tools">
+                <md-button class="md-icon-button" aria-label="SideList" ng-click="toggleLeft('left')">
+                    <md-icon class="material-icons">menu</md-icon>
+                </md-button>
+                <h2>
+                    <span>{{appName}}</span>
+                </h2>
+                <span flex=""></span>
+                <md-button class="md-icon-button" aria-label="Notifications" ng-click="showDialog($event)">
+                    <md-icon class=" material-icons ">notifications</md-icon>
+                </md-button>
+                <md-menu>
+                    <md-button class="md-icon-button " aria-label="Account " ng-click="$mdOpenMenu() ">
+                        <md-icon class="material-icons ">account_circle</md-icon>
+                    </md-button>
+                    <md-menu-content id="account-circle-content">
+                        <md-menu-item ng-repeat="item in accountItems">
+                            <md-button ng-click=" ">
+                                {{item.name}}
+                            </md-button>
+                        </md-menu-item>
+                    </md-menu-content>
+                </md-menu>
+            </div>
+        </md-toolbar>
+    </md-content>
+    <md-sidenav class="md-sidenav-left " md-component-id="left">
+        <div layout="row " class="sidenav-heading ">
+            <img src="../images/Capture.PNG " alt="DataMill Icon ">
+            <h2>{{appName}}</h2>
+        </div>
+        <md-divider></md-divider>
+        <div>
+            <md-list>
+                <md-list-item ng-repeat="item in sideNavItems ">
+                    <div ng-mouseover="sublist=true" ng-mouseleave="sublist=false">
+                        <a ui-sref='{{item.state}}'>
+                    	{{item.link}}
+                    </a>
+                        <md-list ng-if="item.children.length > 0">
+                            <md-list-item  ng-show="sublist" ng-repeat="child in item.children">
+                                <a ui-sref="{{child.state}}">{{child.link}}</a>            
+                            </md-list-item>
+                        </md-list>
+                </md-list-item>
+            </md-list>
+            </div>
+    </md-sidenav>
+    </div>

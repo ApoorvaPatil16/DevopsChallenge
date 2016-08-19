@@ -1,0 +1,55 @@
+<div class="md-whiteframe-3dp" layout="column" layout-margin="2px">
+  <md-subheader class="md-no-sticky">{{$ctrl.formTitle}}</md-subheader>
+  <div ng-repeat="attr in $ctrl.attrs" layout="row">
+    <div layout="row" flex="80">
+      <ng-include src="$ctrl.fileSrcInclude"></ng-include>
+      <md-input-container>
+        <label>Name</label>
+        <input ng-model="attribute.name" ng-disabled="$index!=iseditable">
+      </md-input-container>
+      <md-input-container>
+        <label>Attribute Type</label>
+        <md-select ng-model="attribute.type" ng-disabled="$index!=iseditable">
+          <md-option ng-repeat="state in $ctrl.attrtype" value="{{state.name}}">
+            {{state.name}}
+          </md-option>
+        </md-select>
+      </md-input-container>
+      <md-input-container ng-if="attribute.type==='domain'">
+        <label>Attribute Domain</label>
+        <md-select ng-model="attribute.doamin" ng-disabled="$index!=iseditable">
+          <md-option ng-repeat="state in $ctrl.domain" value="{{state.name}}">
+            {{state.name}}
+          </md-option>
+        </md-select>
+      </md-input-container>
+      <md-input-container ng-if="attribute.type==='schema'">
+        <label>Attribute schema</label>
+        <input ng-model="attribute.schema" ng-disabled="$index!=iseditable">
+      </md-input-container>
+      <md-input-container>
+        <label>Relationship</label>
+        <input ng-model="attribute.relationship" ng-disabled="$index!=iseditable">
+      </md-input-container>
+    </div>
+    <div layout="row" layout-margin="2px" flex="20">
+      <md-button class="md-fab md-mini md-icon-button" ng-disabled="iseditable!=-1" ng-hide="$index==iseditable" ng-click="$ctrl.edit($index)" aria-label="edit">
+        <md-icon class="material-icons">edit</md-icon>
+      </md-button>
+      <md-button class="md-fab md-mini md-icon-button" ng-disabled="iseditable!=-1" ng-hide="$index==iseditable" ng-click="$ctrl.remove($index)" aria-label="remove">
+        <md-icon class="material-icons">remove</md-icon>
+      </md-button>
+      <md-button class="md-fab md-mini md-icon-button" ng-hide="$index!=iseditable" ng-click="$ctrl.save($index,attribute)" aria-label="done">
+        <md-icon class="material-icons">done</md-icon>
+      </md-button>
+      <md-button class="md-fab md-mini md-icon-button" ng-hide="$index!=iseditable" ng-click="$ctrl.cancel()" aria-label="cancel">
+        <md-icon class="material-icons">clear</md-icon>
+      </md-button>
+    </div>
+  </div>
+  <div layout="row">
+    <md-button class="md-fab md-mini md-button md-ink-ripple" ng-click="add()" aria-label="add">
+      <md-icon class="material-icons">add</md-icon>
+    </md-button>
+  </div>
+</div>

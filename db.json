@@ -1,0 +1,94 @@
+{
+  "appName": [{ "id": 1, "name": "DataMill.io" }],
+  "sideNavItems": [{
+    "id": 1,
+    "state": "#",
+    "link": "Dashboard"
+  }, {
+    "id": 1,
+    "state": "#",
+    "link": "List Of Data Modal"
+  }, {
+    "id": 1,
+    "state": "datamodel",
+    "link": "Create a Data modal"
+  }, {
+    "id": 1,
+    "state": "datafeed",
+    "link": "Popular Data Modal"
+  }, {
+    "id": 1,
+    "state": "Domain",
+    "link": "Creating Domain",
+    "children": [{
+      "state": "randomDomain",
+      "link": "Create Random generated Domain"
+    }, {
+      "state": "meaningfulDomain",
+      "link": "Create Meaningful Domain"
+    }]
+  }],
+
+  "accountItems": [{ "id": 1, "name": "Your Profile" }, { "id": 2, "name": "SignOut" }],
+  "materialIcons": [{
+    "id": 1,
+    "name": "menu"
+  }, {
+    "id": 1,
+    "name": "notifications"
+  }, {
+    "id": 1,
+    "name": "account_circle"
+  }],
+  "inputLabelsForDomain": {
+    "domainName": "Domain Name",
+    "domainType": "Base Type",
+    "domainRange": "Range",
+    "pattern": "Format/Pattern"
+  },
+  "basetypes": [
+    { "id": 1, "name": "String" },
+    { "id": 2, "name": "Number" },
+    { "id": 3, "name": "Boolean" },
+    { "id": 4, "name": "Date" },
+    { "id": 5, "name": "Time" },
+    { "id": 6, "name": "Decimal" },
+    { "id": 7, "name": "Hexadecimal" }
+  ],
+  "domain": [
+    { "id": 1, "name": "String" },
+    { "id": 2, "name": "Number" },
+    { "id": 3, "name": "Boolean" },
+    { "id": 4, "name": "Date" },
+    { "id": 5, "name": "Time" },
+    { "id": 6, "name": "Decimal" },
+    { "id": 7, "name": "Hexadecimal" }
+  ],
+  "datamodel": [
+    { "id": 1, "name": "Name", "patterns": ["A", "B"] },
+    { "id": 2, "name": "City", "patterns": ["C", "B"] },
+    { "id": 3, "name": "Address", "patterns": ["F", "B"] },
+    { "id": 4, "name": "PanCard", "patterns": ["L", "B"] }
+  ],
+  "transporttype": [
+    { "id": 1, "name": "Mongo DB" },
+    { "id": 2, "name": "Redis" },
+    { "id": 3, "name": "Redis MQ" },
+    { "id": 4, "name": "Kafka" },
+    { "id": 5, "name": "Websocket" }
+  ],
+  "attrtype": [
+    { "id": 1, "name": "domain" },
+    { "id": 2, "name": "schema" }
+  ],
+  "visibility": [
+    { "id": 1, "label": "Public", "value": "public" },
+    { "id": 2, "label": "Private", "value": "private" },
+    { "id": 3, "label": "Share Only", "value": "shared" }
+  ],
+  "deleverytype": [
+    { "id": 1, "label": "Download", "value": "download" },
+    { "id": 2, "label": "Feed", "value": "feed" }
+  ]
+
+}

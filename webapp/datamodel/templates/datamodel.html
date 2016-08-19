@@ -1,0 +1,76 @@
+<div layout="row" layout-xs="column" layout-margin="10px" layout-padding="10px" ng-cloak>
+  <div flex class="md-whiteframe-3dp">
+    <h1>Data Model Defination</h1>
+    <md-tabs class="md-accent" md-dynamic-height md-border-bottom>
+      <md-tab id="tab1">
+        <md-tab-label>Form</md-tab-label>
+        <md-tab-body>
+          <form>
+            <md-input-container>
+              <label>Data Model Title</label>
+              <input ng-model="dataModel.name">
+            </md-input-container>
+            <md-input-container>
+              <label>Data Model Description</label>
+              <input ng-model="dataModel.description">
+            </md-input-container>
+            <br>
+            <md-icon class="material-icons">visibility</md-icon>
+            <md-radio-group ng-model="dataModel.visibility">
+              <md-radio-button ng-repeat="d in radioData" ng-value="d.value" ng-disabled=" d.isDisabled ">
+                {{ d.label }}
+                <br/>
+            </md-radio-group>
+            <md-divider></md-divider>
+            <br>
+            <inline-form form-title="Attributes" file-src-include="/datamodel/templates/attribute.html" attrs="dataModel.attributes" on-update="addAttribute(attr)">
+            </inline-form>
+            <md-divider></md-divider>
+            <inline-form form-title="Pattern Classes" file-src-include="/datamodel/templates/attribute.html" attrs="dataModel.patterns" on-update="addAttribute(attr)" class="md-whiteframe-1dp">
+            </inline-form>
+            <md-divider></md-divider>
+            <div layout="row">
+              <div flex="20">Delivery Type</div>
+              <md-radio-group ng-model="dataModel.delivery" flex layout="row">
+                <div ng-repeat="d in deliveryType" flex layout="column" layout-margin="3px">
+                  <md-radio-button flex ng-value="d.value" ng-disabled=" d.isDisabled ">
+                    {{ d.label }}</md-radio-button>
+                  <input type="numder" flex name="no of data packet" ng-model="dataModel[d.value]">
+                </div>
+              </md-radio-group>
+            </div>
+            <div layout="row">
+              <md-button class="md-raised md-primary">Save</md-button>
+              <md-button class="md-raised md-warn">Cancel</md-button>
+            </div>
+          </form>
+        </md-tab-body>
+      </md-tab>
+      <md-tab id="tab2">
+        <md-tab-label>Nodes</md-tab-label>
+        <md-tab-body>
+          <form>
+            <md-input-container>
+              <label>Data Model Title</label>
+              <input ng-model="dataModel.name ">
+            </md-input-container>
+            <md-input-container>
+              <label>Data Model Description</label>
+              <input ng-model="dataModel.description ">
+            </md-input-container>
+            <div ng-repeat='attribute in dataModel.attributes'>
+              <tr>
+                <td>{{attribute.name}}:</td>
+                <td>{{attribute.value}}</td>
+              </tr>
+            </div>
+          </form>
+        </md-tab-body>
+      </md-tab>
+    </md-tabs>
+  </div>
+  <div flex class="md-whiteframe-3dp ">
+    <h1>Data Modal defination in json format</h1>
+    <h4> {{dataModel}}</h4>
+  </div>
+</div>
