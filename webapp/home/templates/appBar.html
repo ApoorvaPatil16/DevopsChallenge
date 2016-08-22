@@ -30,7 +30,7 @@
     </md-content>
     <md-sidenav class="md-sidenav-left " md-component-id="left">
         <div layout="row " class="sidenav-heading ">
-            <img src="../images/Capture.PNG " alt="DataMill Icon ">
+            <img src="/assets/images/Capture.PNG " alt="DataMill Icon ">
             <h2>{{appName}}</h2>
         </div>
         <md-divider></md-divider>
@@ -39,11 +39,11 @@
                 <md-list-item ng-repeat="item in sideNavItems ">
                     <div ng-mouseover="sublist=true" ng-mouseleave="sublist=false">
                         <a ui-sref='{{item.state}}'>
-                    	{{item.link}}
+                        {{item.link}}
                     </a>
                         <md-list ng-if="item.children.length > 0">
                             <md-list-item  ng-show="sublist" ng-repeat="child in item.children">
-                                <a ui-sref="{{child.state}}">{{child.link}}</a>            
+                                <a ui-sref="{{child.state}}">{{child.link}}</a>
                             </md-list-item>
                         </md-list>
                 </md-list-item>

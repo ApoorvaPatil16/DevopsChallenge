@@ -1,0 +1,37 @@
+<md-dialog aria-label="Mango (Fruit)">
+    <form ng-cloak>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>Pattren/Format</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="cancel()">
+                    <md-icon aria-label="Close dialog">close</md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content>
+            <div class="md-dialog-content">
+                <md-input-container class="md-block">
+                    <label>Write your Pattern/Format</label>
+                    <input required="" name="patternName" ng-model="status" value=' '>
+                </md-input-container>
+                <div>
+                    <h3>Instructions:</h3>
+                    <p>^ denotes beginning of line</p>
+                    <p>$ denotes ending of line</p>
+                    <p>. denotes that symbol can contain any character</p>
+                    <p>* denotes sequence of characters containing any value</p>
+                    <p>[c-f] the dash within the square brackets operates as a range. In this case it means either the letters c, d, e or f.</p>
+                    <p>[^agd] the character is not one of those included within the square brackets.</p>
+                    <p>[agd] the character is one of those included within the square brackets.</p>
+                </div>
+            </div>
+        </md-dialog-content>
+        <md-dialog-actions layout="row">
+            <span flex></span>
+            <md-button ng-click="answer(status)">
+                Create
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

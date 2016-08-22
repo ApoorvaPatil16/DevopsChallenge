@@ -1,10 +1,10 @@
 angular.module('datamill')
-  .controller('notificationDialogController');
+  .controller('notificationDialogCtrl');
 
-function notificationDialogController(mdPanelRef) {
+function notificationDialogCtrl(mdPanelRef) {
   $this._mdPanelRef = mdPanelRef;
 }
 
-notificationDialogController.prototype.closeDialog = function() {
+notificationDialogCtrl.prototype.closeDialog = function() {
   $this._mdPanelRef && $this._mdPanelRef.close();
 };

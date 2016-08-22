@@ -3,7 +3,7 @@ angular.module('datamill', ['ngMaterial',
     'ui.router',
     'mdPickers'
   ])
-  .controller('datamillController', ['$scope', '$state',
+  .controller('datamillCtrl', ['$scope', '$state',
     function($scope, $state) {
       $state.go('home');
     }

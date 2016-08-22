@@ -1,0 +1,16 @@
+<h5 class="rangeHeading">Range</h5>
+<div layout="row">
+<mdp-date-picker mdp-open-on-click required name="dateFormat" mdp-placeholder="From Date(dd/mm/yyyy)" mdp-format="DD/MM/YYYY" ng-model="fromDate">
+    <div ng-messages="demoForm.dateFormat.$error">
+        <div ng-message="required">This is required</div>
+        <div ng-message="format">Invalid format</div>
+    </div>
+</mdp-date-picker>
+<mdp-date-picker mdp-open-on-click required name="dateFormat" mdp-placeholder="To Date(dd/mm/yyyy)" mdp-format="DD/MM/YYYY" ng-model="toDate">
+    <div ng-messages="demoForm.dateFormat.$error">
+        <div ng-message="required">This is required</div>
+        <div ng-message="format">Invalid format</div>
+    </div>
+</mdp-date-picker>
+</div>
+
