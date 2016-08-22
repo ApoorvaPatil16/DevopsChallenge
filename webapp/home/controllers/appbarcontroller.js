@@ -1,16 +1,12 @@
 angular.module('datamill')
-  .controller('appBarController', ['$scope', '$mdSidenav', '$mdPanel','dataservice',
-    function($scope, $mdSidenav, $mdPanel,dataservice) {
+  .controller('appBarCtrl', ['$scope', '$mdSidenav', '$mdPanel', 'authFactory',
+    function($scope, $mdSidenav, $mdPanel, authFactory) {
       $this = this;
       // Fetch data from json server with call to factory service which in turn makes a http request
-      dataservice.getAppName().then(function(res){
-        $scope.appName=res;
-      });
-      dataservice.getSideNavItems().then(function(res){
-        $scope.sideNavItems=res;
-      });
-      dataservice.getAccountItems().then(function(res){
-        $scope.accountItems=res;
+      authFactory.getNavbarItems().then(function(res) {
+        $scope.appName = res[0].appName[0].name;
+        $scope.sideNavItems = res[0].sideNavItems;
+        $scope.accountItems = res[0].accountItems;
       });
 
       $scope.toggleLeft = buildToggler;
@@ -23,13 +19,13 @@ angular.module('datamill')
         var position = $mdPanel.newPanelPosition()
           .absolute()
           .right()
-          .top("60px"); 
+          .top("60px");
 
         var config = {
           animation: undefined,
           attachTo: angular.element(document.body),
-          controller: notificationDialogController,
-          controllerAs: 'notifyController',
+          controller: notificationDialogCtrl,
+          controllerAs: 'notifyCtrl',
           templateUrl: '/notifications/templates/notifications.html',
           panelClass: 'notifications-content',
           position: position,
@@ -41,7 +37,5 @@ angular.module('datamill')
 
         $mdPanel.open(config);
       };
-
-      
     }
   ]);

@@ -1,16 +1,18 @@
 angular.module('datamill')
   .config(['$stateProvider', '$urlRouterProvider',
     function($stateProvider, $urlRouterProvider) {
-      $stateProvider.state('datamodel', {
+      $stateProvider.state('dashboard', {
+        "url": "/dashboard",
         views: {
+
           "appBar": {
             templateUrl: "/home/templates/appBar.html",
-            controller: 'appBarCtrl',
-            controllerAs: 'appbarCtrl'
+            controller: 'appBarController',
+            controllerAs: 'appBarCtrl'
           },
           "content": {
-            templateUrl: "/datamodel/templates/datamodel.html",
-            controller: 'datamodelController',
+            templateUrl: "/dashboard/templates/dashboard.html",
+            controller: 'dashboardCtrl'
           },
           "footer": {
             templateUrl: "/home/templates/footer.html"

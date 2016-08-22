@@ -17,4 +17,4 @@ angular.module('datamill')
         $scope.dataModel.attributes.push(attr);
       }
     }
-  }])
+  }]);

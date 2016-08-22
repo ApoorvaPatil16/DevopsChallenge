@@ -19,8 +19,8 @@
               <div layout="row">
                 <md-icon flex="10" class="material-icons">visibility</md-icon>
                 <md-radio-group flex="90" layout="row" ng-model="dataModel.visibility">
-                  <md-radio-button flex ng-repeat="d in datamodelconf.inputs.visibility" ng-value="d.value" ng-disabled=" d.isDisabled ">
-                    {{ d.label }}
+                  <md-radio-button flex ng-repeat="d in datamodelconf.inputs.visibility" ng-value="d">
+                    {{ d }}
                   </md-radio-button>
                 </md-radio-group>
               </div>
