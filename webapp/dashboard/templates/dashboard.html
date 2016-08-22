@@ -1,0 +1,19 @@
+<div class='md-padding' layout="row" layout-wrap>
+  <div ng-repeat="card in datamodel" flex=33>
+    <md-card>
+      <md-card-title>
+        <md-card-title-text>
+          <span class="md-headline">{{card.name}}</span>
+          <span class="md-subhead">{{card.description}}</span>
+        </md-card-title-text>
+      </md-card-title>
+      <md-card-content>
+        <p>File Export type : {{card.deliverytype}}</p>
+        <p>Author : {{card.author}}</p>
+      </md-card-content>
+      <md-card-actions layout="row" layout-align="end center">
+        <md-button class="md-raised md-warn">Start</md-button>
+      </md-card-actions>
+    </md-card>
+  </div>
+</div>

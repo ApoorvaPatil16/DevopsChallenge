@@ -2,7 +2,7 @@
   "appName": [{ "id": 1, "name": "DataMill.io" }],
   "sideNavItems": [{
     "id": 1,
-    "state": "#",
+    "state": "dashboard",
     "link": "Dashboard"
   }, {
     "id": 1,
@@ -65,10 +65,10 @@
     { "id": 7, "name": "Hexadecimal" }
   ],
   "datamodel": [
-    { "id": 1, "name": "Name", "patterns": ["A", "B"] },
-    { "id": 2, "name": "City", "patterns": ["C", "B"] },
-    { "id": 3, "name": "Address", "patterns": ["F", "B"] },
-    { "id": 4, "name": "PanCard", "patterns": ["L", "B"] }
+    { "id": 1, "name": "Name", "description": "Schema for Names", "deliverytype": "feed", "author": "Reynolds", "patterns": ["A", "B"] },
+    { "id": 2, "name": "City", "description": "Schema for City names", "deliverytype": "download", "author": "Alex", "patterns": ["C", "B"] },
+    { "id": 3, "name": "Address", "description": "Schema for Addresses", "deliverytype": "download", "author": "Reynolds", "patterns": ["F", "B"] },
+    { "id": 4, "name": "PanCard", "description": "Schema for Pancard details", "deliverytype": "feed", "author": "Reynolds", "patterns": ["L", "B"] }
   ],
   "transporttype": [
     { "id": 1, "name": "Mongo DB" },
@@ -86,9 +86,8 @@
     { "id": 2, "label": "Private", "value": "private" },
     { "id": 3, "label": "Share Only", "value": "shared" }
   ],
-  "deleverytype": [
+  "deliverytype": [
     { "id": 1, "label": "Download", "value": "download" },
     { "id": 2, "label": "Feed", "value": "feed" }
   ]
-
 }
