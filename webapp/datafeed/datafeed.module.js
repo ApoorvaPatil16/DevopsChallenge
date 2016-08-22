@@ -5,8 +5,8 @@ angular.module('datamill')
                 views: {
                     "appBar": {
                         templateUrl: "/home/templates/appBar.html",
-                        controller: 'appBarController',
-                        controllerAs: 'appBarCtrl'
+                        controller: 'appBarCtrl',
+                        controllerAs: 'appbarCtrl'
                     },
                     "content": {
                         templateUrl: "/datafeed/templates/datafeedsimulation.html",

@@ -1,20 +1,20 @@
 <html lang="en">
 
 <head>
-  <!-- @TODO: Add meta tags for SEO -->
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>datamill.io</title>
-  <!-- Vendor Styles -->
-  <link rel="stylesheet" type="text/css" href="/angular-material/angular-material.min.css">
-  <link rel="stylesheet" type="text/css" href="/mdPickers/dist/mdPickers.css">
-  <!-- App Style and Custom Style -->
-  <link href="/css/style.css" rel="stylesheet">
+    <!-- @TODO: Add meta tags for SEO -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>datamill.io</title>
+    <!-- Vendor Styles -->
+    <link rel="stylesheet" type="text/css" href="/angular-material/angular-material.min.css">
+    <link rel="stylesheet" type="text/css" href="/mdPickers/dist/mdPickers.css">
+    <!-- App Style and Custom Style -->
+    <link href="/assets/css/style.css" rel="stylesheet">
 </head>
 
-<body ng-app="datamill" ng-controller="datamillController" ng-cloak>
-  <div ui-view="appBar"></div>
-  <div ui-view="content"></div>
-  <div ui-view="footer"></div>
+<body ng-app="datamill" ng-controller="datamillCtrl" ng-cloak>
+    <div ui-view="appBar"></div>
+    <div ui-view="content"></div>
+    <div ui-view="footer"></div>
 </body>
 <script type="text/javascript" src="/angular/angular.min.js"></script>
 <script type="text/javascript" src="/angular-animate/angular-animate.min.js"></script>
@@ -26,13 +26,13 @@
 <script type="text/javascript" src="/mdPickers/dist/mdPickers.js"></script>
 <!-- In including the JS files of various module, maintain Dependency Order -->
 <script src="/datamill.app.js"></script>
-<script src="/home/services/dataservice.js"></script>
+<script src="/authservice/authFactory.js"></script>
 <script src="/datamodel/services/datamodelservice.js"></script>
 <script src="/home/home.module.js"></script>
-<script src="/domain/randomdomain/randomdomain.module.js"></script>
+<script src="/domainlib/randomdomainlib/randomdomain.module.js"></script>
 <script src="/home/controllers/appbarcontroller.js"></script>
 <script src="/notifications/controllers/notificationdialogcontroller.js"></script>
-<script src="/domain/randomdomain/controllers/randomdomaincontroller.js"></script>
+<script src="/domainlib/randomdomainlib/controllers/randomdomaincontroller.js"></script>
 <script src="/datamodel/datamodel.module.js"></script>
 <script src="/datamodel/controllers/datamodelCtrl.js"></script>
 <script src="/datamodel/controllers/inlineFormCtrl.js"></script>
