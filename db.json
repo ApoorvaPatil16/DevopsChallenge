@@ -1,5 +1,21 @@
 {
   "appName": [{ "id": 1, "name": "DataMill.io" }],
+  "datamodelconf": {
+    "heading": "Data Model Defination",
+    "inputFormat": {
+      "form": { "label": "Form", "tabid": "formtab" },
+      "node": { "label": "Node", "tabid": "nodetab" }
+    },
+    "inputs": {
+      "title": "string",
+      "description": "string",
+      "visibility": ["public", "private", "shared"],
+      "attribute": {
+        "type": ["domain", "schema"]
+      },
+      "deliverytype": { "download": "Download", "feed": "Feed" }
+    }
+  },
   "sideNavItems": [{
     "id": 1,
     "state": "#",

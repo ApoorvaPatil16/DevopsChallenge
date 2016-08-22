@@ -1,8 +1,12 @@
 <div class="md-whiteframe-3dp" layout="column" layout-margin="2px">
   <md-subheader class="md-no-sticky">{{$ctrl.formTitle}}</md-subheader>
+  <!-- EACH LINE FORM -->
   <div ng-repeat="attr in $ctrl.attrs" layout="row">
     <div layout="row" flex="80">
-      <ng-include src="$ctrl.fileSrcInclude"></ng-include>
+      <div class="transcludeform"></div>
+      <!-- <ng-transclude></ng-transclude> -->
+      <!-- <ng-include src="$ctrl.fileSrcInclude"></ng-include> -->
+      {{attribute.title}}
       <md-input-container>
         <label>Name</label>
         <input ng-model="attribute.name" ng-disabled="$index!=iseditable">
@@ -10,7 +14,7 @@
       <md-input-container>
         <label>Attribute Type</label>
         <md-select ng-model="attribute.type" ng-disabled="$index!=iseditable">
-          <md-option ng-repeat="state in $ctrl.attrtype" value="{{state.name}}">
+          <md-option ng-option="state in $ctrl.attrtype" value="{{state.name}}">
             {{state.name}}
           </md-option>
         </md-select>
@@ -18,7 +22,7 @@
       <md-input-container ng-if="attribute.type==='domain'">
         <label>Attribute Domain</label>
         <md-select ng-model="attribute.doamin" ng-disabled="$index!=iseditable">
-          <md-option ng-repeat="state in $ctrl.domain" value="{{state.name}}">
+          <md-option ng-option="state in $ctrl.domain" value="{{state.name}}">
             {{state.name}}
           </md-option>
         </md-select>
@@ -32,6 +36,7 @@
         <input ng-model="attribute.relationship" ng-disabled="$index!=iseditable">
       </md-input-container>
     </div>
+    <!-- CRUD OPRATIONS BUTTON FOR EACH ELEMENT -->
     <div layout="row" layout-margin="2px" flex="20">
       <md-button class="md-fab md-mini md-icon-button" ng-disabled="iseditable!=-1" ng-hide="$index==iseditable" ng-click="$ctrl.edit($index)" aria-label="edit">
         <md-icon class="material-icons">edit</md-icon>
