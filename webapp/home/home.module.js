@@ -1,14 +1,14 @@
 angular.module('datamill')
   .config(['$stateProvider', '$urlRouterProvider',
     function($stateProvider, $urlRouterProvider) {
-      $stateProvider.state('home', {
+      $stateProvider.state('datamill', {
         views: {
           "appBar": {
             templateUrl: "/home/templates/appBar.html",
             controller: 'appBarCtrl',
             controllerAs: 'appbarCtrl'
           },
-          "content": {
+          "content@": {
             templateUrl: "/home/templates/content.html"
           },
           "footer": {
