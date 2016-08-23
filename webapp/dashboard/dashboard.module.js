@@ -1,11 +1,12 @@
 angular.module('datamill')
   .config(['$stateProvider', '$urlRouterProvider',
     function($stateProvider, $urlRouterProvider) {
-      $stateProvider.state('datamill.datamodel', {
+      $stateProvider.state('datamill.dashboard', {
+        "url": "/dashboard",
         views: {
           "content@": {
-            templateUrl: "/datamodel/templates/datamodel.html",
-            controller: 'datamodelController',
+            templateUrl: "/dashboard/templates/dashboard.html",
+            controller: 'dashboardCtrl'
           }
         }
       });

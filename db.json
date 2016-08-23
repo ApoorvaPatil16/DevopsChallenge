@@ -1,4 +1,20 @@
 {
+  "datamodelconf": {
+    "heading": "Data Model Defination",
+    "inputFormat": {
+      "form": { "label": "Form", "tabid": "formtab" },
+      "node": { "label": "Node", "tabid": "nodetab" }
+    },
+    "inputs": {
+      "title": "string",
+      "description": "string",
+      "visibility": ["public", "private", "shared"],
+      "attribute": {
+        "type": ["domain", "schema"]
+      },
+      "deliverytype": { "download": "Download", "feed": "Feed" }
+    }
+  },
   "navbarItems": [{
     "appName": [{
       "id": 1,
@@ -6,7 +22,7 @@
     }],
     "sideNavItems": [{
       "id": 1,
-      "state": "#",
+      "state": "datamill.dashboard",
       "link": "Dashboard"
     }, {
       "id": 1,
@@ -14,18 +30,18 @@
       "link": "List Of Data Modal"
     }, {
       "id": 1,
-      "state": "datamodel",
+      "state": "datamill.datamodel",
       "link": "Create a Data modal"
     }, {
       "id": 1,
-      "state": "datafeed",
+      "state": "datamill.datafeed",
       "link": "Popular Data Modal"
     }, {
       "id": 1,
-      "state": "Domain",
+      "state": "datamill.domain",
       "link": "Creating Domain",
       "children": [{
-        "state": "randomDomain",
+        "state": "datamill.randomDomain",
         "link": "Create Random generated Domain"
       }, {
         "state": "meaningfulDomain",
