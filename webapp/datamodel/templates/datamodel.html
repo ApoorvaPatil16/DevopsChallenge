@@ -37,12 +37,13 @@
               </md-input-container>
             </inline-list-form>
             <md-divider></md-divider>
-            <inline-list-form form-title="Pattern Classes" file-src-include="/datamodel/templates/attribute.html" attrs="dataModel.patterns" on-update="addAttribute(attr)" class="md-whiteframe-1dp">
-              <md-input-container>
-                <label>Title</label>
-                <input ng-model="attribute.title" ng-disabled="$index!=iseditable">
-              </md-input-container>
-            </inline-list-form>
+            <!-- <inline-list-form form-title="Pattern Classes" file-src-include="/datamodel/templates/attribute.html" attrs="dataModel.patterns" on-update="addAttribute(attr)" class="md-whiteframe-1dp">
+  <md-input-container>
+    <label>Title</label>;
+    <input ng-model="attribute.title" ng-disabled="$index!=iseditable">
+  </md-input-container>
+</inline-list-form>
+ -->
             <md-divider></md-divider>
             <div layout="row" layout-margin="2px" layout-padiing="2px">
               <div flex layout="row">
@@ -51,7 +52,7 @@
                   <div ng-repeat="d in datamodelconf.inputs.deliverytype" flex layout="column" style="min-height:auto" layout-margin="3px">
                     <md-radio-button flex ng-value="d.value">
                       {{ d.type }}</md-radio-button>
-                    <md-button ng-click="showDeliveryOption($event,d.state)" ng-disabled="dataModel.delivery!=d.value">{{d.linkname}}</md-button>
+                    <md-button class="md-primary" ng-click="showDeliveryOption($event,d.state)" ng-disabled="dataModel.delivery!=d.value">{{d.linkname}}</md-button>
                   </div>
                 </md-radio-group>
                 <div style="visibility: hidden">

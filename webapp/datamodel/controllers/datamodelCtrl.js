@@ -18,7 +18,22 @@ angular.module('datamill')
     // For Delivery option modal opening
     $scope.showDeliveryOption = function(ev, state) {
       $log.info(state);
-      $state.go(state);
+      $state.go(state).then(function() {
+        $mdDialog.show({
+          //controllerAs: 'ctrl',
+          //controller: datafeedCtrl,
+          contentElement: '#deliveryOption',
+          parent: angular.element(document.body),
+          //targetEvent: ev,
+          //resolve: $state.go(state),
+          clickOutsideToClose: true,
+          fullscreen: true
+        }).then(function(answer) {
+          $log.info(answer);
+          $scope.dataModel.feedOption = answer;
+          $state.go('^');
+        }, function() { $state.go('^'); });
+      });
       $log.info($state.current.name);
       // if ($state.current.name === state) {
       //   $mdDialog.show({
@@ -30,6 +45,7 @@ angular.module('datamill')
       //     fullscreen: true
       //   });
       // }
+
     };
     // for posting the data to the server
     $scope.createDataModel = function() {

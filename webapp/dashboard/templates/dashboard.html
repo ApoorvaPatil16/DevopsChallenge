@@ -1,19 +1,73 @@
-<div class='md-padding' layout="row" layout-wrap>
-  <div ng-repeat="card in datamodel" flex=33>
-    <md-card>
-      <md-card-title>
-        <md-card-title-text>
-          <span class="md-headline">{{card.name}}</span>
-          <span class="md-subhead">{{card.description}}</span>
-        </md-card-title-text>
-      </md-card-title>
-      <md-card-content>
-        <p>File Export type : {{card.deliverytype}}</p>
-        <p>Author : {{card.author}}</p>
-      </md-card-content>
-      <md-card-actions layout="row" layout-align="end center">
-        <md-button class="md-raised md-warn">Start</md-button>
-      </md-card-actions>
-    </md-card>
+<div class="md-padding" ng-cloak>
+  <!-- <md-toolbar>
+  <div class="md-toolbar-tools">
+    <h2>
+    	<span>Dashboard</span>
+    </h2>
+    <md-button class="md-fab md-mini" aria-label="add">
+      <md-icon class="material-icons">add</md-icon>
+    </md-button>
+    <md-button class="md-fab md-mini" aria-label="search">
+      <md-icon class="material-icons">search</md-icon>
+    </md-button>
+  </div>
+</md-toolbar>
+ -->
+  <div layout="column" layout-margin="2px">
+    <div layout="row" flex="15">
+      <div flex layout="row">
+        <md-input-container>
+          <md-select class="dashSearchBy" placeholder="Search by" ng-model="searchby" md-on-open="searchbyFilter()">
+            <md-option ng-value="searchItem" ng-repeat="searchItem in searchItems">{{searchItem.toUpperCase()}}
+            </md-option>
+          </md-select>
+        </md-input-container>
+        <div flex="5" hide-xs hide-sm>
+          <!-- Spacer //-->
+        </div>
+        <md-input-container>
+          <label>Search</label>
+          <input ng-model="search">
+        </md-input-container>
+      </div>
+      <div flex layout="row" layout-align="end center">
+        <md-button class="md-primary md-ink-ripple" ui-sref="datamill.datamodel" aria-label="add">
+          <md-icon class="material-icons">create</md-icon><span>Create New</span>
+        </md-button>
+      </div>
+    </div>
+  </div>
+  <div class='md-padding' layout="row" layout-wrap>
+    <div ng-repeat="card in datamodel | filter:searchFilter" flex=33>
+      <md-card>
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">{{card.name}}</span>
+          </md-card-title-text>
+        </md-card-title>
+        <md-card-content class="wrap-content">
+          <p>{{card.description}}</p>
+          <pre>{{ card | json }}</pre>
+          <span>File Export type : {{card.deliverytype}}</span>
+        </md-card-content>
+        <md-fab-toolbar md-open="demo.isOpen" count="demo.count" md-direction="{{demo.selectedDirection}}">
+          <md-fab-trigger class="align-with-text">
+            <md-button aria-label="menu" class="md-fab md-primary">
+              <md-icon class="material-icons">menu</md-icon>
+            </md-button>
+          </md-fab-trigger>
+          <md-toolbar>
+            <md-fab-actions class="md-toolbar-tools">
+              <md-button aria-label="edit" class="md-icon-button" ng-click="loadEditView()">
+                <md-icon class="material-icons">mode_edit</md-icon>
+              </md-button>
+              <md-button aria-label="fav" class="md-icon-button">
+                <md-icon class="material-icons">favorite</md-icon>
+              </md-button>
+            </md-fab-actions>
+          </md-toolbar>
+        </md-fab-toolbar>
+      </md-card>
+    </div>
   </div>
 </div>

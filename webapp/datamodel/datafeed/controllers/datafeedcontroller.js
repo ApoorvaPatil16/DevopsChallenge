@@ -3,6 +3,7 @@ angular.module('datamill')
 
 function datafeedCtrl($timeout, $q, $log, $filter, datafeedService, $scope, $mdDialog) {
   var ctrl = this;
+  $scope.pattern = "Pattern Matches";
   datafeedService.getTransportType().then(function(res) {
     ctrl.states = res;
     console.log(ctrl.states);
@@ -16,6 +17,10 @@ function datafeedCtrl($timeout, $q, $log, $filter, datafeedService, $scope, $mdD
   ctrl.querySearch = querySearch;
   ctrl.selectedItemChange = selectedItemChange;
   ctrl.searchTextChange = searchTextChange;
+  $scope.answer = function(answer) {
+    $log.info(answer);
+    $mdDialog.hide(answer);
+  };
 
   function querySearch(query) {
     var results = query ? ctrl.states.filter(createFilterFor(query)) : ctrl.states,
@@ -36,12 +41,10 @@ function datafeedCtrl($timeout, $q, $log, $filter, datafeedService, $scope, $mdD
   function selectedItemChange(itesm) {
     $log.info('Item changed to ' + JSON.stringify(item));
   }
-  $mdDialog.show({
-    //controller: DialogController,
-    contentElement: '#deliveryOption',
-    parent: angular.element(document.body),
-    //targetEvent: ev,
-    clickOutsideToClose: true,
-    fullscreen: true
-  });
+
+  function answer(answer) {
+    $log.info(answer);
+    $mdDialog.hide(answer);
+  }
+  $log.info("registered the controller");
 }
