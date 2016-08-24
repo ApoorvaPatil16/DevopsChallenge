@@ -2,12 +2,12 @@
     <div flex="25">
     </div>
     <div flex="75">
-        <h1 class="domainHeading">Create Random Generated Domain</h1>
+        <h1 class="domainHeading">Create Random Data Domain</h1>
         <md-content layout-padding="">
             <form name="domainForm" flex="50" class="md-whiteframe-1dp">
                 <md-input-container class="md-block">
                     <label>{{inputLabelsForDomain.domainName}}</label>
-                    <input required="" name="domainName">
+                    <input required="" name="domainName" ng-model="hqws" md-maxlength="20">
                 </md-input-container>
                 <md-input-container class="md-block base-type-style">
                     <label>{{inputLabelsForDomain.domainType}}</label>
@@ -21,9 +21,10 @@
                     <div ng-include="'/domainlib/randomdomainlib/templates/'+baseType+'.html'">
                     </div>
                 </div>
+                {{abc}}
                 <md-input-container class="md-block">
                     <label>{{inputLabelsForDomain.pattern}}</label>
-                    <input name="domainPattern" ng-if="status" value="{{status}}"> How to create pattern? <a href="" class="md-primary md-raised" ng-click="showAdvanced($event)">click here</a>
+                    <input name="domainPattern" ng-if="status" value="{{status}}"> Test your pattern! <a href="" class="md-primary md-raised" ng-click="showAdvanced($event)">click here</a>
                 </md-input-container>
                 <md-button class="md-raised md-primary">Create</md-button>
             </form>

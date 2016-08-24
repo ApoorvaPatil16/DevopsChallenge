@@ -1,21 +1,21 @@
 <div>
     <div layout="row"></div>
-    <md-content>
+    <md-content class="appbar-section">
         <md-toolbar class="md-hue-2">
             <div class="md-toolbar-tools">
                 <md-button class="md-icon-button" aria-label="SideList" ng-click="toggleLeft('left')">
-                    <md-icon class="material-icons">menu</md-icon>
+                    <md-icon class="material-icons">{{materialIcons[0].name}}</md-icon>
                 </md-button>
                 <h2>
                     <span>{{appName}}</span>
                 </h2>
                 <span flex=""></span>
-                <md-button class="md-icon-button" aria-label="Notifications" ng-click="showDialog($event)">
-                    <md-icon class=" material-icons ">notifications</md-icon>
+                <md-button class="md-icon-button" aria-label="Notifications" ng-click="showNotification($event)">
+                    <md-icon class=" material-icons ">{{materialIcons[1].name}}</md-icon>
                 </md-button>
                 <md-menu>
                     <md-button class="md-icon-button " aria-label="Account " ng-click="$mdOpenMenu() ">
-                        <md-icon class="material-icons ">account_circle</md-icon>
+                        <md-icon class="material-icons ">{{materialIcons[2].name}}</md-icon>
                     </md-button>
                     <md-menu-content id="account-circle-content">
                         <md-menu-item ng-repeat="item in accountItems">
@@ -28,26 +28,34 @@
             </div>
         </md-toolbar>
     </md-content>
-    <md-sidenav class="md-sidenav-left " md-component-id="left">
-        <div layout="row " class="sidenav-heading ">
+    <md-sidenav class="md-sidenav-left " md-component-id="left" layout="column">
+        <div layout="row" class="sidenav-heading " flex="15">
             <img src="/assets/images/Capture.PNG " alt="DataMill Icon ">
-            <h2>{{appName}}</h2>
+            <!-- <h2>{{appName}}</h2> -->
         </div>
         <md-divider></md-divider>
-        <div>
+        <div layout="row" flex="70">
             <md-list>
                 <md-list-item ng-repeat="item in sideNavItems ">
                     <div ng-mouseover="sublist=true" ng-mouseleave="sublist=false">
-                        <a ui-sref='{{item.state}}'>
+                        <md-icon>{{item.icon}}</md-icon>
+                        <a ui-sref='{{item.state}}' ng-click="toggleLeft('left')">
                         {{item.link}}
-                    </a>
+                        </a>
                         <md-list ng-if="item.children.length > 0">
-                            <md-list-item  ng-show="sublist" ng-repeat="child in item.children">
-                                <a ui-sref="{{child.state}}">{{child.link}}</a>
+                            <md-list-item ng-repeat="child in item.children" ng-show="sublist">
+                                <a ui-sref="{{child.state}}" ng-click="toggleLeft('left')">{{child.link}}</a>
                             </md-list-item>
                         </md-list>
+                    </div>
                 </md-list-item>
             </md-list>
-            </div>
+        </div>
+        <md-divider></md-divider>
+        <md-list layout="row" flex="15">
+            <md-list-item ng-repeat="item in sideNavBottomItems">
+                <a ui-sref="{{item.state}}" ng-click="toggleLeft('left')">{{item.link}}</a>
+            </md-list-item>
+        </md-list>
     </md-sidenav>
-    </div>
+</div>

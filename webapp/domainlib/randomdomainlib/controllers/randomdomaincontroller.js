@@ -1,5 +1,6 @@
 angular.module('datamill')
   .controller('randomDomainCtrl', ['$scope', '$mdDialog', function($scope, $mdDialog) {
+    $scope.abc = "Vishal";
     $scope.dataRealRandom = {
       'type': "",
     }
