@@ -2,30 +2,33 @@
     <div flex="25">
     </div>
     <div flex="75">
-        <h1 class="domainHeading">Create Random Generated Domain</h1>
+        <h1 class="domainHeading">Create Random Data Domain</h1>
         <md-content layout-padding="">
-            <form name="domainForm" flex="50" class="md-whiteframe-1dp">
+            <form name="domainForm" flex="50" class="md-whiteframe-1dp" ng-submit="createRandomDomain()">
                 <md-input-container class="md-block">
                     <label>{{inputLabelsForDomain.domainName}}</label>
-                    <input required="" name="domainName">
+                    <input required="" name="domainName" ng-model="randomDomain.name" md-maxlength="20">
                 </md-input-container>
                 <md-input-container class="md-block base-type-style">
                     <label>{{inputLabelsForDomain.domainType}}</label>
-                    <md-select ng-model="baseType">
+                    <md-select ng-model="randomDomain.baseType" required>
                         <md-option ng-repeat="type in types" value="{{type}}">
                             {{type}}
                         </md-option>
                     </md-select>
                 </md-input-container>
-                <div ng-if="baseType">
-                    <div ng-include="'/domainlib/randomdomainlib/templates/'+baseType+'.html'">
+                <div ng-if="randomDomain.baseType">
+                    <div ng-include="'/domainlib/randomdomainlib/templates/'+randomDomain.baseType+'.html'">
                     </div>
                 </div>
                 <md-input-container class="md-block">
                     <label>{{inputLabelsForDomain.pattern}}</label>
-                    <input name="domainPattern" ng-if="status" value="{{status}}"> How to create pattern? <a href="" class="md-primary md-raised" ng-click="showAdvanced($event)">click here</a>
+                    <input name="domainPattern" ng-if="status" value="{{status}}" ng-model="randomDomain.pattern" required> Test your pattern! <a href="" class="md-primary md-raised" ng-click="showAdvanced($event)">click here</a>
                 </md-input-container>
-                <md-button class="md-raised md-primary">Create</md-button>
+                <div layout="row" layout-align="end center">
+                    <md-button class="md-raised md-warn">Cancel</md-button>
+                    <md-button class="md-raised md-primary" type="submit">Create</md-button>
+                </div>
             </form>
         </md-content>
     </div>

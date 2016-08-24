@@ -49,41 +49,47 @@
           "name": "DataMill.io"
         }
       ],
+      "sideNavBottomItems": [
+        {
+          "id": 1,
+          "link": "About Us",
+          "state": "#"
+        }
+      ],
       "sideNavItems": [
         {
           "id": 1,
+          "icon": "dashboard",
           "state": "datamill.dashboard",
           "link": "Dashboard"
         },
         {
-          "id": 1,
-          "state": "#",
-          "link": "List Of Data Modal"
-        },
-        {
-          "id": 1,
+          "id": 2,
+          "icon": "launch",
           "state": "datamill.datamodel",
-          "link": "Create a Data modal"
+          "link": "New Data Model"
         },
         {
-          "id": 1,
-          "state": "datamill.datafeed",
-          "link": "Popular Data Modal"
-        },
-        {
-          "id": 1,
+          "id": 3,
+          "icon": "domain",
           "state": "datamill.domain",
-          "link": "Creating Domain",
+          "link": "Data Domain",
           "children": [
             {
               "state": "datamill.randomDomain",
-              "link": "Create Random generated Domain"
+              "link": "Random"
             },
             {
               "state": "meaningfulDomain",
-              "link": "Create Meaningful Domain"
+              "link": "Realistic"
             }
           ]
+        },
+        {
+          "id": 4,
+          "icon": "backup",
+          "state": "datamill.datamodel",
+          "link": "Data Sources"
         }
       ],
       "accountItems": [
@@ -176,6 +182,54 @@
     {
       "id": 7,
       "name": "Hexadecimal"
+    },
+    {
+      "name": "myDomain",
+      "baseType": "String",
+      "pattern": "[0-9]",
+      "id": 8
+    },
+    {
+      "name": "myDomain",
+      "baseType": "String",
+      "pattern": "[0-9]",
+      "id": 9
+    },
+    {
+      "name": "myDomain",
+      "baseType": "String",
+      "pattern": "[0-9]",
+      "id": 10
+    },
+    {
+      "name": "jbdbwkjd",
+      "pattern": "qw",
+      "baseType": "String",
+      "id": 11
+    },
+    {
+      "name": "swsqa",
+      "baseType": "String",
+      "pattern": "qwe",
+      "id": 12
+    },
+    {
+      "name": "aa",
+      "baseType": "String",
+      "pattern": "zss",
+      "id": 13
+    },
+    {
+      "name": "dffas",
+      "baseType": "Number",
+      "pattern": "asdfdsf",
+      "id": 14
+    },
+    {
+      "name": "dffas",
+      "baseType": "Number",
+      "pattern": "asdfdsf",
+      "id": 15
     }
   ],
   "datamodel": [
