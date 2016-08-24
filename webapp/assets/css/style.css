@@ -27,10 +27,12 @@
     position: fixed;
     width: 100%;
     top: 0;
+    z-index: 100;
 }
 
 .md-sidenav-left {
     position: fixed;
+    z-index: 110;
 }
 
 .md-sidenav-left md-list-item a,

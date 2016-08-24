@@ -12,17 +12,10 @@ angular.module('datamill')
   });
 
 function inlineListFormController($scope, datamodelservice, $element, $transclude, $log) {
-  var content = $element.find('.transcludeform');
-  $log.info(content)
-  $transclude(function(transEl, transScope) {
-    content.append(transEl);
-    //$scope = transScope;
-  });
-
   var ctrl = this;
   $scope.iseditable = -1;
-  datamodelservice.getDomain().then(function(res) {    ctrl.domain = res;    });
-  datamodelservice.getAttrType().then(function(res) {    ctrl.attrtype = res;    });
+  datamodelservice.getDomain().then(function(res) {    ctrl.domain = res;    }, function(res) { $log.info("failed to get"); });
+  datamodelservice.getAttrType().then(function(res) {    ctrl.attrtype = res;    }, function(res) { $log.info("failed to get"); });
   $scope.add = function() {
       ctrl.attrs.push({});
     }

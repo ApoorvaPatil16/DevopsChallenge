@@ -5,6 +5,6 @@ angular.module('datamill', ['ngMaterial',
   ])
   .controller('datamillCtrl', ['$scope', '$state',
     function($scope, $state) {
-      $state.go('datamill');
+      $state.go('datamill.dashboard');
     }
   ]);
