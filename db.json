@@ -49,47 +49,41 @@
           "name": "DataMill.io"
         }
       ],
-      "sideNavBottomItems": [
-        {
-          "id": 1,
-          "link": "About Us",
-          "state": "#"
-        }
-      ],
       "sideNavItems": [
         {
           "id": 1,
-          "icon": "dashboard",
           "state": "datamill.dashboard",
           "link": "Dashboard"
         },
         {
-          "id": 2,
-          "icon": "launch",
-          "state": "datamill.datamodel",
-          "link": "New Data Model"
+          "id": 1,
+          "state": "#",
+          "link": "List Of Data Modal"
         },
         {
-          "id": 3,
-          "icon": "domain",
+          "id": 1,
+          "state": "datamill.datamodel",
+          "link": "Create a Data modal"
+        },
+        {
+          "id": 1,
+          "state": "datamill.datafeed",
+          "link": "Popular Data Modal"
+        },
+        {
+          "id": 1,
           "state": "datamill.domain",
-          "link": "Data Domain",
+          "link": "Creating Domain",
           "children": [
             {
               "state": "datamill.randomDomain",
-              "link": "Random"
+              "link": "Create Random generated Domain"
             },
             {
               "state": "meaningfulDomain",
-              "link": "Realistic"
+              "link": "Create Meaningful Domain"
             }
           ]
-        },
-        {
-          "id": 4,
-          "icon": "backup",
-          "state": "datamill.datamodel",
-          "link": "Data Sources"
         }
       ],
       "accountItems": [
@@ -182,54 +176,6 @@
     {
       "id": 7,
       "name": "Hexadecimal"
-    },
-    {
-      "name": "myDomain",
-      "baseType": "String",
-      "pattern": "[0-9]",
-      "id": 8
-    },
-    {
-      "name": "myDomain",
-      "baseType": "String",
-      "pattern": "[0-9]",
-      "id": 9
-    },
-    {
-      "name": "myDomain",
-      "baseType": "String",
-      "pattern": "[0-9]",
-      "id": 10
-    },
-    {
-      "name": "jbdbwkjd",
-      "pattern": "qw",
-      "baseType": "String",
-      "id": 11
-    },
-    {
-      "name": "swsqa",
-      "baseType": "String",
-      "pattern": "qwe",
-      "id": 12
-    },
-    {
-      "name": "aa",
-      "baseType": "String",
-      "pattern": "zss",
-      "id": 13
-    },
-    {
-      "name": "dffas",
-      "baseType": "Number",
-      "pattern": "asdfdsf",
-      "id": 14
-    },
-    {
-      "name": "dffas",
-      "baseType": "Number",
-      "pattern": "asdfdsf",
-      "id": 15
     }
   ],
   "datamodel": [
@@ -361,6 +307,14 @@
       "patterns": [],
       "visibility": "private",
       "id": 15
+    },
+    {
+      "name": "",
+      "description": "",
+      "attributes": [],
+      "patterns": [],
+      "delivery": "feed",
+      "id": 16
     }
   ],
   "transporttype": [

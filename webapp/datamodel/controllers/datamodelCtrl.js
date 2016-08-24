@@ -20,8 +20,8 @@ angular.module('datamill')
       $log.info(state);
       $state.go(state).then(function() {
         $mdDialog.show({
-          controllerAs: 'ctrl',
-          controller: datafeedCtrl,
+          //controllerAs: 'ctrl',
+          //controller: datafeedCtrl,
           contentElement: '#deliveryOption',
           parent: angular.element(document.body),
           //targetEvent: ev,

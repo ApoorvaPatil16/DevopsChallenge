@@ -1,4 +1,4 @@
-<div>
+<div ng-controller="datafeedCtrl as ctrl">
   <md-toolbar class="md-theme-light">
     <h2 class="md-toolbar-tools">
       <span>Feed Simulation </span>
@@ -66,21 +66,20 @@
     </md-radio-group>
   </div>
   <md-divider></md-divider>
-  <!-- <div layout="row" layout-margin>
-  <div flex="30">
-    <h4>Transport Type</h4></div>
-  <div flex="60" layout-margin>
-    <md-autocomplete ng-model="datafeed.transportType" ng-disabled="ctrl.isDisabled" md-no-cache="ctrl.noCache" md-selected-item="ctrl.selectedItem" md-search-text-change="ctrl.searchTextChange(ctrl.searchText)" md-search-text="ctrl.searchText" md-selected-item-change="ctrl.selectedItemChange(item)" md-items="item in ctrl.querySearch(ctrl.searchText)" md-item-text="item.name" md-min-length="0" placeholder="Type of Transport">
-      <md-item-template>
-        <span md-highlight-text="ctrl.searchText" md-highlight-flags="^i">{{item.name}}</span>
-      </md-item-template>
-      <md-not-found>No states matching "{{ctrl.searchText}}" were found.
-        <a ng-click="ctrl.newState(ctrl.searchText)">Create a new one!</a>
-      </md-not-found>
-    </md-autocomplete>
+  <div layout="row" layout-margin>
+    <div flex="30">
+      <h4>Transport Type</h4></div>
+    <div flex="60" layout-margin>
+      <md-autocomplete ng-model="datafeed.transportType" ng-disabled="ctrl.isDisabled" md-no-cache="ctrl.noCache" md-selected-item="ctrl.selectedItem" md-search-text-change="ctrl.searchTextChange(ctrl.searchText)" md-search-text="ctrl.searchText" md-selected-item-change="ctrl.selectedItemChange(item)" md-items="item in ctrl.querySearch(ctrl.searchText)" md-item-text="item.name" md-min-length="0" placeholder="Type of Transport">
+        <md-item-template>
+          <span md-highlight-text="ctrl.searchText" md-highlight-flags="^i">{{item.name}}</span>
+        </md-item-template>
+        <md-not-found>No states matching "{{ctrl.searchText}}" were found.
+          <!-- <a ng-click="ctrl.newState(ctrl.searchText)">Create a new one!</a> -->
+        </md-not-found>
+      </md-autocomplete>
+    </div>
   </div>
-</div>
- -->
   <md-divider></md-divider>
   <div layout="row" layout-margin>
     <div flex="30">
