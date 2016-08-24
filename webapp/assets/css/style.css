@@ -45,9 +45,10 @@ div {
     color: #7e7e7e;
 }
 
-.md-sidenav-left h2 {
-    margin-left: 8px;
-    margin-top: 43px;
+.md-sidenav-left div img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .sidenav-heading {
