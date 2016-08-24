@@ -7,6 +7,8 @@ angular.module('datamill')
         $scope.appName = res[0].appName[0].name;
         $scope.sideNavItems = res[0].sideNavItems;
         $scope.accountItems = res[0].accountItems;
+        $scope.materialIcons = res[0].materialIcons;
+        $scope.sideNavBottomItems = res[0].sideNavBottomItems;
       });
 
       $scope.toggleLeft = buildToggler;
@@ -14,8 +16,7 @@ angular.module('datamill')
       function buildToggler(navID) {
         $mdSidenav(navID).toggle().then(function() {});
       }
-
-      $scope.showDialog = function() {
+      $scope.showNotification = function() {
         var position = $mdPanel.newPanelPosition()
           .absolute()
           .right()
@@ -36,6 +37,6 @@ angular.module('datamill')
         };
 
         $mdPanel.open(config);
-      };
+      }
     }
   ]);
