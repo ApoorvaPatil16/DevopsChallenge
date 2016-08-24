@@ -7,8 +7,8 @@ angular.module('datamill')
 
           "appBar": {
             templateUrl: "/home/templates/appBar.html",
-            controller: 'appBarController',
-            controllerAs: 'appBarCtrl'
+            controller: 'appBarCtrl',
+            controllerAs: 'appbarCtrl'
           },
           "content": {
             templateUrl: "/dashboard/templates/dashboard.html",
