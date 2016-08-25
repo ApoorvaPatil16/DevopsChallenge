@@ -28,12 +28,12 @@
       "deliverytype": [{
         "type": "Download",
         "value": "download",
-        "state": "datamill.datamodel.download",
+        "state": "datamill.datamodeldefination.download",
         "linkname": "Download Option"
       }, {
         "type": "Feed",
         "value": "feed",
-        "state": "datamill.datamodel.datafeed",
+        "state": "datamill.datamodeldefination.datafeed",
         "linkname": "Feed Option"
       }]
     }
@@ -56,7 +56,7 @@
     }, {
       "id": 2,
       "icon": "launch",
-      "state": "datamill.datamodel",
+      "state": "datamill.datamodeldefination",
       "link": "New Data Model"
     }, {
       "id": 3,

@@ -1,11 +1,11 @@
 angular.module('datamill')
   .config(['$stateProvider', '$urlRouterProvider',
     function($stateProvider, $urlRouterProvider) {
-      $stateProvider.state('datamill.datamodel.datafeed', {
+      $stateProvider.state('datamill.datamodeldefination.datafeed', {
         url: '/datafeed',
         views: {
           "deliveryview": {
-            templateUrl: "/datamodel/datafeed/templates/datafeedsimulation.html",
+            templateUrl: "/datamodeldefination/datafeed/templates/datafeedsimulation.html",
           }
         }
       });
