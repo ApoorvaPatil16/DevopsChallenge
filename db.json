@@ -45,7 +45,7 @@
     }],
     "sideNavBottomItems": [{
       "id": 1,
-      "link": "About Us",
+      "link": "About",
       "state": "#"
     }],
     "sideNavItems": [{
@@ -61,7 +61,7 @@
     }, {
       "id": 3,
       "icon": "domain",
-      "state": "datamill.domain",
+      "state": "datamill.listdomain",
       "link": "Data Domain",
       "children": [{
         "state": "datamill.randomDomain",
@@ -183,130 +183,124 @@
     "baseType": "Number",
     "pattern": "asdfdsf",
     "id": 15
+  }, {
+    "baseType": "String",
+    "name": "jbdbwkjd",
+    "id": 16
   }],
-  "datamodel": [
-
-    {
-      "id": 1,
-      "name": "Name",
-      "patterns": [
-        "A",
-        "B"
-      ]
-    }, {
-      "id": 2,
-      "name": "City",
-      "patterns": [
-        "C",
-        "B"
-      ]
-    }, {
-      "id": 3,
-      "name": "Address",
-      "patterns": [
-        "F",
-        "B"
-      ]
-    }, {
-      "id": 4,
-      "name": "PanCard",
-      "patterns": [
-        "L",
-        "B"
-      ]
-    }, {
-      "name": "kljflask",
-      "description": "dsfasdfdas",
-      "attributes": [{
-        "name": "asdfadsf",
-        "type": "",
-        "relationship": "dfasdf"
-      }],
-      "patterns": [
-        {}
-      ],
-      "visibility": "public",
-      "delivery": "feed",
-      "id": 5
-    }, {
-      "name": "sfdsf",
-      "description": "sdfasdf",
-      "attributes": [],
-      "patterns": [],
-      "visibility": "private",
-      "id": 6
-    }, {
-      "name": "sfdsf",
-      "description": "sdfasdf",
-      "attributes": [],
-      "patterns": [],
-      "visibility": "private",
-      "id": 7
-    }, {
-      "name": "sfdsf",
-      "description": "sdfasdf",
-      "attributes": [],
-      "patterns": [],
-      "visibility": "private",
-      "id": 8
-    }, {
-      "name": "sfdsf",
-      "description": "sdfasdf",
-      "attributes": [],
-      "patterns": [],
-      "visibility": "private",
-      "id": 9
-    }, {
-      "name": "sfdsf",
-      "description": "sdfasdf",
-      "attributes": [],
-      "patterns": [],
-      "visibility": "private",
-      "id": 10
-    }, {
-      "name": "sfdsf",
-      "description": "sdfasdf",
-      "attributes": [],
-      "patterns": [],
-      "visibility": "private",
-      "id": 11
-    }, {
-      "name": "sfdsf",
-      "description": "sdfasdf",
-      "attributes": [],
-      "patterns": [],
-      "visibility": "private",
-      "id": 12
-    }, {
-      "name": "sfdsf",
-      "description": "sdfasdf",
-      "attributes": [],
-      "patterns": [],
-      "visibility": "private",
-      "id": 13
-    }, {
-      "name": "sfdsf",
-      "description": "sdfasdf",
-      "attributes": [],
-      "patterns": [],
-      "visibility": "private",
-      "id": 14
-    }, {
-      "name": "sfdsf",
-      "description": "sdfasdf",
-      "attributes": [],
-      "patterns": [],
-      "visibility": "private",
-      "id": 15
-    }, {
-      "name": "",
-      "description": "",
-      "attributes": [],
-      "patterns": [],
-      "delivery": "feed",
-      "id": 16
-    }
-  ],
+  "datamodel": [{
+    "id": 1,
+    "name": "Name",
+    "patterns": [
+      "A",
+      "B"
+    ]
+  }, {
+    "id": 2,
+    "name": "City",
+    "patterns": [
+      "C",
+      "B"
+    ]
+  }, {
+    "id": 3,
+    "name": "Address",
+    "patterns": [
+      "F",
+      "B"
+    ]
+  }, {
+    "id": 4,
+    "name": "PanCard",
+    "patterns": [
+      "L",
+      "B"
+    ]
+  }, {
+    "name": "kljflask",
+    "description": "dsfasdfdas",
+    "attributes": [{
+      "name": "asdfadsf",
+      "type": "",
+      "relationship": "dfasdf"
+    }],
+    "patterns": [
+      {}
+    ],
+    "visibility": "public",
+    "delivery": "feed",
+    "id": 5
+  }, {
+    "name": "sfdsf",
+    "description": "sdfasdf",
+    "attributes": [],
+    "patterns": [],
+    "visibility": "private",
+    "id": 6
+  }, {
+    "name": "sfdsf",
+    "description": "sdfasdf",
+    "attributes": [],
+    "patterns": [],
+    "visibility": "private",
+    "id": 7
+  }, {
+    "name": "sfdsf",
+    "description": "sdfasdf",
+    "attributes": [],
+    "patterns": [],
+    "visibility": "private",
+    "id": 8
+  }, {
+    "name": "sfdsf",
+    "description": "sdfasdf",
+    "attributes": [],
+    "patterns": [],
+    "visibility": "private",
+    "id": 9
+  }, {
+    "name": "sfdsf",
+    "description": "sdfasdf",
+    "attributes": [],
+    "patterns": [],
+    "visibility": "private",
+    "id": 10
+  }, {
+    "name": "sfdsf",
+    "description": "sdfasdf",
+    "attributes": [],
+    "patterns": [],
+    "visibility": "private",
+    "id": 11
+  }, {
+    "name": "sfdsf",
+    "description": "sdfasdf",
+    "attributes": [],
+    "patterns": [],
+    "visibility": "private",
+    "id": 12
+  }, {
+    "name": "sfdsf",
+    "description": "sdfasdf",
+    "attributes": [],
+    "patterns": [],
+    "visibility": "private",
+    "id": 13
+  }, {
+    "name": "sfdsf",
+    "description": "sdfasdf",
+    "attributes": [],
+    "patterns": [],
+    "visibility": "private",
+    "id": 14
+  }, {
+    "name": "sfdsf",
+    "description": "sdfasdf",
+    "attributes": [],
+    "patterns": [],
+    "visibility": "private",
+    "id": 15
+  }],
   "transporttype": [{
     "id": 1,
     "name": "Mongo DB"
@@ -352,5 +346,4 @@
     "label": "Feed",
     "value": "feed"
   }]
-
 }
