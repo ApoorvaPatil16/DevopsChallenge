@@ -1,0 +1,119 @@
+<div layout-gt-md="row" layout="column" layout-margin="10px" layout-padding="10px" ng-cloak>
+  <div flex-gt-md style="min-height:auto" class="md-whiteframe-3dp">
+    <h1>{{datamodelconf.heading}}</h1>
+    <md-tabs class="md-accent" md-dynamic-height md-border-bottom>
+      <md-tab id="formtab">
+        <md-tab-label>Form</md-tab-label>
+        <md-tab-body>
+          <form ng-submit="createDataModel()">
+            <div layout="column" layout-margin="2px">
+              <!-- Data Model Defination -->
+              <md-input-container>
+                <label>Data Model Title</label>
+                <input ng-model="dataModel.name" md-maxlength="50" required>
+              </md-input-container>
+              <md-input-container>
+                <label>Data Model Description</label>
+                <textarea ng-model="dataModel.description" md-maxlength="150" rows="3" md-select-on-focus required>
+                </textarea>
+              </md-input-container>
+              <br>
+              <div layout="row">
+                <label flex="25" flex-xs="40" layout="row" layout-align="start center">
+                  <md-icon flex="20" class="material-icons">visibility</md-icon>
+                  <span flex="80">Visibility</span>
+                </label>
+                <md-radio-group flex="75" flex-xs="60" layout="row" layout-xs="column" layout-margin="2px" ng-model="dataModel.visibility" required>
+                  <md-radio-button style="margin:3px;" ng-repeat="d in datamodelconf.inputs.visibility" ng-value="d">
+                    {{ d }}
+                  </md-radio-button>
+                </md-radio-group>
+              </div>
+            </div>
+            <md-divider></md-divider>
+            <!-- datamill model component -->
+            <datamill-model model-name="dataModel.name" form-title="Attributes" file-src-include="/datamodel/templates/attribute.html" attrs="dataModel.attributes" on-update="addAttribute(attr)">
+            </datamill-model>
+            <md-divider></md-divider>
+            <div layout-gt-xs="row" layout-margin="2px" layout-padiing="2px">
+              <div flex layout-gt-xs="row">
+                <div flex-gt-xs="20">
+                  <h4>Delivery Type</h4>
+                </div>
+                <md-radio-group ng-model="dataModel.delivery" flex-gt-xs="80" layout-gt-xs="row" style="min-height:auto" layout-xs="column" required>
+                  <div ng-repeat="d in datamodelconf.inputs.deliverytype" flex-gt-xs layout="column" style="min-height:auto" layout-margin="3px">
+                    <md-radio-button flex ng-value="d.value">
+                      {{ d.type }}</md-radio-button>
+                    <md-button class="md-raised" ng-click="showDeliveryOption($event,d.state)" ng-disabled="dataModel.delivery!=d.value">{{d.linkname}}</md-button>
+                  </div>
+                </md-radio-group>
+                <div style="visibility: hidden">
+                  <div class="md-dialog-container" id="deliveryOption">
+                    <md-dialog>
+                      <div ui-view="deliveryview"></div>
+                    </md-dialog>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Mixing Different Pattern using slider -->
+            <md-divider></md-divider>
+            <div layout-gt-sm="row" layout-margin layout="column">
+              <div flex-gt-sm="10">
+                <h4>Mixer</h4>
+              </div>
+              <div flex-gt-sm="90" layout="column">
+                <div ng-repeat="d in dataModel.patterns" flex="" layout="row">
+                  <h5 flex="10">{{d.name}}</h5>
+                  <md-slider-container flex="80">
+                    <md-slider ng-model="color.blue" min="0" max="100" aria-label="blue" id="blue-slider" class="md-primary" flex-offset="5">
+                    </md-slider>
+                    <md-input-container>
+                      <input flex="" type="number" ng-model="color.blue" aria-label="red" aria-controls="red-slider">
+                    </md-input-container>
+                  </md-slider-container>
+                </div>
+                <div flex="" layout="row">
+                  <h5 flex="10">Pattern1</h5>
+                  <md-slider-container flex="80">
+                    <md-slider ng-model="color.blue" min="0" max="100" aria-label="blue" id="blue-slider" class="md-primary" flex-offset="5">
+                    </md-slider>
+                    <md-input-container>
+                      <input flex="" type="number" ng-model="color.blue" aria-label="red" aria-controls="red-slider">
+                    </md-input-container>
+                  </md-slider-container>
+                </div>
+                <div flex="" layout="row">
+                  <h5 flex="10">Pattern2</h5>
+                  <md-slider-container flex="80">
+                    <md-slider ng-model="color.red" min="0" max="{{100-color.blue}}" aria-label="blue" id="blue-slider" class="md-primary" flex-offset="5">
+                    </md-slider>
+                    <md-input-container>
+                      <input flex="" type="number" ng-model="color.red" aria-label="red" aria-controls="red-slider">
+                    </md-input-container>
+                  </md-slider-container>
+                </div>
+              </div>
+            </div>
+            <div layout="row" layout-align="end center">
+              <md-button class="md-raised md-warn" ng-click="cancelDataModel()">Cancel</md-button>
+              <md-button type="submit" class="md-raised md-primary">Save</md-button>
+            </div>
+          </form>
+        </md-tab-body>
+      </md-tab>
+      <md-tab id="nodetab">
+        <md-tab-label>Nodes</md-tab-label>
+        <md-tab-body>
+          <div layout="row" layout-sm="column" layout-align="space-around">
+            <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+          </div>
+        </md-tab-body>
+      </md-tab>
+    </md-tabs>
+  </div>
+  <div flex-gt-md style="min-height:auto;padding:4px" class="md-whiteframe-3dp ">
+    <h1>Data Modal defination in json format</h1>
+    <pre style="word-wrap:break-word;"><h4> {{dataModel | json}}</h4></pre>
+  </div>
+</div>

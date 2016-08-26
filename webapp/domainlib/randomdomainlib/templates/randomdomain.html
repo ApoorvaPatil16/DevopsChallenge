@@ -1,13 +1,18 @@
-<div layout="row" class="domainLibraryContent">
-    <div flex="25">
-    </div>
-    <div flex="75">
-        <h1 class="domainHeading">Create Random Data Domain</h1>
-        <md-content layout-padding="">
-            <form name="domainForm" flex="50" class="md-whiteframe-1dp" ng-submit="createRandomDomain()">
+<div layout="row" class="domainLibraryContent" layout-align="center center">
+    <div flex="70" flex-xs="90" class="md-whiteframe-1dp">
+        <div>
+            <md-toolbar class="md-hue-3">
+                <div class="md-toolbar-tools">
+                    <span>Create Random Data Domain</span>
+                </div>
+            </md-toolbar>
+        </div>
+        <div layout-padding="">
+            <form name="domainForm" flex="100" ng-submit="createRandomDomain()">
                 <md-input-container class="md-block">
                     <label>{{inputLabelsForDomain.domainName}}</label>
                     <input required="" name="domainName" ng-model="randomDomain.name" md-maxlength="20">
+                    <p class="errorForDomain">{{errorMessage}}</p>
                 </md-input-container>
                 <md-input-container class="md-block base-type-style">
                     <label>{{inputLabelsForDomain.domainType}}</label>
@@ -30,6 +35,6 @@
                     <md-button class="md-raised md-primary" type="submit">Create</md-button>
                 </div>
             </form>
-        </md-content>
+        </div>
     </div>
 </div>

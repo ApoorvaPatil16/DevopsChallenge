@@ -45,9 +45,10 @@ div {
   color: #7e7e7e;
 }
 
-.md-sidenav-left h2 {
-  margin-left: 8px;
-  margin-top: 43px;
+.md-sidenav-left div img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .sidenav-heading {
@@ -89,7 +90,6 @@ footer {
   bottom: 0;
   left: 0;
   background-color: #122056;
-
 }
 
 
@@ -110,6 +110,14 @@ footer {
 
 /*Styling for randomdomain.css*/
 
+.errorForDomain {
+  color: red;
+}
+
+.domainLibraryContent {
+  margin-top: 10px;
+}
+
 .base-type-style {
   margin-bottom: 18px;
 }
@@ -129,4 +137,15 @@ footer {
 
 pre {
   white-space: pre-wrap;
+}
+
+
+/*Styling for listdomain templates*/
+
+#domainListItems {
+  cursor: pointer;
+}
+
+#domainListItems md-list-item {
+  padding-top: 10px;
 }

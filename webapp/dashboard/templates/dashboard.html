@@ -1,22 +1,8 @@
 <div class="md-padding" ng-cloak>
-  <!-- <md-toolbar>
-  <div class="md-toolbar-tools">
-    <h2>
-      <span>Dashboard</span>
-    </h2>
-    <md-button class="md-fab md-mini" aria-label="add">
-      <md-icon class="material-icons">add</md-icon>
-    </md-button>
-    <md-button class="md-fab md-mini" aria-label="search">
-      <md-icon class="material-icons">search</md-icon>
-    </md-button>
-  </div>
-</md-toolbar>
- -->
   <div layout="column" layout-margin="2px">
     <div layout="row" flex="8">
       <div flex layout="row" layout-align="start center">
-        <md-button class="md-raised md-ink-ripple" ui-sref="datamill.datamodel" aria-label="add">
+        <md-button class="md-raised md-ink-ripple" ui-sref="datamill.datamodeldefination" aria-label="add">
           <span>Create New</span>
           <md-icon class="material-icons">create</md-icon>
         </md-button>
@@ -40,30 +26,7 @@
           </md-button>
         </div>
       </div>
-      <!--    <md-button ng-hide="filterSearch" ng-click="filterSearch=true" ng-model="searchClicked" aria-label="fav" class="md-primary md-raised md-ink-ripple">Filter
-     </md-button> -->
     </div>
-    <!--search by filter-->
-    <!--      <div ng-show="filterSearch" flex layout="row">
-   <md-input-container>
-     <md-select placeholder="Search by" ng-model="searchby" md-on-open="searchbyFilter()">
-       <md-option ng-value="searchItem" ng-repeat="searchItem in searchItems">{{searchItem.toUpperCase()}}
-       </md-option>
-     </md-select>
-   </md-input-container>
-   <div flex="5" hide-xs hide-sm>
-     Spacer //
-   </div flex layout="row">
-   <md-input-container>
-     <label>Search</label>
-     <input ng-model="search">
-   </md-input-container>
-   <div flex layout="row" layout-align="end  center">
-     <md-button ng-click="getSearchByFilter()" aria-label="fav" class="md-icon-button">
-       <md-icon class="material-icons">search</md-icon>
-     </md-button>
-   </div>
- </div> -->
   </div>
 </div>
 </div>
@@ -84,7 +47,7 @@
         <span>File Export type : {{card.delivery}}</span>
       </md-card-content>
       <md-card-actions layout="row" layout-align="end center">
-        <md-button aria-label="edit" class="md-icon-button">
+        <md-button aria-label="edit" class="md-icon-button" ui-sref="datamill.datamodeldefination({dataModel:card})">
           <md-icon class="material-icons">mode_edit</md-icon>
         </md-button>
         <md-button aria-label="fav" class="md-icon-button">

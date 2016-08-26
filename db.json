@@ -28,12 +28,12 @@
       "deliverytype": [{
         "type": "Download",
         "value": "download",
-        "state": "datamill.datamodel.download",
+        "state": "datamill.datamodeldefination.download",
         "linkname": "Download Option"
       }, {
         "type": "Feed",
         "value": "feed",
-        "state": "datamill.datamodel.datafeed",
+        "state": "datamill.datamodeldefination.datafeed",
         "linkname": "Feed Option"
       }]
     }
@@ -45,7 +45,7 @@
     }],
     "sideNavBottomItems": [{
       "id": 1,
-      "link": "About Us",
+      "link": "About",
       "state": "#"
     }],
     "sideNavItems": [{
@@ -56,12 +56,12 @@
     }, {
       "id": 2,
       "icon": "launch",
-      "state": "datamill.datamodel",
+      "state": "datamill.datamodeldefination",
       "link": "New Data Model"
     }, {
       "id": 3,
       "icon": "domain",
-      "state": "datamill.domain",
+      "state": "datamill.listdomain",
       "link": "Data Domain",
       "children": [{
         "state": "datamill.randomDomain",
@@ -73,7 +73,7 @@
     }, {
       "id": 4,
       "icon": "backup",
-      "state": "datamill.datamodel",
+      "state": "datamill.datasource",
       "link": "Data Sources"
     }],
     "accountItems": [{
@@ -124,21 +124,27 @@
   }],
   "domain": [{
     "id": 1,
+    "type": "primitive",
     "name": "String"
   }, {
     "id": 2,
+    "type": "primitive",
     "name": "Number"
   }, {
     "id": 3,
+    "type": "primitive",
     "name": "Boolean"
   }, {
     "id": 4,
+    "type": "primitive",
     "name": "Date"
   }, {
     "id": 5,
+    "type": "primitive",
     "name": "Time"
   }, {
     "id": 6,
+    "type": "primitive",
     "name": "Decimal"
   }, {
     "id": 7,
@@ -183,6 +189,10 @@
     "baseType": "Number",
     "pattern": "asdfdsf",
     "id": 15
+  }, {
+    "baseType": "String",
+    "name": "jbdbwkjd",
+    "id": 16
   }],
   "datamodel": [{
     "id": 1,
@@ -228,7 +238,7 @@
     "id": 5
   }, {
     "name": "sfdsf",
-    "description": "asssadsaesrefrgxedgrfrxgtfdtrfuyisuerisuyrusyurysuunjhhjhjhjnjnjjhhhhhhndnvdjnfjndfvjfdnvjdfnvjndfvjndfjvnjdfnvjdnfvjdnfvjnfvjndjndfvjndfjvnjdfnvjndfjvndjfknvdjfvndkjfnvkdjf",
+    "description": "sdfasdf",
     "attributes": [],
     "patterns": [],
     "visibility": "private",
@@ -297,50 +307,76 @@
     "visibility": "private",
     "id": 15
   }, {
-    "name": "abcd",
-    "description": "qwerrty",
-    "attributes": [
-      {},
-      {}
-    ],
+    "name": "Temp",
+    "description": "iotaf",
+    "attributes": [{
+      "name": "asdfads",
+      "type": "domain",
+      "doamin": "Number"
+    }],
     "patterns": [],
-    "visibility": "public",
     "delivery": "feed",
+    "feedOption": {
+      "startTime": "2016-08-26T05:29:00.000Z",
+      "endTime": "2016-08-26T06:45:00.000Z",
+      "endDate": "2016-08-02T18:30:00.000Z",
+      "startDate": "2016-08-14T18:30:00.000Z",
+      "onInterrupt": "autoRestart",
+      "feedflow": "continuous"
+    },
     "id": 16
   }, {
-    "name": "abcd",
-    "description": "qwerrty",
-    "attributes": [
-      {},
-      {}
-    ],
+    "name": "l/ml;",
+    "description": "/l,/l",
+    "attributes": [],
     "patterns": [],
-    "visibility": "public",
-    "delivery": "feed",
     "id": 17
   }, {
-    "name": "abcd",
-    "description": "qwerrty",
-    "attributes": [
-      {},
-      {}
-    ],
+    "name": "l/ml;",
+    "description": "/l,/l",
+    "attributes": [],
     "patterns": [],
-    "visibility": "public",
-    "delivery": "feed",
     "id": 18
   }, {
-    "name": "abcd",
-    "description": "qwerrty",
-    "attributes": [
-      {},
-      {}
-    ],
+    "name": "l;ksd;ldssdfsad",
+    "description": "sdafsdaf",
+    "attributes": [],
     "patterns": [],
-    "visibility": "public",
-    "delivery": "feed",
     "id": 19
+  }, {
+    "name": "dffasdf",
+    "description": "dfasdf",
+    "attributes": [],
+    "patterns": [],
+    "id": 20
+  }, {
+    "name": "asdfd",
+    "description": "sdfdsfsdf",
+    "attributes": [{
+      "name": "dsfasd",
+      "type": "domain",
+      "isUniqueness": true,
+      "doamin": "Boolean"
+    }],
+    "patterns": [],
+    "visibility": "shared",
+    "delivery": "feed",
+    "id": 21
+  }, {
+    "name": "fskdf",
+    "description": "asdfads",
+    "attributes": [{
+      "name": "asdfadsf"
+    }],
+    "patterns": [],
+    "delivery": "feed",
+    "feedOption": {
+      "endTime": "2016-08-26T08:55:00.000Z"
+    },
+    "visibility": "public",
+    "id": 22
   }],
+
   "transporttype": [{
     "id": 1,
     "name": "Mongo DB"
@@ -385,5 +421,51 @@
     "id": 2,
     "label": "Feed",
     "value": "feed"
+  }],
+  "datasource": [{
+    "id": 1,
+    "name": "city",
+    "tags": [
+      "abc",
+      "def"
+    ],
+    "json": {}
+  }, {
+    "id": 2,
+    "name": "country",
+    "tags": [
+      "abc",
+      "def"
+    ],
+    "json": {}
+  }, {
+    "id": 3,
+    "name": "state",
+    "tags": [
+      "abc",
+      "def"
+    ],
+    "json": {}
+  }, {
+    "id": 4,
+    "name": "landmark",
+    "tags": [
+      "abc",
+      "def"
+    ],
+    "json": {}
+  }, {
+    "tags": [
+      "hhk"
+    ],
+    "name": "ikh",
+    "json": "jhkhhk",
+    "id": 5
+  }, {
+    "tags": [],
+    "id": 6
+  }, {
+    "tags": [],
+    "id": 7
   }]
 }

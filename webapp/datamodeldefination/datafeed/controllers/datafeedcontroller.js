@@ -17,10 +17,13 @@ function datafeedCtrl($timeout, $q, $log, $filter, datafeedService, $scope, $mdD
   ctrl.querySearch = querySearch;
   ctrl.selectedItemChange = selectedItemChange;
   ctrl.searchTextChange = searchTextChange;
-  $scope.answer = function(answer) {
+  $scope.saveOption = function(answer) {
     $log.info(answer);
     $mdDialog.hide(answer);
   };
+  $scope.cancelOption = function() {
+    $mdDialog.cancel();
+  }
 
   function querySearch(query) {
     var results = query ? ctrl.states.filter(createFilterFor(query)) : ctrl.states,

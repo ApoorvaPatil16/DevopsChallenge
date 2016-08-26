@@ -1,0 +1,89 @@
+<div ng-controller="datafeedCtrl as ctrl">
+  <md-toolbar class="md-theme-light">
+    <h2 class="md-toolbar-tools">
+      <span>Feed Simulation </span>
+    </h2>
+  </md-toolbar>
+  <div layout-gt-xs="row" layout-margin layout-xs="column">
+    <div flex-gt-xs="20" flex-xs="">
+      <h4>Feed Running</h4>
+    </div>
+    <div flex-gt-xs="40" layout="row">
+      <h5>From</h5>
+      <mdp-date-picker mdp-open-on-click required name="dateFormat" mdp-placeholder="My date(dd/mm/yyyy)" mdp-format="DD/MM/YYYY" ng-model="datafeed.startDate">
+        <div ng-messages="demoForm.dateFormat.$error">
+          <div ng-message="required">This is required</div>
+          <div ng-message="format">Invalid format</div>
+        </div>
+      </mdp-date-picker>
+      <mdp-time-picker ng-model="datafeed.startTime"></mdp-time-picker>
+    </div>
+    <div flex-gt-xs="40" layout="row">
+      <h5>Till</h5>
+      <mdp-date-picker mdp-open-on-click required name="dateFormat" mdp-placeholder="My date(dd/mm/yyyy)" mdp-format="DD/MM/YYYY" ng-model="datafeed.endDate">
+        <div ng-messages="demoForm.dateFormat.$error">
+          <div ng-message="required">This is required</div>
+          <div ng-message="format">Invalid format</div>
+        </div>
+      </mdp-date-picker>
+      <mdp-time-picker ng-model="datafeed.endTime"></mdp-time-picker>
+    </div>
+  </div>
+  <div layout-gt-xs="row" layout-margin>
+    <div flex="20">
+      <h4>On Interrupt</h4></div>
+    <md-radio-group ng-model="datafeed.onInterrupt" layout-gt-xs="row" layout-xs="column" flex="80" layout-margin>
+      <div flex-gt-xs="">
+        <md-radio-button value="autoRestart" class="md-primary" flex="">AutoRestart</md-radio-button>
+      </div>
+      <div flex-gt-xs="">
+        <md-radio-button value="doNothing" class="md-primary" flex="">Do Nothing</md-radio-button>
+      </div>
+    </md-radio-group>
+  </div>
+  <!-- <md-divider></md-divider> -->
+  <div layout-gt-xs="row" layout-xs="column" layout-margin>
+    <div flex-gt-xs="20">
+      <h4>Feed Flow</h4></div>
+    <md-radio-group ng-model="datafeed.feedflow" flex-gt-xs="80" layout="row" layout-margin>
+      <div flex="" layout="column">
+        <md-radio-button value="continuous" ng-disabled="data.group1" class="md-primary" flex="">Continuous</md-radio-button>
+        <md-input-container class="md-block" md-no-float="">
+          <input ng-model="datafeed.continuous.dataRate" ng-disabled="datafeed.feedflow!='continuous'" placeholder="Data Rate" flex="50" type="number">
+        </md-input-container>
+        <md-input-container class="md-block" md-no-float="">
+          <input ng-model="datafeed.continuous.timeUnit" ng-disabled="datafeed.feedflow!='continuous'" placeholder="Time Unit" flex="50" type="number">
+        </md-input-container>
+      </div>
+      <div flex="" layout="column">
+        <md-radio-button value="sporadic" class="md-primary" flex="">Sporadic</md-radio-button>
+        <md-input-container class="md-block" md-no-float="">
+          <input ng-model="datafeed.sporadic.data" ng-disabled="datafeed.feedflow!='sporadic'" placeholder="Data" flex="50" type="number">
+        </md-input-container>
+        <md-input-container class="md-block" md-no-float="">
+          <input ng-model="datafeed.sporadic.burst" ng-disabled="datafeed.feedflow!='sporadic'" placeholder="No.of Bursts" min="10" flex="50" type="number">
+        </md-input-container>
+      </div>
+    </md-radio-group>
+  </div>
+  <!-- <md-divider></md-divider> -->
+  <div layout-gt-xs="row" layout-xs="column" layout-margin>
+    <div flex-gt-xs="20">
+      <h4>Transport Type</h4></div>
+    <div flex-gt-xs="80" layout-margin>
+      <md-autocomplete ng-model="datafeed.transportType" ng-disabled="ctrl.isDisabled" md-no-cache="ctrl.noCache" md-selected-item="ctrl.selectedItem" md-search-text-change="ctrl.searchTextChange(ctrl.searchText)" md-search-text="ctrl.searchText" md-selected-item-change="ctrl.selectedItemChange(item)" md-items="item in ctrl.querySearch(ctrl.searchText)" md-item-text="item.name" md-min-length="0" placeholder="Type of Transport">
+        <md-item-template>
+          <span md-highlight-text="ctrl.searchText" md-highlight-flags="^i">{{item.name}}</span>
+        </md-item-template>
+        <md-not-found>No states matching "{{ctrl.searchText}}" were found.
+          <!-- <a ng-click="ctrl.newState(ctrl.searchText)">Create a new one!</a> -->
+        </md-not-found>
+      </md-autocomplete>
+    </div>
+  </div>
+  <md-divider></md-divider>
+  <md-dialog-actions layout="row" layout-align="end center">
+    <md-button class="md-warn md-raised" ng-click="cancelOption()">Cancel</md-button>
+    <md-button ng-click="saveOption(datafeed)" class="md-primary md-raised">Save</md-button>
+  </md-dialog-actions>
+</div>

@@ -1,9 +1,9 @@
 angular.module('datamill')
-  .controller('randomDomainCtrl', ['$scope', '$mdDialog', '$log', 'authFactory', function($scope, $mdDialog, $log, authFactory) {
-    $scope.abc = "Vishal";
+  .controller('randomDomainCtrl', ['$scope', '$mdDialog', '$log', 'authFactory', 'listDomainFactory', function($scope, $mdDialog, $log, authFactory, listDomainFactory) {
     $scope.dataRealRandom = {
       'type': "",
     }
+
     $scope.baseType = "";
     $scope.inputLabelsForDomain = {
       domainName: "Domain Name",
@@ -12,7 +12,7 @@ angular.module('datamill')
       pattern: 'Format/Pattern'
     };
     $scope.types = [
-      'String', 'Number', 'Boolean', 'Date', 'Time', 'Decimal', 'Hexadecimal'
+      'String', 'Number', 'Boolean', 'Date', 'Time', 'Decimal', 'Hexadecimal', 'TimeStamp'
     ];
     $scope.status = '  ';
     $scope.showAdvanced = function(ev) {
@@ -32,26 +32,37 @@ angular.module('datamill')
 
 
     };
+    $scope.randomDomain = {
+      'type': "Random Generated Domain"
+    }
     $scope.createRandomDomain = function() {
-      $log.info("a");
-      authFactory.postNewDomain($scope.randomDomain).then(function(id) {
-        $log.info("success");
-        var alert = $mdDialog.alert({
-          title: 'Success',
-          textContent: "Successfully created random domain with id: " + id,
-          ok: 'Close'
-        });
-        $mdDialog.show(alert);
-      }, function(res) {
-        $log.info("fail");
-        var alert = $mdDialog.alert({
-          title: 'Fail',
-          textContent: "Unable to create domain",
-          ok: 'Close'
-        });
-        $mdDialog.show(alert);
+      console.log($scope.randomDomain);
+      listDomainFactory.getDomainItemsByName($scope.randomDomain.name).then(function(res) {
+        if (res.length != 0) {
+          $scope.errorMessage = "Domain name " + $scope.randomDomain.name + " already exits."
+        } else {
+          authFactory.postNewDomain($scope.randomDomain).then(function(id) {
+            $log.info("success");
+            var alert = $mdDialog.alert({
+              title: 'Success',
+              textContent: "Successfully created random domain with id: " + id,
+              ok: 'Close'
+            });
+            $mdDialog.show(alert);
+          }, function(res) {
+            $log.info("fail");
+            var alert = $mdDialog.alert({
+              title: 'Fail',
+              textContent: "Unable to create domain",
+              ok: 'Close'
+            });
+            $mdDialog.show(alert);
+          });
+        };
       });
-    };
+
+    }
+
   }]);
 
 
