@@ -157,26 +157,32 @@
   "domain": [
     {
       "id": 1,
+      "type": "primitive",
       "name": "String"
     },
     {
       "id": 2,
+      "type": "primitive",
       "name": "Number"
     },
     {
       "id": 3,
+      "type": "primitive",
       "name": "Boolean"
     },
     {
       "id": 4,
+      "type": "primitive",
       "name": "Date"
     },
     {
       "id": 5,
+      "type": "primitive",
       "name": "Time"
     },
     {
       "id": 6,
+      "type": "primitive",
       "name": "Decimal"
     },
     {
@@ -432,6 +438,22 @@
       "visibility": "shared",
       "delivery": "feed",
       "id": 21
+    },
+    {
+      "name": "fskdf",
+      "description": "asdfads",
+      "attributes": [
+        {
+          "name": "asdfadsf"
+        }
+      ],
+      "patterns": [],
+      "delivery": "feed",
+      "feedOption": {
+        "endTime": "2016-08-26T08:55:00.000Z"
+      },
+      "visibility": "public",
+      "id": 22
     }
   ],
   "transporttype": [
@@ -493,6 +515,60 @@
       "id": 2,
       "label": "Feed",
       "value": "feed"
+    }
+  ],
+  "datasource": [
+    {
+      "id": 1,
+      "name": "city",
+      "tags": [
+        "abc",
+        "def"
+      ],
+      "json": {}
+    },
+    {
+      "id": 2,
+      "name": "country",
+      "tags": [
+        "abc",
+        "def"
+      ],
+      "json": {}
+    },
+    {
+      "id": 3,
+      "name": "state",
+      "tags": [
+        "abc",
+        "def"
+      ],
+      "json": {}
+    },
+    {
+      "id": 4,
+      "name": "landmark",
+      "tags": [
+        "abc",
+        "def"
+      ],
+      "json": {}
+    },
+    {
+      "tags": [
+        "hhk"
+      ],
+      "name": "ikh",
+      "json": "jhkhhk",
+      "id": 5
+    },
+    {
+      "tags": [],
+      "id": 6
+    },
+    {
+      "tags": [],
+      "id": 7
     }
   ]
 }
