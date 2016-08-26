@@ -5,9 +5,9 @@
     </h2>
   </md-toolbar>
   <div layout="row" layout-margin>
-    <div flex="30">
-      <h4>Feed Active</h4></div>
-    <div flex="33" layout="row">
+    <div flex="20">
+      <h4>Feed Running</h4></div>
+    <div flex="40" layout="row">
       <h5>From</h5>
       <mdp-date-picker mdp-open-on-click required name="dateFormat" mdp-placeholder="My date(dd/mm/yyyy)" mdp-format="DD/MM/YYYY" ng-model="datafeed.startDate">
         <div ng-messages="demoForm.dateFormat.$error">
@@ -17,7 +17,7 @@
       </mdp-date-picker>
       <mdp-time-picker ng-model="datafeed.startTime"></mdp-time-picker>
     </div>
-    <div flex="33" layout="row" layout-margin>
+    <div flex="40" layout="row">
       <h5>Till</h5>
       <mdp-date-picker mdp-open-on-click required name="dateFormat" mdp-placeholder="My date(dd/mm/yyyy)" mdp-format="DD/MM/YYYY" ng-model="datafeed.endDate">
         <div ng-messages="demoForm.dateFormat.$error">
@@ -29,9 +29,9 @@
     </div>
   </div>
   <div layout="row" layout-margin>
-    <div flex="30">
+    <div flex="20">
       <h4>On Interrupt</h4></div>
-    <md-radio-group ng-model="datafeed.onInterrupt" layout="row" flex="70" layout-padding>
+    <md-radio-group ng-model="datafeed.onInterrupt" layout="row" flex="80" layout-margin>
       <div flex="">
         <md-radio-button value="autoRestart" class="md-primary" flex="">AutoRestart</md-radio-button>
       </div>
@@ -40,11 +40,11 @@
       </div>
     </md-radio-group>
   </div>
-  <md-divider></md-divider>
+  <!-- <md-divider></md-divider> -->
   <div layout="row" layout-margin>
-    <div flex="30">
+    <div flex="20">
       <h4>Feed Flow</h4></div>
-    <md-radio-group ng-model="datafeed.feedflow" flex="70" layout="row" layout-margin>
+    <md-radio-group ng-model="datafeed.feedflow" flex="80" layout="row" layout-margin>
       <div flex="" layout="column">
         <md-radio-button value="continuous" ng-model="cont" ng-disabled="data.group1" class="md-primary" flex="">Continuous</md-radio-button>
         <md-input-container class="md-block" md-no-float="">
@@ -65,11 +65,11 @@
       </div>
     </md-radio-group>
   </div>
-  <md-divider></md-divider>
+  <!-- <md-divider></md-divider> -->
   <div layout="row" layout-margin>
-    <div flex="30">
+    <div flex="20">
       <h4>Transport Type</h4></div>
-    <div flex="60" layout-margin>
+    <div flex="80" layout-margin>
       <md-autocomplete ng-model="datafeed.transportType" ng-disabled="ctrl.isDisabled" md-no-cache="ctrl.noCache" md-selected-item="ctrl.selectedItem" md-search-text-change="ctrl.searchTextChange(ctrl.searchText)" md-search-text="ctrl.searchText" md-selected-item-change="ctrl.selectedItemChange(item)" md-items="item in ctrl.querySearch(ctrl.searchText)" md-item-text="item.name" md-min-length="0" placeholder="Type of Transport">
         <md-item-template>
           <span md-highlight-text="ctrl.searchText" md-highlight-flags="^i">{{item.name}}</span>
@@ -81,47 +81,8 @@
     </div>
   </div>
   <md-divider></md-divider>
-  <div layout="row" layout-margin>
-    <div flex="30">
-      <h4>{{pattern}}</h4>
-    </div>
-    <div flex="70" layout="column">
-      <div ng-repeat="d in dataModel.patterns">
-        <div flex="" layout="row">
-          <h5 flex="10">{{d.name}}</h5>
-          <md-slider-container flex="80">
-            <md-slider ng-model="color.blue" min="0" max="100" aria-label="blue" id="blue-slider" class="md-primary" flex-offset="5">
-            </md-slider>
-            <md-input-container>
-              <input flex="" type="number" ng-model="color.blue" aria-label="red" aria-controls="red-slider">
-            </md-input-container>
-          </md-slider-container>
-        </div>
-      </div>
-      <div flex="" layout="row">
-        <h5 flex="10">Pattern1</h5>
-        <md-slider-container flex="80">
-          <md-slider ng-model="color.blue" min="0" max="100" aria-label="blue" id="blue-slider" class="md-primary" flex-offset="5">
-          </md-slider>
-          <md-input-container>
-            <input flex="" type="number" ng-model="color.blue" aria-label="red" aria-controls="red-slider">
-          </md-input-container>
-        </md-slider-container>
-      </div>
-      <div flex="" layout="row">
-        <h5 flex="10">Pattern2</h5>
-        <md-slider-container flex="80">
-          <md-slider ng-model="color.red" min="0" max="{{100-color.blue}}" aria-label="blue" id="blue-slider" class="md-primary" flex-offset="5">
-          </md-slider>
-          <md-input-container>
-            <input flex="" type="number" ng-model="color.red" aria-label="red" aria-controls="red-slider">
-          </md-input-container>
-        </md-slider-container>
-      </div>
-      <md-dialog-actions layout="row" layout-align="end center">
-        <md-button class="md-warn">Cancel</md-button>
-        <md-button ng-click="answer(datafeed)" class="md-primary">Save</md-button>
-      </md-dialog-actions>
-    </div>
-  </div>
+  <md-dialog-actions layout="row" layout-align="end center">
+    <md-button class="md-warn md-raised">Cancel</md-button>
+    <md-button ng-click="answer(datafeed)" class="md-primary md-raised">Save</md-button>
+  </md-dialog-actions>
 </div>

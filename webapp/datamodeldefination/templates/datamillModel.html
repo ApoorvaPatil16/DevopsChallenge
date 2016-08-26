@@ -3,7 +3,7 @@
   <md-subheader class="md-no-sticky">{{$ctrl.formTitle}}</md-subheader>
   <!-- EACH attribute defination-->
   <form>
-    <div ng-repeat="attr in $ctrl.attrs" layout="row" layout-xs="column">
+    <div ng-repeat="attr in $ctrl.attrs" style="border:1px solid #00ffff;" layout="row" layout-align="none center">
       <div flex="90" layout="row" layout-xs="column" layout-margin="2px">
         <!-- <div class="transcludeform"></div> -->
         <!-- <ng-transclude></ng-transclude> -->
@@ -33,31 +33,19 @@
           <label>Attribute schema</label>
           <input ng-model="attr.schema">
         </md-input-container>
-        <md-checkbox layout="row" layout-align="center center" ng-model="attr.relationship">Uniqueness</md-checkbox>
-        <!-- <md-input-container>
-          <label>Relationship</label>
-          <input ng-model="attribute.relationship" required>
-        </md-input-container> -->
+        <md-input-container>
+          <md-checkbox layout="row" layout-align="center center" ng-model="attr.isUniqueness">Uniqueness</md-checkbox>
+        </md-input-container>
       </div>
-      <!-- CRUD OPRATIONS BUTTON FOR EACH ELEMENT -->
-      <div layout="row" layout-margin="2px" flex="10" layout-align="end center">
-        <!--  <md-button class="md-fab md-mini md-icon-button" ng-disabled="iseditable!=-1" ng-hide="$index==iseditable" ng-click="$ctrl.edit($index)" aria-label="edit">
-          <md-icon class="material-icons">edit</md-icon>
-        </md-button> -->
+      <!-- REMOVE BUTTON FOR EACH ELEMENT -->
+      <div layout="row" layout-align="end center">
         <md-button class="md-fab md-mini md-icon-button" ng-click="$ctrl.remove($index)" aria-label="remove">
           <md-icon class="material-icons">remove</md-icon>
         </md-button>
-        <!-- <md-button class="md-fab md-mini md-icon-button" ng-hide="$index!=iseditable" ng-click="$ctrl.save($index,attribute)" aria-label="done">
-  <md-icon class="material-icons">done</md-icon>
-</md-button>
-<md-button class="md-fab md-mini md-icon-button" ng-hide="$index!=iseditable" ng-click="$ctrl.cancel()" aria-label="cancel">
-  <md-icon class="material-icons">clear</md-icon>
-</md-button>
- -->
       </div>
     </div>
-    <div layout="row" layout-align="end center">
-      <md-button class="md-fab md-mini" ng-click="add()" aria-label="add">
+    <div flex="10" layout="row" layout-align="end center">
+      <md-button class="md-fab md-mini" ng-click="$ctrl.add()" aria-label="add">
         <md-icon>add</md-icon>
       </md-button>
     </div>
