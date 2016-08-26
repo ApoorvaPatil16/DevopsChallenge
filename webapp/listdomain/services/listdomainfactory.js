@@ -1,8 +1,8 @@
 angular.module('datamill')
   .factory('listDomainFactory', function($http) {
     return {
-      getDomainItems: function() {
-        return $http.get("http://localhost:7070/domain").then(function(res) {
+      getDomainItems: function(startValue) {
+        return $http.get("http://localhost:7070/domain?_start=" + startValue + "&_limit=5").then(function(res) {
           return res.data;
         })
       },

@@ -1,7 +1,7 @@
 angular
 .module('datamill')
 .controller('createdatasourceController',populate);
-function populate($stateParams,postdataService) {
+function populate($stateParams,postdataService,$state) {
 var ctrl = this;
 	ctrl.user={}
     ctrl.user.tags = [];
@@ -9,6 +9,7 @@ var ctrl = this;
     ctrl.add=function() {
     	
 postdataService.postdatasources(ctrl.user);
+$state.go('datamill.datasource');
     }
 
 }
