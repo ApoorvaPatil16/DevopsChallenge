@@ -1,5 +1,5 @@
-<div layout="row" layout-xs="column" layout-margin="10px" layout-padding="10px" ng-cloak>
-  <div flex style="min-height:auto" class="md-whiteframe-3dp">
+<div layout-gt-md="row" layout="column" layout-margin="10px" layout-padding="10px" ng-cloak>
+  <div flex-gt-md style="min-height:auto" class="md-whiteframe-3dp">
     <h1>{{datamodelconf.heading}}</h1>
     <md-tabs class="md-accent" md-dynamic-height md-border-bottom>
       <md-tab id="formtab">
@@ -58,11 +58,11 @@
             </div>
             <!-- Mixing Different Pattern using slider -->
             <md-divider></md-divider>
-            <div layout-gt-xs="row" layout-margin layout-xs="column">
-              <div flex-gt-xs="10">
+            <div layout-gt-sm="row" layout-margin layout="column">
+              <div flex-gt-sm="10">
                 <h4>Mixer</h4>
               </div>
-              <div flex-gt-xs="90" layout="column">
+              <div flex-gt-sm="90" layout="column">
                 <div ng-repeat="d in dataModel.patterns" flex="" layout="row">
                   <h5 flex="10">{{d.name}}</h5>
                   <md-slider-container flex="80">
@@ -105,12 +105,14 @@
       <md-tab id="nodetab">
         <md-tab-label>Nodes</md-tab-label>
         <md-tab-body>
-          <p>will be available soon</p>
+          <div layout="row" layout-sm="column" layout-align="space-around">
+            <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+          </div>
         </md-tab-body>
       </md-tab>
     </md-tabs>
   </div>
-  <div flex style="min-height:auto;padding:4px" class="md-whiteframe-3dp ">
+  <div flex-gt-md style="min-height:auto;padding:4px" class="md-whiteframe-3dp ">
     <h1>Data Modal defination in json format</h1>
     <pre style="word-wrap:break-word;"><h4> {{dataModel | json}}</h4></pre>
   </div>

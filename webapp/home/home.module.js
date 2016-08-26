@@ -1,4 +1,22 @@
 angular.module('datamill')
+  .config(function($mdThemingProvider) {
+    $mdThemingProvider.theme('default')
+      .primaryPalette('grey', {
+        'default': '900'
+      })
+      .accentPalette('grey', {
+        'default': '600'
+      })
+  })
+  .config(function($mdThemingProvider) {
+    $mdThemingProvider.theme('Theme1')
+      .primaryPalette('grey', {
+        'default': '900'
+      })
+      .accentPalette('grey', {
+        'default': '700'
+      })
+  })
   .config(['$stateProvider', '$urlRouterProvider',
     function($stateProvider, $urlRouterProvider) {
       $stateProvider.state('datamill', {
