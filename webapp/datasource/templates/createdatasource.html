@@ -1,15 +1,18 @@
-<div ng-controller="createdatasourceController as ctrl" layout="row"  layout-align="center center" layout-margin>
-	<div md-whiteframe="3" flex="50" flex-xs="100" layout="column">
+<div layout="row" ng-controller="createdatasourceController as ctrl" layout-align="center center" layout-margin>
+	<div layout-padding md-whiteframe="3" flex="50" flex-xs="100" layout="column">
 		<div>
 			<md-toolbar class="md-accent md-hue-3">
 				<div class="md-toolbar-tools">
 					<span>Data Sources</span>
 					<span flex></span>
-					<md-button ui-sref="datamill.datasource" class="md-raised md-primary"> List</md-button>
+					<!-- <md-button ui-sref="datamill.datasource" class="md-raised md-primary"> List</md-button> -->
+					<md-button class="md-fab md-mini" aria-label="edit">
+						<md-icon ui-sref="datamill.datasource">list</md-icon>
+					</md-button>
 				</div>
 			</md-toolbar>
 		</div>
-		<div>
+		<div md-padding>
 			<form name="userForm">
 				<div>
 					<md-input-container class="md-block" flex-gt-sm="">
@@ -28,17 +31,17 @@
 							<em>(xyz...)</em>
 						</md-chip-template>
 					</md-chips>
-				<div>
-					<md-input-container class="md-block">
-						<label>Json data</label>
-						<textarea ng-model="ctrl.user.json" rows="5"></textarea>
-					</md-input-container>
-				</div>
-				<div layout="row" layout-align="end center">
-					<md-button ui-sref="datamill.datasource" class="md-raised md-warn">Cancel</md-button>
-					<md-button type="submit" class="md-raised md-primary" ng-click="ctrl.add()">Save</md-button>
-				</div>
-			</form>
+					<div>
+						<md-input-container class="md-block">
+							<label>Json data</label>
+							<textarea ng-model="ctrl.user.json" rows="5"></textarea>
+						</md-input-container>
+					</div>
+					<div layout="row" layout-align="end center">
+						<md-button ui-sref="datamill.datasource" class="md-raised md-warn">Cancel</md-button>
+						<md-button type="submit" class="md-raised md-primary" ng-click="ctrl.add()">Save</md-button>
+					</div>
+				</form>
+			</div>
 		</div>
 	</div>
-</div>

@@ -88,7 +88,7 @@
         {
           "id": 4,
           "icon": "backup",
-          "state": "datamill.datamodel",
+          "state": "datamill.datasource",
           "link": "Data Sources"
         }
       ],
@@ -520,12 +520,9 @@
   "datasource": [
     {
       "id": 1,
-      "name": "city",
-      "tags": [
-        "abc",
-        "def"
-      ],
-      "json": {}
+      "name": "hhkhk",
+      "tags": [],
+      "json": "mlmlmlm"
     },
     {
       "id": 2,
@@ -555,20 +552,24 @@
       "json": {}
     },
     {
-      "tags": [
-        "hhk"
-      ],
-      "name": "ikh",
-      "json": "jhkhhk",
+      "tags": [],
+      "name": "jhjgjggj",
       "id": 5
     },
     {
       "tags": [],
+      "name": "jgjggj",
       "id": 6
     },
     {
       "tags": [],
+      "name": "jgjggj",
       "id": 7
+    },
+    {
+      "tags": [],
+      "name": "hjjhjgjgjg",
+      "id": 8
     }
   ]
 }
