@@ -20,12 +20,8 @@ angular.module('datamill')
       $log.info(state);
       $state.go(state).then(function() {
         $mdDialog.show({
-          //controllerAs: 'ctrl',
-          //controller: datafeedCtrl,
           contentElement: '#deliveryOption',
           parent: angular.element(document.body),
-          //targetEvent: ev,
-          //resolve: $state.go(state),
           clickOutsideToClose: true,
           fullscreen: true
         }).then(function(answer) {
@@ -35,25 +31,31 @@ angular.module('datamill')
         }, function() { $state.go('^'); });
       });
       $log.info($state.current.name);
-      // if ($state.current.name === state) {
-      //   $mdDialog.show({
-      //     //controller: DialogController,
-      //     contentElement: '#deliveryOption',
-      //     parent: angular.element(document.body),
-      //     targetEvent: ev,
-      //     clickOutsideToClose: true,
-      //     fullscreen: true
-      //   });
-      // }
-
     };
     // for posting the data to the server
     $scope.createDataModel = function() {
-      datamodelservice.postDataModel($scope.dataModel).then(function(id) {
-          $log.info("submited successfully " + id);
+      datamodeldefinationservice.postDataModel($scope.dataModel).then(function(res) {
+          $log.info("submited successfully " + res);
+          showAlert(res.id);
         },
         function(res) {
           $log.info(res)
         })
+    };
+    $scope.cancelDataModel = function() {
+      $state.go('datamill.dashboard');
+    }
+
+    function showAlert(id) {
+      alert = $mdDialog.alert()
+        .title('Attention, ' + $scope.userName)
+        .textContent('Created Data Model with Id:' + id)
+        .ok('Close');
+      $mdDialog
+        .show(alert)
+        .finally(function() {
+          $state.go('datamill.dashboard');
+          alert = undefined;
+        });
     }
   }]);

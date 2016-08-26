@@ -7,6 +7,7 @@
         <md-tab-body>
           <form ng-submit="createDataModel()">
             <div layout="column" layout-margin="2px">
+              <!-- Data Model Defination -->
               <md-input-container>
                 <label>Data Model Title</label>
                 <input ng-model="dataModel.name" md-maxlength="50" required>
@@ -30,29 +31,20 @@
               </div>
             </div>
             <md-divider></md-divider>
+            <!-- datamill model component -->
             <datamill-model model-name="dataModel.name" form-title="Attributes" file-src-include="/datamodel/templates/attribute.html" attrs="dataModel.attributes" on-update="addAttribute(attr)">
-              <md-input-container>
-                <label>Title</label>
-                <input ng-model="attribute.title" ng-disabled="$index!=iseditable">
-              </md-input-container>
             </datamill-model>
             <md-divider></md-divider>
-            <!-- <inline-list-form form-title="Pattern Classes" file-src-include="/datamodel/templates/attribute.html" attrs="dataModel.patterns" on-update="addAttribute(attr)" class="md-whiteframe-1dp">
-  <md-input-container>
-    <label>Title</label>;
-    <input ng-model="attribute.title" ng-disabled="$index!=iseditable">
-  </md-input-container>
-</inline-list-form>
- -->
-            <md-divider></md-divider>
-            <div layout="row" layout-margin="2px" layout-padiing="2px">
-              <div flex layout="row">
-                <div flex="20">Delivery Type</div>
-                <md-radio-group ng-model="dataModel.delivery" flex="80" layout="row" style="min-height:auto" layout-xs="column" required>
-                  <div ng-repeat="d in datamodelconf.inputs.deliverytype" flex layout="column" style="min-height:auto" layout-margin="3px">
+            <div layout-gt-xs="row" layout-margin="2px" layout-padiing="2px">
+              <div flex layout-gt-xs="row">
+                <div flex-gt-xs="20">
+                  <h4>Delivery Type</h4>
+                </div>
+                <md-radio-group ng-model="dataModel.delivery" flex-gt-xs="80" layout-gt-xs="row" style="min-height:auto" layout-xs="column" required>
+                  <div ng-repeat="d in datamodelconf.inputs.deliverytype" flex-gt-xs layout="column" style="min-height:auto" layout-margin="3px">
                     <md-radio-button flex ng-value="d.value">
                       {{ d.type }}</md-radio-button>
-                    <md-button class="md-primary" ng-click="showDeliveryOption($event,d.state)" ng-disabled="dataModel.delivery!=d.value">{{d.linkname}}</md-button>
+                    <md-button class="md-raised" ng-click="showDeliveryOption($event,d.state)" ng-disabled="dataModel.delivery!=d.value">{{d.linkname}}</md-button>
                   </div>
                 </md-radio-group>
                 <div style="visibility: hidden">
@@ -64,9 +56,48 @@
                 </div>
               </div>
             </div>
+            <!-- Mixing Different Pattern using slider -->
+            <md-divider></md-divider>
+            <div layout-gt-xs="row" layout-margin layout-xs="column">
+              <div flex-gt-xs="10">
+                <h4>Mixer</h4>
+              </div>
+              <div flex-gt-xs="90" layout="column">
+                <div ng-repeat="d in dataModel.patterns" flex="" layout="row">
+                  <h5 flex="10">{{d.name}}</h5>
+                  <md-slider-container flex="80">
+                    <md-slider ng-model="color.blue" min="0" max="100" aria-label="blue" id="blue-slider" class="md-primary" flex-offset="5">
+                    </md-slider>
+                    <md-input-container>
+                      <input flex="" type="number" ng-model="color.blue" aria-label="red" aria-controls="red-slider">
+                    </md-input-container>
+                  </md-slider-container>
+                </div>
+                <div flex="" layout="row">
+                  <h5 flex="10">Pattern1</h5>
+                  <md-slider-container flex="80">
+                    <md-slider ng-model="color.blue" min="0" max="100" aria-label="blue" id="blue-slider" class="md-primary" flex-offset="5">
+                    </md-slider>
+                    <md-input-container>
+                      <input flex="" type="number" ng-model="color.blue" aria-label="red" aria-controls="red-slider">
+                    </md-input-container>
+                  </md-slider-container>
+                </div>
+                <div flex="" layout="row">
+                  <h5 flex="10">Pattern2</h5>
+                  <md-slider-container flex="80">
+                    <md-slider ng-model="color.red" min="0" max="{{100-color.blue}}" aria-label="blue" id="blue-slider" class="md-primary" flex-offset="5">
+                    </md-slider>
+                    <md-input-container>
+                      <input flex="" type="number" ng-model="color.red" aria-label="red" aria-controls="red-slider">
+                    </md-input-container>
+                  </md-slider-container>
+                </div>
+              </div>
+            </div>
             <div layout="row" layout-align="end center">
+              <md-button class="md-raised md-warn" ng-click="cancelDataModel()">Cancel</md-button>
               <md-button type="submit" class="md-raised md-primary">Save</md-button>
-              <md-button class="md-raised md-warn">Cancel</md-button>
             </div>
           </form>
         </md-tab-body>
