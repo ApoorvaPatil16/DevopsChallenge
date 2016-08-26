@@ -4,10 +4,11 @@
       <span>Feed Simulation </span>
     </h2>
   </md-toolbar>
-  <div layout="row" layout-margin>
-    <div flex="20">
-      <h4>Feed Running</h4></div>
-    <div flex="40" layout="row">
+  <div layout-gt-xs="row" layout-margin layout-xs="column">
+    <div flex-gt-xs="20" flex-xs="">
+      <h4>Feed Running</h4>
+    </div>
+    <div flex-gt-xs="40" layout="row">
       <h5>From</h5>
       <mdp-date-picker mdp-open-on-click required name="dateFormat" mdp-placeholder="My date(dd/mm/yyyy)" mdp-format="DD/MM/YYYY" ng-model="datafeed.startDate">
         <div ng-messages="demoForm.dateFormat.$error">
@@ -17,7 +18,7 @@
       </mdp-date-picker>
       <mdp-time-picker ng-model="datafeed.startTime"></mdp-time-picker>
     </div>
-    <div flex="40" layout="row">
+    <div flex-gt-xs="40" layout="row">
       <h5>Till</h5>
       <mdp-date-picker mdp-open-on-click required name="dateFormat" mdp-placeholder="My date(dd/mm/yyyy)" mdp-format="DD/MM/YYYY" ng-model="datafeed.endDate">
         <div ng-messages="demoForm.dateFormat.$error">
@@ -28,23 +29,23 @@
       <mdp-time-picker ng-model="datafeed.endTime"></mdp-time-picker>
     </div>
   </div>
-  <div layout="row" layout-margin>
+  <div layout-gt-xs="row" layout-margin>
     <div flex="20">
       <h4>On Interrupt</h4></div>
-    <md-radio-group ng-model="datafeed.onInterrupt" layout="row" flex="80" layout-margin>
-      <div flex="">
+    <md-radio-group ng-model="datafeed.onInterrupt" layout-gt-xs="row" layout-xs="column" flex="80" layout-margin>
+      <div flex-gt-xs="">
         <md-radio-button value="autoRestart" class="md-primary" flex="">AutoRestart</md-radio-button>
       </div>
-      <div flex="">
+      <div flex-gt-xs="">
         <md-radio-button value="doNothing" class="md-primary" flex="">Do Nothing</md-radio-button>
       </div>
     </md-radio-group>
   </div>
   <!-- <md-divider></md-divider> -->
-  <div layout="row" layout-margin>
-    <div flex="20">
+  <div layout-gt-xs="row" layout-xs="column" layout-margin>
+    <div flex-gt-xs="20">
       <h4>Feed Flow</h4></div>
-    <md-radio-group ng-model="datafeed.feedflow" flex="80" layout="row" layout-margin>
+    <md-radio-group ng-model="datafeed.feedflow" flex-gt-xs="80" layout="row" layout-margin>
       <div flex="" layout="column">
         <md-radio-button value="continuous" ng-model="cont" ng-disabled="data.group1" class="md-primary" flex="">Continuous</md-radio-button>
         <md-input-container class="md-block" md-no-float="">
@@ -66,10 +67,10 @@
     </md-radio-group>
   </div>
   <!-- <md-divider></md-divider> -->
-  <div layout="row" layout-margin>
-    <div flex="20">
+  <div layout-gt-xs="row" layout-xs="column" layout-margin>
+    <div flex-gt-xs="20">
       <h4>Transport Type</h4></div>
-    <div flex="80" layout-margin>
+    <div flex-gt-xs="80" layout-margin>
       <md-autocomplete ng-model="datafeed.transportType" ng-disabled="ctrl.isDisabled" md-no-cache="ctrl.noCache" md-selected-item="ctrl.selectedItem" md-search-text-change="ctrl.searchTextChange(ctrl.searchText)" md-search-text="ctrl.searchText" md-selected-item-change="ctrl.selectedItemChange(item)" md-items="item in ctrl.querySearch(ctrl.searchText)" md-item-text="item.name" md-min-length="0" placeholder="Type of Transport">
         <md-item-template>
           <span md-highlight-text="ctrl.searchText" md-highlight-flags="^i">{{item.name}}</span>
