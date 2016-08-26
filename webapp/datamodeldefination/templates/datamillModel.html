@@ -1,10 +1,10 @@
-<div style="min-height:10px" layout="column" layout-margin="2px" layout-xs="comlun">
+<div style="min-height:10px" layout="column" layout-margin="2px">
   <h4>{{$ctrl.modelName}}</h4>
-  <md-subheader class="md-no-sticky">{{$ctrl.formTitle}}</md-subheader>
+  <md-subheader class="md-no-sticky">{{$ctrl.formTitle}}:{{$ctrl.attrs.length}}</md-subheader>
   <!-- EACH attribute defination-->
   <form>
     <div ng-repeat="attr in $ctrl.attrs" style="border:1px solid #00ffff;" layout="row" layout-align="none center">
-      <div flex="90" layout="row" layout-xs="column" layout-margin="2px">
+      <div flex="90" layout-gt-sm="row" layout="column" layout-margin="2px">
         <!-- <div class="transcludeform"></div> -->
         <!-- <ng-transclude></ng-transclude> -->
         <!-- <ng-include src="$ctrl.fileSrcInclude"></ng-include> -->
