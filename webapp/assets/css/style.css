@@ -138,3 +138,14 @@ footer {
 pre {
     white-space: pre-wrap;
 }
+
+
+/*Styling for listdomain templates*/
+
+#domainListItems {
+    cursor: pointer;
+}
+
+#domainListItems md-list-item {
+    padding-top: 10px;
+}

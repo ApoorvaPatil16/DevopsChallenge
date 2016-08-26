@@ -32,7 +32,11 @@ angular.module('datamill')
 
 
     };
+    $scope.randomDomain = {
+      'type': "Random Generated Domain"
+    }
     $scope.createRandomDomain = function() {
+      console.log($scope.randomDomain);
       listDomainFactory.getDomainItemsByName($scope.randomDomain.name).then(function(res) {
         if (res.length != 0) {
           $scope.errorMessage = "Domain name " + $scope.randomDomain.name + " already exits."

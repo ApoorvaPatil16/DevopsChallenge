@@ -6,7 +6,7 @@ angular.module('datamill')
           url: '/listdomain',
           views: {
             "content@": {
-              templateUrl: "/domainlib/listdomain/templates/listdomain.html",
+              templateUrl: "/listdomain/templates/listdomain.html",
               controller: 'listdomainCtrl'
             }
           }

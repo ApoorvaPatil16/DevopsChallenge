@@ -124,159 +124,38 @@
   }],
   "domain": [{
     "id": 1,
+    "type": "primitive",
     "name": "String"
   }, {
     "id": 2,
+    "type": "primitive",
     "name": "Number"
   }, {
     "id": 3,
+    "type": "primitive",
     "name": "Boolean"
   }, {
     "id": 4,
+    "type": "primitive",
     "name": "Date"
   }, {
     "id": 5,
+    "type": "primitive",
     "name": "Time"
   }, {
     "id": 6,
+    "type": "primitive",
     "name": "Decimal"
   }, {
     "id": 7,
+    "type": "primitive",
     "name": "Hexadecimal"
   }, {
-    "name": "myDomain",
-    "baseType": "String",
-    "pattern": "[0-9]",
-    "id": 8
-  }, {
-    "name": "myDomain",
-    "baseType": "String",
-    "pattern": "[0-9]",
-    "id": 9
-  }, {
-    "name": "myDomain",
-    "baseType": "String",
-    "pattern": "[0-9]",
-    "id": 10
-  }, {
-    "name": "jbdbwkjd",
-    "pattern": "qw",
-    "baseType": "String",
-    "id": 11
-  }, {
-    "name": "swsqa",
-    "baseType": "String",
-    "pattern": "qwe",
-    "id": 12
-  }, {
-    "name": "aa",
-    "baseType": "String",
-    "pattern": "zss",
-    "id": 13
-  }, {
-    "name": "dffas",
+    "type": "Random Generated Domain",
+    "name": "abcd",
     "baseType": "Number",
-    "pattern": "asdfdsf",
-    "id": 14
-  }, {
-    "name": "dffas",
-    "baseType": "Number",
-    "pattern": "asdfdsf",
-    "id": 15
-  }, {
-    "baseType": "String",
-    "name": "jbdbwkjd",
-    "id": 16
-  }, {
-    "name": "diamond",
-    "baseType": "String",
-    "pattern": "[0-9]",
-    "id": 17
-  }, {
-    "name": "number",
-    "baseType": "String",
-    "pattern": 123,
-    "id": 18
-  }, {
-    "name": "number",
-    "baseType": "Number",
-    "pattern": 212,
-    "id": 19
-  }, {
-    "name": "number",
-    "baseType": "String",
     "pattern": 1234,
-    "id": 20
-  }, {
-    "name": "pes",
-    "baseType": "Number",
-    "pattern": "qwe",
-    "id": 21
-  }, {
-    "name": "pepp",
-    "baseType": "Number",
-    "pattern": "qwe",
-    "id": 22
-  }, {
-    "name": "poopoop",
-    "baseType": "Number",
-    "pattern": 123,
-    "id": 23
-  }, {
-    "name": "retegvdfgvdste",
-    "baseType": "Number",
-    "pattern": "sfd",
-    "id": 24
-  }, {
-    "name": "retegvdfgvdstesg",
-    "baseType": "Number",
-    "pattern": "sfd",
-    "id": 25
-  }, {
-    "name": "qleskdewlkewjf",
-    "baseType": "Number",
-    "pattern": "sfd",
-    "id": 26
-  }, {
-    "name": "aas",
-    "baseType": "Number",
-    "pattern": "ad",
-    "id": 27
-  }, {
-    "name": "kikkik",
-    "baseType": "Number",
-    "pattern": "dee",
-    "id": 28
-  }, {
-    "name": "kikkik",
-    "baseType": "Number",
-    "pattern": "dee",
-    "id": 29
-  }, {
-    "name": "qadsdsxs",
-    "baseType": "Number",
-    "pattern": "1wqws",
-    "id": 30
-  }, {
-    "name": "string",
-    "pattern": "qa",
-    "id": 31
-  }, {
-    "name": "string",
-    "pattern": 123,
-    "id": 32
-  }, {
-    "name": "number",
-    "pattern": 123,
-    "id": 33
-  }, {
-    "name": "number",
-    "pattern": "qa",
-    "id": 34
-  }, {
-    "name": "dhvdfs",
-    "pattern": "wd",
-    "id": 35
+    "id": 36
   }],
   "datamodel": [{
     "id": 1,
