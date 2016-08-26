@@ -1,11 +1,6 @@
 angular.module('datamill')
-  .controller('datamodelController', ['$scope', 'datamodelservice', '$state', '$mdDialog', '$log', function($scope, datamodelservice, $state, $mdDialog, $log) {
-    $scope.dataModel = {
-      "name": '',
-      "description": '',
-      "attributes": [],
-      "patterns": []
-    };
+  .controller('datamodelController', ['$scope', 'datamodelservice', '$state', '$stateParams', '$mdDialog', '$log', function($scope, datamodelservice, $state, $stateParams, $mdDialog, $log) {
+    $scope.dataModel = $stateParams.dataModel;
     /*Getting Data Model Input config*/
     datamodelservice.getDataModelConfig().then(function(res) {    $scope.datamodelconf = res;    });
     // Adding Attributes Variable for on Fly showing

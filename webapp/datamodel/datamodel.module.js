@@ -8,6 +8,14 @@ angular.module('datamill')
             templateUrl: "/datamodel/templates/datamodel.html",
             controller: 'datamodelController',
           }
+        },
+        params: {
+          dataModel: {
+            "name": '',
+            "description": '',
+            "attributes": [],
+            "patterns": []
+          }
         }
       });
     }
