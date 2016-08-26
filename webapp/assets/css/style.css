@@ -110,6 +110,14 @@ footer {
 
 /*Styling for randomdomain.css*/
 
+.errorForDomain {
+    color: red;
+}
+
+.domainLibraryContent {
+    margin-top: 10px;
+}
+
 .base-type-style {
     margin-bottom: 18px;
 }
