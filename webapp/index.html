@@ -1,20 +1,20 @@
 <html lang="en">
 
 <head>
-  <!-- @TODO: Add meta tags for SEO -->
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>datamill.io</title>
-  <!-- Vendor Styles -->
-  <link rel="stylesheet" type="text/css" href="/angular-material/angular-material.min.css">
-  <link rel="stylesheet" type="text/css" href="/mdPickers/dist/mdPickers.css">
-  <!-- App Style and Custom Style -->
-  <link href="/assets/css/style.css" rel="stylesheet">
+    <!-- @TODO: Add meta tags for SEO -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>datamill.io</title>
+    <!-- Vendor Styles -->
+    <link rel="stylesheet" type="text/css" href="/angular-material/angular-material.min.css">
+    <link rel="stylesheet" type="text/css" href="/mdPickers/dist/mdPickers.css">
+    <!-- App Style and Custom Style -->
+    <link href="/assets/css/style.css" rel="stylesheet">
 </head>
 
 <body ng-app="datamill" ng-controller="datamillCtrl" ng-cloak>
-  <div ui-view="appBar"></div>
-  <div ui-view="content"></div>
-  <div ui-view="footer"></div>
+    <div ui-view="appBar"></div>
+    <div ui-view="content" class="main-content"></div>
+    <div ui-view="footer"></div>
 </body>
 <script type="text/javascript" src="/angular/angular.min.js"></script>
 <script type="text/javascript" src="/angular-animate/angular-animate.min.js"></script>
@@ -36,10 +36,14 @@
 <script src="/datamodel/datamodel.module.js"></script>
 <script src="/datamodel/controllers/datamodelCtrl.js"></script>
 <script src="/datamodel/controllers/inlineListFormCtrl.js"></script>
-<script src="/datafeed/datafeed.module.js"></script>
-<script src="/datafeed/services/datafeedService.js"></script>s
-<script src="/datafeed/controllers/datafeedcontroller.js"></script>
+<script src="/datamodel/datafeed/datafeed.module.js"></script>
+<script src="/datamodel/datafeed/services/datafeedService.js"></script>
+<script src="/datamodel/datafeed/controllers/datafeedcontroller.js"></script>
 <script src="/dashboard/dashboard.module.js"></script>
 <script src="/dashboard/controllers/dashboardCtrl.js"></script>
-
+<script src="/datasource/datasource.module.js"></script>
+<script src="/datasource/services/postdataService.js"></script>
+<script src="/datasource/services/listdataService.js"></script>
+<script src="/datasource/controllers/datasourceCtrl.js"></script>
+<script src="/datasource/controllers/createdatasourceCtrl.js"></script>
 </html>

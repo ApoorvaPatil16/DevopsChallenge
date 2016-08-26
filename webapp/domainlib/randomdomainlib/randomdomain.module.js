@@ -3,6 +3,7 @@ angular.module('datamill')
     function($stateProvider, $urlRouterProvider) {
       $stateProvider
         .state('datamill.randomDomain', {
+          url: '/newrandomdomain',
           views: {
             "content@": {
               templateUrl: "/domainlib/randomdomainlib/templates/randomdomain.html",

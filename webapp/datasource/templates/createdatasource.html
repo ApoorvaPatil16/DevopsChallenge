@@ -1,0 +1,44 @@
+<div ng-controller="createdatasourceController as ctrl" layout="row"  layout-align="center center" layout-margin>
+	<div md-whiteframe="3" flex="50" flex-xs="100" layout="column">
+		<div>
+			<md-toolbar class="md-accent md-hue-3">
+				<div class="md-toolbar-tools">
+					<span>Data Sources</span>
+					<span flex></span>
+					<md-button ui-sref="datamill.datasource" class="md-raised md-primary"> List</md-button>
+				</div>
+			</md-toolbar>
+		</div>
+		<div>
+			<form name="userForm">
+				<div>
+					<md-input-container class="md-block" flex-gt-sm="">
+						<label>Source Name</label>
+						<input md-maxlength="30" required="" name="name" ng-model="ctrl.user.name">
+						<div ng-messages="userForm.name.$error" ng-if="!showHints">
+							<div ng-message="required">Name is required.</div>
+							<div ng-message="md-maxlength">The name has to be less than 30 characters long.</div>
+						</div>
+					</md-input-container>
+				</div>
+				<div>
+					<md-chips ng-model="ctrl.user.tags" md-max-chips="5" placeholder="Add tags">
+						<md-chip-template>
+							<strong>{{$chip}}</strong>
+							<em>(xyz...)</em>
+						</md-chip-template>
+					</md-chips>
+				<div>
+					<md-input-container class="md-block">
+						<label>Json data</label>
+						<textarea ng-model="ctrl.user.json" rows="5"></textarea>
+					</md-input-container>
+				</div>
+				<div layout="row" layout-align="end center">
+					<md-button ui-sref="datamill.datasource" class="md-raised md-warn">Cancel</md-button>
+					<md-button type="submit" class="md-raised md-primary" ng-click="ctrl.add()">Save</md-button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
