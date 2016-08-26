@@ -2,7 +2,7 @@
 .git
 
 # These are installed again in the container, hence no need
-node_modules
+#node_modules
  
 # no need of log files
 logs/*

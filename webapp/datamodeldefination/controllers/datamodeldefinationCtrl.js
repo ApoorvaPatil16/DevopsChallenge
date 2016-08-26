@@ -1,5 +1,5 @@
 angular.module('datamill')
-  .controller('datamodelController', ['$scope', 'datamodelservice', '$state', '$mdDialog', '$log', function($scope, datamodelservice, $state, $mdDialog, $log) {
+  .controller('datamodeldefinationController', ['$scope', 'datamodeldefinationservice', '$state', '$mdDialog', '$log', function($scope, datamodeldefinationservice, $state, $mdDialog, $log) {
     $scope.dataModel = {
       "name": '',
       "description": '',
@@ -7,7 +7,7 @@ angular.module('datamill')
       "patterns": []
     };
     /*Getting Data Model Input config*/
-    datamodelservice.getDataModelConfig().then(function(res) {    $scope.datamodelconf = res;    });
+    datamodeldefinationservice.getDataModelConfig().then(function(res) {    $scope.datamodelconf = res;    });
     // Adding Attributes Variable for on Fly showing
     $scope.addAttribute = function(attr) {
       console.log("me inside save main have data:" + attr);
@@ -20,8 +20,8 @@ angular.module('datamill')
       $log.info(state);
       $state.go(state).then(function() {
         $mdDialog.show({
-          controllerAs: 'ctrl',
-          controller: datafeedCtrl,
+          //controllerAs: 'ctrl',
+          //controller: datafeedCtrl,
           contentElement: '#deliveryOption',
           parent: angular.element(document.body),
           //targetEvent: ev,

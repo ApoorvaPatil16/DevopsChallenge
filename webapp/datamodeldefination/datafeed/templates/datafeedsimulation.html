@@ -66,29 +66,42 @@
           </div>
         </md-radio-group>
       </div>
-      <md-divider></md-divider>
-  <!-- <div layout="row" layout-margin>
-  <div flex="30">
-    <h4>Transport Type</h4></div>
-  <div flex="60" layout-margin>
-    <md-autocomplete ng-model="datafeed.transportType" ng-disabled="ctrl.isDisabled" md-no-cache="ctrl.noCache" md-selected-item="ctrl.selectedItem" md-search-text-change="ctrl.searchTextChange(ctrl.searchText)" md-search-text="ctrl.searchText" md-selected-item-change="ctrl.selectedItemChange(item)" md-items="item in ctrl.querySearch(ctrl.searchText)" md-item-text="item.name" md-min-length="0" placeholder="Type of Transport">
-      <md-item-template>
-        <span md-highlight-text="ctrl.searchText" md-highlight-flags="^i">{{item.name}}</span>
-      </md-item-template>
-      <md-not-found>No states matching "{{ctrl.searchText}}" were found.
-        <a ng-click="ctrl.newState(ctrl.searchText)">Create a new one!</a>
-      </md-not-found>
-    </md-autocomplete>
+
+    </md-radio-group>
   </div>
-</div>
--->
-<md-divider></md-divider>
-<div layout="row" layout-margin>
-  <div flex="30">
-    <h4>{{pattern}}</h4>
+  <md-divider></md-divider>
+  <div layout="row" layout-margin>
+    <div flex="30">
+      <h4>Transport Type</h4></div>
+    <div flex="60" layout-margin>
+      <md-autocomplete ng-model="datafeed.transportType" ng-disabled="ctrl.isDisabled" md-no-cache="ctrl.noCache" md-selected-item="ctrl.selectedItem" md-search-text-change="ctrl.searchTextChange(ctrl.searchText)" md-search-text="ctrl.searchText" md-selected-item-change="ctrl.selectedItemChange(item)" md-items="item in ctrl.querySearch(ctrl.searchText)" md-item-text="item.name" md-min-length="0" placeholder="Type of Transport">
+        <md-item-template>
+          <span md-highlight-text="ctrl.searchText" md-highlight-flags="^i">{{item.name}}</span>
+        </md-item-template>
+        <md-not-found>No states matching "{{ctrl.searchText}}" were found.
+          <!-- <a ng-click="ctrl.newState(ctrl.searchText)">Create a new one!</a> -->
+        </md-not-found>
+      </md-autocomplete>
+    </div>
   </div>
-  <div flex="70" layout="column">
-    <div ng-repeat="d in dataModel.patterns">
+  <md-divider></md-divider>
+  <div layout="row" layout-margin>
+    <div flex="30">
+      <h4>{{pattern}}</h4>
+    </div>
+    <div flex="70" layout="column">
+      <div ng-repeat="d in dataModel.patterns">
+        <div flex="" layout="row">
+          <h5 flex="10">{{d.name}}</h5>
+          <md-slider-container flex="80">
+            <md-slider ng-model="color.blue" min="0" max="100" aria-label="blue" id="blue-slider" class="md-primary" flex-offset="5">
+            </md-slider>
+            <md-input-container>
+              <input flex="" type="number" ng-model="color.blue" aria-label="red" aria-controls="red-slider">
+            </md-input-container>
+          </md-slider-container>
+        </div>
+      </div>
       <div flex="" layout="row">
         <h5 flex="10">{{d.name}}</h5>
         <md-slider-container flex="80">

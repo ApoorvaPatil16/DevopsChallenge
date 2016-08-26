@@ -29,13 +29,13 @@
         {
           "type": "Download",
           "value": "download",
-          "state": "datamill.datamodel.download",
+          "state": "datamill.datamodeldefination.download",
           "linkname": "Download Option"
         },
         {
           "type": "Feed",
           "value": "feed",
-          "state": "datamill.datamodel.datafeed",
+          "state": "datamill.datamodeldefination.datafeed",
           "linkname": "Feed Option"
         }
       ]
@@ -52,7 +52,7 @@
       "sideNavBottomItems": [
         {
           "id": 1,
-          "link": "About Us",
+          "link": "About",
           "state": "#"
         }
       ],
@@ -66,13 +66,13 @@
         {
           "id": 2,
           "icon": "launch",
-          "state": "datamill.datamodel",
+          "state": "datamill.datamodeldefination",
           "link": "New Data Model"
         },
         {
           "id": 3,
           "icon": "domain",
-          "state": "datamill.domain",
+          "state": "datamill.listdomain",
           "link": "Data Domain",
           "children": [
             {
@@ -88,7 +88,7 @@
         {
           "id": 4,
           "icon": "backup",
-          "state": "datamill.datasource",
+          "state": "datamill.datamodel",
           "link": "Data Sources"
         }
       ],
@@ -157,79 +157,45 @@
   "domain": [
     {
       "id": 1,
+      "type": "primitive",
       "name": "String"
     },
     {
       "id": 2,
+      "type": "primitive",
       "name": "Number"
     },
     {
       "id": 3,
+      "type": "primitive",
       "name": "Boolean"
     },
     {
       "id": 4,
+      "type": "primitive",
       "name": "Date"
     },
     {
       "id": 5,
+      "type": "primitive",
       "name": "Time"
     },
     {
       "id": 6,
+      "type": "primitive",
       "name": "Decimal"
     },
     {
       "id": 7,
+      "type": "primitive",
       "name": "Hexadecimal"
     },
     {
-      "name": "myDomain",
-      "baseType": "String",
-      "pattern": "[0-9]",
-      "id": 8
-    },
-    {
-      "name": "myDomain",
-      "baseType": "String",
-      "pattern": "[0-9]",
-      "id": 9
-    },
-    {
-      "name": "myDomain",
-      "baseType": "String",
-      "pattern": "[0-9]",
-      "id": 10
-    },
-    {
-      "name": "jbdbwkjd",
-      "pattern": "qw",
-      "baseType": "String",
-      "id": 11
-    },
-    {
-      "name": "swsqa",
-      "baseType": "String",
-      "pattern": "qwe",
-      "id": 12
-    },
-    {
-      "name": "aa",
-      "baseType": "String",
-      "pattern": "zss",
-      "id": 13
-    },
-    {
-      "name": "dffas",
+      "type": "Random Generated Domain",
+      "name": "abcd",
       "baseType": "Number",
-      "pattern": "asdfdsf",
-      "id": 14
-    },
-    {
-      "name": "dffas",
-      "baseType": "Number",
-      "pattern": "asdfdsf",
-      "id": 15
+      "pattern": 1234,
+      "id": 36
     }
   ],
   "datamodel": [
@@ -243,11 +209,9 @@
     },
     {
       "id": 2,
-      "name": "City",
-      "patterns": [
-        "C",
-        "B"
-      ]
+      "icon": "launch",
+      "state": "datamill.datamodeldefination",
+      "link": "New Data Model"
     },
     {
       "id": 3,
@@ -472,6 +436,10 @@
     {
       "tags": [],
       "id": 6
+    },
+    {
+      "tags": [],
+      "id": 7
     }
   ]
 }

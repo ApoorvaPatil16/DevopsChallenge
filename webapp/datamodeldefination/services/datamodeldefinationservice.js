@@ -1,5 +1,5 @@
 angular.module('datamill')
-  .factory('datamodelservice', function($http) {
+  .factory('datamodeldefinationservice', function($http) {
     return {
       getVisibility: function() {
         return $http.get("http://localhost:7070/visibility").then(function(res) {

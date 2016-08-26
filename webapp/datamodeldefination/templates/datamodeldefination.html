@@ -30,16 +30,16 @@
               </div>
             </div>
             <md-divider></md-divider>
-            <inline-list-form form-title="Attributes" file-src-include="/datamodel/templates/attribute.html" attrs="dataModel.attributes" on-update="addAttribute(attr)">
+            <datamill-model model-name="dataModel.name" form-title="Attributes" file-src-include="/datamodel/templates/attribute.html" attrs="dataModel.attributes" on-update="addAttribute(attr)">
               <md-input-container>
                 <label>Title</label>
                 <input ng-model="attribute.title" ng-disabled="$index!=iseditable">
               </md-input-container>
-            </inline-list-form>
+            </datamill-model>
             <md-divider></md-divider>
             <!-- <inline-list-form form-title="Pattern Classes" file-src-include="/datamodel/templates/attribute.html" attrs="dataModel.patterns" on-update="addAttribute(attr)" class="md-whiteframe-1dp">
   <md-input-container>
-    <label>Title</label>
+    <label>Title</label>;
     <input ng-model="attribute.title" ng-disabled="$index!=iseditable">
   </md-input-container>
 </inline-list-form>
@@ -52,7 +52,7 @@
                   <div ng-repeat="d in datamodelconf.inputs.deliverytype" flex layout="column" style="min-height:auto" layout-margin="3px">
                     <md-radio-button flex ng-value="d.value">
                       {{ d.type }}</md-radio-button>
-                    <md-button ng-click="showDeliveryOption($event,d.state)" ng-disabled="dataModel.delivery!=d.value">{{d.linkname}}</md-button>
+                    <md-button class="md-primary" ng-click="showDeliveryOption($event,d.state)" ng-disabled="dataModel.delivery!=d.value">{{d.linkname}}</md-button>
                   </div>
                 </md-radio-group>
                 <div style="visibility: hidden">
@@ -81,6 +81,6 @@
   </div>
   <div flex style="min-height:auto;padding:4px" class="md-whiteframe-3dp ">
     <h1>Data Modal defination in json format</h1>
-    <pre><h4> {{dataModel | json}}</h4></pre>
+    <pre style="word-wrap:break-word;"><h4> {{dataModel | json}}</h4></pre>
   </div>
 </div>
