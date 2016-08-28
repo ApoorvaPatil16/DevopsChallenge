@@ -241,6 +241,12 @@
       "baseType": "String",
       "name": "jbdbwkjd",
       "id": 16
+    },
+    {
+      "type": "Random Generated Domain",
+      "name": "seresf",
+      "pattern": "asdsa",
+      "id": 17
     }
   ],
   "datamodel": [
@@ -520,9 +526,12 @@
   "datasource": [
     {
       "id": 1,
-      "name": "hhkhknew1new2new3new4567897",
-      "tags": [],
-      "json": "mlmlmlm"
+      "name": "city",
+      "tags": [
+        "abc",
+        "def"
+      ],
+      "json": {}
     },
     {
       "id": 2,
@@ -552,18 +561,19 @@
       "json": {}
     },
     {
-      "tags": [],
-      "name": "jhjgjggj",
+      "tags": [
+        "hhk"
+      ],
+      "name": "ikh",
+      "json": "jhkhhk",
       "id": 5
     },
     {
       "tags": [],
-      "name": "jgjggj",
       "id": 6
     },
     {
       "tags": [],
-      "name": "jgjggj",
       "id": 7
     },
     {
@@ -596,6 +606,7 @@
       "tags": [],
       "name": "new",
       "id": 13
+
     }
   ]
 }
