@@ -1,0 +1,32 @@
+version: '2'
+services:
+  webapp:
+    image: datamill/datamill-webapp:v1.1.0
+    build:
+      context: ./
+      dockerfile: Dockerfile-Datamill-Webapp
+   # container_name: tattva-webapp
+    network_mode: host
+    restart: always
+    expose:
+      - 8080
+    ports:
+      - "8080:8080"
+    volumes:
+      - .:/usr/src/app
+    depends_on:
+      - jsonserver
+  jsonserver:
+    image: datamill/datamill-jsonserver:v1.1.0
+    build: 
+      context: ./
+      dockerfile: Dockerfile-Datamill-Jsonserver
+    # container_name: tattva-watchloop
+    network_mode: host
+    restart: always
+    expose:
+      - 7070
+    ports:
+      - "7070:7070"
+    volumes:
+      - .:/usr/src/app

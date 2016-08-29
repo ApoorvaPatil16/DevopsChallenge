@@ -5,7 +5,7 @@ angular.module('datamill')
         url: '/datafeed',
         views: {
           "deliveryview": {
-            templateUrl: "/datamodeldefination/datafeed/templates/datafeedsimulation.html",
+            templateUrl: "/datamodeldefination/datafeed/templates/datafeedsimulation.html"
           }
         }
       });

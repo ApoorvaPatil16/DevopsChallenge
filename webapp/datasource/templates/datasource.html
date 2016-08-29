@@ -10,11 +10,12 @@
 	</md-toolbar>
 </div>
 <div  layout="row" layout-xs="row" layout-align="center center">
-	<div md-whiteframe="3" style="max-height:none" flex="" flex-xs="100" layout="column">
+	<div flex="80" flex-xs="100" layout="column">
 		<div>
 			<md-content>
 				<md-list>
 					<md-list-item ng-repeat="source in nameofsource" layout="row" >
+					<ng-avatar string="{{source.name}}" round-shape=true auto-color=true></ng-avatar>
 						<h4 flex="" flex-offset="5">{{source.name}}</h4>
 						<md-button class="md-fab md-mini" aria-label="edit">
 							<md-icon ui-sref="datamill.createdatasource({user:source})">edit</md-icon>
