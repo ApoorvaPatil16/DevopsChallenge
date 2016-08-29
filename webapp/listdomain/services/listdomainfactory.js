@@ -7,7 +7,7 @@ angular.module('datamill')
         })
       },
       getDomainItemsByName: function(name) {
-        return $http.get("http://localhost:7070/domain/?name_like=" + name).then(function(res) {
+        return $http.get("http://localhost:7070/domain/?q=" + name).then(function(res) {
           return res.data;
         })
       }

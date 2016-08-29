@@ -1,19 +1,14 @@
 angular.module('datamill')
-  .controller('randomDomainCtrl', ['$scope', '$mdDialog', '$log', 'authFactory', 'listDomainFactory', function($scope, $mdDialog, $log, authFactory, listDomainFactory) {
+  .controller('randomDomainCtrl', ['$stateParams', '$scope', '$mdDialog', '$log', 'listDomainFactory', 'randomDomainFactory', function($stateParams, $scope, $mdDialog, $log, listDomainFactory, randomDomainFactory) {
     $scope.dataRealRandom = {
       'type': "",
     }
-
+    $scope.randomDomain = {};
     $scope.baseType = "";
-    $scope.inputLabelsForDomain = {
-      domainName: "Domain Name",
-      domainType: "Base Type",
-      domainRange: "Range",
-      pattern: 'Format/Pattern'
-    };
-    $scope.types = [
-      'String', 'Number', 'Boolean', 'Date', 'Time', 'Decimal', 'Hexadecimal', 'TimeStamp'
-    ];
+    randomDomainFactory.getRandomDomainItems().then(function(res) {
+      $scope.inputLabelsForDomain = res[0].inputLabelsForDomain;
+      $scope.types = res[0].basetypes;
+    });
     $scope.status = '  ';
     $scope.showAdvanced = function(ev) {
       $mdDialog.show({
@@ -32,16 +27,15 @@ angular.module('datamill')
 
 
     };
-    $scope.randomDomain = {
-      'type': "Random Generated Domain"
-    }
+    $scope.randomDomain = $stateParams.randomDomain;
     $scope.createRandomDomain = function() {
       console.log($scope.randomDomain);
+      $scope.randomDomain.type = "Random Generated Domain";
       listDomainFactory.getDomainItemsByName($scope.randomDomain.name).then(function(res) {
         if (res.length != 0) {
           $scope.errorMessage = "Domain name " + $scope.randomDomain.name + " already exits."
         } else {
-          authFactory.postNewDomain($scope.randomDomain).then(function(id) {
+          randomDomainFactory.postNewDomain($scope.randomDomain).then(function(id) {
             $log.info("success");
             var alert = $mdDialog.alert({
               title: 'Success',

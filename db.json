@@ -118,40 +118,48 @@
       ]
     }
   ],
-  "inputLabelsForDomain": {
-    "domainName": "Domain Name",
-    "domainType": "Base Type",
-    "domainRange": "Range",
-    "pattern": "Format/Pattern"
-  },
-  "basetypes": [
+  "randomDomainLibData": [
     {
-      "id": 1,
-      "name": "String"
-    },
-    {
-      "id": 2,
-      "name": "Number"
-    },
-    {
-      "id": 3,
-      "name": "Boolean"
-    },
-    {
-      "id": 4,
-      "name": "Date"
-    },
-    {
-      "id": 5,
-      "name": "Time"
-    },
-    {
-      "id": 6,
-      "name": "Decimal"
-    },
-    {
-      "id": 7,
-      "name": "Hexadecimal"
+      "inputLabelsForDomain": {
+        "domainName": "Domain Name",
+        "domainType": "Base Type",
+        "domainRange": "Range",
+        "pattern": "Format/Pattern"
+      },
+      "basetypes": [
+        {
+          "id": 1,
+          "name": "String"
+        },
+        {
+          "id": 2,
+          "name": "Number"
+        },
+        {
+          "id": 3,
+          "name": "Boolean"
+        },
+        {
+          "id": 4,
+          "name": "Date"
+        },
+        {
+          "id": 5,
+          "name": "Time"
+        },
+        {
+          "id": 6,
+          "name": "Decimal"
+        },
+        {
+          "id": 7,
+          "name": "Hexadecimal"
+        },
+        {
+          "id": 7,
+          "name": "TimeStamp"
+        }
+      ]
     }
   ],
   "domain": [
@@ -247,6 +255,44 @@
       "name": "seresf",
       "pattern": "asdsa",
       "id": 17
+    },
+    {
+      "type": "Random Generated Domain",
+      "name": "dsgd",
+      "baseType": "String",
+      "pattern": "vsdvds",
+      "id": 18
+    },
+    {
+      "id": 19,
+      "name": "vishal",
+      "baseType": "Number",
+      "pattern": "[0-9]"
+    },
+    {
+      "id": 20,
+      "name": "kk",
+      "baseType": "Number",
+      "pattern": "[0-9]"
+    },
+    {
+      "name": "prashant",
+      "baseType": "Boolean",
+      "pattern": "[0-9]",
+      "id": 21
+    },
+    {
+      "name": "ketan",
+      "baseType": "Boolean",
+      "pattern": 1234,
+      "id": 22
+    },
+    {
+      "name": "ketanrawat",
+      "baseType": "Boolean",
+      "pattern": 1234,
+      "type": "Random Generated Domain",
+      "id": 23
     }
   ],
   "datamodel": [
@@ -526,7 +572,7 @@
   "datasource": [
     {
       "id": 1,
-      "name": "city",
+      "name": "cit",
       "tags": [
         "abc",
         "def"
@@ -575,6 +621,19 @@
     {
       "tags": [],
       "id": 7
+    },
+    {
+      "tags": [],
+      "id": 8
+    },
+    {
+      "tags": [],
+      "json": "",
+      "id": 9
+    },
+    {
+      "tags": [],
+      "id": 10
     }
   ]
 }
