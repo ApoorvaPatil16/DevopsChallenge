@@ -16,7 +16,7 @@ angular.module('datamill')
         views: {
           "content@": {
             templateUrl: "/datasource/templates/createdatasource.html",
-            controller: 'createdatasourceController'
+            controller: 'createdatasourceController as ctrl'
           }
         },
         params:{user:{tags:[]}}
