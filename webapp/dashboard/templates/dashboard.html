@@ -1,60 +1,58 @@
-<div class="md-padding" ng-cloak>
-  <div layout="column" layout-margin="2px">
-    <div layout="row" flex="8">
-      <div flex layout="row" layout-align="start center">
-        <md-button class="md-raised md-ink-ripple" ui-sref="datamill.datamodeldefination" aria-label="add">
-          <span>Create New</span>
-          <md-icon class="material-icons">create</md-icon>
-        </md-button>
-      </div>
-      <div flex layout="row" layout-align="end center">
-        <div ng-show="simpleSearch">
-          <md-input-container>
-            <label>Search</label>
-            <input ng-model="search">
-          </md-input-container>
-          <md-button ng-click="simpleSearch=false" aria-label="search" class="md-icon-button">
-            <md-icon class="material-icons">close</md-icon>
-          </md-button>
-          <md-button ng-click="getSearchResults()" aria-label="search" class="md-icon-button">
-            <md-icon class="material-icons">search</md-icon>
-          </md-button>
-        </div>
-        <div layout-align="end center">
-          <md-button ng-hide="simpleSearch" ng-click="simpleSearch=true" aria-label="search" class="md-icon-button">
-            <md-icon class="material-icons">search</md-icon>
-          </md-button>
-        </div>
-      </div>
+<div ng-cloak>
+  <div style="background-color:lightgrey" ng-show="!showSearch">
+    <div class="md-toolbar-tools">
+      <h3>Dashboard</h3>
+      <span flex></span>
+      <md-button class="md-fab md-mini" aria-label="Search" ng-click="showSearch = !showSearch">
+        <md-icon>search</md-icon>
+      </md-button>
+      <md-button class="md-fab md-mini" aria-label="Open Settings" ng-click="showListBottomSheet($event)">
+        <md-icon>more_vert</md-icon>
+      </md-button>
     </div>
   </div>
-</div>
-</div>
-</div>
-<!-- Datamodel Cards-->
-<div class='md-padding' layout-gt-sm="row" layout-sm="column" layout-wrap>
-  <div ng-repeat="card in datamodel" flex-gt-sm="33" flex-sm="100">
-    <md-card>
-      <md-card-title md-colors="::{backgroundColor: 'default-primary-300'}">
-        <ng-avatar string="{{card.name}}" auto-color="true" text-color="white" round-shape="true"></ng-avatar>
-        <md-card-title-text md-padding="left">
-          <span class="md-headline">{{card.name}}</span>
-        </md-card-title-text>
-      </md-card-title>
-      <md-card-content class="wrap-content">
-        <p>{{card.description}}</p>
-        <pre>{{ card | json }}</pre>
-        <span>File Export type : {{card.delivery}}</span>
-      </md-card-content>
-      <md-card-actions layout="row" layout-align="end center">
-        <md-button aria-label="edit" class="md-icon-button" ui-sref="datamill.datamodeldefination({dataModel:card})">
-          <md-icon class="material-icons">mode_edit</md-icon>
-        </md-button>
-        <md-button aria-label="fav" class="md-icon-button">
-          <md-icon class="material-icons">favorite</md-icon>
-        </md-button>
-      </md-card-actions>
-    </md-card>
+  <div style="background-color:lightgrey" ng-show="showSearch">
+    <div class="md-toolbar-tools">
+      <md-button class="md-fab md-mini" ng-click="showSearch = !showSearch" aria-label="Back">
+        <md-icon>close</md-icon>
+      </md-button>
+      <!-- <md-input-container md-theme="input" flex>
+        <label>&nbsp;</label> -->
+      <input class="searchInput" ng-model="search" placeholder="enter search">
+      <span flex></span>
+      <!-- </md-input-container> -->
+      <md-button class="md-fab md-mini" aria-label="Search" ng-click="getSearchResults()">
+        <md-icon>search</md-icon>
+      </md-button>
+      <md-button class="md-fab md-mini" aria-label="Open Settings" ng-click="showListBottomSheet($event)">
+        <md-icon>more_vert</md-icon>
+      </md-button>
+    </div>
   </div>
-</div>
+  <!-- Datamodel Cards-->
+  <div class='md-padding' layout-gt-sm="row" layout-sm="column" layout-wrap>
+    <div ng-repeat="card in datamodel" flex-gt-sm="33" flex-sm="100">
+      <md-card>
+        <md-card-title style="padding:7px;" md-colors="::{backgroundColor: 'default-primary-300'} ">
+          <ng-avatar string="{{card.name}} " auto-color="true " text-color="white " round-shape="true "></ng-avatar>
+          <md-card-title-text style="padding:5px;">
+            <span class="md-headline ">{{card.name}}</span>
+          </md-card-title-text>
+        </md-card-title>
+        <md-card-content class="wrap-content ">
+          <p>{{card.description}}</p>
+          <pre>{{ card | json }}</pre>
+          <span>File Export type : {{card.delivery}}</span>
+        </md-card-content>
+        <md-card-actions layout="row " layout-align="end center ">
+          <md-button aria-label="edit " class="md-icon-button " ui-sref="datamill.datamodeldefination({dataModel:card}) ">
+            <md-icon class="material-icons ">mode_edit</md-icon>
+          </md-button>
+          <md-button aria-label="fav " class="md-icon-button ">
+            <md-icon class="material-icons ">star</md-icon>
+          </md-button>
+        </md-card-actions>
+      </md-card>
+    </div>
+  </div>
 </div>

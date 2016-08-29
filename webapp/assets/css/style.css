@@ -159,3 +159,13 @@ pre {
 .searchInput:focus {
     outline: none;
 }
+
+.searchInput {
+  border: none;
+  background: none;
+  width: 80%;
+}
+
+.searchInput:focus {
+  outline: none;
+}

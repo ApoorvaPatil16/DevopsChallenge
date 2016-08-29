@@ -1,26 +1,27 @@
 <div style="min-height:10px" layout="column" layout-margin="2px">
-  <h4>{{$ctrl.modelName}}</h4>
+  <!-- <h4>{{$ctrl.modelName}}</h4> -->
   <md-subheader class="md-no-sticky">{{$ctrl.formTitle}}:{{$ctrl.attrs.length}}</md-subheader>
   <!-- EACH attribute defination-->
   <form>
-    <div ng-repeat="attr in $ctrl.attrs" style="border:1px solid #00ffff;" layout="row" layout-align="none center">
+    <!-- style="border:1px solid #00ffff;"  -->
+    <div ng-repeat="attr in $ctrl.attrs" layout="row" layout-align="none center">
       <div flex="90" layout-gt-sm="row" layout="column" layout-margin="2px">
         <!-- <div class="transcludeform"></div> -->
         <!-- <ng-transclude></ng-transclude> -->
         <!-- <ng-include src="$ctrl.fileSrcInclude"></ng-include> -->
         <!-- {{attribute.title}}-->
-        <md-input-container>
+        <md-input-container flex-gt-sm>
           <label>Name</label>
           <input ng-model="attr.name" required>
         </md-input-container>
-        <md-input-container>
+        <md-input-container flex-gt-sm>
           <label>Attribute Type</label>
           <md-select ng-model="attr.type" required>
             <md-option ng-repeat="state in $ctrl.attrtype" value="{{state.name}}">
               {{state.name}}
             </md-option>
           </md-select>
-        </md-input-container>
+        </md-input-container flex-gt-sm>
         <md-input-container ng-if="attr.type==='domain'">
           <label>Attribute Domain</label>
           <md-select ng-model="attr.doamin">
@@ -28,13 +29,16 @@
               {{state.name}}
             </md-option>
           </md-select>
-        </md-input-container>
+        </md-input-container flex-gt-sm>
         <md-input-container ng-if="attr.type==='schema'">
           <label>Attribute schema</label>
           <input ng-model="attr.schema">
         </md-input-container>
-        <md-input-container>
-          <md-checkbox layout="row" layout-align="center center" ng-model="attr.isUniqueness">Uniqueness</md-checkbox>
+        <md-input-container flex-gt-sm>
+          <md-switch ng-model="attr.isUnique" aria-label="Switch 1">
+            Unique
+          </md-switch>
+          <!--  <md-checkbox layout="row" layout-align="center center" ng-model="attr.isUniqueness">Uniqueness</md-checkbox> -->
         </md-input-container>
       </div>
       <!-- REMOVE BUTTON FOR EACH ELEMENT -->
