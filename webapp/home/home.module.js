@@ -2,10 +2,16 @@ angular.module('datamill')
   .config(function($mdThemingProvider) {
     $mdThemingProvider.theme('default')
       .primaryPalette('grey', {
-        'default': '900'
+        'default': '900',
+        'hue-1': '800',
+        'hue-2': '700',
+        'hue-3': '600'
       })
       .accentPalette('grey', {
-        'default': '600'
+        'default': '600',
+        'hue-1': '500',
+        'hue-2': '400',
+        'hue-3': '300'
       })
   })
   .config(function($mdThemingProvider) {
