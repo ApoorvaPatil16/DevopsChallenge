@@ -9,6 +9,15 @@ angular.module('datamill')
               templateUrl: "/domainlib/randomdomainlib/templates/randomdomain.html",
               controller: 'randomDomainCtrl'
             }
+          },
+          params: {
+            randomDomain: {
+              "id": '',
+              "name": '',
+              "baseType": '',
+              "pattern": '',
+              "type": ''
+            }
           }
         });
     }

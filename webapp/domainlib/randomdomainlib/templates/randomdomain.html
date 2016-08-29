@@ -1,5 +1,6 @@
 <div layout="row" class="domainLibraryContent" layout-align="center center">
-    <div flex="70" flex-xs="90" class="md-whiteframe-1dp">
+    <div flex="70" flex-xs="90">
+        <!--  class="md-whiteframe-1dp" -->
         <div>
             <md-toolbar class="md-hue-3">
                 <div class="md-toolbar-tools">
@@ -17,11 +18,12 @@
                 <md-input-container class="md-block base-type-style">
                     <label>{{inputLabelsForDomain.domainType}}</label>
                     <md-select ng-model="randomDomain.baseType" required>
-                        <md-option ng-repeat="type in types" value="{{type}}">
-                            {{type}}
+                        <md-option ng-repeat="type in types" value="{{type.name}}">
+                            {{type.name}}
                         </md-option>
                     </md-select>
                 </md-input-container>
+                {{randomDomain.baseType}}
                 <div ng-if="randomDomain.baseType">
                     <div ng-include="'/domainlib/randomdomainlib/templates/'+randomDomain.baseType+'.html'">
                     </div>
@@ -31,7 +33,7 @@
                     <input name="domainPattern" ng-if="status" value="{{status}}" ng-model="randomDomain.pattern" required> Test your pattern! <a href="" class="md-primary md-raised" ng-click="showAdvanced($event)">click here</a>
                 </md-input-container>
                 <div layout="row" layout-align="end center">
-                    <md-button class="md-raised md-warn">Cancel</md-button>
+                    <md-button ui-sref="datamill.dashboard" class="md-raised md-warn">Cancel</md-button>
                     <md-button class="md-raised md-primary" type="submit">Create</md-button>
                 </div>
             </form>
