@@ -1,0 +1,7 @@
+FROM mhart/alpine-node:6.3.0
+RUN npm install -g json-server
+RUN mkdir -p /usr/src/app
+ADD . /usr/src/app
+WORKDIR /usr/src/app
+#ENTRYPOINT ["/usr/src/app/run.sh"]
+CMD ["json-server","db.json","--port","7070"]

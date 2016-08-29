@@ -1,21 +1,22 @@
 <html lang="en">
 
 <head>
-    <!-- @TODO: Add meta tags for SEO -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>datamill.io</title>
-    <!-- Vendor Styles -->
-    <link rel="shortcut icon" href="/assets/images/Capture.PNG" />
-    <link rel="stylesheet" type="text/css" href="/angular-material/angular-material.min.css">
-    <link rel="stylesheet" type="text/css" href="/mdPickers/dist/mdPickers.css">
-    <!-- App Style and Custom Style -->
-    <link href="/assets/css/style.css" rel="stylesheet">
+  <!-- @TODO: Add meta tags for SEO -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>datamill.io</title>
+  <!-- Vendor Styles -->
+  <link rel="shortcut icon" href="/assets/images/Capture.PNG" />
+  <link rel="stylesheet" type="text/css" href="/angular-material/angular-material.min.css">
+  <link rel="stylesheet" type="text/css" href="/mdPickers/dist/mdPickers.css">
+  <!-- <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/styles/default.min.css"> -->
+  <!-- App Style and Custom Style -->
+  <link href="/assets/css/style.css" rel="stylesheet">
 </head>
 
 <body ng-app="datamill" ng-controller="datamillCtrl" ng-cloak>
-    <div ui-view="appBar"></div>
-    <div ui-view="content" class="main-content"></div>
-    <div ui-view="footer"></div>
+  <div ui-view="appBar"></div>
+  <div ui-view="content" class="main-content"></div>
+  <div ui-view="footer"></div>
 </body>
 <script type="text/javascript" src="/angular/angular.min.js"></script>
 <script type="text/javascript" src="/angular-animate/angular-animate.min.js"></script>
@@ -26,6 +27,7 @@
 <script type="text/javascript" src="/moment/moment.js"></script>
 <script type="text/javascript" src="/mdPickers/dist/mdPickers.js"></script>
 <script type="text/javascript" src="/angular-avatar/dist/angular-avatar.min.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js"></script> -->
 <!-- In including the JS files of various module, maintain Dependency Order -->
 <script src="/datamill.app.js"></script>
 <script src="/authservice/authFactory.js"></script>
