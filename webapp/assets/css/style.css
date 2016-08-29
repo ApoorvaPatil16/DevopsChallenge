@@ -149,3 +149,13 @@ pre {
 #domainListItems md-list-item {
   padding-top: 10px;
 }
+
+.searchInput {
+  border: none;
+  background: none;
+  width: 80%;
+}
+
+.searchInput:focus {
+  outline: none;
+}
