@@ -15,6 +15,8 @@ angular.module('datamill')
   $scope.showDeliveryOption = function(ev, state) {
     $log.info(state);
     $state.go(state).then(function() {
+      $log.info($state.current.name);
+      // creating Dialog after state transition complete
       $mdDialog.show({
         contentElement: '#deliveryOption',
         parent: angular.element(document.body),
@@ -26,7 +28,7 @@ angular.module('datamill')
         $state.go('^');
       }, function() { $state.go('^'); });
     });
-    $log.info($state.current.name);
+    //$log.info($state.current.name);
   };
   // for posting the data to the server
   $scope.createDataModel = function() {

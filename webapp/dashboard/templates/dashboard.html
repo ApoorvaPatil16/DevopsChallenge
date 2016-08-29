@@ -32,12 +32,12 @@
 </div>
 </div>
 <!-- Datamodel Cards-->
-<div class='md-padding' layout="row" layout-sm="column" layout-wrap="column">
-  <div ng-repeat="card in datamodel" flex=33>
+<div class='md-padding' layout-gt-sm="row" layout-sm="column" layout-wrap>
+  <div ng-repeat="card in datamodel" flex-gt-sm="33" flex-sm="100">
     <md-card>
-      <md-card-title md-colors="::{backgroundColor: 'default-primary-500'}">
-        <ng-avatar string="{{card.name}}" bg-color="black" text-color="white" round-shape="true"></ng-avatar>
-        <md-card-title-text>
+      <md-card-title md-colors="::{backgroundColor: 'default-primary-300'}">
+        <ng-avatar string="{{card.name}}" auto-color="true" text-color="white" round-shape="true"></ng-avatar>
+        <md-card-title-text md-padding="left">
           <span class="md-headline">{{card.name}}</span>
         </md-card-title-text>
       </md-card-title>

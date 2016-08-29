@@ -118,40 +118,48 @@
       ]
     }
   ],
-  "inputLabelsForDomain": {
-    "domainName": "Domain Name",
-    "domainType": "Base Type",
-    "domainRange": "Range",
-    "pattern": "Format/Pattern"
-  },
-  "basetypes": [
+  "randomDomainLibData": [
     {
-      "id": 1,
-      "name": "String"
-    },
-    {
-      "id": 2,
-      "name": "Number"
-    },
-    {
-      "id": 3,
-      "name": "Boolean"
-    },
-    {
-      "id": 4,
-      "name": "Date"
-    },
-    {
-      "id": 5,
-      "name": "Time"
-    },
-    {
-      "id": 6,
-      "name": "Decimal"
-    },
-    {
-      "id": 7,
-      "name": "Hexadecimal"
+      "inputLabelsForDomain": {
+        "domainName": "Domain Name",
+        "domainType": "Base Type",
+        "domainRange": "Range",
+        "pattern": "Format/Pattern"
+      },
+      "basetypes": [
+        {
+          "id": 1,
+          "name": "String"
+        },
+        {
+          "id": 2,
+          "name": "Number"
+        },
+        {
+          "id": 3,
+          "name": "Boolean"
+        },
+        {
+          "id": 4,
+          "name": "Date"
+        },
+        {
+          "id": 5,
+          "name": "Time"
+        },
+        {
+          "id": 6,
+          "name": "Decimal"
+        },
+        {
+          "id": 7,
+          "name": "Hexadecimal"
+        },
+        {
+          "id": 7,
+          "name": "TimeStamp"
+        }
+      ]
     }
   ],
   "domain": [
@@ -247,6 +255,44 @@
       "name": "seresf",
       "pattern": "asdsa",
       "id": 17
+    },
+    {
+      "type": "Random Generated Domain",
+      "name": "dsgd",
+      "baseType": "String",
+      "pattern": "vsdvds",
+      "id": 18
+    },
+    {
+      "id": 19,
+      "name": "vishal",
+      "baseType": "Number",
+      "pattern": "[0-9]"
+    },
+    {
+      "id": 20,
+      "name": "kk",
+      "baseType": "Number",
+      "pattern": "[0-9]"
+    },
+    {
+      "name": "prashant",
+      "baseType": "Boolean",
+      "pattern": "[0-9]",
+      "id": 21
+    },
+    {
+      "name": "ketan",
+      "baseType": "Boolean",
+      "pattern": 1234,
+      "id": 22
+    },
+    {
+      "name": "ketanrawat",
+      "baseType": "Boolean",
+      "pattern": 1234,
+      "type": "Random Generated Domain",
+      "id": 23
     }
   ],
   "datamodel": [
@@ -526,7 +572,7 @@
   "datasource": [
     {
       "id": 1,
-      "name": "city",
+      "name": "cit",
       "tags": [
         "abc",
         "def"
@@ -535,7 +581,7 @@
     },
     {
       "id": 2,
-      "name": "country1",
+      "name": "country",
       "tags": [
         "abc",
         "def"
@@ -553,7 +599,7 @@
     },
     {
       "id": 4,
-      "name": "landmark2saa",
+      "name": "landmark",
       "tags": [
         "abc",
         "def"
@@ -578,17 +624,15 @@
     },
     {
       "tags": [],
-      "name": "hjjhjgjgjg",
       "id": 8
     },
     {
       "tags": [],
-      "name": "hello",
+      "json": "",
       "id": 9
     },
     {
       "tags": [],
-      "name": "cacaa",
       "id": 10
     },
     {
@@ -638,47 +682,7 @@
       "tags": [],
       "name": "null",
       "id": 20
-    },
-    {
-      "tags": [],
-      "id": 21
-    },
-    {
-      "tags": [],
-      "id": 22
-    },
-    {
-      "tags": [
-        "bbbb"
-      ],
-      "name": "bbbb",
-      "id": 23
-    },
-    {
-      "tags": [],
-      "name": "hghggh",
-      "id": 24
-    },
-    {
-      "tags": [],
-      "name": "d",
-      "id": 25
-    },
-    {
-      "tags": [
-        "1"
-      ],
-      "json": "{\n  \"employees\":[\n  {\n    \"id\": 0,\n    \"name\": \"Lorie Hull\",\n    \"email\": \"loriehull@frolix.com\",\n    \"phone\": \"+91 (964) 463-3937\",\n    \"company\": \"Wipro\",\n    \"balance\": \"$3,581.89\",\n    \"picture\": \"http://placehold.it/32x32\",\n    \"age\": 21,\n    \"eyeColor\": \"blue\",\n    \"gender\": \"female\"\n  },\n  {\n    \"id\": 1,\n    \"name\": \"Ayers Jones\",\n    \"email\": \"ayersjones@frolix.com\",\n    \"phone\": \"+91 (976) 494-2044\",\n    \"company\": \"Wipro\",\n    \"balance\": \"$1,986.07\",\n    \"picture\": \"http://placehold.it/32x32\",\n    \"age\": 33,\n    \"eyeColor\": \"green\",\n    \"gender\": \"male\"\n  },\n  {\n    \"id\": 2,\n    \"name\": \"Stanley Gaines\",\n    \"email\": \"stanleygaines@frolix.com\",\n    \"phone\": \"+91 (900) 440-3688\",\n    \"company\": \"Wipro\",\n    \"balance\": \"$3,372.99\",\n    \"picture\": \"http://placehold.it/32x32\",\n    \"age\": 32,\n    \"eyeColor\": \"green\",\n    \"gender\": \"male\"\n  },\n  {\n    \"id\": 3,\n    \"name\": \"Amber Durham\",\n    \"email\": \"amberdurham@frolix.com\",\n    \"phone\": \"+91 (821) 459-3550\",\n    \"company\": \"Wipro\",\n    \"balance\": \"$1,293.91\",\n    \"picture\": \"http://placehold.it/32x32\",\n    \"age\": 27,\n    \"eyeColor\": \"green\",\n    \"gender\": \"female\"\n  },\n  {\n    \"id\": 4,\n    \"name\": \"Baxter Berry\",\n    \"email\": \"baxterberry@frolix.com\",\n    \"phone\": \"+91 (957) 467-3368\",\n    \"company\": \"Wipro\",\n    \"balance\": \"$1,862.18\",\n    \"picture\": \"http://placehold.it/32x32\",\n    \"age\": 27,\n    \"eyeColor\": \"brown\",\n    \"gender\": \"male\"\n  },\n  {\n    \"id\": 5,\n    \"name\": \"Bobbi Henry\",\n    \"email\": \"bobbihenry@frolix.com\",\n    \"phone\": \"+91 (996) 434-3628\",\n    \"company\": \"Wipro\",\n    \"balance\": \"$2,096.79\",\n    \"picture\": \"http://placehold.it/32x32\",\n    \"age\": 25,\n    \"eyeColor\": \"brown\",\n    \"gender\": \"female\"\n  },\n  {\n    \"id\": 6,\n    \"name\": \"Angelique Shields\",\n    \"email\": \"angeliqueshields@frolix.com\",\n    \"phone\": \"+91 (823) 560-2310\",\n    \"company\": \"Wipro\",\n    \"balance\": \"$1,190.84\",\n    \"picture\": \"http://placehold.it/32x32\",\n    \"age\": 37,\n    \"eyeColor\": \"brown\",\n    \"gender\": \"female\"\n  },\n  {\n    \"id\": 7,\n    \"name\": \"Pauline Cain\",\n    \"email\": \"paulinecain@frolix.com\",\n    \"phone\": \"+91 (907) 529-3539\",\n    \"company\": \"Wipro\",\n    \"balance\": \"$3,186.76\",\n    \"picture\": \"http://placehold.it/32x32\",\n    \"age\": 36,\n    \"eyeColor\": \"green\",\n    \"gender\": \"female\"\n  },\n  {\n    \"id\": 8,\n    \"name\": \"Goodwin Hobbs\",\n    \"email\": \"goodwinhobbs@frolix.com\",\n    \"phone\": \"+91 (842) 591-3090\",\n    \"company\": \"Wipro\",\n    \"balance\": \"$2,654.91\",\n    \"picture\": \"http://placehold.it/32x32\",\n    \"age\": 27,\n    \"eyeColor\": \"green\",\n    \"gender\": \"male\"\n  },\n  {\n    \"id\": 9,\n    \"name\": \"Crosby Goodman\",\n    \"email\": \"crosbygoodman@frolix.com\",\n    \"phone\": \"+91 (959) 429-3680\",\n    \"company\": \"Wipro\",\n    \"balance\": \"$1,159.27\",\n    \"picture\": \"http://placehold.it/32x32\",\n    \"age\": 38,\n    \"eyeColor\": \"blue\",\n    \"gender\": \"male\"\n    }\n]\n}",
-      "name": "eg1",
-      "id": 26
-    },
-    {
-      "tags": [
-        "1"
-      ],
-      "json": "{\n  \"employees\":[\n  {\n    \"id\": 0,\n    \"name\": \"Lorie Hull\",\n    \"email\": \"loriehull@frolix.com\",\n    \"phone\": \"+91 (964) 463-3937\",\n    \"company\": \"Wipro\",\n    \"balance\": \"$3,581.89\",\n    \"picture\": \"http://placehold.it/32x32\",\n    \"age\": 21,\n    \"eyeColor\": \"blue\",\n    \"gender\": \"female\"\n  },\n  {\n    \"id\": 1,\n    \"name\": \"Ayers Jones\",\n    \"email\": \"ayersjones@frolix.com\",\n    \"phone\": \"+91 (976) 494-2044\",\n    \"company\": \"Wipro\",\n    \"balance\": \"$1,986.07\",\n    \"picture\": \"http://placehold.it/32x32\",\n    \"age\": 33,\n    \"eyeColor\": \"green\",\n    \"gender\": \"male\"\n  },\n  {\n    \"id\": 2,\n    \"name\": \"Stanley Gaines\",\n    \"email\": \"stanleygaines@frolix.com\",\n    \"phone\": \"+91 (900) 440-3688\",\n    \"company\": \"Wipro\",\n    \"balance\": \"$3,372.99\",\n    \"picture\": \"http://placehold.it/32x32\",\n    \"age\": 32,\n    \"eyeColor\": \"green\",\n    \"gender\": \"male\"\n  },\n  {\n    \"id\": 3,\n    \"name\": \"Amber Durham\",\n    \"email\": \"amberdurham@frolix.com\",\n    \"phone\": \"+91 (821) 459-3550\",\n    \"company\": \"Wipro\",\n    \"balance\": \"$1,293.91\",\n    \"picture\": \"http://placehold.it/32x32\",\n    \"age\": 27,\n    \"eyeColor\": \"green\",\n    \"gender\": \"female\"\n  },\n  {\n    \"id\": 4,\n    \"name\": \"Baxter Berry\",\n    \"email\": \"baxterberry@frolix.com\",\n    \"phone\": \"+91 (957) 467-3368\",\n    \"company\": \"Wipro\",\n    \"balance\": \"$1,862.18\",\n    \"picture\": \"http://placehold.it/32x32\",\n    \"age\": 27,\n    \"eyeColor\": \"brown\",\n    \"gender\": \"male\"\n  },\n  {\n    \"id\": 5,\n    \"name\": \"Bobbi Henry\",\n    \"email\": \"bobbihenry@frolix.com\",\n    \"phone\": \"+91 (996) 434-3628\",\n    \"company\": \"Wipro\",\n    \"balance\": \"$2,096.79\",\n    \"picture\": \"http://placehold.it/32x32\",\n    \"age\": 25,\n    \"eyeColor\": \"brown\",\n    \"gender\": \"female\"\n  },\n  {\n    \"id\": 6,\n    \"name\": \"Angelique Shields\",\n    \"email\": \"angeliqueshields@frolix.com\",\n    \"phone\": \"+91 (823) 560-2310\",\n    \"company\": \"Wipro\",\n    \"balance\": \"$1,190.84\",\n    \"picture\": \"http://placehold.it/32x32\",\n    \"age\": 37,\n    \"eyeColor\": \"brown\",\n    \"gender\": \"female\"\n  },\n  {\n    \"id\": 7,\n    \"name\": \"Pauline Cain\",\n    \"email\": \"paulinecain@frolix.com\",\n    \"phone\": \"+91 (907) 529-3539\",\n    \"company\": \"Wipro\",\n    \"balance\": \"$3,186.76\",\n    \"picture\": \"http://placehold.it/32x32\",\n    \"age\": 36,\n    \"eyeColor\": \"green\",\n    \"gender\": \"female\"\n  },\n  {\n    \"id\": 8,\n    \"name\": \"Goodwin Hobbs\",\n    \"email\": \"goodwinhobbs@frolix.com\",\n    \"phone\": \"+91 (842) 591-3090\",\n    \"company\": \"Wipro\",\n    \"balance\": \"$2,654.91\",\n    \"picture\": \"http://placehold.it/32x32\",\n    \"age\": 27,\n    \"eyeColor\": \"green\",\n    \"gender\": \"male\"\n  },\n  {\n    \"id\": 9,\n    \"name\": \"Crosby Goodman\",\n    \"email\": \"crosbygoodman@frolix.com\",\n    \"phone\": \"+91 (959) 429-3680\",\n    \"company\": \"Wipro\",\n    \"balance\": \"$1,159.27\",\n    \"picture\": \"http://placehold.it/32x32\",\n    \"age\": 38,\n    \"eyeColor\": \"blue\",\n    \"gender\": \"male\"\n    }\n]\n}",
-      "name": "eg2",
-      "id": 27
     }
+         
   ]
 }
