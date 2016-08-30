@@ -44,10 +44,10 @@ function datafeedCtrl($timeout, $q, $log, $filter, datafeedService, $scope, $mdD
   function selectedItemChange(itesm) {
     $log.info('Item changed to ' + JSON.stringify(item));
   }
-// function answer(answer) {
-//   $log.info(answer);
-//   $mdDialog.hide(answer);
-// }
+  // function answer(answer) {
+  //   $log.info(answer);
+  //   $mdDialog.hide(answer);
+  // }
 
-  $log.info("registered the controller");
+  $log.info("datafeedCtrl is registered");
 }

@@ -56,4 +56,5 @@ angular.module('datamill')
         alert = undefined;
       });
   }
+  $log.info("datamodeldefinationController is registered");
 }]);

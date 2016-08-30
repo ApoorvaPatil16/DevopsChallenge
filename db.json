@@ -25,615 +25,498 @@
           "schema"
         ]
       },
-      "deliverytype": [
-        {
-          "type": "Download",
-          "value": "download",
-          "state": "datamill.datamodeldefination.download",
-          "linkname": "Download Option"
-        },
-        {
-          "type": "Feed",
-          "value": "feed",
-          "state": "datamill.datamodeldefination.datafeed",
-          "linkname": "Feed Option"
-        }
-      ]
+      "deliverytype": [{
+        "type": "Download",
+        "value": "download",
+        "state": "datamill.datamodeldefination.download",
+        "linkname": "Download Option"
+      }, {
+        "type": "Feed",
+        "value": "feed",
+        "state": "datamill.datamodeldefination.datafeed",
+        "linkname": "Feed Option"
+      }]
     }
   },
-  "navbarItems": [
-    {
-      "appName": [
-        {
-          "id": 1,
-          "name": "DataMill.io"
-        }
-      ],
-      "sideNavBottomItems": [
-        {
-          "id": 1,
-          "link": "About",
-          "state": "#"
-        }
-      ],
-      "sideNavItems": [
-        {
-          "id": 1,
-          "icon": "dashboard",
-          "state": "datamill.dashboard",
-          "link": "Dashboard"
-        },
-        {
-          "id": 2,
-          "icon": "launch",
-          "state": "datamill.datamodeldefination",
-          "link": "New Data Model"
-        },
-        {
-          "id": 3,
-          "icon": "domain",
-          "state": "datamill.listdomain",
-          "link": "Data Domain",
-          "children": [
-            {
-              "state": "datamill.randomDomain",
-              "link": "Random"
-            },
-            {
-              "state": "meaningfulDomain",
-              "link": "Realistic"
-            }
-          ]
-        },
-        {
-          "id": 4,
-          "icon": "backup",
-          "state": "datamill.datasource",
-          "link": "Data Sources"
-        }
-      ],
-      "accountItems": [
-        {
-          "id": 1,
-          "name": "Your Profile"
-        },
-        {
-          "id": 2,
-          "name": "SignOut"
-        }
-      ],
-      "materialIcons": [
-        {
-          "id": 1,
-          "name": "menu"
-        },
-        {
-          "id": 1,
-          "name": "notifications"
-        },
-        {
-          "id": 1,
-          "name": "account_circle"
-        }
-      ]
-    }
-  ],
-  "randomDomainLibData": [
-    {
-      "inputLabelsForDomain": {
-        "domainName": "Domain Name",
-        "domainType": "Base Type",
-        "domainRange": "Range",
-        "pattern": "Format/Pattern"
-      },
-      "basetypes": [
-        {
-          "id": 1,
-          "name": "String"
-        },
-        {
-          "id": 2,
-          "name": "Number"
-        },
-        {
-          "id": 3,
-          "name": "Boolean"
-        },
-        {
-          "id": 4,
-          "name": "Date"
-        },
-        {
-          "id": 5,
-          "name": "Time"
-        },
-        {
-          "id": 6,
-          "name": "Decimal"
-        },
-        {
-          "id": 7,
-          "name": "Hexadecimal"
-        },
-        {
-          "id": 7,
-          "name": "TimeStamp"
-        }
-      ]
-    }
-  ],
-  "domain": [
-    {
+  "navbarItems": [{
+    "appName": [{
       "id": 1,
-      "type": "primitive",
-      "name": "String"
-    },
-    {
+      "name": "DataMill.io"
+    }],
+    "sideNavBottomItems": [{
+      "id": 1,
+      "link": "About",
+      "state": "#"
+    }],
+    "sideNavItems": [{
+      "id": 1,
+      "icon": "dashboard",
+      "state": "datamill.dashboard",
+      "link": "Dashboard"
+    }, {
       "id": 2,
-      "type": "primitive",
-      "name": "Number"
-    },
-    {
+      "icon": "launch",
+      "state": "datamill.datamodeldefination",
+      "link": "New Data Model"
+    }, {
       "id": 3,
-      "type": "primitive",
-      "name": "Boolean"
-    },
-    {
+      "icon": "domain",
+      "state": "datamill.listdomain",
+      "link": "Data Domain",
+      "children": [{
+        "state": "datamill.randomDomain",
+        "link": "Random"
+      }, {
+        "state": "meaningfulDomain",
+        "link": "Realistic"
+      }]
+    }, {
       "id": 4,
-      "type": "primitive",
+      "icon": "backup",
+      "state": "datamill.datasource",
+      "link": "Data Sources"
+    }],
+    "accountItems": [{
+      "id": 1,
+      "name": "Your Profile"
+    }, {
+      "id": 2,
+      "name": "SignOut"
+    }],
+    "materialIcons": [{
+      "id": 1,
+      "name": "menu"
+    }, {
+      "id": 1,
+      "name": "notifications"
+    }, {
+      "id": 1,
+      "name": "account_circle"
+    }]
+  }],
+  "randomDomainLibData": [{
+    "inputLabelsForDomain": {
+      "domainName": "Domain Name",
+      "domainType": "Base Type",
+      "domainRange": "Range",
+      "pattern": "Format/Pattern"
+    },
+    "basetypes": [{
+      "id": 1,
+      "name": "String"
+    }, {
+      "id": 2,
+      "name": "Number"
+    }, {
+      "id": 3,
+      "name": "Boolean"
+    }, {
+      "id": 4,
       "name": "Date"
-    },
-    {
+    }, {
       "id": 5,
-      "type": "primitive",
       "name": "Time"
-    },
-    {
+    }, {
       "id": 6,
-      "type": "primitive",
       "name": "Decimal"
-    },
-    {
+    }, {
       "id": 7,
       "name": "Hexadecimal"
+    }, {
+      "id": 7,
+      "name": "TimeStamp"
+    }]
+  }],
+  "domain": [{
+    "id": 1,
+    "type": "primitive",
+    "name": "String"
+  }, {
+    "id": 2,
+    "type": "primitive",
+    "name": "Number"
+  }, {
+    "id": 3,
+    "type": "primitive",
+    "name": "Boolean"
+  }, {
+    "id": 4,
+    "type": "primitive",
+    "name": "Date"
+  }, {
+    "id": 5,
+    "type": "primitive",
+    "name": "Time"
+  }, {
+    "id": 6,
+    "type": "primitive",
+    "name": "Decimal"
+  }, {
+    "id": 7,
+    "name": "Hexadecimal"
+  }, {
+    "name": "myDomain",
+    "baseType": "String",
+    "pattern": "[0-9]",
+    "id": 8
+  }, {
+    "name": "myDomain",
+    "baseType": "String",
+    "pattern": "[0-9]",
+    "id": 9
+  }, {
+    "name": "myDomain",
+    "baseType": "String",
+    "pattern": "[0-9]",
+    "id": 10
+  }, {
+    "name": "jbdbwkjd",
+    "pattern": "qw",
+    "baseType": "String",
+    "id": 11
+  }, {
+    "name": "swsqa",
+    "baseType": "String",
+    "pattern": "qwe",
+    "id": 12
+  }, {
+    "name": "aa",
+    "baseType": "String",
+    "pattern": "zss",
+    "id": 13
+  }, {
+    "name": "dffas",
+    "baseType": "Number",
+    "pattern": "asdfdsf",
+    "id": 14
+  }, {
+    "name": "dffas",
+    "baseType": "Number",
+    "pattern": "asdfdsf",
+    "id": 15
+  }, {
+    "baseType": "String",
+    "name": "jbdbwkjd",
+    "id": 16
+  }, {
+    "type": "Random Generated Domain",
+    "name": "seresf",
+    "pattern": "asdsa",
+    "id": 17
+  }, {
+    "type": "Random Generated Domain",
+    "name": "dsgd",
+    "baseType": "String",
+    "pattern": "vsdvds",
+    "id": 18
+  }, {
+    "id": 19,
+    "name": "vishal",
+    "baseType": "Number",
+    "pattern": "[0-9]"
+  }, {
+    "id": 20,
+    "name": "kk",
+    "baseType": "Number",
+    "pattern": "[0-9]"
+  }, {
+    "name": "prashant",
+    "baseType": "Boolean",
+    "pattern": "[0-9]",
+    "id": 21
+  }, {
+    "name": "ketan",
+    "baseType": "Boolean",
+    "pattern": 1234,
+    "id": 22
+  }, {
+    "name": "ketanrawat",
+    "baseType": "Boolean",
+    "pattern": 1234,
+    "type": "Random Generated Domain",
+    "id": 23
+  }],
+  "datamodel": [{
+    "id": 1,
+    "name": "Name",
+    "patterns": [
+      "A",
+      "B"
+    ]
+  }, {
+    "id": 2,
+    "name": "City",
+    "patterns": [
+      "C",
+      "B"
+    ]
+  }, {
+    "id": 3,
+    "name": "Address",
+    "patterns": [
+      "F",
+      "B"
+    ]
+  }, {
+    "id": 4,
+    "name": "PanCard",
+    "patterns": [
+      "L",
+      "B"
+    ]
+  }, {
+    "name": "kljflask",
+    "description": "dsfasdfdas",
+    "attributes": [{
+      "name": "asdfadsf",
+      "type": "",
+      "relationship": "dfasdf"
+    }],
+    "patterns": [
+      {}
+    ],
+    "visibility": "public",
+    "delivery": "feed",
+    "id": 5
+  }, {
+    "name": "sfdsf",
+    "description": "sdfasdf",
+    "attributes": [],
+    "patterns": [],
+    "visibility": "private",
+    "id": 6
+  }, {
+    "name": "sfdsf",
+    "description": "sdfasdf",
+    "attributes": [],
+    "patterns": [],
+    "visibility": "private",
+    "id": 7
+  }, {
+    "name": "sfdsf",
+    "description": "sdfasdf",
+    "attributes": [],
+    "patterns": [],
+    "visibility": "private",
+    "id": 8
+  }, {
+    "name": "sfdsf",
+    "description": "sdfasdf",
+    "attributes": [],
+    "patterns": [],
+    "visibility": "private",
+    "id": 9
+  }, {
+    "name": "sfdsf",
+    "description": "sdfasdf",
+    "attributes": [],
+    "patterns": [],
+    "visibility": "private",
+    "id": 10
+  }, {
+    "name": "sfdsf",
+    "description": "sdfasdf",
+    "attributes": [],
+    "patterns": [],
+    "visibility": "private",
+    "id": 11
+  }, {
+    "name": "sfdsf",
+    "description": "sdfasdf",
+    "attributes": [],
+    "patterns": [],
+    "visibility": "private",
+    "id": 12
+  }, {
+    "name": "sfdsf",
+    "description": "sdfasdf",
+    "attributes": [],
+    "patterns": [],
+    "visibility": "private",
+    "id": 13
+  }, {
+    "name": "sfdsf",
+    "description": "sdfasdf",
+    "attributes": [],
+    "patterns": [],
+    "visibility": "private",
+    "id": 14
+  }, {
+    "name": "sfdsf",
+    "description": "sdfasdf",
+    "attributes": [],
+    "patterns": [],
+    "visibility": "private",
+    "id": 15
+  }, {
+    "name": "Temp",
+    "description": "iotaf",
+    "attributes": [{
+      "name": "asdfads",
+      "type": "domain",
+      "doamin": "Number"
+    }],
+    "patterns": [],
+    "delivery": "feed",
+    "feedOption": {
+      "startTime": "2016-08-26T05:29:00.000Z",
+      "endTime": "2016-08-26T06:45:00.000Z",
+      "endDate": "2016-08-02T18:30:00.000Z",
+      "startDate": "2016-08-14T18:30:00.000Z",
+      "onInterrupt": "autoRestart",
+      "feedflow": "continuous"
     },
-    {
-      "name": "myDomain",
-      "baseType": "String",
-      "pattern": "[0-9]",
-      "id": 8
+    "id": 16
+  }, {
+    "name": "l/ml;",
+    "description": "/l,/l",
+    "attributes": [],
+    "patterns": [],
+    "id": 17
+  }, {
+    "name": "l/ml;",
+    "description": "/l,/l",
+    "attributes": [],
+    "patterns": [],
+    "id": 18
+  }, {
+    "name": "l;ksd;ldssdfsad",
+    "description": "sdafsdaf",
+    "attributes": [],
+    "patterns": [],
+    "id": 19
+  }, {
+    "name": "dffasdf",
+    "description": "dfasdf",
+    "attributes": [],
+    "patterns": [],
+    "id": 20
+  }, {
+    "name": "asdfd",
+    "description": "sdfdsfsdf",
+    "attributes": [{
+      "name": "dsfasd",
+      "type": "domain",
+      "isUniqueness": true,
+      "doamin": "Boolean"
+    }],
+    "patterns": [],
+    "visibility": "shared",
+    "delivery": "feed",
+    "id": 21
+  }, {
+    "name": "fskdf",
+    "description": "asdfads",
+    "attributes": [{
+      "name": "asdfadsf"
+    }],
+    "patterns": [],
+    "delivery": "feed",
+    "feedOption": {
+      "endTime": "2016-08-26T08:55:00.000Z"
     },
-    {
-      "name": "myDomain",
-      "baseType": "String",
-      "pattern": "[0-9]",
-      "id": 9
-    },
-    {
-      "name": "myDomain",
-      "baseType": "String",
-      "pattern": "[0-9]",
-      "id": 10
-    },
-    {
-      "name": "jbdbwkjd",
-      "pattern": "qw",
-      "baseType": "String",
-      "id": 11
-    },
-    {
-      "name": "swsqa",
-      "baseType": "String",
-      "pattern": "qwe",
-      "id": 12
-    },
-    {
-      "name": "aa",
-      "baseType": "String",
-      "pattern": "zss",
-      "id": 13
-    },
-    {
-      "name": "dffas",
-      "baseType": "Number",
-      "pattern": "asdfdsf",
-      "id": 14
-    },
-    {
-      "name": "dffas",
-      "baseType": "Number",
-      "pattern": "asdfdsf",
-      "id": 15
-    },
-    {
-      "baseType": "String",
-      "name": "jbdbwkjd",
-      "id": 16
-    },
-    {
-      "type": "Random Generated Domain",
-      "name": "seresf",
-      "pattern": "asdsa",
-      "id": 17
-    },
-    {
-      "type": "Random Generated Domain",
-      "name": "dsgd",
-      "baseType": "String",
-      "pattern": "vsdvds",
-      "id": 18
-    },
-    {
-      "id": 19,
-      "name": "vishal",
-      "baseType": "Number",
-      "pattern": "[0-9]"
-    },
-    {
-      "id": 20,
-      "name": "kk",
-      "baseType": "Number",
-      "pattern": "[0-9]"
-    },
-    {
-      "name": "prashant",
-      "baseType": "Boolean",
-      "pattern": "[0-9]",
-      "id": 21
-    },
-    {
-      "name": "ketan",
-      "baseType": "Boolean",
-      "pattern": 1234,
-      "id": 22
-    },
-    {
-      "name": "ketanrawat",
-      "baseType": "Boolean",
-      "pattern": 1234,
-      "type": "Random Generated Domain",
-      "id": 23
-    }
-  ],
-  "datamodel": [
-    {
-      "id": 1,
-      "name": "Name",
-      "patterns": [
-        "A",
-        "B"
-      ]
-    },
-    {
-      "id": 2,
-      "name": "City",
-      "patterns": [
-        "C",
-        "B"
-      ]
-    },
-    {
-      "id": 3,
-      "name": "Address",
-      "patterns": [
-        "F",
-        "B"
-      ]
-    },
-    {
-      "id": 4,
-      "name": "PanCard",
-      "patterns": [
-        "L",
-        "B"
-      ]
-    },
-    {
-      "name": "kljflask",
-      "description": "dsfasdfdas",
-      "attributes": [
-        {
-          "name": "asdfadsf",
-          "type": "",
-          "relationship": "dfasdf"
-        }
-      ],
-      "patterns": [
-        {}
-      ],
-      "visibility": "public",
-      "delivery": "feed",
-      "id": 5
-    },
-    {
-      "name": "sfdsf",
-      "description": "sdfasdf",
-      "attributes": [],
-      "patterns": [],
-      "visibility": "private",
-      "id": 6
-    },
-    {
-      "name": "sfdsf",
-      "description": "sdfasdf",
-      "attributes": [],
-      "patterns": [],
-      "visibility": "private",
-      "id": 7
-    },
-    {
-      "name": "sfdsf",
-      "description": "sdfasdf",
-      "attributes": [],
-      "patterns": [],
-      "visibility": "private",
-      "id": 8
-    },
-    {
-      "name": "sfdsf",
-      "description": "sdfasdf",
-      "attributes": [],
-      "patterns": [],
-      "visibility": "private",
-      "id": 9
-    },
-    {
-      "name": "sfdsf",
-      "description": "sdfasdf",
-      "attributes": [],
-      "patterns": [],
-      "visibility": "private",
-      "id": 10
-    },
-    {
-      "name": "sfdsf",
-      "description": "sdfasdf",
-      "attributes": [],
-      "patterns": [],
-      "visibility": "private",
-      "id": 11
-    },
-    {
-      "name": "sfdsf",
-      "description": "sdfasdf",
-      "attributes": [],
-      "patterns": [],
-      "visibility": "private",
-      "id": 12
-    },
-    {
-      "name": "sfdsf",
-      "description": "sdfasdf",
-      "attributes": [],
-      "patterns": [],
-      "visibility": "private",
-      "id": 13
-    },
-    {
-      "name": "sfdsf",
-      "description": "sdfasdf",
-      "attributes": [],
-      "patterns": [],
-      "visibility": "private",
-      "id": 14
-    },
-    {
-      "name": "sfdsf",
-      "description": "sdfasdf",
-      "attributes": [],
-      "patterns": [],
-      "visibility": "private",
-      "id": 15
-    },
-    {
-      "name": "Temp",
-      "description": "iotaf",
-      "attributes": [
-        {
-          "name": "asdfads",
-          "type": "domain",
-          "doamin": "Number"
-        }
-      ],
-      "patterns": [],
-      "delivery": "feed",
-      "feedOption": {
-        "startTime": "2016-08-26T05:29:00.000Z",
-        "endTime": "2016-08-26T06:45:00.000Z",
-        "endDate": "2016-08-02T18:30:00.000Z",
-        "startDate": "2016-08-14T18:30:00.000Z",
-        "onInterrupt": "autoRestart",
-        "feedflow": "continuous"
-      },
-      "id": 16
-    },
-    {
-      "name": "l/ml;",
-      "description": "/l,/l",
-      "attributes": [],
-      "patterns": [],
-      "id": 17
-    },
-    {
-      "name": "l/ml;",
-      "description": "/l,/l",
-      "attributes": [],
-      "patterns": [],
-      "id": 18
-    },
-    {
-      "name": "l;ksd;ldssdfsad",
-      "description": "sdafsdaf",
-      "attributes": [],
-      "patterns": [],
-      "id": 19
-    },
-    {
-      "name": "dffasdf",
-      "description": "dfasdf",
-      "attributes": [],
-      "patterns": [],
-      "id": 20
-    },
-    {
-      "name": "asdfd",
-      "description": "sdfdsfsdf",
-      "attributes": [
-        {
-          "name": "dsfasd",
-          "type": "domain",
-          "isUniqueness": true,
-          "doamin": "Boolean"
-        }
-      ],
-      "patterns": [],
-      "visibility": "shared",
-      "delivery": "feed",
-      "id": 21
-    },
-    {
-      "name": "fskdf",
-      "description": "asdfads",
-      "attributes": [
-        {
-          "name": "asdfadsf"
-        }
-      ],
-      "patterns": [],
-      "delivery": "feed",
-      "feedOption": {
-        "endTime": "2016-08-26T08:55:00.000Z"
-      },
-      "visibility": "public",
-      "id": 22
-    }
-  ],
-  "transporttype": [
-    {
-      "id": 1,
-      "name": "Mongo DB"
-    },
-    {
-      "id": 2,
-      "name": "Redis"
-    },
-    {
-      "id": 3,
-      "name": "Redis MQ"
-    },
-    {
-      "id": 4,
-      "name": "Kafka"
-    },
-    {
-      "id": 5,
-      "name": "Websocket"
-    }
-  ],
-  "attrtype": [
-    {
-      "id": 1,
-      "name": "domain"
-    },
-    {
-      "id": 2,
-      "name": "schema"
-    }
-  ],
-  "visibility": [
-    {
-      "id": 1,
-      "label": "Public",
-      "value": "public"
-    },
-    {
-      "id": 2,
-      "label": "Private",
-      "value": "private"
-    },
-    {
-      "id": 3,
-      "label": "Share Only",
-      "value": "shared"
-    }
-  ],
-  "deleverytype": [
-    {
-      "id": 1,
-      "label": "Download",
-      "value": "download"
-    },
-    {
-      "id": 2,
-      "label": "Feed",
-      "value": "feed"
-    }
-  ],
-  "datasource": [
-    {
-      "id": 1,
-      "name": "cit",
-      "tags": [
-        "abc",
-        "def"
-      ],
-      "json": {}
-    },
-    {
-      "id": 2,
-      "name": "country",
-      "tags": [
-        "abc",
-        "def"
-      ],
-      "json": {}
-    },
-    {
-      "id": 3,
-      "name": "state",
-      "tags": [
-        "abc",
-        "def"
-      ],
-      "json": {}
-    },
-    {
-      "id": 4,
-      "name": "landmark",
-      "tags": [
-        "abc",
-        "def"
-      ],
-      "json": {}
-    },
-    {
-      "tags": [
-        "hhk"
-      ],
-      "name": "ikh",
-      "json": "jhkhhk",
-      "id": 5
-    },
-    {
-      "tags": [],
-      "id": 6
-    },
-    {
-      "tags": [],
-      "id": 7
-    },
-    {
-      "tags": [],
-      "id": 8
-    },
-    {
-      "tags": [],
-      "json": "",
-      "id": 9
-    },
-    {
-      "tags": [],
-      "id": 10
-    }
-  ]
+    "visibility": "public",
+    "id": 22
+  }],
+  "transporttype": [{
+    "id": 1,
+    "name": "Mongo DB"
+  }, {
+    "id": 2,
+    "name": "Redis"
+  }, {
+    "id": 3,
+    "name": "Redis MQ"
+  }, {
+    "id": 4,
+    "name": "Kafka"
+  }, {
+    "id": 5,
+    "name": "Websocket"
+  }],
+  "attrtype": [{
+    "id": 1,
+    "name": "domain"
+  }, {
+    "id": 2,
+    "name": "schema"
+  }],
+  "visibility": [{
+    "id": 1,
+    "label": "Public",
+    "value": "public"
+  }, {
+    "id": 2,
+    "label": "Private",
+    "value": "private"
+  }, {
+    "id": 3,
+    "label": "Share Only",
+    "value": "shared"
+  }],
+  "deleverytype": [{
+    "id": 1,
+    "label": "Download",
+    "value": "download"
+  }, {
+    "id": 2,
+    "label": "Feed",
+    "value": "feed"
+  }],
+  "datasource": [{
+    "id": 1,
+    "name": "cit",
+    "tags": [
+      "abc",
+      "def"
+    ],
+    "json": {}
+  }, {
+    "id": 2,
+    "name": "country",
+    "tags": [
+      "abc",
+      "def"
+    ],
+    "json": {}
+  }, {
+    "id": 3,
+    "name": "state",
+    "tags": [
+      "abc",
+      "def"
+    ],
+    "json": {}
+  }, {
+    "id": 4,
+    "name": "landmark",
+    "tags": [
+      "abc",
+      "def"
+    ],
+    "json": {}
+  }, {
+    "tags": [
+      "hhk"
+    ],
+    "name": "ikh",
+    "json": "jhkhhk",
+    "id": 5
+  }, {
+    "tags": [],
+    "id": 6
+  }, {
+    "tags": [],
+    "id": 7
+  }, {
+    "tags": [],
+    "id": 8
+  }, {
+    "tags": [],
+    "json": "",
+    "id": 9
+  }, {
+    "tags": [],
+    "id": 10
+  }]
 }
