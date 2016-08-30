@@ -10,7 +10,7 @@
                     <md-icon>search</md-icon>
                 </md-button>
                 <md-button class="md-fab md-mini" aria-label="Open Settings" ng-click="showListBottomSheet($event)">
-                    <md-icon>more_vert</md-icon>
+                    <md-icon>add</md-icon>
                 </md-button>
             </div>
         </div>
@@ -25,7 +25,7 @@
                     <md-icon>search</md-icon>
                 </md-button>
                 <md-button class="md-fab md-mini" aria-label="Open Settings" ng-click="showListBottomSheet($event)">
-                    <md-icon>more_vert</md-icon>
+                    <md-icon>add</md-icon>
                 </md-button>
             </div>
         </div>
@@ -33,10 +33,10 @@
             <md-content>
                 <md-list flex="">
                     <md-subheader class="md-no-sticky">
-                        Showing {{length}} Records
+                        Showing {{filtered.length}} Records
                     </md-subheader>
                     <div layout-xs="row" layout-sm="row" layout-md="row" layout-gt-md="row" layout-wrap>
-                        <md-list-item flex-xs="100" flex-sm="50" flex-md="33" flex-gt-md="25" md-ink-ripple class="md-3-line" ng-repeat="item in domainItems">
+                        <md-list-item flex-xs="100" flex-sm="50" flex-md="33" flex-gt-md="25" md-ink-ripple class="md-3-line" ng-repeat="item in domainItems | filter: '!primitive' as filtered">
                             <md-list-content id="domainListItems" layout="row" ui-sref="datamill.randomDomain({randomDomain:item})" ng-click="domainUpdateFunction()">
                                 <ng-avatar string="{{item.name}}" round-shape="true" auto-color="true"></ng-avatar>
                                 <div class="md-list-item-text" style="padding-left:10px;">

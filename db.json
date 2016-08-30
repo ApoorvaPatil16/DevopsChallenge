@@ -153,7 +153,12 @@
     "name": "Decimal"
   }, {
     "id": 7,
+    "type": "primitive",
     "name": "Hexadecimal"
+  }, {
+    "id": 8,
+    "type": "primitive",
+    "name": "TimeStamp"
   }, {
     "name": "myDomain",
     "baseType": "String",
