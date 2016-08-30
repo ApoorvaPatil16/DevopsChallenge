@@ -37,16 +37,11 @@
         <div layout="row" flex="70">
             <md-list>
                 <md-list-item ng-repeat="item in sideNavItems ">
-                    <div ng-mouseover="sublist=true" ng-mouseleave="sublist=false">
+                    <div>
                         <md-icon>{{item.icon}}</md-icon>
                         <a ui-sref='{{item.state}}' ng-click="toggleLeft('left')">
                         {{item.link}}
                         </a>
-                        <md-list ng-if="item.children.length > 0">
-                            <md-list-item ng-repeat="child in item.children" ng-show="sublist">
-                                <a ui-sref="{{child.state}}" ng-click="toggleLeft('left')">{{child.link}}</a>
-                            </md-list-item>
-                        </md-list>
                     </div>
                 </md-list-item>
             </md-list>

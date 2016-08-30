@@ -9,7 +9,7 @@ angular.module('datamill')
       postNewDomain: function(postdata) {
         return $http({
           method: "POST",
-          url: "http://localhost:7070/domain",
+          url: "http://172.23.238.188:7070/domain",
           data: postdata,
           'content-type': "aplication/json"
         }).then(function(res) {

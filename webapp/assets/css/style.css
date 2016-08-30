@@ -1,151 +1,171 @@
 /* fallback */
 
 @font-face {
-  font-family: 'Material Icons';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Material Icons'), local('MaterialIcons-Regular'), url(https://fonts.gstatic.com/s/materialicons/v17/2fcrYFNaTjcS6g4U3t-Y5ZjZjT5FdEJ140U2DJYC3mY.woff2) format('woff2');
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Material Icons'), local('MaterialIcons-Regular'), url(https://fonts.gstatic.com/s/materialicons/v17/2fcrYFNaTjcS6g4U3t-Y5ZjZjT5FdEJ140U2DJYC3mY.woff2) format('woff2');
 }
 
 .material-icons {
-  font-family: 'Material Icons';
-  font-weight: normal;
-  font-style: normal;
-  font-size: 24px;
-  line-height: 1;
-  letter-spacing: normal;
-  text-transform: none;
-  display: inline-block;
-  white-space: nowrap;
-  word-wrap: normal;
-  direction: ltr;
-  -webkit-font-feature-settings: 'liga';
-  -webkit-font-smoothing: antialiased;
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
 }
 
 .appbar-section {
-  position: fixed;
-  width: 100%;
-  top: 0;
-  z-index: 100;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100;
 }
 
 .md-sidenav-left {
-  position: fixed;
-  z-index: 110;
+    position: fixed;
+    z-index: 110;
 }
 
 .md-sidenav-left md-list-item a,
 div {
-  text-decoration: none;
+    text-decoration: none;
 }
 
 .md-sidenav-left md-list-item a:hover {
-  cursor: pointer;
-  color: #7e7e7e;
+    cursor: pointer;
+    color: #7e7e7e;
 }
 
 .md-sidenav-left div img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .sidenav-heading {
-  background-color: white;
-  color: #7e7e7e;
+    background-color: white;
+    color: #7e7e7e;
 }
 
 #account-circle-content {
-  width: 200px;
+    width: 200px;
 }
 
 *[id^='menu_container'] {
-  margin-top: 60px;
+    margin-top: 60px;
 }
 
 
 /*Styling for content.css*/
 
 #home-page-heading {
-  font-size: 50px;
+    font-size: 50px;
 }
 
 
 /*Styling for footer.css*/
 
 .main-content {
-  margin-top: 60px;
-  padding: 2px;
-  min-height: 100vh;
+    margin-top: 60px;
+    padding: 2px;
+    min-height: 100vh;
 }
 
 body {
-  margin: 1px;
+    margin: 1px;
 }
 
 footer {
-  width: 100%;
-  height: 70px;
-  bottom: 0;
-  left: 0;
-  background-color: #122056;
+    width: 100%;
+    height: 70px;
+    bottom: 0;
+    left: 0;
+    background-color: #122056;
 }
 
 
 /*Styling for notification.css*/
 
 .notifications-content {
-  background: white;
-  border-radius: 8px;
-  /*box-shadow: 0 7px 8px -4px rgba(0, 0, 0, 0.2),
+    background: white;
+    border-radius: 8px;
+    /*box-shadow: 0 7px 8px -4px rgba(0, 0, 0, 0.2),
       0 13px 19px 2px rgba(0, 0, 0, 0.14),
       0 5px 24px 4px rgba(0, 0, 0, 0.12);*/
 }
 
 .notification-button {
-  min-width: 0px;
+    min-width: 0px;
 }
 
 
 /*Styling for randomdomain.css*/
 
 .errorForDomain {
-  color: red;
+    color: red;
 }
 
 .domainLibraryContent {
-  margin-top: 10px;
+    margin-top: 10px;
 }
 
 .base-type-style {
-  margin-bottom: 18px;
+    margin-bottom: 18px;
 }
 
 
 /*Styling for range templates*/
 
 .rangeHeading {
-  margin: 0px;
+    margin: 0px;
 }
 
 .wrap-content {
-  padding: 10%;
-  overflow-wrap: break-word;
-  word-wrap: break-word;
+    padding: 10%;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
 }
 
 pre {
-  white-space: pre-wrap;
+    white-space: pre-wrap;
 }
 
 
 /*Styling for listdomain templates*/
 
 #domainListItems {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 #domainListItems md-list-item {
-  padding-top: 10px;
+    padding-top: 10px;
+}
+
+.searchInput {
+    border: none;
+    background: none;
+    width: 80%;
+}
+
+.searchInput:focus {
+    outline: none;
+}
+
+.searchInput {
+  border: none;
+  background: none;
+  width: 80%;
+}
+
+.searchInput:focus {
+  outline: none;
 }
