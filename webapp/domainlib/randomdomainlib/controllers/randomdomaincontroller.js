@@ -3,8 +3,19 @@ angular.module('datamill')
     $scope.dataRealRandom = {
       'type': "",
     }
-    $scope.randomDomain = {};
+    $scope.randomDomain = { 'name': "" };
     $scope.baseType = "";
+
+    $scope.capitalizeInput = function(inValue) {
+      if (inValue) {
+        // inValue = inValue.trim();
+        // inValue = inValue.replace(/[^a-zA-Z ]/g, "")
+        inValue = (inValue.slice(0, 1).toUpperCase() + inValue.slice(1, inValue.length));
+      }
+
+      return inValue;
+    }
+
     randomDomainFactory.getRandomDomainItems().then(function(res) {
       $scope.inputLabelsForDomain = res[0].inputLabelsForDomain;
       $scope.types = res[0].basetypes;
@@ -43,6 +54,7 @@ angular.module('datamill')
               ok: 'Close'
             });
             $mdDialog.show(alert);
+            $scope.randomDomain = {};
           }, function(res) {
             $log.info("fail");
             var alert = $mdDialog.alert({

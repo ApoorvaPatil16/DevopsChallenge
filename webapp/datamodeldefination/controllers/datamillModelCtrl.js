@@ -23,6 +23,7 @@ function datamillModelController($scope, datamodeldefinationservice, $element, $
   ctrl.remove = function(index) {
     ctrl.attrs.splice(index, 1);
   }
-  $log.info(ctrl.formTitle)
+  $log.info(ctrl.formTitle);
+  $log.info("datamillModelController registered");
 
 }

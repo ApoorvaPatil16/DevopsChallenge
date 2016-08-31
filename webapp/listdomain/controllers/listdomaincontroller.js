@@ -1,5 +1,5 @@
 angular.module('datamill')
-  .controller('listdomainCtrl', ['$scope', 'listDomainFactory', function($scope, listDomainFactory) {
+  .controller('listdomainCtrl', ['$scope', '$mdBottomSheet', 'listDomainFactory', function($scope, $mdBottomSheet, listDomainFactory) {
     $scope.count = 0;
     $scope.status = false;
     $scope.searchAllDomain = function() {
@@ -20,13 +20,29 @@ angular.module('datamill')
     }
     $scope.searchNextFunction = function() {
 
-      $scope.count = $scope.count + 10;
+      $scope.count = $scope.count + 20;
       $scope.searchAllDomain();
 
     }
     $scope.searchPreviousFunction = function() {
-      $scope.count = $scope.count - 10;
+      $scope.count = $scope.count - 20;
       $scope.searchAllDomain();
     }
     $scope.domainUpdateFunction = function() {}
-  }]);
+    $scope.showListBottomSheet = function() {
+      $mdBottomSheet.show({
+        templateUrl: '/listdomain/templates/domainbottomlist.html',
+        controller: 'domainListBottomSheetCtrl'
+      })
+    };
+  }])
+  .controller('domainListBottomSheetCtrl', function($scope, $mdBottomSheet) {
+    $scope.items = [
+      { name: 'Random Domain', icon: 'share-arrow' },
+      { name: 'Real Domain', icon: 'upload' }
+    ];
+    $scope.listItemClick = function($index) {
+      var clickedItem = $scope.items[$index];
+      $mdBottomSheet.hide(clickedItem);
+    };
+  });

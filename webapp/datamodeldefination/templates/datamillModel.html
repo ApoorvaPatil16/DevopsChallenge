@@ -1,6 +1,10 @@
 <div style="min-height:10px" layout="column" layout-margin="2px">
   <!-- <h4>{{$ctrl.modelName}}</h4> -->
-  <md-subheader class="md-no-sticky">{{$ctrl.formTitle}}:{{$ctrl.attrs.length}}</md-subheader>
+  <div layout="row">
+    <md-subheader class="md-no-sticky">{{$ctrl.formTitle}}</md-subheader>
+    <div flex></div>
+    <md-subheader class="md-no-sticky">Total:{{$ctrl.attrs.length}}</md-subheader>
+  </div>
   <!-- EACH attribute defination-->
   <form>
     <!-- style="border:1px solid #00ffff;"  -->
@@ -14,6 +18,9 @@
           <label>Name</label>
           <input ng-model="attr.name" required>
         </md-input-container>
+        <!-- <select ng-model="attr.type" ng-options="item.name as item.name for item in $ctrl.attrtype" required>
+          <option value="">--Attribute Type--</option>
+        </select> -->
         <md-input-container flex-gt-sm>
           <label>Attribute Type</label>
           <md-select ng-model="attr.type" required>
@@ -48,9 +55,9 @@
         </md-button>
       </div>
     </div>
-    <div flex="10" layout="row" layout-align="end center">
-      <md-button class="md-fab md-mini" ng-click="$ctrl.add()" aria-label="add">
-        <md-icon>add</md-icon>
+    <div flex="10" layout="row" layout-align="center center">
+      <md-button flex="90" class="md-primary" ng-click="$ctrl.add()" aria-label="add">Add More Attribute
+        <!-- <md-icon>add</md-icon> -->
       </md-button>
     </div>
   </form>

@@ -14,7 +14,20 @@ angular.module('datamill')
   // For Delivery option modal opening
   $scope.showDeliveryOption = function(ev, state) {
     $log.info(state);
-    $state.go(state).then(function() {
+    $mdDialog.show({
+      //contentElement: '#deliveryOption',
+      controller: state + 'Ctrl',
+      templateUrl: '/datamodeldefination/' + state + '/templates/' + state + '.html',
+      parent: angular.element(document.body),
+      clickOutsideToClose: true,
+      fullscreen: true
+    }).then(function(answer) {
+      $log.info(answer);
+      $scope.dataModel.feedOption = answer;
+      //  $state.go('^');
+    }, function() { //$state.go('^'); 
+    }).finally(function() {});
+    /*$state.go(state).then(function() {
       $log.info($state.current.name);
       // creating Dialog after state transition complete
       $mdDialog.show({
@@ -27,7 +40,8 @@ angular.module('datamill')
         $scope.dataModel.feedOption = answer;
         $state.go('^');
       }, function() { $state.go('^'); });
-    });
+    });*/
+
     //$log.info($state.current.name);
   };
   // for posting the data to the server
@@ -56,4 +70,5 @@ angular.module('datamill')
         alert = undefined;
       });
   }
+  $log.info("datamodeldefinationController is registered");
 }]);
