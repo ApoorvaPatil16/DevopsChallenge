@@ -11,6 +11,7 @@
     "cookie-parser": "~1.4.3",
     "debug": "~2.2.0",
     "express": "~4.14.0",
+    "json-server": "^0.8.19",
     "log4js": "^0.6.37",
     "morgan": "~1.7.0",
     "serve-favicon": "~2.3.0"
