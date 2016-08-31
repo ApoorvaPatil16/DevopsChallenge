@@ -18,6 +18,9 @@
           <label>Name</label>
           <input ng-model="attr.name" required>
         </md-input-container>
+        <!-- <select ng-model="attr.type" ng-options="item.name as item.name for item in $ctrl.attrtype" required>
+          <option value="">--Attribute Type--</option>
+        </select> -->
         <md-input-container flex-gt-sm>
           <label>Attribute Type</label>
           <md-select ng-model="attr.type" required>

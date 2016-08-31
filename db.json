@@ -536,25 +536,6 @@
       "pattern": "[0-9]",
       "type": "Random Generated Domain",
       "id": 33
-    },
-    {
-      "name": "Book Name",
-      "pattern": "[0-9]",
-      "type": "Random Generated Domain",
-      "id": 34
-    },
-    {
-      "name": "Hotel Name",
-      "pattern": "[0-9]",
-      "type": "Random Generated Domain",
-      "id": 35
-    },
-    {
-      "name": "Q",
-      "pattern": "q",
-      "baseType": "Number",
-      "type": "Random Generated Domain",
-      "id": 36
     }
   ],
   "datamodel": [

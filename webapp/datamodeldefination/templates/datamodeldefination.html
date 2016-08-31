@@ -15,15 +15,25 @@
         <div layout-gt-xs="row" layout-xs="row">
           <md-input-container flex-gt-xs="80">
             <label>Title</label>
-            <input ng-model="dataModel.name" md-maxlength="50" required>
+            <input ng-model="dataModel.name" name="name" md-maxlength="50" md-minlength="8" required>
+            <div ng-messages="dataModelForm.name.$error" role="alert">
+              <div ng-message="required">You did not enter a field</div>
+              <div ng-message="md-minlength">Your field is too short</div>
+              <div ng-message="md-maxlength">Your field is too long</div>
+            </div>
           </md-input-container flex-gt-xs="20">
           <md-switch ng-model="dataModel.privacy" aria-label="Switch 1">
             Privacy
           </md-switch>
         </div>
         <label>Description</label>
-        <textarea ng-model="dataModel.description" style="height:150px" required>
+        <textarea ng-model="dataModel.description" name="description" maxlength="150" minlength="10" style="height:150px" required>
         </textarea>
+        <div ng-messages="dataModelForm.description.$error" style="color:maroon" role="alert" ng-if="dataModel.description!=''">
+          <div ng-message="required">This field required</div>
+          <div ng-message="minlength">Minimum length should be 10</div>
+          <div ng-message="md-maxlength">You exceeded the limit(150)</div>
+        </div>
       </div>
       <md-divider></md-divider>
       <!-- datamill model component -->
@@ -49,6 +59,11 @@
               </md-dialog>
             </div>
           </div>
+        </div>
+      </div>
+      <div layout-gt-sm="row" layout-margin layout="column">
+        <div flex-gt-sm="10">
+          <h4>Patterns</h4>
         </div>
       </div>
       <!-- Mixing Different Pattern using slider -->

@@ -24,7 +24,7 @@ angular.module('datamill')
   .config(function($mdThemingProvider) {
     $mdThemingProvider.theme('default')
       .primaryPalette('palegreen', {
-        'default': 'A200',
+        'default': 'A400',
         'hue-1': 'A100',
         'hue-2': '800',
         'hue-3': 'A100'

@@ -190,3 +190,7 @@ md-list-item._md-button-wrap>div.md-button:first-child ._md-list-item-inner {
 .searchInput:focus {
     outline: none;
 }
+
+md-list-item._md-button-wrap>div.md-button:first-child ._md-list-item-inner {
+  height: inherit;
+}
