@@ -1,0 +1,20 @@
+<md-dialog>
+  <div>
+    <md-toolbar class="md-theme-light">
+      <h2 class="md-toolbar-tools">
+    <span>Download</span>
+    </h2>
+    </md-toolbar>
+    <div layout="row" layout-align="center center">
+      <md-input-container class="md-block" flex="50">
+        <label>No.of records to be download</label>
+        <input ng-model="download.count" placeholder="Data" type="number">
+      </md-input-container>
+    </div>
+    <md-divider></md-divider>
+    <md-dialog-actions layout="row" layout-align="end center">
+      <md-button class="md-warn" ng-click="cancelOption()">Cancel</md-button>
+      <md-button ng-click="saveOption(download)" class="md-primary">Save</md-button>
+    </md-dialog-actions>
+  </div>
+</md-dialog>

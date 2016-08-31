@@ -46,7 +46,7 @@
     "sideNavBottomItems": [{
       "id": 1,
       "link": "About",
-      "state": "#"
+      "state": "datamill.about"
     }],
     "sideNavItems": [{
       "id": 1,

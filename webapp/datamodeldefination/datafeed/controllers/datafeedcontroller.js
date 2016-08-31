@@ -1,8 +1,9 @@
 angular.module('datamill')
   .controller('datafeedCtrl', datafeedCtrl);
 
-function datafeedCtrl($timeout, $q, $log, $filter, datafeedService, $scope, $mdDialog) {
+function datafeedCtrl($timeout, $q, $log, $filter, datafeedService, $scope, $mdDialog, options) {
   var ctrl = this;
+  $scope.datafeed = options;
   $scope.pattern = "Pattern Matches";
   datafeedService.getTransportType().then(function(res) {
     ctrl.states = res;
@@ -41,7 +42,7 @@ function datafeedCtrl($timeout, $q, $log, $filter, datafeedService, $scope, $mdD
     $log.info('Text changed to ' + text);
   }
 
-  function selectedItemChange(itesm) {
+  function selectedItemChange(item) {
     $log.info('Item changed to ' + JSON.stringify(item));
   }
   // function answer(answer) {
