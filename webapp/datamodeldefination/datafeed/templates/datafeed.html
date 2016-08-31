@@ -3,8 +3,8 @@
   <div>
     <md-toolbar class="md-theme-light">
       <h2 class="md-toolbar-tools">
-    <span>Feed Simulation </span>
-    </h2>
+<span>Feed Simulation </span>
+</h2>
     </md-toolbar>
     <form ng-submit="saveOption(datafeed)" name="feedOption">
       <div layout-gt-xs="row" layout-margin layout-xs="column">
@@ -96,12 +96,12 @@
         </div>
         <div flex="80">
         </div>
+        </md-radio-group>
       </div>
       <md-divider></md-divider>
       <md-dialog-actions layout="row" layout-align="end center">
         <md-button class="md-warn" ng-click="cancelOption()">Cancel</md-button>
-        <md-button type="submit" class="md-primary">Save</md-button>
+        <md-button ng-click="saveOption(datafeed)" class="md-primary">Save</md-button>
       </md-dialog-actions>
-    </form>
   </div>
 </md-dialog>

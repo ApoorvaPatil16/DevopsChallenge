@@ -4,7 +4,6 @@ angular.module('datamill')
       getTransportType: function() {
         return $http.get('api/transporttype')
           .then(function(response) {
-            $log.info(response);
             return response.data;
           });
       }
