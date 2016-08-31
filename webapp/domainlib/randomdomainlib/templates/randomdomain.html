@@ -1,18 +1,18 @@
 <div layout="row" class="domainLibraryContent" layout-align="center center">
-    <div style="max-height:none" flex="100" flex-xs="100" layout="column">
-        <div md-no-sticky="" style="background-color:white;">
+    <div class="contentSettings" flex="100" flex-xs="100" layout="column">
+        <div md-no-sticky="">
             <div class="layout-row" layout="row">
-                <h3 style="padding-left:20px;">Creating Random Generated Domain</h3>
+                <h3 id="randomSubheader">Creating Random Generated Domain</h3>
             </div>
             <div>
                 <md-divider></md-divider>
             </div>
         </div>
         <div layout-align-gt-sm="center none" layout-gt-sm="row">
-            <form flex-gt-sm="80" name="domainForm" style="max-height:none" flex="100" ng-submit="createRandomDomain()">
-                <md-input-container class="md-block">
+            <form flex-gt-sm="80" name="domainForm" class="contentSettings" flex="100" ng-submit="createRandomDomain()">
+                <md-input-container class="md-block domainNameStyle">
                     <label>{{inputLabelsForDomain.domainName}}</label>
-                    <input required="" name="domainName" ng-model="randomDomain.name" md-maxlength="20">
+                    <input required="" name="domainName" ng-model="randomDomain.name" ng-change="randomDomain.name=capitalizeInput(randomDomain.name)" md-maxlength="20">
                     <div ng-messages="domainForm.domainName.$error">
                         <div ng-message="required">Name is required.</div>
                         <div ng-message="md-maxlength">The title must be less than 20 characters long.</div>
@@ -31,18 +31,18 @@
                     <h5 class="rangeHeading">Range</h5>
                     <div layout="row" layout-xs="column" layout-margin="2px" layout-xs-margin="2px">
                         <md-input-container md-no-float flex="40" flex-xs="10" class="md-block">Minimum no. of words
-                            <input aria-label="minword" ng-model="abc">
+                            <input aria-label="minword" ng-model="randomDomain.range.mininumWord">
                         </md-input-container>
                         <md-input-container md-no-float flex="40" flex-xs="10" class="md-block">Maximum no. of words
-                            <input aria-label="maxword">
+                            <input aria-label="maxword" ng-model="randomDomain.range.maximumWord">
                         </md-input-container>
                     </div>
                     <div layout="row" layout-xs="column" layout-margin="2px" layout-xs-margin="2px">
                         <md-input-container md-no-float flex="40" flex-xs="10" class="md-block">Minimum no. of characters
-                            <input aria-label="minchar">
+                            <input aria-label="minchar" ng-model="randomDomain.range.minimumChar">
                         </md-input-container>
                         <md-input-container md-no-float flex="40" flex-xs="10" class="md-block">Maximum no. of characters
-                            <input aria-label="maxchar">
+                            <input aria-label="maxchar" ng-model="randomDomain.range.maximumChar">
                         </md-input-container>
                     </div>
                 </div>
@@ -50,10 +50,10 @@
                     <h5 class="rangeHeading">Range</h5>
                     <div layout="row" layout-xs="column" layout-margin="2px" layout-xs-margin="2px">
                         <md-input-container flex="40" flex-xs="10" md-no-float class="md-block">Minimum Value
-                            <input aria-label="minval">
+                            <input aria-label="minval" ng-model="randomDomain.range.mininumVal">
                         </md-input-container>
                         <md-input-container flex="40" flex-xs="10" md-no-float class="md-block">Maximum Value
-                            <input aria-label="maxval">
+                            <input aria-label="maxval" ng-model="randomDomain.range.maximumVal">
                         </md-input-container>
                     </div>
                 </div>
@@ -61,10 +61,10 @@
                     <h5 class="rangeHeading">Range</h5>
                     <div layout="row" layout-xs="column" layout-margin="2px" layout-xs-margin="2px">
                         <md-input-container flex="40" flex-xs="10" md-no-float class="md-block">Minimum Value
-                            <input aria-label="minval">
+                            <input aria-label="minval" ng-model="randomDomain.range.mininumVal">
                         </md-input-container>
                         <md-input-container flex="40" flex-xs="10" md-no-float class="md-block">Maximum Value
-                            <input aria-label="maxval">
+                            <input aria-label="maxval" ng-model="randomDomain.range.maximumVal">
                         </md-input-container>
                     </div>
                 </div>
@@ -75,13 +75,13 @@
                 <div ng-show="randomDomain.baseType=='Date'">
                     <h5 class="rangeHeading">Range</h5>
                     <div layout="row" layout-xs="column" layout-margin="2px" layout-xs-margin="2px">
-                        <mdp-date-picker md-no-float flex="40" flex-xs="10" mdp-open-on-click required name="dateFormat" mdp-placeholder="From Date(dd/mm/yyyy)" mdp-format="DD/MM/YYYY" ng-model="fromDate">
+                        <mdp-date-picker md-no-float flex="40" flex-xs="10" mdp-open-on-click required name="dateFormat" mdp-placeholder="From Date(dd/mm/yyyy)" mdp-format="DD/MM/YYYY" ng-model="randomDomain.range.fromDate">
                             <div ng-messages="demoForm.dateFormat.$error">
                                 <div ng-message="required">This is required</div>
                                 <div ng-message="format">Invalid format</div>
                             </div>
                         </mdp-date-picker>
-                        <mdp-date-picker md-no-float flex="40" flex-xs="10" mdp-open-on-click required name="dateFormat" mdp-placeholder="To Date(dd/mm/yyyy)" mdp-format="DD/MM/YYYY" ng-model="toDate">
+                        <mdp-date-picker md-no-float flex="40" flex-xs="10" mdp-open-on-click required name="dateFormat" mdp-placeholder="To Date(dd/mm/yyyy)" mdp-format="DD/MM/YYYY" ng-model="randomDomain.range.toDate">
                             <div ng-messages="demoForm.dateFormat.$error">
                                 <div ng-message="required">This is required</div>
                                 <div ng-message="format">Invalid format</div>
@@ -89,13 +89,13 @@
                         </mdp-date-picker>
                     </div>
                 </div>
-                <div ng-show="randomDomain.baseType=='Time'">
-                    <h5 class="rangeHeading">Range</h5>
+                <div ng-show="randomDomain.baseType=='Time'" class="rangeHeading">
+                    <h5>Range</h5>
                     <div layout="row" layout-xs="column" layout-margin="2px" layout-xs-margin="2px">
                         <h5>From</h5>
-                        <mdp-time-picker flex="40" flex-xs="10" md-no-float aria-label="stime" ng-model="fromTime"></mdp-time-picker>
+                        <mdp-time-picker flex="40" flex-xs="10" md-no-float aria-label="stime" ng-model="randomDomain.range.fromTime"></mdp-time-picker>
                         <h5>To</h5>
-                        <mdp-time-picker flex="40" flex-xs="10" md-no-float ng-model="toTime" aria-label="etime"></mdp-time-picker>
+                        <mdp-time-picker flex="40" flex-xs="10" md-no-float ng-model="toTime" aria-label="randomDomain.range.toTime"></mdp-time-picker>
                     </div>
                 </div>
                 <div ng-show="randomDomain.baseType=='Hexadecimal'">
@@ -105,29 +105,34 @@
                 <div ng-show="randomDomain.baseType=='TimeStamp'">
                     <h5 class="rangeHeading">Range</h5>
                     <div layout="row" layout-xs="column" layout-margin="2px" layout-xs-margin="2px">
-                        <mdp-date-picker md-no-float flex="40" flex-xs="10" mdp-open-on-click required name="dateFormat" mdp-placeholder="From Date(dd/mm/yyyy)" mdp-format="DD/MM/YYYY" ng-model="fromDate">
+                        <mdp-date-picker md-no-float flex="40" flex-xs="10" mdp-open-on-click required name="dateFormat" mdp-placeholder="From Date(dd/mm/yyyy)" mdp-format="DD/MM/YYYY" ng-model="randomDomain.range.fromDate">
                             <div ng-messages="demoForm.dateFormat.$error">
                                 <div ng-message="required">This is required</div>
                                 <div ng-message="format">Invalid format</div>
                             </div>
                         </mdp-date-picker>
-                        <mdp-time-picker flex="40" flex-xs="10" md-no-float aria-label="stime" ng-model="fromTime"></mdp-time-picker>
-                        <mdp-date-picker md-no-float flex="40" flex-xs="10" mdp-open-on-click required name="dateFormat" mdp-placeholder="To Date(dd/mm/yyyy)" mdp-format="DD/MM/YYYY" ng-model="toDate">
+                        <mdp-time-picker flex="40" flex-xs="10" md-no-float aria-label="stime" ng-model="randomDomain.range.fromTime"></mdp-time-picker>
+                        <mdp-date-picker md-no-float flex="40" flex-xs="10" mdp-open-on-click required name="dateFormat" mdp-placeholder="To Date(dd/mm/yyyy)" mdp-format="DD/MM/YYYY" ng-model="randomDomain.range.toDate">
                             <div ng-messages="demoForm.dateFormat.$error">
                                 <div ng-message="required">This is required</div>
                                 <div ng-message="format">Invalid format</div>
                             </div>
                         </mdp-date-picker>
-                        <mdp-time-picker flex="40" flex-xs="10" md-no-float ng-model="toTime" aria-label="etime"></mdp-time-picker>
+                        <mdp-time-picker flex="40" flex-xs="10" md-no-float ng-model="randomDomain.range.toTime" aria-label="toTime"></mdp-time-picker>
                     </div>
                 </div>
-                <md-input-container class="md-block">
+                <!-- {{randomDomain.range.fromTime}} {{randomDomain.range.toTime}} {{randomDomain.range.fromDate}} {{randomDomain.range.toDate}}
+ -->
+                <md-input-container class="md-block patternStyle">
                     <label>{{inputLabelsForDomain.pattern}}</label>
-                    <input name="domainPattern" ng-if="status" value="{{status}}" ng-model="randomDomain.pattern" required> Test your pattern! <a href="" class="md-primary md-raised" ng-click="showAdvanced($event)">click here</a>
+                    <input name="domainPattern" ng-if="status" value="{{status}}" ng-model="randomDomain.pattern" required>
                 </md-input-container>
+                <div>
+                    <p><i>Test your pattern! <a href="" class="md-primary md-raised" ng-click="showAdvanced($event)"><b>click here</a></b></i></p>
+                </div>
                 <div layout="row" layout-align="end center">
-                    <md-button ui-sref="datamill.dashboard" class="md-warn">Cancel</md-button>
-                    <md-button class="md-primary" type="submit">Create</md-button>
+                    <md-button ui-sref="datamill.dashboard" class="md-raised">Cancel</md-button>
+                    <md-button class="md-raised" type="submit">Create</md-button>
                 </div>
             </form>
         </div>

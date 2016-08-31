@@ -46,7 +46,7 @@
     "sideNavBottomItems": [{
       "id": 1,
       "link": "About",
-      "state": "datamill.about"
+      "state": "#"
     }],
     "sideNavItems": [{
       "id": 1,
@@ -127,7 +127,7 @@
       "name": "TimeStamp"
     }]
   }],
-  "domain": [{
+  "primitiveDomain": [{
     "id": 1,
     "type": "primitive",
     "name": "String"
@@ -153,88 +153,317 @@
     "name": "Decimal"
   }, {
     "id": 7,
+    "type": "primitive",
     "name": "Hexadecimal"
   }, {
-    "name": "myDomain",
+    "id": 8,
+    "type": "primitive",
+    "name": "TimeStamp"
+  }],
+  "domain": [{
+    "name": "Credit Card",
     "baseType": "String",
-    "pattern": "[0-9]",
-    "id": 8
-  }, {
-    "name": "myDomain",
-    "baseType": "String",
-    "pattern": "[0-9]",
-    "id": 9
-  }, {
-    "name": "myDomain",
-    "baseType": "String",
-    "pattern": "[0-9]",
-    "id": 10
-  }, {
-    "name": "jbdbwkjd",
-    "pattern": "qw",
-    "baseType": "String",
-    "id": 11
-  }, {
-    "name": "swsqa",
-    "baseType": "String",
-    "pattern": "qwe",
-    "id": 12
-  }, {
-    "name": "aa",
-    "baseType": "String",
-    "pattern": "zss",
-    "id": 13
-  }, {
-    "name": "dffas",
-    "baseType": "Number",
-    "pattern": "asdfdsf",
-    "id": 14
-  }, {
-    "name": "dffas",
-    "baseType": "Number",
-    "pattern": "asdfdsf",
-    "id": 15
-  }, {
-    "baseType": "String",
-    "name": "jbdbwkjd",
-    "id": 16
-  }, {
+    "range": {
+      "mininumWord": "1",
+      "maximumWord": "1",
+      "maximumChar": "10",
+      "mininumChar": "16"
+    },
+    "pattern": "[0-9]*",
     "type": "Random Generated Domain",
-    "name": "seresf",
-    "pattern": "asdsa",
-    "id": 17
+    "id": 24
   }, {
-    "type": "Random Generated Domain",
-    "name": "dsgd",
-    "baseType": "String",
-    "pattern": "vsdvds",
-    "id": 18
-  }, {
-    "id": 19,
-    "name": "vishal",
-    "baseType": "Number",
-    "pattern": "[0-9]"
-  }, {
-    "id": 20,
-    "name": "kk",
-    "baseType": "Number",
-    "pattern": "[0-9]"
-  }, {
-    "name": "prashant",
-    "baseType": "Boolean",
+    "name": "PAN Card",
+    "baseType": "TimeStamp",
+    "range": {
+      "fromDate": "2015-11-08T18:30:00.000Z",
+      "fromTime": "2016-08-30T03:24:00.000Z",
+      "toDate": "2017-06-27T18:30:00.000Z"
+    },
     "pattern": "[0-9]",
-    "id": 21
-  }, {
-    "name": "ketan",
-    "baseType": "Boolean",
-    "pattern": 1234,
-    "id": 22
-  }, {
-    "name": "ketanrawat",
-    "baseType": "Boolean",
-    "pattern": 1234,
     "type": "Random Generated Domain",
-    "id": 23
+    "id": 25
+  }, {
+    "baseType": "TimeStamp",
+    "name": "Birthday Dates",
+    "range": {
+      "fromDate": "1980-12-01T18:30:00.000Z",
+      "fromTime": "2016-08-29T21:41:00.000Z",
+      "toDate": "2016-08-14T18:30:00.000Z"
+    },
+    "pattern": "[0-9]",
+    "type": "Random Generated Domain",
+    "id": 26
+  }, {
+    "name": "Data model",
+    "baseType": "Number",
+    "range": {
+      "mininumVal": "1",
+      "maximumVal": "111111"
+    },
+    "pattern": "[0-9]",
+    "type": "Random Generated Domain",
+    "id": 27
+  }, {
+    "name": "City",
+    "baseType": "String",
+    "range": {
+      "mininumWord": "1",
+      "maximumWord": "3",
+      "minimumChar": "10",
+      "maximumChar": "20"
+    },
+    "pattern": "[0-9]",
+    "type": "Random Generated Domain",
+    "id": 28
+  }, {
+    "name": "House Number",
+    "baseType": "Number",
+    "range": {
+      "mininumVal": "1",
+      "maximumVal": "300"
+    },
+    "pattern": "[0-9]",
+    "type": "Random Generated Domain",
+    "id": 29
+  }, {
+    "name": "Street Name",
+    "baseType": "String",
+    "range": {
+      "mininumWord": "1",
+      "maximumWord": "5",
+      "minimumChar": "5",
+      "maximumChar": "20"
+    },
+    "pattern": "[0-9]",
+    "type": "Random Generated Domain",
+    "id": 30
+  }, {
+    "name": "Holiday Dates",
+    "baseType": "Date",
+    "range": {
+      "fromDate": "1980-08-01T18:30:00.000Z",
+      "toDate": "2016-08-01T18:30:00.000Z"
+    },
+    "pattern": "[0-9]",
+    "type": "Random Generated Domain",
+    "id": 31
+  }, {
+    "name": "Adhaar Card Number",
+    "baseType": "Number",
+    "range": {
+      "mininumVal": "100000000000",
+      "maximumVal": "999999999999"
+    },
+    "pattern": "[0-9]",
+    "type": "Random Generated Domain",
+    "id": 32
+  }, {
+    "name": "Credit Card",
+    "baseType": "String",
+    "range": {
+      "mininumWord": "1",
+      "maximumWord": "1",
+      "maximumChar": "10",
+      "mininumChar": "16"
+    },
+    "pattern": "[0-9]*",
+    "type": "Random Generated Domain",
+    "id": 24
+  }, {
+    "name": "PAN Card",
+    "baseType": "TimeStamp",
+    "range": {
+      "fromDate": "2015-11-08T18:30:00.000Z",
+      "fromTime": "2016-08-30T03:24:00.000Z",
+      "toDate": "2017-06-27T18:30:00.000Z"
+    },
+    "pattern": "[0-9]",
+    "type": "Random Generated Domain",
+    "id": 25
+  }, {
+    "baseType": "TimeStamp",
+    "name": "Birthday Dates",
+    "range": {
+      "fromDate": "1980-12-01T18:30:00.000Z",
+      "fromTime": "2016-08-29T21:41:00.000Z",
+      "toDate": "2016-08-14T18:30:00.000Z"
+    },
+    "pattern": "[0-9]",
+    "type": "Random Generated Domain",
+    "id": 26
+  }, {
+    "name": "Data model",
+    "baseType": "Number",
+    "range": {
+      "mininumVal": "1",
+      "maximumVal": "111111"
+    },
+    "pattern": "[0-9]",
+    "type": "Random Generated Domain",
+    "id": 27
+  }, {
+    "name": "City",
+    "baseType": "String",
+    "range": {
+      "mininumWord": "1",
+      "maximumWord": "3",
+      "minimumChar": "10",
+      "maximumChar": "20"
+    },
+    "pattern": "[0-9]",
+    "type": "Random Generated Domain",
+    "id": 28
+  }, {
+    "name": "House Number",
+    "baseType": "Number",
+    "range": {
+      "mininumVal": "1",
+      "maximumVal": "300"
+    },
+    "pattern": "[0-9]",
+    "type": "Random Generated Domain",
+    "id": 29
+  }, {
+    "name": "Street Name",
+    "baseType": "String",
+    "range": {
+      "mininumWord": "1",
+      "maximumWord": "5",
+      "minimumChar": "5",
+      "maximumChar": "20"
+    },
+    "pattern": "[0-9]",
+    "type": "Random Generated Domain",
+    "id": 30
+  }, {
+    "name": "Holiday Dates",
+    "baseType": "Date",
+    "range": {
+      "fromDate": "1980-08-01T18:30:00.000Z",
+      "toDate": "2016-08-01T18:30:00.000Z"
+    },
+    "pattern": "[0-9]",
+    "type": "Random Generated Domain",
+    "id": 31
+  }, {
+    "name": "Adhaar Card Number",
+    "baseType": "Number",
+    "range": {
+      "mininumVal": "100000000000",
+      "maximumVal": "999999999999"
+    },
+    "pattern": "[0-9]",
+    "type": "Random Generated Domain",
+    "id": 32
+  }, {
+    "name": "Credit Card",
+    "baseType": "String",
+    "range": {
+      "mininumWord": "1",
+      "maximumWord": "1",
+      "maximumChar": "10",
+      "mininumChar": "16"
+    },
+    "pattern": "[0-9]*",
+    "type": "Random Generated Domain",
+    "id": 24
+  }, {
+    "name": "PAN Card",
+    "baseType": "TimeStamp",
+    "range": {
+      "fromDate": "2015-11-08T18:30:00.000Z",
+      "fromTime": "2016-08-30T03:24:00.000Z",
+      "toDate": "2017-06-27T18:30:00.000Z"
+    },
+    "pattern": "[0-9]",
+    "type": "Random Generated Domain",
+    "id": 25
+  }, {
+    "baseType": "TimeStamp",
+    "name": "Birthday Dates",
+    "range": {
+      "fromDate": "1980-12-01T18:30:00.000Z",
+      "fromTime": "2016-08-29T21:41:00.000Z",
+      "toDate": "2016-08-14T18:30:00.000Z"
+    },
+    "pattern": "[0-9]",
+    "type": "Random Generated Domain",
+    "id": 26
+  }, {
+    "name": "Data model",
+    "baseType": "Number",
+    "range": {
+      "mininumVal": "1",
+      "maximumVal": "111111"
+    },
+    "pattern": "[0-9]",
+    "type": "Random Generated Domain",
+    "id": 27
+  }, {
+    "name": "City",
+    "baseType": "String",
+    "range": {
+      "mininumWord": "1",
+      "maximumWord": "3",
+      "minimumChar": "10",
+      "maximumChar": "20"
+    },
+    "pattern": "[0-9]",
+    "type": "Random Generated Domain",
+    "id": 28
+  }, {
+    "name": "House Number",
+    "baseType": "Number",
+    "range": {
+      "mininumVal": "1",
+      "maximumVal": "300"
+    },
+    "pattern": "[0-9]",
+    "type": "Random Generated Domain",
+    "id": 29
+  }, {
+    "name": "Street Name",
+    "baseType": "String",
+    "range": {
+      "mininumWord": "1",
+      "maximumWord": "5",
+      "minimumChar": "5",
+      "maximumChar": "20"
+    },
+    "pattern": "[0-9]",
+    "type": "Random Generated Domain",
+    "id": 30
+  }, {
+    "name": "Holiday Dates",
+    "baseType": "Date",
+    "range": {
+      "fromDate": "1980-08-01T18:30:00.000Z",
+      "toDate": "2016-08-01T18:30:00.000Z"
+    },
+    "pattern": "[0-9]",
+    "type": "Random Generated Domain",
+    "id": 31
+  }, {
+    "name": "Adhaar Card Number",
+    "baseType": "Number",
+    "range": {
+      "mininumVal": "100000000000",
+      "maximumVal": "999999999999"
+    },
+    "pattern": "[0-9]",
+    "type": "Random Generated Domain",
+    "id": 32
+  }, {
+    "baseType": "Number",
+    "name": "Ticket Number",
+    "range": {
+      "mininumVal": "100",
+      "maximumVal": "10000000"
+    },
+    "pattern": "[0-9]",
+    "type": "Random Generated Domain",
+    "id": 33
   }],
   "datamodel": [{
     "id": 1,
@@ -417,6 +646,13 @@
     },
     "visibility": "public",
     "id": 22
+  }, {
+    "name": "Credit Card Fraud Detection Feed for RBS",
+    "attributes": [],
+    "patterns": [],
+    "delivery": "feed",
+    "visibility": "public",
+    "id": 23
   }],
   "transporttype": [{
     "id": 1,
@@ -518,5 +754,43 @@
   }, {
     "tags": [],
     "id": 10
+  }, {
+    "tags": [],
+    "name": "hello2",
+    "id": 11
+  }, {
+    "tags": [],
+    "name": "dsdds",
+    "json": "add",
+    "id": 12
+  }, {
+    "tags": [],
+    "name": "new",
+    "id": 13
+  }, {
+    "tags": [],
+    "id": 14
+  }, {
+    "tags": [],
+    "id": 15
+  }, {
+    "tags": [],
+    "name": "czzcz",
+    "id": 16
+  }, {
+    "tags": [],
+    "id": 17
+  }, {
+    "tags": [],
+    "name": "",
+    "id": 18
+  }, {
+    "tags": [],
+    "name": "",
+    "id": 19
+  }, {
+    "tags": [],
+    "name": "null",
+    "id": 20
   }]
 }
