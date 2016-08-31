@@ -6,16 +6,6 @@ angular.module('datamill')
     $scope.randomDomain = { 'name': "" };
     $scope.baseType = "";
 
-    $scope.capitalizeInput = function(inValue) {
-      if (inValue) {
-        // inValue = inValue.trim();
-        // inValue = inValue.replace(/[^a-zA-Z ]/g, "")
-        inValue = (inValue.slice(0, 1).toUpperCase() + inValue.slice(1, inValue.length));
-      }
-
-      return inValue;
-    }
-
     randomDomainFactory.getRandomDomainItems().then(function(res) {
       $scope.inputLabelsForDomain = res[0].inputLabelsForDomain;
       $scope.types = res[0].basetypes;
@@ -40,33 +30,36 @@ angular.module('datamill')
     };
     $scope.randomDomain = $stateParams.randomDomain;
     $scope.createRandomDomain = function() {
-      console.log($scope.randomDomain);
-      $scope.randomDomain.type = "Random Generated Domain";
-      listDomainFactory.getDomainItemsByName($scope.randomDomain.name).then(function(res) {
-        if (res.length != 0) {
-          $scope.errorMessage = "Domain name " + $scope.randomDomain.name + " already exits."
-        } else {
-          randomDomainFactory.postNewDomain($scope.randomDomain).then(function(id) {
-            $log.info("success");
-            var alert = $mdDialog.alert({
-              title: 'Success',
-              textContent: "Successfully created random domain with id: " + id,
-              ok: 'Close'
+      console.log($scope.randomDomain.baseType);
+      if ($scope.randomDomain.baseType) {
+        $scope.randomDomain.type = "Random Generated Domain";
+        listDomainFactory.getDomainItemsByName($scope.randomDomain.name).then(function(res) {
+          if (res.length != 0) {
+            $scope.errorMessage = "Domain name " + $scope.randomDomain.name + " already exits."
+          } else {
+            randomDomainFactory.postNewDomain($scope.randomDomain).then(function(id) {
+              $log.info("success");
+              var alert = $mdDialog.alert({
+                title: 'Success',
+                textContent: "Successfully created random domain with id: " + id,
+                ok: 'Close'
+              });
+              $mdDialog.show(alert);
+              $scope.randomDomain = {};
+            }, function(res) {
+              $log.info("fail");
+              var alert = $mdDialog.alert({
+                title: 'Fail',
+                textContent: "Unable to create domain",
+                ok: 'Close'
+              });
+              $mdDialog.show(alert);
             });
-            $mdDialog.show(alert);
-            $scope.randomDomain = {};
-          }, function(res) {
-            $log.info("fail");
-            var alert = $mdDialog.alert({
-              title: 'Fail',
-              textContent: "Unable to create domain",
-              ok: 'Close'
-            });
-            $mdDialog.show(alert);
-          });
-        };
-      });
-
+          };
+        });
+      } else {
+        $scope.errForType = "Please Select Base Type";
+      }
     }
 
   }]);
