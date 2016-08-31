@@ -7,7 +7,7 @@
   </div>
 </div>
 <div layout-gt-md="row" layout="column" layout-margin="10px" ng-cloak>
-  <div flex-gt-md="70" style="max-height:none;padding:10px">
+  <div flex-gt-md="70" class="md-whiteframe-3dp" style="max-height:none;padding:10px">
     <!-- <h1>{{datamodelconf.heading}}</h1> -->
     <form ng-submit="createDataModel()" name="dataModelForm">
       <div layout="column" layout-margin="2px">
@@ -15,15 +15,24 @@
         <div layout-gt-xs="row" layout-xs="row">
           <md-input-container flex-gt-xs="80">
             <label>Title</label>
-            <input ng-model="dataModel.name" md-maxlength="50" required>
+            <input ng-model="dataModel.name" name="name" md-maxlength="50" md-minlength="8" required>
+            <div ng-messages="dataModelForm.name.$error" role="alert">
+              <div ng-message="required">This field required</div>
+              <div ng-message="md-minlength">Minimum should be 8</div>
+              <div ng-message="md-maxlength">Exceeded the limit(50)</div>
+            </div>
           </md-input-container flex-gt-xs="20">
           <md-switch ng-model="dataModel.privacy" aria-label="Switch 1">
             Privacy
           </md-switch>
         </div>
         <label>Description</label>
-        <textarea ng-model="dataModel.description" style="height:150px" required>
+        <textarea ng-model="dataModel.description" name="description" maxlength="150" minlength="10" rows="4" required>
         </textarea>
+        <div ng-messages="dataModelForm.description.$error" style="color:maroon" role="alert" ng-if="dataModel.description!=''">
+          <div ng-message="required">This field required</div>
+          <div ng-message="minlength">Minimum length should be 10</div>
+        </div>
       </div>
       <md-divider></md-divider>
       <!-- datamill model component -->
@@ -42,13 +51,13 @@
               <md-button class="md-raised md-primary" ng-click="showDeliveryOption($event,d.state)" ng-disabled="dataModel.delivery!=d.value">{{d.linkname}}</md-button>
             </div>
           </md-radio-group>
-          <div style="visibility: hidden">
-            <div class="md-dialog-container" id="deliveryOption">
-              <md-dialog>
-                <div ui-view="deliveryview"></div>
-              </md-dialog>
-            </div>
-          </div>
+        </div>
+      </div>
+      <!-- @TODO patterns to define by the USER -->
+      <md-divider></md-divider>
+      <div layout-gt-sm="row" layout-margin layout="column">
+        <div flex-gt-sm="10">
+          <h4>Patterns</h4>
         </div>
       </div>
       <!-- Mixing Different Pattern using slider -->
@@ -71,20 +80,20 @@
           <div flex="" layout="row">
             <h5 flex="10">Pattern1</h5>
             <md-slider-container flex="80">
-              <md-slider ng-model="color.blue" min="0" max="100" aria-label="blue" id="blue-slider" class="md-primary" flex-offset="5">
+              <md-slider disabled ng-model="color.blue" min="0" max="100" aria-label="blue" id="blue-slider" class="md-primary" flex-offset="5">
               </md-slider>
               <md-input-container>
-                <input flex="" type="number" ng-model="color.blue" aria-label="red" aria-controls="red-slider">
+                <input disabled flex="" type="number" ng-model="color.blue" aria-label="red" aria-controls="red-slider">
               </md-input-container>
             </md-slider-container>
           </div>
           <div flex="" layout="row">
             <h5 flex="10">Pattern2</h5>
             <md-slider-container flex="80">
-              <md-slider ng-model="color.red" min="0" max="{{100-color.blue}}" aria-label="blue" id="blue-slider" class="md-primary" flex-offset="5">
+              <md-slider disabled ng-model="color.red" min="0" max="{{100-color.blue}}" aria-label="blue" id="blue-slider" class="md-primary" flex-offset="5">
               </md-slider>
               <md-input-container>
-                <input flex="" type="number" ng-model="color.red" aria-label="red" aria-controls="red-slider">
+                <input disabled flex="" type="number" ng-model="color.red" aria-label="red" aria-controls="red-slider">
               </md-input-container>
             </md-slider-container>
           </div>
@@ -96,10 +105,10 @@
       </div>
     </form>
   </div>
-  <div flex-gt-md="30" style="max-height:none;" layout="column">
-    <div class="md-whiteframe-3dp" style="max-height:none;padding:8px">
+  <div flex-gt-md="30" class="md-whiteframe-3dp" style="max-height:none;" layout="column">
+    <div style="max-height:none;padding:8px">
       <h3>Json Format</h3>
-      <pre style="word-wrap:break-word;"><code class="json">{{dataModel | json}}</code></pre>
+      <pre style="word-wrap:break-word;"><code style="font-size:16px">{{dataModel | json}}</code></pre>
     </div>
   </div>
 </div>

@@ -90,7 +90,7 @@ footer {
     height: 70px;
     bottom: 0;
     left: 0;
-    background-color: #122056;
+    background-color: rgb(47, 85, 47);
 }
 
 
@@ -123,9 +123,12 @@ footer {
     margin-bottom: 18px;
 }
 
-.domainNameStyle,
-.patternStyle {
+.domainNameStyle {
     margin-top: 40px;
+}
+
+.patternStyle {
+    margin-top: 25px;
 }
 
 .contentSettings {

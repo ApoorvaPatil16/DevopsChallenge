@@ -12,10 +12,10 @@
             <form flex-gt-sm="80" name="domainForm" class="contentSettings" flex="100" ng-submit="createRandomDomain()">
                 <md-input-container class="md-block domainNameStyle">
                     <label>{{inputLabelsForDomain.domainName}}</label>
-                    <input required="" name="domainName" ng-model="randomDomain.name" ng-change="randomDomain.name=capitalizeInput(randomDomain.name)" md-maxlength="20">
+                    <input required="" name="domainName" ng-model="randomDomain.name" capitalize-first md-maxlength="30">
                     <div ng-messages="domainForm.domainName.$error">
                         <div ng-message="required">Name is required.</div>
-                        <div ng-message="md-maxlength">The title must be less than 20 characters long.</div>
+                        <div ng-message="md-maxlength">The title must be less than 30 characters long.</div>
                     </div>
                     <p class="errorForDomain">{{errorMessage}}</p>
                 </md-input-container>
@@ -26,6 +26,7 @@
                             {{type.name}}
                         </md-option>
                     </md-select>
+                    <p ng-hide="randomDomain.baseType" class="errorForDomain">{{errForType}}</p>
                 </md-input-container>
                 <div ng-show="randomDomain.baseType=='String'">
                     <h5 class="rangeHeading">Range</h5>

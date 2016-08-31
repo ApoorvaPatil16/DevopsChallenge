@@ -17,6 +17,8 @@ function datamillModelController($scope, datamodeldefinationservice, $element, $
   datamodeldefinationservice.getDomain().then(function(res) {    ctrl.domain = res;    }, function(res) { $log.info("failed to get"); });
   datamodeldefinationservice.getAttrType().then(function(res) {    ctrl.attrtype = res;    }, function(res) { $log.info("failed to get"); });
   ctrl.add = function() {
+      if (ctrl.attrs.length)
+        if (ctrl.attrs[ctrl.attrs.length - 1].name == "" || ctrl.attrs[ctrl.attrs.length].name == null) return;
       ctrl.attrs.push({});
     }
     /*it will remove the one attribute from datamilldomain */
