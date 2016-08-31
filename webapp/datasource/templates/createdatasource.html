@@ -1,7 +1,7 @@
 <div>
-  <div md-no-sticky="" style="background-color:white;">
+  <div md-no-sticky="" style="background-color:lightgrey;">
     <div class="layout-row" layout="row">
-      <h3 style="padding-left:20px;padding-top:10px;">Data Domains</h3>
+      <h4 style="padding-left:20px;padding-top:10px;">Data Sources </h4>
       <span flex></span>
       <div layout-padding>
         <md-button class="md-fab md-mini" aria-label="edit">
@@ -12,37 +12,44 @@
   </div>
   <md-divider></md-divider>
 </div>
-<!-- <subheader md-no-sticky="" style="background-color:white;">
-           <div class="layout-row" layout="row">
-               <h3 style="padding-left:20px;padding-top:10px;">Data Domains</h3>
-           </div>
-           <div>
-               <md-divider></md-divider>
-           </div>
-       </subheader> -->
-<div layout="row" ng-controller="createdatasourceController">
+<div layout="row" ng-controller="createdatasourceController" layout-padding>
   <div layout-padding style="max-height:none" flex="100" flex-xs="100" layout="column">
     <div md-padding>
       <form name="userForm">
         <div>
           <md-input-container class="md-block" flex-gt-sm="">
             <label>Source Name</label>
-            <input md-maxlength="30" required="" name="name" ng-model="ctrl.user.name">
-            <div ng-messages="userForm.name.$error" ng-if="!showHints">
+            <input md-maxlength="30" required="" name="name" type="text" ng-model="ctrl.user.name">
+            <div ng-messages="userForm.name.$error">
               <div ng-message="required">Name is required.</div>
               <div ng-message="md-maxlength">The name has to be less than 30 characters long.</div>
             </div>
           </md-input-container>
         </div>
-        <div>
-          <md-chips ng-model="ctrl.user.tags" md-max-chips="5" placeholder="Add tags">
+        <div layout-gt-gm="row" layout-padding>
+          <md-chips ng-model="ctrl.user.tags" name="tags" md-max-chips="5" placeholder="Add tags">
             <md-chip-template>
               <strong>{{$chip}}</strong>
               <em>(xyz...)</em>
             </md-chip-template>
           </md-chips>
+          <div ng-messages="userForm.tags.$error" ng-if="userForm.$dirty">
+            <div ng-message="md-max-chips">You reached the maximum amount of chips</div>
+          </div>
         </div>
-        <div md-block></div>
+        <div flex="100" layout="column" layout-margin>
+          <span></span>
+        </div>
+        <div>
+          <md-input-container class="md-block" flex-gt-sm="">
+            <label>Source Description</label>
+            <input md-maxlength="100" required="" name="description" type="text" ng-model="ctrl.user.description">
+            <div ng-messages="userForm.description.$error">
+              <div ng-message="required">Description is required.</div>
+              <div ng-message="md-maxlength">The Description has to be less than 30 characters long.</div>
+            </div>
+          </md-input-container>
+        </div>
         <div layout="column" layout-margin>
           <textarea placeholder="Json Data Here" style="width:100%;height:300px" ng-model="ctrl.user.json"></textarea>
         </div>

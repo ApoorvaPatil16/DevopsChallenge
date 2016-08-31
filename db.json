@@ -646,13 +646,6 @@
     },
     "visibility": "public",
     "id": 22
-  }, {
-    "name": "Credit Card Fraud Detection Feed for RBS",
-    "attributes": [],
-    "patterns": [],
-    "delivery": "feed",
-    "visibility": "public",
-    "id": 23
   }],
   "transporttype": [{
     "id": 1,
@@ -701,96 +694,40 @@
   }],
   "datasource": [{
     "id": 1,
-    "name": "cit",
+    "name": "City",
     "tags": [
-      "abc",
-      "def"
+      "India"
     ],
-    "json": {}
-  }, {
-    "id": 2,
-    "name": "country",
-    "tags": [
-      "abc",
-      "def"
-    ],
-    "json": {}
+    "json": {},
+    "description": "All the city name of India are listed here."
   }, {
     "id": 3,
-    "name": "state",
+    "name": "States",
     "tags": [
-      "abc",
-      "def"
+      "India"
     ],
-    "json": {}
+    "json": {},
+    "description": "All the states of India are  here.You can go through them if curious"
   }, {
     "id": 4,
-    "name": "landmark",
+    "name": "Landmark",
     "tags": [
-      "abc",
-      "def"
+      "landmark of stackroute"
     ],
-    "json": {}
+    "description": "Lists the nearby area of stackroute."
   }, {
     "tags": [
-      "hhk"
+      "Student"
     ],
-    "name": "ikh",
-    "json": "jhkhhk",
-    "id": 5
+    "name": "Person names",
+    "id": 5,
+    "description": "Lists the expected  names of Indian students. "
   }, {
-    "tags": [],
+    "tags": [
+      "World"
+    ],
+    "name": "Countries",
+    "description": "All the Countries are here for you to go throught. Is it not Cool..",
     "id": 6
-  }, {
-    "tags": [],
-    "id": 7
-  }, {
-    "tags": [],
-    "id": 8
-  }, {
-    "tags": [],
-    "json": "",
-    "id": 9
-  }, {
-    "tags": [],
-    "id": 10
-  }, {
-    "tags": [],
-    "name": "hello2",
-    "id": 11
-  }, {
-    "tags": [],
-    "name": "dsdds",
-    "json": "add",
-    "id": 12
-  }, {
-    "tags": [],
-    "name": "new",
-    "id": 13
-  }, {
-    "tags": [],
-    "id": 14
-  }, {
-    "tags": [],
-    "id": 15
-  }, {
-    "tags": [],
-    "name": "czzcz",
-    "id": 16
-  }, {
-    "tags": [],
-    "id": 17
-  }, {
-    "tags": [],
-    "name": "",
-    "id": 18
-  }, {
-    "tags": [],
-    "name": "",
-    "id": 19
-  }, {
-    "tags": [],
-    "name": "null",
-    "id": 20
   }]
 }
