@@ -25,772 +25,856 @@
           "schema"
         ]
       },
-      "deliverytype": [{
-        "type": "Download",
-        "value": "download",
-        "state": "datamill.datamodeldefination.download",
-        "linkname": "Download Option"
-      }, {
-        "type": "Feed",
-        "value": "feed",
-        "state": "datamill.datamodeldefination.datafeed",
-        "linkname": "Feed Option"
-      }]
+      "deliverytype": [
+        {
+          "type": "Download",
+          "value": "download",
+          "state": "download",
+          "linkname": "Download Option"
+        },
+        {
+          "type": "Feed",
+          "value": "feed",
+          "state": "datafeed",
+          "linkname": "Feed Option"
+        }
+      ]
     }
   },
-  "navbarItems": [{
-    "appName": [{
+  "navbarItems": [
+    {
+      "appName": [
+        {
+          "id": 1,
+          "name": "DataMill.io"
+        }
+      ],
+      "sideNavBottomItems": [
+        {
+          "id": 1,
+          "link": "About",
+          "state": "datamill.about"
+        }
+      ],
+      "sideNavItems": [
+        {
+          "id": 1,
+          "icon": "dashboard",
+          "state": "datamill.dashboard",
+          "link": "Dashboard"
+        },
+        {
+          "id": 2,
+          "icon": "launch",
+          "state": "datamill.datamodeldefination",
+          "link": "New Data Model"
+        },
+        {
+          "id": 3,
+          "icon": "domain",
+          "state": "datamill.listdomain",
+          "link": "Data Domain",
+          "children": [
+            {
+              "state": "datamill.randomDomain",
+              "link": "Random"
+            },
+            {
+              "state": "meaningfulDomain",
+              "link": "Realistic"
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "icon": "backup",
+          "state": "datamill.datasource",
+          "link": "Data Sources"
+        }
+      ],
+      "accountItems": [
+        {
+          "id": 1,
+          "name": "Your Profile"
+        },
+        {
+          "id": 2,
+          "name": "SignOut"
+        }
+      ],
+      "materialIcons": [
+        {
+          "id": 1,
+          "name": "menu"
+        },
+        {
+          "id": 1,
+          "name": "notifications"
+        },
+        {
+          "id": 1,
+          "name": "account_circle"
+        }
+      ]
+    }
+  ],
+  "randomDomainLibData": [
+    {
+      "inputLabelsForDomain": {
+        "domainName": "Domain Name",
+        "domainType": "Base Type",
+        "domainRange": "Range",
+        "pattern": "Format/Pattern"
+      },
+      "basetypes": [
+        {
+          "id": 1,
+          "name": "String"
+        },
+        {
+          "id": 2,
+          "name": "Number"
+        },
+        {
+          "id": 3,
+          "name": "Boolean"
+        },
+        {
+          "id": 4,
+          "name": "Date"
+        },
+        {
+          "id": 5,
+          "name": "Time"
+        },
+        {
+          "id": 6,
+          "name": "Decimal"
+        },
+        {
+          "id": 7,
+          "name": "Hexadecimal"
+        },
+        {
+          "id": 7,
+          "name": "TimeStamp"
+        }
+      ]
+    }
+  ],
+  "primitiveDomain": [
+    {
       "id": 1,
-      "name": "DataMill.io"
-    }],
-    "sideNavBottomItems": [{
-      "id": 1,
-      "link": "About",
-      "state": "#"
-    }],
-    "sideNavItems": [{
-      "id": 1,
-      "icon": "dashboard",
-      "state": "datamill.dashboard",
-      "link": "Dashboard"
-    }, {
-      "id": 2,
-      "icon": "launch",
-      "state": "datamill.datamodeldefination",
-      "link": "New Data Model"
-    }, {
-      "id": 3,
-      "icon": "domain",
-      "state": "datamill.listdomain",
-      "link": "Data Domain",
-      "children": [{
-        "state": "datamill.randomDomain",
-        "link": "Random"
-      }, {
-        "state": "meaningfulDomain",
-        "link": "Realistic"
-      }]
-    }, {
-      "id": 4,
-      "icon": "backup",
-      "state": "datamill.datasource",
-      "link": "Data Sources"
-    }],
-    "accountItems": [{
-      "id": 1,
-      "name": "Your Profile"
-    }, {
-      "id": 2,
-      "name": "SignOut"
-    }],
-    "materialIcons": [{
-      "id": 1,
-      "name": "menu"
-    }, {
-      "id": 1,
-      "name": "notifications"
-    }, {
-      "id": 1,
-      "name": "account_circle"
-    }]
-  }],
-  "randomDomainLibData": [{
-    "inputLabelsForDomain": {
-      "domainName": "Domain Name",
-      "domainType": "Base Type",
-      "domainRange": "Range",
-      "pattern": "Format/Pattern"
-    },
-    "basetypes": [{
-      "id": 1,
+      "type": "primitive",
       "name": "String"
-    }, {
+    },
+    {
       "id": 2,
+      "type": "primitive",
       "name": "Number"
-    }, {
+    },
+    {
       "id": 3,
+      "type": "primitive",
       "name": "Boolean"
-    }, {
+    },
+    {
       "id": 4,
+      "type": "primitive",
       "name": "Date"
-    }, {
+    },
+    {
       "id": 5,
+      "type": "primitive",
       "name": "Time"
-    }, {
+    },
+    {
       "id": 6,
+      "type": "primitive",
       "name": "Decimal"
-    }, {
+    },
+    {
       "id": 7,
+      "type": "primitive",
       "name": "Hexadecimal"
-    }, {
-      "id": 7,
+    },
+    {
+      "id": 8,
+      "type": "primitive",
       "name": "TimeStamp"
-    }]
-  }],
-  "primitiveDomain": [{
-    "id": 1,
-    "type": "primitive",
-    "name": "String"
-  }, {
-    "id": 2,
-    "type": "primitive",
-    "name": "Number"
-  }, {
-    "id": 3,
-    "type": "primitive",
-    "name": "Boolean"
-  }, {
-    "id": 4,
-    "type": "primitive",
-    "name": "Date"
-  }, {
-    "id": 5,
-    "type": "primitive",
-    "name": "Time"
-  }, {
-    "id": 6,
-    "type": "primitive",
-    "name": "Decimal"
-  }, {
-    "id": 7,
-    "type": "primitive",
-    "name": "Hexadecimal"
-  }, {
-    "id": 8,
-    "type": "primitive",
-    "name": "TimeStamp"
-  }],
-  "domain": [{
-    "name": "Credit Card",
-    "baseType": "String",
-    "range": {
-      "mininumWord": "1",
-      "maximumWord": "1",
-      "maximumChar": "10",
-      "mininumChar": "16"
+    }
+  ],
+  "domain": [
+    {
+      "name": "Credit Card",
+      "baseType": "String",
+      "range": {
+        "mininumWord": "1",
+        "maximumWord": "1",
+        "maximumChar": "10",
+        "mininumChar": "16"
+      },
+      "pattern": "[0-9]*",
+      "type": "Random Generated Domain",
+      "id": 24
     },
-    "pattern": "[0-9]*",
-    "type": "Random Generated Domain",
-    "id": 24
-  }, {
-    "name": "PAN Card",
-    "baseType": "TimeStamp",
-    "range": {
-      "fromDate": "2015-11-08T18:30:00.000Z",
-      "fromTime": "2016-08-30T03:24:00.000Z",
-      "toDate": "2017-06-27T18:30:00.000Z"
+    {
+      "name": "PAN Card",
+      "baseType": "TimeStamp",
+      "range": {
+        "fromDate": "2015-11-08T18:30:00.000Z",
+        "fromTime": "2016-08-30T03:24:00.000Z",
+        "toDate": "2017-06-27T18:30:00.000Z"
+      },
+      "pattern": "[0-9]",
+      "type": "Random Generated Domain",
+      "id": 25
     },
-    "pattern": "[0-9]",
-    "type": "Random Generated Domain",
-    "id": 25
-  }, {
-    "baseType": "TimeStamp",
-    "name": "Birthday Dates",
-    "range": {
-      "fromDate": "1980-12-01T18:30:00.000Z",
-      "fromTime": "2016-08-29T21:41:00.000Z",
-      "toDate": "2016-08-14T18:30:00.000Z"
+    {
+      "baseType": "TimeStamp",
+      "name": "Birthday Dates",
+      "range": {
+        "fromDate": "1980-12-01T18:30:00.000Z",
+        "fromTime": "2016-08-29T21:41:00.000Z",
+        "toDate": "2016-08-14T18:30:00.000Z"
+      },
+      "pattern": "[0-9]",
+      "type": "Random Generated Domain",
+      "id": 26
     },
-    "pattern": "[0-9]",
-    "type": "Random Generated Domain",
-    "id": 26
-  }, {
-    "name": "Data model",
-    "baseType": "Number",
-    "range": {
-      "mininumVal": "1",
-      "maximumVal": "111111"
+    {
+      "name": "Data model",
+      "baseType": "Number",
+      "range": {
+        "mininumVal": "1",
+        "maximumVal": "111111"
+      },
+      "pattern": "[0-9]",
+      "type": "Random Generated Domain",
+      "id": 27
     },
-    "pattern": "[0-9]",
-    "type": "Random Generated Domain",
-    "id": 27
-  }, {
-    "name": "City",
-    "baseType": "String",
-    "range": {
-      "mininumWord": "1",
-      "maximumWord": "3",
-      "minimumChar": "10",
-      "maximumChar": "20"
+    {
+      "name": "City",
+      "baseType": "String",
+      "range": {
+        "mininumWord": "1",
+        "maximumWord": "3",
+        "minimumChar": "10",
+        "maximumChar": "20"
+      },
+      "pattern": "[0-9]",
+      "type": "Random Generated Domain",
+      "id": 28
     },
-    "pattern": "[0-9]",
-    "type": "Random Generated Domain",
-    "id": 28
-  }, {
-    "name": "House Number",
-    "baseType": "Number",
-    "range": {
-      "mininumVal": "1",
-      "maximumVal": "300"
+    {
+      "name": "House Number",
+      "baseType": "Number",
+      "range": {
+        "mininumVal": "1",
+        "maximumVal": "300"
+      },
+      "pattern": "[0-9]",
+      "type": "Random Generated Domain",
+      "id": 29
     },
-    "pattern": "[0-9]",
-    "type": "Random Generated Domain",
-    "id": 29
-  }, {
-    "name": "Street Name",
-    "baseType": "String",
-    "range": {
-      "mininumWord": "1",
-      "maximumWord": "5",
-      "minimumChar": "5",
-      "maximumChar": "20"
+    {
+      "name": "Street Name",
+      "baseType": "String",
+      "range": {
+        "mininumWord": "1",
+        "maximumWord": "5",
+        "minimumChar": "5",
+        "maximumChar": "20"
+      },
+      "pattern": "[0-9]",
+      "type": "Random Generated Domain",
+      "id": 30
     },
-    "pattern": "[0-9]",
-    "type": "Random Generated Domain",
-    "id": 30
-  }, {
-    "name": "Holiday Dates",
-    "baseType": "Date",
-    "range": {
-      "fromDate": "1980-08-01T18:30:00.000Z",
-      "toDate": "2016-08-01T18:30:00.000Z"
+    {
+      "name": "Holiday Dates",
+      "baseType": "Date",
+      "range": {
+        "fromDate": "1980-08-01T18:30:00.000Z",
+        "toDate": "2016-08-01T18:30:00.000Z"
+      },
+      "pattern": "[0-9]",
+      "type": "Random Generated Domain",
+      "id": 31
     },
-    "pattern": "[0-9]",
-    "type": "Random Generated Domain",
-    "id": 31
-  }, {
-    "name": "Adhaar Card Number",
-    "baseType": "Number",
-    "range": {
-      "mininumVal": "100000000000",
-      "maximumVal": "999999999999"
+    {
+      "name": "Adhaar Card Number",
+      "baseType": "Number",
+      "range": {
+        "mininumVal": "100000000000",
+        "maximumVal": "999999999999"
+      },
+      "pattern": "[0-9]",
+      "type": "Random Generated Domain",
+      "id": 32
     },
-    "pattern": "[0-9]",
-    "type": "Random Generated Domain",
-    "id": 32
-  }, {
-    "name": "Credit Card",
-    "baseType": "String",
-    "range": {
-      "mininumWord": "1",
-      "maximumWord": "1",
-      "maximumChar": "10",
-      "mininumChar": "16"
+    {
+      "name": "Credit Card",
+      "baseType": "String",
+      "range": {
+        "mininumWord": "1",
+        "maximumWord": "1",
+        "maximumChar": "10",
+        "mininumChar": "16"
+      },
+      "pattern": "[0-9]*",
+      "type": "Random Generated Domain",
+      "id": 24
     },
-    "pattern": "[0-9]*",
-    "type": "Random Generated Domain",
-    "id": 24
-  }, {
-    "name": "PAN Card",
-    "baseType": "TimeStamp",
-    "range": {
-      "fromDate": "2015-11-08T18:30:00.000Z",
-      "fromTime": "2016-08-30T03:24:00.000Z",
-      "toDate": "2017-06-27T18:30:00.000Z"
+    {
+      "name": "PAN Card",
+      "baseType": "TimeStamp",
+      "range": {
+        "fromDate": "2015-11-08T18:30:00.000Z",
+        "fromTime": "2016-08-30T03:24:00.000Z",
+        "toDate": "2017-06-27T18:30:00.000Z"
+      },
+      "pattern": "[0-9]",
+      "type": "Random Generated Domain",
+      "id": 25
     },
-    "pattern": "[0-9]",
-    "type": "Random Generated Domain",
-    "id": 25
-  }, {
-    "baseType": "TimeStamp",
-    "name": "Birthday Dates",
-    "range": {
-      "fromDate": "1980-12-01T18:30:00.000Z",
-      "fromTime": "2016-08-29T21:41:00.000Z",
-      "toDate": "2016-08-14T18:30:00.000Z"
+    {
+      "baseType": "TimeStamp",
+      "name": "Birthday Dates",
+      "range": {
+        "fromDate": "1980-12-01T18:30:00.000Z",
+        "fromTime": "2016-08-29T21:41:00.000Z",
+        "toDate": "2016-08-14T18:30:00.000Z"
+      },
+      "pattern": "[0-9]",
+      "type": "Random Generated Domain",
+      "id": 26
     },
-    "pattern": "[0-9]",
-    "type": "Random Generated Domain",
-    "id": 26
-  }, {
-    "name": "Data model",
-    "baseType": "Number",
-    "range": {
-      "mininumVal": "1",
-      "maximumVal": "111111"
+    {
+      "name": "Data model",
+      "baseType": "Number",
+      "range": {
+        "mininumVal": "1",
+        "maximumVal": "111111"
+      },
+      "pattern": "[0-9]",
+      "type": "Random Generated Domain",
+      "id": 27
     },
-    "pattern": "[0-9]",
-    "type": "Random Generated Domain",
-    "id": 27
-  }, {
-    "name": "City",
-    "baseType": "String",
-    "range": {
-      "mininumWord": "1",
-      "maximumWord": "3",
-      "minimumChar": "10",
-      "maximumChar": "20"
+    {
+      "name": "City",
+      "baseType": "String",
+      "range": {
+        "mininumWord": "1",
+        "maximumWord": "3",
+        "minimumChar": "10",
+        "maximumChar": "20"
+      },
+      "pattern": "[0-9]",
+      "type": "Random Generated Domain",
+      "id": 28
     },
-    "pattern": "[0-9]",
-    "type": "Random Generated Domain",
-    "id": 28
-  }, {
-    "name": "House Number",
-    "baseType": "Number",
-    "range": {
-      "mininumVal": "1",
-      "maximumVal": "300"
+    {
+      "name": "House Number",
+      "baseType": "Number",
+      "range": {
+        "mininumVal": "1",
+        "maximumVal": "300"
+      },
+      "pattern": "[0-9]",
+      "type": "Random Generated Domain",
+      "id": 29
     },
-    "pattern": "[0-9]",
-    "type": "Random Generated Domain",
-    "id": 29
-  }, {
-    "name": "Street Name",
-    "baseType": "String",
-    "range": {
-      "mininumWord": "1",
-      "maximumWord": "5",
-      "minimumChar": "5",
-      "maximumChar": "20"
+    {
+      "name": "Street Name",
+      "baseType": "String",
+      "range": {
+        "mininumWord": "1",
+        "maximumWord": "5",
+        "minimumChar": "5",
+        "maximumChar": "20"
+      },
+      "pattern": "[0-9]",
+      "type": "Random Generated Domain",
+      "id": 30
     },
-    "pattern": "[0-9]",
-    "type": "Random Generated Domain",
-    "id": 30
-  }, {
-    "name": "Holiday Dates",
-    "baseType": "Date",
-    "range": {
-      "fromDate": "1980-08-01T18:30:00.000Z",
-      "toDate": "2016-08-01T18:30:00.000Z"
+    {
+      "name": "Holiday Dates",
+      "baseType": "Date",
+      "range": {
+        "fromDate": "1980-08-01T18:30:00.000Z",
+        "toDate": "2016-08-01T18:30:00.000Z"
+      },
+      "pattern": "[0-9]",
+      "type": "Random Generated Domain",
+      "id": 31
     },
-    "pattern": "[0-9]",
-    "type": "Random Generated Domain",
-    "id": 31
-  }, {
-    "name": "Adhaar Card Number",
-    "baseType": "Number",
-    "range": {
-      "mininumVal": "100000000000",
-      "maximumVal": "999999999999"
+    {
+      "name": "Adhaar Card Number",
+      "baseType": "Number",
+      "range": {
+        "mininumVal": "100000000000",
+        "maximumVal": "999999999999"
+      },
+      "pattern": "[0-9]",
+      "type": "Random Generated Domain",
+      "id": 32
     },
-    "pattern": "[0-9]",
-    "type": "Random Generated Domain",
-    "id": 32
-  }, {
-    "name": "Credit Card",
-    "baseType": "String",
-    "range": {
-      "mininumWord": "1",
-      "maximumWord": "1",
-      "maximumChar": "10",
-      "mininumChar": "16"
+    {
+      "name": "Credit Card",
+      "baseType": "String",
+      "range": {
+        "mininumWord": "1",
+        "maximumWord": "1",
+        "maximumChar": "10",
+        "mininumChar": "16"
+      },
+      "pattern": "[0-9]*",
+      "type": "Random Generated Domain",
+      "id": 24
     },
-    "pattern": "[0-9]*",
-    "type": "Random Generated Domain",
-    "id": 24
-  }, {
-    "name": "PAN Card",
-    "baseType": "TimeStamp",
-    "range": {
-      "fromDate": "2015-11-08T18:30:00.000Z",
-      "fromTime": "2016-08-30T03:24:00.000Z",
-      "toDate": "2017-06-27T18:30:00.000Z"
+    {
+      "name": "PAN Card",
+      "baseType": "TimeStamp",
+      "range": {
+        "fromDate": "2015-11-08T18:30:00.000Z",
+        "fromTime": "2016-08-30T03:24:00.000Z",
+        "toDate": "2017-06-27T18:30:00.000Z"
+      },
+      "pattern": "[0-9]",
+      "type": "Random Generated Domain",
+      "id": 25
     },
-    "pattern": "[0-9]",
-    "type": "Random Generated Domain",
-    "id": 25
-  }, {
-    "baseType": "TimeStamp",
-    "name": "Birthday Dates",
-    "range": {
-      "fromDate": "1980-12-01T18:30:00.000Z",
-      "fromTime": "2016-08-29T21:41:00.000Z",
-      "toDate": "2016-08-14T18:30:00.000Z"
+    {
+      "baseType": "TimeStamp",
+      "name": "Birthday Dates",
+      "range": {
+        "fromDate": "1980-12-01T18:30:00.000Z",
+        "fromTime": "2016-08-29T21:41:00.000Z",
+        "toDate": "2016-08-14T18:30:00.000Z"
+      },
+      "pattern": "[0-9]",
+      "type": "Random Generated Domain",
+      "id": 26
     },
-    "pattern": "[0-9]",
-    "type": "Random Generated Domain",
-    "id": 26
-  }, {
-    "name": "Data model",
-    "baseType": "Number",
-    "range": {
-      "mininumVal": "1",
-      "maximumVal": "111111"
+    {
+      "name": "Data model",
+      "baseType": "Number",
+      "range": {
+        "mininumVal": "1",
+        "maximumVal": "111111"
+      },
+      "pattern": "[0-9]",
+      "type": "Random Generated Domain",
+      "id": 27
     },
-    "pattern": "[0-9]",
-    "type": "Random Generated Domain",
-    "id": 27
-  }, {
-    "name": "City",
-    "baseType": "String",
-    "range": {
-      "mininumWord": "1",
-      "maximumWord": "3",
-      "minimumChar": "10",
-      "maximumChar": "20"
+    {
+      "name": "City",
+      "baseType": "String",
+      "range": {
+        "mininumWord": "1",
+        "maximumWord": "3",
+        "minimumChar": "10",
+        "maximumChar": "20"
+      },
+      "pattern": "[0-9]",
+      "type": "Random Generated Domain",
+      "id": 28
     },
-    "pattern": "[0-9]",
-    "type": "Random Generated Domain",
-    "id": 28
-  }, {
-    "name": "House Number",
-    "baseType": "Number",
-    "range": {
-      "mininumVal": "1",
-      "maximumVal": "300"
+    {
+      "name": "House Number",
+      "baseType": "Number",
+      "range": {
+        "mininumVal": "1",
+        "maximumVal": "300"
+      },
+      "pattern": "[0-9]",
+      "type": "Random Generated Domain",
+      "id": 29
     },
-    "pattern": "[0-9]",
-    "type": "Random Generated Domain",
-    "id": 29
-  }, {
-    "name": "Street Name",
-    "baseType": "String",
-    "range": {
-      "mininumWord": "1",
-      "maximumWord": "5",
-      "minimumChar": "5",
-      "maximumChar": "20"
+    {
+      "name": "Street Name",
+      "baseType": "String",
+      "range": {
+        "mininumWord": "1",
+        "maximumWord": "5",
+        "minimumChar": "5",
+        "maximumChar": "20"
+      },
+      "pattern": "[0-9]",
+      "type": "Random Generated Domain",
+      "id": 30
     },
-    "pattern": "[0-9]",
-    "type": "Random Generated Domain",
-    "id": 30
-  }, {
-    "name": "Holiday Dates",
-    "baseType": "Date",
-    "range": {
-      "fromDate": "1980-08-01T18:30:00.000Z",
-      "toDate": "2016-08-01T18:30:00.000Z"
+    {
+      "name": "Holiday Dates",
+      "baseType": "Date",
+      "range": {
+        "fromDate": "1980-08-01T18:30:00.000Z",
+        "toDate": "2016-08-01T18:30:00.000Z"
+      },
+      "pattern": "[0-9]",
+      "type": "Random Generated Domain",
+      "id": 31
     },
-    "pattern": "[0-9]",
-    "type": "Random Generated Domain",
-    "id": 31
-  }, {
-    "name": "Adhaar Card Number",
-    "baseType": "Number",
-    "range": {
-      "mininumVal": "100000000000",
-      "maximumVal": "999999999999"
+    {
+      "name": "Adhaar Card Number",
+      "baseType": "Number",
+      "range": {
+        "mininumVal": "100000000000",
+        "maximumVal": "999999999999"
+      },
+      "pattern": "[0-9]",
+      "type": "Random Generated Domain",
+      "id": 32
     },
-    "pattern": "[0-9]",
-    "type": "Random Generated Domain",
-    "id": 32
-  }, {
-    "baseType": "Number",
-    "name": "Ticket Number",
-    "range": {
-      "mininumVal": "100",
-      "maximumVal": "10000000"
+    {
+      "baseType": "Number",
+      "name": "Ticket Number",
+      "range": {
+        "mininumVal": "100",
+        "maximumVal": "10000000"
+      },
+      "pattern": "[0-9]",
+      "type": "Random Generated Domain",
+      "id": 33
+    }
+  ],
+  "datamodel": [
+    {
+      "id": 1,
+      "name": "Name",
+      "patterns": [
+        "A",
+        "B"
+      ]
     },
-    "pattern": "[0-9]",
-    "type": "Random Generated Domain",
-    "id": 33
-  }],
-  "datamodel": [{
-    "id": 1,
-    "name": "Name",
-    "patterns": [
-      "A",
-      "B"
-    ]
-  }, {
-    "id": 2,
-    "name": "City",
-    "patterns": [
-      "C",
-      "B"
-    ]
-  }, {
-    "id": 3,
-    "name": "Address",
-    "patterns": [
-      "F",
-      "B"
-    ]
-  }, {
-    "id": 4,
-    "name": "PanCard",
-    "patterns": [
-      "L",
-      "B"
-    ]
-  }, {
-    "name": "kljflask",
-    "description": "dsfasdfdas",
-    "attributes": [{
-      "name": "asdfadsf",
-      "type": "",
-      "relationship": "dfasdf"
-    }],
-    "patterns": [
-      {}
-    ],
-    "visibility": "public",
-    "delivery": "feed",
-    "id": 5
-  }, {
-    "name": "sfdsf",
-    "description": "sdfasdf",
-    "attributes": [],
-    "patterns": [],
-    "visibility": "private",
-    "id": 6
-  }, {
-    "name": "sfdsf",
-    "description": "sdfasdf",
-    "attributes": [],
-    "patterns": [],
-    "visibility": "private",
-    "id": 7
-  }, {
-    "name": "sfdsf",
-    "description": "sdfasdf",
-    "attributes": [],
-    "patterns": [],
-    "visibility": "private",
-    "id": 8
-  }, {
-    "name": "sfdsf",
-    "description": "sdfasdf",
-    "attributes": [],
-    "patterns": [],
-    "visibility": "private",
-    "id": 9
-  }, {
-    "name": "sfdsf",
-    "description": "sdfasdf",
-    "attributes": [],
-    "patterns": [],
-    "visibility": "private",
-    "id": 10
-  }, {
-    "name": "sfdsf",
-    "description": "sdfasdf",
-    "attributes": [],
-    "patterns": [],
-    "visibility": "private",
-    "id": 11
-  }, {
-    "name": "sfdsf",
-    "description": "sdfasdf",
-    "attributes": [],
-    "patterns": [],
-    "visibility": "private",
-    "id": 12
-  }, {
-    "name": "sfdsf",
-    "description": "sdfasdf",
-    "attributes": [],
-    "patterns": [],
-    "visibility": "private",
-    "id": 13
-  }, {
-    "name": "sfdsf",
-    "description": "sdfasdf",
-    "attributes": [],
-    "patterns": [],
-    "visibility": "private",
-    "id": 14
-  }, {
-    "name": "sfdsf",
-    "description": "sdfasdf",
-    "attributes": [],
-    "patterns": [],
-    "visibility": "private",
-    "id": 15
-  }, {
-    "name": "Temp",
-    "description": "iotaf",
-    "attributes": [{
-      "name": "asdfads",
-      "type": "domain",
-      "doamin": "Number"
-    }],
-    "patterns": [],
-    "delivery": "feed",
-    "feedOption": {
-      "startTime": "2016-08-26T05:29:00.000Z",
-      "endTime": "2016-08-26T06:45:00.000Z",
-      "endDate": "2016-08-02T18:30:00.000Z",
-      "startDate": "2016-08-14T18:30:00.000Z",
-      "onInterrupt": "autoRestart",
-      "feedflow": "continuous"
+    {
+      "id": 2,
+      "name": "City",
+      "patterns": [
+        "C",
+        "B"
+      ]
     },
-    "id": 16
-  }, {
-    "name": "l/ml;",
-    "description": "/l,/l",
-    "attributes": [],
-    "patterns": [],
-    "id": 17
-  }, {
-    "name": "l/ml;",
-    "description": "/l,/l",
-    "attributes": [],
-    "patterns": [],
-    "id": 18
-  }, {
-    "name": "l;ksd;ldssdfsad",
-    "description": "sdafsdaf",
-    "attributes": [],
-    "patterns": [],
-    "id": 19
-  }, {
-    "name": "dffasdf",
-    "description": "dfasdf",
-    "attributes": [],
-    "patterns": [],
-    "id": 20
-  }, {
-    "name": "asdfd",
-    "description": "sdfdsfsdf",
-    "attributes": [{
-      "name": "dsfasd",
-      "type": "domain",
-      "isUniqueness": true,
-      "doamin": "Boolean"
-    }],
-    "patterns": [],
-    "visibility": "shared",
-    "delivery": "feed",
-    "id": 21
-  }, {
-    "name": "fskdf",
-    "description": "asdfads",
-    "attributes": [{
-      "name": "asdfadsf"
-    }],
-    "patterns": [],
-    "delivery": "feed",
-    "feedOption": {
-      "endTime": "2016-08-26T08:55:00.000Z"
+    {
+      "id": 3,
+      "name": "Address",
+      "patterns": [
+        "F",
+        "B"
+      ]
     },
-    "visibility": "public",
-    "id": 22
-  }, {
-    "name": "Credit Card Fraud Detection Feed for RBS",
-    "attributes": [],
-    "patterns": [],
-    "delivery": "feed",
-    "visibility": "public",
-    "id": 23
-  }],
-  "transporttype": [{
-    "id": 1,
-    "name": "Mongo DB"
-  }, {
-    "id": 2,
-    "name": "Redis"
-  }, {
-    "id": 3,
-    "name": "Redis MQ"
-  }, {
-    "id": 4,
-    "name": "Kafka"
-  }, {
-    "id": 5,
-    "name": "Websocket"
-  }],
-  "attrtype": [{
-    "id": 1,
-    "name": "domain"
-  }, {
-    "id": 2,
-    "name": "schema"
-  }],
-  "visibility": [{
-    "id": 1,
-    "label": "Public",
-    "value": "public"
-  }, {
-    "id": 2,
-    "label": "Private",
-    "value": "private"
-  }, {
-    "id": 3,
-    "label": "Share Only",
-    "value": "shared"
-  }],
-  "deleverytype": [{
-    "id": 1,
-    "label": "Download",
-    "value": "download"
-  }, {
-    "id": 2,
-    "label": "Feed",
-    "value": "feed"
-  }],
-  "datasource": [{
-    "id": 1,
-    "name": "cit",
-    "tags": [
-      "abc",
-      "def"
-    ],
-    "json": {}
-  }, {
-    "id": 2,
-    "name": "country",
-    "tags": [
-      "abc",
-      "def"
-    ],
-    "json": {}
-  }, {
-    "id": 3,
-    "name": "state",
-    "tags": [
-      "abc",
-      "def"
-    ],
-    "json": {}
-  }, {
-    "id": 4,
-    "name": "landmark",
-    "tags": [
-      "abc",
-      "def"
-    ],
-    "json": {}
-  }, {
-    "tags": [
-      "hhk"
-    ],
-    "name": "ikh",
-    "json": "jhkhhk",
-    "id": 5
-  }, {
-    "tags": [],
-    "id": 6
-  }, {
-    "tags": [],
-    "id": 7
-  }, {
-    "tags": [],
-    "id": 8
-  }, {
-    "tags": [],
-    "json": "",
-    "id": 9
-  }, {
-    "tags": [],
-    "id": 10
-  }, {
-    "tags": [],
-    "name": "hello2",
-    "id": 11
-  }, {
-    "tags": [],
-    "name": "dsdds",
-    "json": "add",
-    "id": 12
-  }, {
-    "tags": [],
-    "name": "new",
-    "id": 13
-  }, {
-    "tags": [],
-    "id": 14
-  }, {
-    "tags": [],
-    "id": 15
-  }, {
-    "tags": [],
-    "name": "czzcz",
-    "id": 16
-  }, {
-    "tags": [],
-    "id": 17
-  }, {
-    "tags": [],
-    "name": "",
-    "id": 18
-  }, {
-    "tags": [],
-    "name": "",
-    "id": 19
-  }, {
-    "tags": [],
-    "name": "null",
-    "id": 20
-  }]
+    {
+      "id": 4,
+      "name": "PanCard",
+      "patterns": [
+        "L",
+        "B"
+      ]
+    },
+    {
+      "name": "kljflask",
+      "description": "dsfasdfdas",
+      "attributes": [
+        {
+          "name": "asdfadsf",
+          "type": "",
+          "relationship": "dfasdf"
+        }
+      ],
+      "patterns": [
+        {}
+      ],
+      "visibility": "public",
+      "delivery": "feed",
+      "id": 5
+    },
+    {
+      "name": "sfdsf",
+      "description": "sdfasdf",
+      "attributes": [],
+      "patterns": [],
+      "visibility": "private",
+      "id": 6
+    },
+    {
+      "name": "sfdsf",
+      "description": "sdfasdf",
+      "attributes": [],
+      "patterns": [],
+      "visibility": "private",
+      "id": 7
+    },
+    {
+      "name": "sfdsf",
+      "description": "sdfasdf",
+      "attributes": [],
+      "patterns": [],
+      "visibility": "private",
+      "id": 8
+    },
+    {
+      "name": "sfdsf",
+      "description": "sdfasdf",
+      "attributes": [],
+      "patterns": [],
+      "visibility": "private",
+      "id": 9
+    },
+    {
+      "name": "sfdsf",
+      "description": "sdfasdf",
+      "attributes": [],
+      "patterns": [],
+      "visibility": "private",
+      "id": 10
+    },
+    {
+      "name": "sfdsf",
+      "description": "sdfasdf",
+      "attributes": [],
+      "patterns": [],
+      "visibility": "private",
+      "id": 11
+    },
+    {
+      "name": "sfdsf",
+      "description": "sdfasdf",
+      "attributes": [],
+      "patterns": [],
+      "visibility": "private",
+      "id": 12
+    },
+    {
+      "name": "sfdsf",
+      "description": "sdfasdf",
+      "attributes": [],
+      "patterns": [],
+      "visibility": "private",
+      "id": 13
+    },
+    {
+      "name": "sfdsf",
+      "description": "sdfasdf",
+      "attributes": [],
+      "patterns": [],
+      "visibility": "private",
+      "id": 14
+    },
+    {
+      "name": "sfdsf",
+      "description": "sdfasdf",
+      "attributes": [],
+      "patterns": [],
+      "visibility": "private",
+      "id": 15
+    },
+    {
+      "name": "Temp",
+      "description": "iotaf",
+      "attributes": [
+        {
+          "name": "asdfads",
+          "type": "domain",
+          "doamin": "Number"
+        }
+      ],
+      "patterns": [],
+      "delivery": "feed",
+      "feedOption": {
+        "startTime": "2016-08-26T05:29:00.000Z",
+        "endTime": "2016-08-26T06:45:00.000Z",
+        "endDate": "2016-08-02T18:30:00.000Z",
+        "startDate": "2016-08-14T18:30:00.000Z",
+        "onInterrupt": "autoRestart",
+        "feedflow": "continuous"
+      },
+      "id": 16
+    },
+    {
+      "name": "l/ml;",
+      "description": "/l,/l",
+      "attributes": [],
+      "patterns": [],
+      "id": 17
+    },
+    {
+      "name": "l/ml;",
+      "description": "/l,/l",
+      "attributes": [],
+      "patterns": [],
+      "id": 18
+    },
+    {
+      "name": "l;ksd;ldssdfsad",
+      "description": "sdafsdaf",
+      "attributes": [],
+      "patterns": [],
+      "id": 19
+    },
+    {
+      "name": "dffasdf",
+      "description": "dfasdf",
+      "attributes": [],
+      "patterns": [],
+      "id": 20
+    },
+    {
+      "name": "asdfd",
+      "description": "sdfdsfsdf",
+      "attributes": [
+        {
+          "name": "dsfasd",
+          "type": "domain",
+          "isUniqueness": true,
+          "doamin": "Boolean"
+        }
+      ],
+      "patterns": [],
+      "visibility": "shared",
+      "delivery": "feed",
+      "id": 21
+    },
+    {
+      "name": "fskdf",
+      "description": "asdfads",
+      "attributes": [
+        {
+          "name": "asdfadsf"
+        }
+      ],
+      "patterns": [],
+      "delivery": "feed",
+      "feedOption": {
+        "endTime": "2016-08-26T08:55:00.000Z"
+      },
+      "visibility": "public",
+      "id": 22
+    },
+    {
+      "name": "Prashant",
+      "description": "helo world",
+      "attributes": [
+        {
+          "name": "name"
+        }
+      ],
+      "patterns": [],
+      "delivery": "feed",
+      "deliveryOption": {
+        "datafeed": {
+          "transportType": {
+            "id": 1,
+            "name": "Mongo DB"
+          },
+          "startDate": "2016-08-30T18:30:00.000Z"
+        }
+      },
+      "id": 23
+    }
+  ],
+  "transporttype": [
+    {
+      "id": 1,
+      "name": "Mongo DB"
+    },
+    {
+      "id": 2,
+      "name": "Redis"
+    },
+    {
+      "id": 3,
+      "name": "Redis MQ"
+    },
+    {
+      "id": 4,
+      "name": "Kafka"
+    },
+    {
+      "id": 5,
+      "name": "Websocket"
+    }
+  ],
+  "attrtype": [
+    {
+      "id": 1,
+      "name": "domain"
+    },
+    {
+      "id": 2,
+      "name": "schema"
+    }
+  ],
+  "visibility": [
+    {
+      "id": 1,
+      "label": "Public",
+      "value": "public"
+    },
+    {
+      "id": 2,
+      "label": "Private",
+      "value": "private"
+    },
+    {
+      "id": 3,
+      "label": "Share Only",
+      "value": "shared"
+    }
+  ],
+  "deleverytype": [
+    {
+      "id": 1,
+      "label": "Download",
+      "value": "download"
+    },
+    {
+      "id": 2,
+      "label": "Feed",
+      "value": "feed"
+    }
+  ],
+  "datasource": [
+    {
+      "id": 1,
+      "name": "City",
+      "tags": [
+        "India"
+      ],
+      "json": {},
+      "description": "All the city name of India are listed here."
+    },
+    {
+      "id": 3,
+      "name": "States",
+      "tags": [
+        "India"
+      ],
+      "json": {},
+      "description": "All the states of India are  here.You can go through them if curious"
+    },
+    {
+      "id": 4,
+      "name": "Landmark",
+      "tags": [
+        "landmark of stackroute"
+      ],
+      "description": "Lists the nearby area of stackroute."
+    },
+    {
+      "tags": [
+        "Student"
+      ],
+      "name": "Person names",
+      "id": 5,
+      "description": "Lists the expected  names of Indian students. "
+    },
+    {
+      "tags": [
+        "World"
+      ],
+      "name": "Countries",
+      "description": "All the Countries are here for you to go throught. Is it not Cool..",
+      "id": 6
+    }
+  ]
 }

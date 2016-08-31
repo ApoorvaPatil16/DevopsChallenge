@@ -15,7 +15,7 @@
         <div layout-gt-xs="row" layout-xs="row">
           <md-input-container flex-gt-xs="80">
             <label>Title</label>
-            <input ng-model="dataModel.name" name="name" md-maxlength="50" md-minlength="8" required>
+            <input ng-model="dataModel.name" name="name" md-maxlength="50" md-minlength="8" capitalize-first required>
             <div ng-messages="dataModelForm.name.$error" role="alert">
               <div ng-message="required">This field required</div>
               <div ng-message="md-minlength">Minimum should be 8</div>
@@ -108,7 +108,7 @@
   <div flex-gt-md="30" class="md-whiteframe-3dp" style="max-height:none;" layout="column">
     <div style="max-height:none;padding:8px">
       <h3>Json Format</h3>
-      <pre style="word-wrap:break-word;"><code style="font-size:16px">{{dataModel | json}}</code></pre>
+      <pre style="word-wrap:break-word;"><p style="font-size:16px">{{dataModel | json}}</p></pre>
     </div>
   </div>
 </div>
