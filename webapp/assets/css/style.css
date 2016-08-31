@@ -112,7 +112,7 @@ footer {
 /*Styling for randomdomain.css*/
 
 .errorForDomain {
-    color: red;
+    color: #ba2e2e;
 }
 
 .domainLibraryContent {
@@ -192,5 +192,5 @@ md-list-item._md-button-wrap>div.md-button:first-child ._md-list-item-inner {
 }
 
 md-list-item._md-button-wrap>div.md-button:first-child ._md-list-item-inner {
-  height: inherit;
+    height: inherit;
 }

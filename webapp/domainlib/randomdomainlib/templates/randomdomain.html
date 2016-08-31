@@ -1,5 +1,5 @@
 <div layout="row" class="domainLibraryContent" layout-align="center center">
-    <div class="contentSettings" flex="100" flex-xs="100" layout="column">
+    <div style="max-height:none;" flex="100" flex-xs="100" layout="column">
         <div md-no-sticky="">
             <div class="layout-row" layout="row">
                 <h3 id="randomSubheader">Creating Random Generated Domain</h3>
@@ -9,7 +9,7 @@
             </div>
         </div>
         <div layout-align-gt-sm="center none" layout-gt-sm="row">
-            <form flex-gt-sm="80" name="domainForm" class="contentSettings" flex="100" ng-submit="createRandomDomain()">
+            <form flex-gt-sm="80" name="domainForm" flex="100" ng-submit="createRandomDomain()" style="max-height:none;">
                 <md-input-container class="md-block domainNameStyle">
                     <label>{{inputLabelsForDomain.domainName}}</label>
                     <input required="" name="domainName" ng-model="randomDomain.name" capitalize-first md-maxlength="30">
@@ -77,13 +77,13 @@
                     <h5 class="rangeHeading">Range</h5>
                     <div layout="row" layout-xs="column" layout-margin="2px" layout-xs-margin="2px">
                         <mdp-date-picker md-no-float flex="40" flex-xs="10" mdp-open-on-click required name="dateFormat" mdp-placeholder="From Date(dd/mm/yyyy)" mdp-format="DD/MM/YYYY" ng-model="randomDomain.range.fromDate">
-                            <div ng-messages="demoForm.dateFormat.$error">
+                            <div ng-messages="domainForm.dateFormat.$error">
                                 <div ng-message="required">This is required</div>
                                 <div ng-message="format">Invalid format</div>
                             </div>
                         </mdp-date-picker>
                         <mdp-date-picker md-no-float flex="40" flex-xs="10" mdp-open-on-click required name="dateFormat" mdp-placeholder="To Date(dd/mm/yyyy)" mdp-format="DD/MM/YYYY" ng-model="randomDomain.range.toDate">
-                            <div ng-messages="demoForm.dateFormat.$error">
+                            <div ng-messages="domainForm.dateFormat.$error">
                                 <div ng-message="required">This is required</div>
                                 <div ng-message="format">Invalid format</div>
                             </div>
@@ -107,14 +107,14 @@
                     <h5 class="rangeHeading">Range</h5>
                     <div layout="row" layout-xs="column" layout-margin="2px" layout-xs-margin="2px">
                         <mdp-date-picker md-no-float flex="40" flex-xs="10" mdp-open-on-click required name="dateFormat" mdp-placeholder="From Date(dd/mm/yyyy)" mdp-format="DD/MM/YYYY" ng-model="randomDomain.range.fromDate">
-                            <div ng-messages="demoForm.dateFormat.$error">
+                            <div ng-messages="domainForm.dateFormat.$error">
                                 <div ng-message="required">This is required</div>
                                 <div ng-message="format">Invalid format</div>
                             </div>
                         </mdp-date-picker>
                         <mdp-time-picker flex="40" flex-xs="10" md-no-float aria-label="stime" ng-model="randomDomain.range.fromTime"></mdp-time-picker>
                         <mdp-date-picker md-no-float flex="40" flex-xs="10" mdp-open-on-click required name="dateFormat" mdp-placeholder="To Date(dd/mm/yyyy)" mdp-format="DD/MM/YYYY" ng-model="randomDomain.range.toDate">
-                            <div ng-messages="demoForm.dateFormat.$error">
+                            <div ng-messages="domainForm.dateFormat.$error">
                                 <div ng-message="required">This is required</div>
                                 <div ng-message="format">Invalid format</div>
                             </div>
@@ -124,7 +124,7 @@
                 </div>
                 <!-- {{randomDomain.range.fromTime}} {{randomDomain.range.toTime}} {{randomDomain.range.fromDate}} {{randomDomain.range.toDate}}
  -->
-                <md-input-container class="md-block patternStyle">
+                <md-input-container class="md-block" style="max-height:none;">
                     <label>{{inputLabelsForDomain.pattern}}</label>
                     <input name="domainPattern" ng-if="status" value="{{status}}" ng-model="randomDomain.pattern" required>
                 </md-input-container>
@@ -132,8 +132,8 @@
                     <p><i>Test your pattern! <a href="" class="md-primary md-raised" ng-click="showAdvanced($event)"><b>click here</a></b></i></p>
                 </div>
                 <div layout="row" layout-align="end center">
-                    <md-button ui-sref="datamill.dashboard" class="md-raised">Cancel</md-button>
-                    <md-button class="md-raised" type="submit">Create</md-button>
+                    <md-button ui-sref="datamill.dashboard" class="md-accent"><b>Cancel</b></md-button>
+                    <md-button class="md-primary" type="submit"><b>Create</b></md-button>
                 </div>
             </form>
         </div>

@@ -1,9 +1,17 @@
 angular.module('datamill')
+  .config(function($mdDateLocaleProvider) {
+    $mdDateLocaleProvider.formatDate = function(date) {
+      return moment(date).format('YYYY-MM-DD');
+    };
+  })
   .controller('randomDomainCtrl', ['$stateParams', '$scope', '$mdDialog', '$log', 'listDomainFactory', 'randomDomainFactory', function($stateParams, $scope, $mdDialog, $log, listDomainFactory, randomDomainFactory) {
     $scope.dataRealRandom = {
       'type': "",
     }
-    $scope.randomDomain = { 'name': "" };
+    $scope.randomDomain = {
+      'name': "",
+      'range': {}
+    };
     $scope.baseType = "";
 
     randomDomainFactory.getRandomDomainItems().then(function(res) {

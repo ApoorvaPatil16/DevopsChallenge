@@ -38,8 +38,8 @@ angular.module('datamill')
   }])
   .controller('domainListBottomSheetCtrl', function($scope, $mdBottomSheet) {
     $scope.items = [
-      { name: 'Random Domain', icon: 'share-arrow' },
-      { name: 'Real Domain', icon: 'upload' }
+      { name: 'Random Domain', icon: 'class' },
+      { name: 'Real Domain', icon: 'description' }
     ];
     $scope.listItemClick = function($index) {
       var clickedItem = $scope.items[$index];

@@ -29,13 +29,13 @@
         {
           "type": "Download",
           "value": "download",
-          "state": "datamill.datamodeldefination.download",
+          "state": "download",
           "linkname": "Download Option"
         },
         {
           "type": "Feed",
           "value": "feed",
-          "state": "datamill.datamodeldefination.datafeed",
+          "state": "datafeed",
           "linkname": "Feed Option"
         }
       ]
@@ -53,7 +53,7 @@
         {
           "id": 1,
           "link": "About",
-          "state": "#"
+          "state": "datamill.about"
         }
       ],
       "sideNavItems": [
@@ -95,7 +95,7 @@
       "accountItems": [
         {
           "id": 1,
-          "name": "Your Profile"
+          "name": "Profile"
         },
         {
           "id": 2,
@@ -536,6 +536,45 @@
       "pattern": "[0-9]",
       "type": "Random Generated Domain",
       "id": 33
+    },
+    {
+      "name": "City Name",
+      "pattern": "fd",
+      "baseType": "String",
+      "type": "Random Generated Domain",
+      "id": 34
+    },
+    {
+      "baseType": "Number",
+      "name": "Address",
+      "pattern": 1,
+      "type": "Random Generated Domain",
+      "id": 35
+    },
+    {
+      "name": "Sequence Of A B",
+      "baseType": "Date",
+      "range": {
+        "fromDate": "2016-08-14T18:30:00.000Z",
+        "toDate": "2016-08-21T18:30:00.000Z"
+      },
+      "pattern": "[0-9]",
+      "type": "Random Generated Domain",
+      "id": 36
+    },
+    {
+      "name": "DaSDS",
+      "baseType": "Date",
+      "pattern": "DS",
+      "type": "Random Generated Domain",
+      "id": 37
+    },
+    {
+      "name": "A man as around",
+      "baseType": "String",
+      "pattern": "[0-9]",
+      "type": "Random Generated Domain",
+      "id": 38
     }
   ],
   "datamodel": [
