@@ -27,7 +27,7 @@
           </md-input-container>
         </div>
         <div layout-gt-gm="row" layout-padding>
-          <md-chips ng-model="ctrl.user.tags" name="tags" md-max-chips="5" placeholder="Add tags">
+          <md-chips ng-model="ctrl.user.tags" name="tags" md-max-chips="5" placeholder="Add tags" ng-error="ctrl.user.tags.length==0">
             <md-chip-template>
               <strong>{{$chip}}</strong>
               <em>(xyz...)</em>
