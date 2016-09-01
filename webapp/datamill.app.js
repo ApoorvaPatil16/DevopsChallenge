@@ -2,7 +2,8 @@ angular.module('datamill', ['ngMaterial',
     'ngMessages',
     'ui.router',
     'mdPickers',
-    'ngAvatar'
+    'ngAvatar',
+    'satellizer'
   ])
   .controller('datamillCtrl', ['$scope', '$state',
     function($scope, $state) {

@@ -25,7 +25,9 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'webapp')));
 app.use(express.static(path.join(__dirname, 'bower_modules')));
 // app.use(express.static(path.join(__dirname, 'public')));
+app.post('/login', function(req, res) {
 
+});
 app.use(function(req, res, next) {
   var err = new Error('Resource not found');
   err.status = 404;
