@@ -1,8 +1,9 @@
 angular.module('datamill')
   .controller('datafeedCtrl', datafeedCtrl);
 
-function datafeedCtrl($timeout, $q, $log, $filter, datafeedService, $scope, $mdDialog) {
+function datafeedCtrl($timeout, $q, $log, $filter, datafeedService, $scope, $mdDialog, options) {
   var ctrl = this;
+  $scope.datafeed = options;
   $scope.pattern = "Pattern Matches";
   datafeedService.getTransportType().then(function(res) {
     ctrl.states = res;
@@ -37,17 +38,21 @@ function datafeedCtrl($timeout, $q, $log, $filter, datafeedService, $scope, $mdD
     }
   }
 
+  function createFilterFor(query) {
+    var lowercaseQuery = angular.lowercase(query);
+
+    return function filterFn(state) {
+      return (state.value.indexOf(lowercaseQuery) === 0);
+    };
+
+  }
+
   function searchTextChange(text) {
     $log.info('Text changed to ' + text);
   }
 
-  function selectedItemChange(itesm) {
+  function selectedItemChange(item) {
     $log.info('Item changed to ' + JSON.stringify(item));
   }
-// function answer(answer) {
-//   $log.info(answer);
-//   $mdDialog.hide(answer);
-// }
-
-  $log.info("registered the controller");
+  $log.info("datafeedCtrl is registered");
 }

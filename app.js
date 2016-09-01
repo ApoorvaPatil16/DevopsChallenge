@@ -4,9 +4,11 @@ var favicon = require('serve-favicon');
 var morgan = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var jsonServer = require('json-server');
 
 //APP logger
 // var logger = require("./applogger");
+var nav_router = require('./datamillserver/nav_router');
 
 //Express App created
 var app = express();
@@ -21,7 +23,8 @@ app.use(bodyParser.urlencoded({
   extended: false
 }));
 app.use(cookieParser());
-
+app.use('/api', jsonServer.router('db.json'));
+app.use('/navbarItems', nav_router);
 app.use(express.static(path.join(__dirname, 'webapp')));
 app.use(express.static(path.join(__dirname, 'bower_modules')));
 // app.use(express.static(path.join(__dirname, 'public')));
