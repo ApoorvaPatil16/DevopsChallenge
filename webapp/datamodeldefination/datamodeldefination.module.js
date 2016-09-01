@@ -13,8 +13,7 @@ angular.module('datamill')
           dataModel: {
             "name": '',
             "description": '',
-            "attributes": [],
-            "patterns": []
+            "attributes": []
           }
         }
       });
