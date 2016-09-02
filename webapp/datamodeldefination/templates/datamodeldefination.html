@@ -15,7 +15,7 @@
         <div layout-gt-xs="row" layout-xs="row">
           <md-input-container flex-gt-xs="80">
             <label>Title</label>
-            <input ng-model="dataModel.name" name="name" md-maxlength="50" md-minlength="8" capitalize-first required>
+            <input ng-model="dataModel.name" name="name" ng-disabled="isedit" md-maxlength="50" md-minlength="8" capitalize-first required>
             <div ng-messages="dataModelForm.name.$error" role="alert">
               <div ng-message="required">This field required</div>
               <div ng-message="md-minlength">Minimum should be 8</div>

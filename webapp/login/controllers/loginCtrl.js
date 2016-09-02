@@ -10,13 +10,15 @@ angular.module('datamill')
             "client_secret": "196e0ee75fe8854c6f687712d6021a7fb0e01016"
           };
           $http({
-            method: "POST",
-            url: 'https://github.com/login/oauth/access_token',
-            data: param,
-            crossDomain: true,
-            'content-type': 'application/json',
-            'Access-Control-Allow-Origin': "*"
+            type: "POST",
+            url: 'https://github.com/login/oauth/access_token?client_id=15ccef8b737c4839249e&client_secret=196e0ee75fe8854c6f687712d6021a7fb0e01016&code=' + res.code,
+            xhrFeilds: {
+              withCredentials: false
+            }
           }).then(function(res) {
+
+            console.log(JSON.stringify(res));
+          }, function(res) {
             console.log(JSON.stringify(res));
           })
           console.log(JSON.stringify(res));
