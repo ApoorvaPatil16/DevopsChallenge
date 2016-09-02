@@ -12,11 +12,11 @@ angular.module('datamill')
         }
       });
       $authProvider.github({
-        url: '/auth/github',
+        url: '/oauth/github',
         authorizationEndpoint: 'https://github.com/login/oauth/authorize',
         responseType: 'token',
         optionalUrlParams: ['scope'],
-        scope: ['user:email'],
+        scope: ['user'],
         scopeDelimiter: ' ',
         oauthType: '2.0',
         popupOptions: { width: 1020, height: 618 },
