@@ -230,7 +230,7 @@
     "name": "Street Name",
     "baseType": "String",
     "range": {
-      "mininumWord": "1",
+      "mininumWord": "2",
       "maximumWord": "5",
       "minimumChar": "5",
       "maximumChar": "20"
@@ -454,6 +454,15 @@
     "pattern": "[0-9]",
     "type": "Random Generated Domain",
     "id": 32
+  }, {
+    "type": "Real Domain",
+    "name": "CityBangalore",
+    "description": "This will include all bangalore cities",
+    "baseDataSource": "City",
+    "functions": [
+      "UpperCase"
+    ],
+    "id": 37
   }, {
     "baseType": "Number",
     "name": "Ticket Number",
@@ -464,6 +473,42 @@
     "pattern": "[0-9]",
     "type": "Random Generated Domain",
     "id": 33
+  }, {
+    "name": "ABC",
+    "baseType": "String",
+    "range": {
+      "mininumWord": "2",
+      "maximumWord": "5",
+      "minimumChar": "a",
+      "maximumChar": "a"
+    },
+    "pattern": "a",
+    "type": "Random Generated Domain",
+    "id": 34
+  }, {
+    "name": "ZZ",
+    "baseType": "String",
+    "range": {
+      "mininumWord": "q",
+      "maximumWord": "q",
+      "minimumChar": "qq",
+      "maximumChar": "q"
+    },
+    "pattern": "qa",
+    "type": "Random Generated Domain",
+    "id": 35
+  }, {
+    "name": "Dcsds",
+    "baseType": "String",
+    "range": {
+      "mininumWord": "d",
+      "maximumWord": "d",
+      "minimumChar": "d",
+      "maximumChar": "d"
+    },
+    "pattern": "d",
+    "type": "Random Generated Domain",
+    "id": 36
   }],
   "datamodel": [{
     "id": 1,
@@ -747,5 +792,13 @@
     "name": "Countries",
     "description": "All the Countries are here for you to go throught. Is it not Cool..",
     "id": 6
+  }, {
+    "tags": [
+      "area",
+      "bangalore"
+    ],
+    "name": "Area Name",
+    "description": "Area Name includes only bangalore city area names.",
+    "id": 7
   }]
 }

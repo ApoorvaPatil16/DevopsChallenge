@@ -31,28 +31,28 @@
   </div>
   <!-- Datamodel Cards-->
   <div class='md-padding' layout-gt-sm="row" layout-sm="column" layout-wrap>
-    <div ng-repeat="card in datamodel" flex-gt-sm="33" flex-sm="100">
-      <md-card>
-        <md-card-title style="padding:7px;" md-colors="::{backgroundColor: 'default-primary-300'} ">
-          <ng-avatar string="{{card.name}} " auto-color="true " text-color="white " round-shape="true "></ng-avatar>
-          <md-card-title-text style="padding:5px;">
-            <span class="md-headline ">{{card.name}}</span>
-          </md-card-title-text>
-        </md-card-title>
-        <md-card-content class="wrap-content ">
-          <p>{{card.description}}</p>
-          <pre>{{ card | json }}</pre>
-          <span>File Export type : {{card.delivery}}</span>
-        </md-card-content>
-        <md-card-actions layout="row " layout-align="end center ">
-          <md-button aria-label="edit " class="md-icon-button " ui-sref="datamill.datamodeldefination({dataModel:card}) ">
-            <md-icon class="material-icons ">mode_edit</md-icon>
-          </md-button>
-          <md-button aria-label="fav " class="md-icon-button ">
-            <md-icon class="material-icons ">star</md-icon>
-          </md-button>
-        </md-card-actions>
-      </md-card>
-    </div>
+    <!-- <div ng-repeat="card in datamodel" flex-gt-sm="33" flex-sm="100"> -->
+    <md-card ng-repeat="card in datamodel" flex-gt-sm="33" flex-sm="100">
+      <!-- <md-card-title style="padding:7px;" md-colors="::{backgroundColor: 'default-primary-300'} "> -->
+      <md-card-title md-colors="::{backgroundColor: 'default-primary-300'}">
+        <ng-avatar string="{{card.name | avatarstring}}" auto-color="true" text-color="white" round-shape="true"></ng-avatar>
+        <md-card-title-text>{{card.name}}
+        </md-card-title-text>
+      </md-card-title>
+      <md-card-content>
+        <p>{{card.description}}</p>
+        <pre>{{ card | json }}</pre>
+        <span>File Export type : {{card.delivery}}</span>
+      </md-card-content>
+      <md-card-actions layout="row" layout-align="end center">
+        <md-button aria-label="edit" class="md-icon-button" ui-sref="datamill.datamodeldefination({dataModel:card})">
+          <md-icon class="material-icons">mode_edit</md-icon>
+        </md-button>
+        <md-button aria-label="fav" class="md-icon-button">
+          <md-icon class="material-icons">star</md-icon>
+        </md-button>
+      </md-card-actions>
+    </md-card>
+    <!-- </div> -->
   </div>
 </div>
