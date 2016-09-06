@@ -9,7 +9,7 @@ var jsonServer = require('json-server');
 //APP logger
 // var logger = require("./applogger");
 var nav_router = require('./datamillserver/nav_router');
-
+var oauth_router = require('./datamillserver/authlogin');
 //Express App created
 var app = express();
 
@@ -23,12 +23,15 @@ app.use(bodyParser.urlencoded({
   extended: false
 }));
 app.use(cookieParser());
+app.use('/', oauth_router);
 app.use('/api', jsonServer.router('db.json'));
 app.use('/navbarItems', nav_router);
 app.use(express.static(path.join(__dirname, 'webapp')));
 app.use(express.static(path.join(__dirname, 'bower_modules')));
 // app.use(express.static(path.join(__dirname, 'public')));
+app.post('/login', function(req, res) {
 
+});
 app.use(function(req, res, next) {
   var err = new Error('Resource not found');
   err.status = 404;

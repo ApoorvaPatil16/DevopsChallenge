@@ -230,104 +230,6 @@
     "name": "Street Name",
     "baseType": "String",
     "range": {
-      "mininumWord": "2",
-      "maximumWord": "5",
-      "minimumChar": "5",
-      "maximumChar": "20"
-    },
-    "pattern": "[0-9]",
-    "type": "Random Generated Domain",
-    "id": 30
-  }, {
-    "name": "Holiday Dates",
-    "baseType": "Date",
-    "range": {
-      "fromDate": "1980-08-01T18:30:00.000Z",
-      "toDate": "2016-08-01T18:30:00.000Z"
-    },
-    "pattern": "[0-9]",
-    "type": "Random Generated Domain",
-    "id": 31
-  }, {
-    "name": "Adhaar Card Number",
-    "baseType": "Number",
-    "range": {
-      "mininumVal": "100000000000",
-      "maximumVal": "999999999999"
-    },
-    "pattern": "[0-9]",
-    "type": "Random Generated Domain",
-    "id": 32
-  }, {
-    "name": "Credit Card",
-    "baseType": "String",
-    "range": {
-      "mininumWord": "1",
-      "maximumWord": "1",
-      "maximumChar": "10",
-      "mininumChar": "16"
-    },
-    "pattern": "[0-9]*",
-    "type": "Random Generated Domain",
-    "id": 24
-  }, {
-    "name": "PAN Card",
-    "baseType": "TimeStamp",
-    "range": {
-      "fromDate": "2015-11-08T18:30:00.000Z",
-      "fromTime": "2016-08-30T03:24:00.000Z",
-      "toDate": "2017-06-27T18:30:00.000Z"
-    },
-    "pattern": "[0-9]",
-    "type": "Random Generated Domain",
-    "id": 25
-  }, {
-    "baseType": "TimeStamp",
-    "name": "Birthday Dates",
-    "range": {
-      "fromDate": "1980-12-01T18:30:00.000Z",
-      "fromTime": "2016-08-29T21:41:00.000Z",
-      "toDate": "2016-08-14T18:30:00.000Z"
-    },
-    "pattern": "[0-9]",
-    "type": "Random Generated Domain",
-    "id": 26
-  }, {
-    "name": "Data model",
-    "baseType": "Number",
-    "range": {
-      "mininumVal": "1",
-      "maximumVal": "111111"
-    },
-    "pattern": "[0-9]",
-    "type": "Random Generated Domain",
-    "id": 27
-  }, {
-    "name": "City",
-    "baseType": "String",
-    "range": {
-      "mininumWord": "1",
-      "maximumWord": "3",
-      "minimumChar": "10",
-      "maximumChar": "20"
-    },
-    "pattern": "[0-9]",
-    "type": "Random Generated Domain",
-    "id": 28
-  }, {
-    "name": "House Number",
-    "baseType": "Number",
-    "range": {
-      "mininumVal": "1",
-      "maximumVal": "300"
-    },
-    "pattern": "[0-9]",
-    "type": "Random Generated Domain",
-    "id": 29
-  }, {
-    "name": "Street Name",
-    "baseType": "String",
-    "range": {
       "mininumWord": "1",
       "maximumWord": "5",
       "minimumChar": "5",
@@ -455,14 +357,103 @@
     "type": "Random Generated Domain",
     "id": 32
   }, {
-    "type": "Real Domain",
-    "name": "CityBangalore",
-    "description": "This will include all bangalore cities",
-    "baseDataSource": "City",
-    "functions": [
-      "UpperCase"
-    ],
-    "id": 37
+    "name": "Credit Card",
+    "baseType": "String",
+    "range": {
+      "mininumWord": "1",
+      "maximumWord": "1",
+      "maximumChar": "10",
+      "mininumChar": "16"
+    },
+    "pattern": "[0-9]*",
+    "type": "Random Generated Domain",
+    "id": 24
+  }, {
+    "name": "PAN Card",
+    "baseType": "TimeStamp",
+    "range": {
+      "fromDate": "2015-11-08T18:30:00.000Z",
+      "fromTime": "2016-08-30T03:24:00.000Z",
+      "toDate": "2017-06-27T18:30:00.000Z"
+    },
+    "pattern": "[0-9]",
+    "type": "Random Generated Domain",
+    "id": 25
+  }, {
+    "baseType": "TimeStamp",
+    "name": "Birthday Dates",
+    "range": {
+      "fromDate": "1980-12-01T18:30:00.000Z",
+      "fromTime": "2016-08-29T21:41:00.000Z",
+      "toDate": "2016-08-14T18:30:00.000Z"
+    },
+    "pattern": "[0-9]",
+    "type": "Random Generated Domain",
+    "id": 26
+  }, {
+    "name": "Data model",
+    "baseType": "Number",
+    "range": {
+      "mininumVal": "1",
+      "maximumVal": "111111"
+    },
+    "pattern": "[0-9]",
+    "type": "Random Generated Domain",
+    "id": 27
+  }, {
+    "name": "City",
+    "baseType": "String",
+    "range": {
+      "mininumWord": "1",
+      "maximumWord": "3",
+      "minimumChar": "10",
+      "maximumChar": "20"
+    },
+    "pattern": "[0-9]",
+    "type": "Random Generated Domain",
+    "id": 28
+  }, {
+    "name": "House Number",
+    "baseType": "Number",
+    "range": {
+      "mininumVal": "1",
+      "maximumVal": "300"
+    },
+    "pattern": "[0-9]",
+    "type": "Random Generated Domain",
+    "id": 29
+  }, {
+    "name": "Street Name",
+    "baseType": "String",
+    "range": {
+      "mininumWord": "1",
+      "maximumWord": "5",
+      "minimumChar": "5",
+      "maximumChar": "20"
+    },
+    "pattern": "[0-9]",
+    "type": "Random Generated Domain",
+    "id": 30
+  }, {
+    "name": "Holiday Dates",
+    "baseType": "Date",
+    "range": {
+      "fromDate": "1980-08-01T18:30:00.000Z",
+      "toDate": "2016-08-01T18:30:00.000Z"
+    },
+    "pattern": "[0-9]",
+    "type": "Random Generated Domain",
+    "id": 31
+  }, {
+    "name": "Adhaar Card Number",
+    "baseType": "Number",
+    "range": {
+      "mininumVal": "100000000000",
+      "maximumVal": "999999999999"
+    },
+    "pattern": "[0-9]",
+    "type": "Random Generated Domain",
+    "id": 32
   }, {
     "baseType": "Number",
     "name": "Ticket Number",
@@ -474,41 +465,11 @@
     "type": "Random Generated Domain",
     "id": 33
   }, {
-    "name": "ABC",
+    "name": "Shit",
+    "pattern": "Q",
     "baseType": "String",
-    "range": {
-      "mininumWord": "2",
-      "maximumWord": "5",
-      "minimumChar": "a",
-      "maximumChar": "a"
-    },
-    "pattern": "a",
     "type": "Random Generated Domain",
     "id": 34
-  }, {
-    "name": "ZZ",
-    "baseType": "String",
-    "range": {
-      "mininumWord": "q",
-      "maximumWord": "q",
-      "minimumChar": "qq",
-      "maximumChar": "q"
-    },
-    "pattern": "qa",
-    "type": "Random Generated Domain",
-    "id": 35
-  }, {
-    "name": "Dcsds",
-    "baseType": "String",
-    "range": {
-      "mininumWord": "d",
-      "maximumWord": "d",
-      "minimumChar": "d",
-      "maximumChar": "d"
-    },
-    "pattern": "d",
-    "type": "Random Generated Domain",
-    "id": 36
   }],
   "datamodel": [{
     "id": 1,
@@ -679,7 +640,7 @@
     "delivery": "feed",
     "id": 21
   }, {
-    "name": "fskdf",
+    "name": "Hgfghfhgfhgf",
     "description": "asdfads",
     "attributes": [{
       "name": "asdfadsf"
@@ -709,6 +670,17 @@
       }
     },
     "id": 23
+  }, {
+    "name": "Meeting",
+    "description": "discribe the meeting schedule and all this thing",
+    "attributes": [{
+      "name": "Start time",
+      "domain": "Birthday Dates"
+    }, {
+      "name": "endtime"
+    }],
+    "delivery": "download",
+    "id": 24
   }],
   "transporttype": [{
     "id": 1,
@@ -792,13 +764,5 @@
     "name": "Countries",
     "description": "All the Countries are here for you to go throught. Is it not Cool..",
     "id": 6
-  }, {
-    "tags": [
-      "area",
-      "bangalore"
-    ],
-    "name": "Area Name",
-    "description": "Area Name includes only bangalore city area names.",
-    "id": 7
   }]
 }

@@ -19,7 +19,7 @@ nav_router.get('/', function(req, res) {
     }, {
       "id": 2,
       "icon": "launch",
-      "state": "datamill.datamodeldefination",
+      "state": "datamill.datamodeldefination({mode:'create',dataModel: {name: '',description: '',attributes: []}})",
       "link": "New Data Model"
     }, {
       "id": 3,

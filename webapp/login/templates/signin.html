@@ -1,0 +1,24 @@
+<div layout-gt-md="row" layout-margin="10px" layout-align="center center">
+  <md-whiteframe style="height:60%;" class="md-whiteframe-5dp" flex="30">
+    <h3 style="padding-left:10px;">SIGN UP/SIGN IN</h3>
+    <md-divider></md-divider>
+    <div layout="row" layout-align="center center">
+      <md-input-container flex="80">
+        <label>Username</label>
+        <input>
+      </md-input-container>
+    </div>
+    <div layout="row" layout-align="center center">
+      <md-input-container flex="80">
+        <label>Password</label>
+        <input>
+      </md-input-container>
+    </div>
+    <div layout="row" layout-align="center center">
+      <md-button flex="80" class=" md-primary md-raised" ng-click="authenticate( 'github') ">Sign in with Github</md-button>
+    </div>
+    <div layout="row" layout-align="center center">
+      <md-button flex="80" class="md-primary md-raised" ng-click="authenticate( 'twitter') ">Sign in with Twitter</md-button>
+    </div>
+  </md-whiteframe>
+</div>
