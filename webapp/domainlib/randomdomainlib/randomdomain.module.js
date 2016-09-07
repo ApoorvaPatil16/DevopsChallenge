@@ -16,7 +16,8 @@ angular.module('datamill')
               "name": '',
               "baseType": '',
               "pattern": '',
-              "type": ''
+              "type": '',
+              "isEditable": 'false'
             }
           }
         });

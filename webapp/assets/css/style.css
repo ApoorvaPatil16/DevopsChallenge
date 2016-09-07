@@ -154,6 +154,12 @@ pre {
 
 /*Styling for listdomain templates*/
 
+.searchBorderStyle {
+  border-radius: 20px;
+  border: 1px solid rgb(47, 85, 47);
+  padding: 5px;
+}
+
 md-list-item._md-button-wrap>div.md-button:first-child ._md-list-item-inner {
   height: inherit;
 }
@@ -176,16 +182,9 @@ md-list-item._md-button-wrap>div.md-button:first-child ._md-list-item-inner {
   outline: none;
 }
 
-.searchInput {
-  border: none;
-  background: none;
-  width: 80%;
-}
 
-.searchInput:focus {
-  outline: none;
-}
+/*Styling for real domain template*/
 
-md-list-item._md-button-wrap>div.md-button:first-child ._md-list-item-inner {
-  height: inherit;
+#realSubheader {
+  padding-left: 20px;
 }

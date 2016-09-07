@@ -543,6 +543,29 @@
       "baseType": "String",
       "type": "Random Generated Domain",
       "id": 34
+    },
+    {
+      "type": "Real Domain",
+      "name": "CityBangalore",
+      "description": "This will include all bangalore cities",
+      "baseDataSource": "City",
+      "functions": [
+        "UpperCase"
+      ],
+      "id": 35
+    },
+    {
+      "name": "Landmark",
+      "baseType": "String",
+      "range": {
+        "mininumWord": "1",
+        "maximumWord": "3",
+        "minimumChar": "3",
+        "maximumChar": "10"
+      },
+      "pattern": "[0-9]",
+      "type": "Random Generated Domain",
+      "id": 36
     }
   ],
   "datamodel": [
