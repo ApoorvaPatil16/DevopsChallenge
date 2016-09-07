@@ -1,0 +1,54 @@
+<div layout="row" class="domainLibraryContent" layout-align="center center">
+  <div style="max-height:none;" flex="100" flex-xs="100" layout="column">
+    <div md-no-sticky="">
+      <div class="layout-row" layout="row">
+        <h3 id="realSubheader">Real Domain</h3>
+      </div>
+      <div>
+        <md-divider></md-divider>
+      </div>
+    </div>
+    <div layout-align-gt-sm="center none" layout-gt-sm="row">
+      <form flex-gt-sm="80" name="domainForm" flex="100" ng-submit="createRealDomain()" style="max-height:none;">
+        <md-input-container class="md-block domainNameStyle">
+          <label>Domain Name</label>
+          <input required="" name="domainName" ng-model="realCtrl.realDomain.name" capitalize-first md-maxlength="30">
+          <div ng-messages="domainForm.domainName.$error">
+            <div ng-message="required">Name is required.</div>
+            <div ng-message="md-maxlength">The title must be less than 30 characters long.</div>
+          </div>
+        </md-input-container>
+        <md-input-container class="md-block">
+          <label>Description</label>
+          <input required="" name="domainDescription" ng-model="realCtrl.realDomain.description" md-maxlength="100">
+          <div ng-messages="domainForm.domainDescription.$error">
+            <div ng-message="required">Description is required.</div>
+            <div ng-message="md-maxlength">The title must be less than 100 characters long.</div>
+          </div>
+        </md-input-container>
+        <md-autocomplete ng-disabled="realCtrl.isDisabled" md-no-cache="realCtrl.noCache" md-selected-item="realCtrl.selectedItem" md-search-text-change="realCtrl.searchTextChange(realCtrl.searchText)" md-search-text="realCtrl.searchText" md-selected-item-change="realCtrl.selectedItemChange(item)" md-items="item in realCtrl.querySearch(realCtrl.searchText)" md-item-text="item.display" md-min-length="0" placeholder="Base Data Source">
+          <md-item-template>
+            <span md-highlight-text="realCtrl.searchText" md-highlight-flags="^i">{{item.display}}</span>
+          </md-item-template>
+          <md-not-found>
+            No data source matching "{{realCtrl.searchText}}" were found.
+            <a ui-sref="datamill.createdatasource">Create a new one!</a>
+          </md-not-found>
+        </md-autocomplete>
+        <h4 style="margin-top:40px;margin-bottom:0px;color:green;">Transformations</h4>
+        <md-input-container style="width:100%">
+          <label>Apply Functions</label>
+          <md-select ng-model="realCtrl.selectFunction" multiple="">
+            <md-optgroup label="Functions">
+              <md-option ng-value="name" ng-repeat="name in realCtrl.functionNames">{{name}}</md-option>
+            </md-optgroup>
+          </md-select>
+        </md-input-container>
+        <div layout="row" layout-align="end center">
+          <md-button ui-sref="datamill.listdomain" class="md-accent"><b>Cancel</b></md-button>
+          <md-button class="md-primary" type="submit"><b>Save</b></md-button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

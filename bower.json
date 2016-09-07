@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
   "name": "datamill",
   "dependencies": {
@@ -8,3 +9,16 @@
     "angular-avatar": "^1.1.0"
   }
 }
+=======
+{
+  "name": "datamill",
+  "dependencies": {
+    "angular": "^1.5.8",
+    "angular-ui-router": "^0.3.1",
+    "angular-material": "1.1.0-rc.5",
+    "mdPickers": "^0.7.5",
+    "angular-avatar": "^1.1.0",
+    "satellizer": "^0.15.5"
+  }
+}
+>>>>>>> a3627334b41a6e5ecac6cdff154c0175b7fc2293

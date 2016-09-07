@@ -2,20 +2,21 @@ angular.module('datamill')
   .config(['$stateProvider', '$urlRouterProvider',
     function($stateProvider, $urlRouterProvider) {
       $stateProvider
-        .state('datamill.randomDomain', {
-          url: '/newrandomdomain',
+        .state('datamill.realDomain', {
+          url: '/realdomaindomain',
           views: {
             "content@": {
-              templateUrl: "/domainlib/randomdomainlib/templates/randomdomain.html",
-              controller: 'randomDomainCtrl'
+              templateUrl: "/domainlib/realdomainlib/templates/realdomain.html",
+              controller: 'realDomainCtrl as realCtrl'
             }
           },
           params: {
             realDomain: {
               "id": '',
               "name": '',
-              "baseType": '',
-              "pattern": '',
+              "description": '',
+              "functions": '',
+              "baseDataSource": '',
               "type": ''
             }
           }

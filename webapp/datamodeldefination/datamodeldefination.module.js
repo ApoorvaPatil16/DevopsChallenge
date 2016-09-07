@@ -2,7 +2,7 @@ angular.module('datamill')
   .config(['$stateProvider', '$urlRouterProvider',
     function($stateProvider, $urlRouterProvider) {
       $stateProvider.state('datamill.datamodeldefination', {
-        url: '/datamodeldefination',
+        url: '/datamodeldefination/:mode',
         views: {
           "content@": {
             templateUrl: "/datamodeldefination/templates/datamodeldefination.html",
@@ -10,11 +10,11 @@ angular.module('datamill')
           }
         },
         params: {
+          mode: "create",
           dataModel: {
             "name": '',
             "description": '',
-            "attributes": [],
-            "patterns": []
+            "attributes": []
           }
         }
       });

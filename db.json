@@ -536,6 +536,39 @@
       "pattern": "[0-9]",
       "type": "Random Generated Domain",
       "id": 33
+<<<<<<< HEAD
+=======
+    },
+    {
+      "name": "Shit",
+      "pattern": "Q",
+      "baseType": "String",
+      "type": "Random Generated Domain",
+      "id": 34
+    },
+    {
+      "type": "Real Domain",
+      "name": "CityBangalore",
+      "description": "This will include all bangalore cities",
+      "baseDataSource": "City",
+      "functions": [
+        "UpperCase"
+      ],
+      "id": 35
+    },
+    {
+      "name": "Landmark",
+      "baseType": "String",
+      "range": {
+        "mininumWord": "1",
+        "maximumWord": "3",
+        "minimumChar": "3",
+        "maximumChar": "10"
+      },
+      "pattern": "[0-9]",
+      "type": "Random Generated Domain",
+      "id": 36
+>>>>>>> a3627334b41a6e5ecac6cdff154c0175b7fc2293
     }
   ],
   "datamodel": [
@@ -735,7 +768,11 @@
       "id": 21
     },
     {
+<<<<<<< HEAD
       "name": "fskdf",
+=======
+      "name": "Hgfghfhgfhgf",
+>>>>>>> a3627334b41a6e5ecac6cdff154c0175b7fc2293
       "description": "asdfads",
       "attributes": [
         {
@@ -770,6 +807,24 @@
         }
       },
       "id": 23
+<<<<<<< HEAD
+=======
+    },
+    {
+      "name": "Meeting",
+      "description": "discribe the meeting schedule and all this thing",
+      "attributes": [
+        {
+          "name": "Start time",
+          "domain": "Birthday Dates"
+        },
+        {
+          "name": "endtime"
+        }
+      ],
+      "delivery": "download",
+      "id": 24
+>>>>>>> a3627334b41a6e5ecac6cdff154c0175b7fc2293
     }
   ],
   "transporttype": [
@@ -780,12 +835,21 @@
     {
       "id": 2,
       "name": "Redis"
+<<<<<<< HEAD
     },
     {
       "id": 3,
       "name": "Redis MQ"
     },
     {
+=======
+    },
+    {
+      "id": 3,
+      "name": "Redis MQ"
+    },
+    {
+>>>>>>> a3627334b41a6e5ecac6cdff154c0175b7fc2293
       "id": 4,
       "name": "Kafka"
     },
@@ -875,6 +939,7 @@
       "name": "Countries",
       "description": "All the Countries are here for you to go throught. Is it not Cool..",
       "id": 6
+<<<<<<< HEAD
     },
     {
       "tags": [
@@ -883,6 +948,8 @@
       "name": "Pan card",
       "description": "This data Contains the pan card details of all wipro employees.",
       "id": 7
+=======
+>>>>>>> a3627334b41a6e5ecac6cdff154c0175b7fc2293
     }
   ]
 }

@@ -3,6 +3,10 @@ angular.module('datamill')
     $scope.count = 0;
     $scope.status = false;
     $scope.searchAllDomain = function() {
+      $scope.searchDomain = "";
+      $scope.closeStyle = {
+        'background': 'none'
+      }
       $scope.status = false;
       listDomainFactory.getDomainItems($scope.count).then(function(res) {
         $scope.domainItems = res;
@@ -17,6 +21,12 @@ angular.module('datamill')
         $scope.domainItems = res;
         $scope.length = res.length;
       })
+    }
+    $scope.searchInputFunction = function() {
+      $scope.searchDomain = "";
+      $scope.closeStyle = {
+        'background': 'rgb(221,240,221)'
+      }
     }
     $scope.searchNextFunction = function() {
 
@@ -38,8 +48,8 @@ angular.module('datamill')
   }])
   .controller('domainListBottomSheetCtrl', function($scope, $mdBottomSheet) {
     $scope.items = [
-      { name: 'Random Domain', icon: 'class' },
-      { name: 'Real Domain', icon: 'description' }
+      { name: 'Random Domain', icon: 'class', 'state': 'datamill.randomDomain' },
+      { name: 'Real Domain', icon: 'description', 'state': 'datamill.realDomain' }
     ];
     $scope.listItemClick = function($index) {
       var clickedItem = $scope.items[$index];

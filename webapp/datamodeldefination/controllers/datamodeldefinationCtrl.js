@@ -1,7 +1,8 @@
 angular.module('datamill')
   .controller('datamodeldefinationController', ['$scope', 'datamodeldefinationservice', '$state', '$stateParams', '$mdDialog', '$log', function($scope, datamodeldefinationservice, $state, $stateParams, $mdDialog, $log) {
     $scope.dataModel = $stateParams.dataModel;
-    /*Getting Data Model Input config*/
+    $scope.isedit = ($stateParams.mode === 'edit')
+      /*Getting Data Model Input config*/
     datamodeldefinationservice.getDataModelConfig().then(function(res) {    $scope.datamodelconf = res;    });
     // Adding Attributes Variable for on Fly showing
     $scope.addAttribute = function(attr) {

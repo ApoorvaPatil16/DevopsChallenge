@@ -4,13 +4,14 @@ angular.module('datamill')
       return moment(date).format('YYYY-MM-DD');
     };
   })
-  .controller('randomDomainCtrl', ['$stateParams', '$scope', '$mdDialog', '$log', 'listDomainFactory', 'randomDomainFactory', function($stateParams, $scope, $mdDialog, $log, listDomainFactory, randomDomainFactory) {
+  .controller('randomDomainCtrl', ['$state', '$stateParams', '$scope', '$mdDialog', '$log', 'listDomainFactory', 'randomDomainFactory', function($state, $stateParams, $scope, $mdDialog, $log, listDomainFactory, randomDomainFactory) {
     $scope.dataRealRandom = {
       'type': "",
     }
     $scope.randomDomain = {
       'name': "",
-      'range': {}
+      'range': {},
+      'isEditable': 'true'
     };
     $scope.baseType = "";
 
@@ -42,8 +43,8 @@ angular.module('datamill')
       if ($scope.randomDomain.baseType) {
         $scope.randomDomain.type = "Random Generated Domain";
         listDomainFactory.getDomainItemsByName($scope.randomDomain.name).then(function(res) {
-          if (res.length != 0) {
-            $scope.errorMessage = "Domain name " + $scope.randomDomain.name + " already exits."
+          if (res.length != 0 && $scope.randomDomain.isEditable) {
+            $scope.errorMessage = "Domain name " + $scope.randomDomain.name + " already exists."
           } else {
             randomDomainFactory.postNewDomain($scope.randomDomain).then(function(id) {
               $log.info("success");
@@ -53,6 +54,7 @@ angular.module('datamill')
                 ok: 'Close'
               });
               $mdDialog.show(alert);
+              $state.go('datamill.listdomain');
               $scope.randomDomain = {};
             }, function(res) {
               $log.info("fail");

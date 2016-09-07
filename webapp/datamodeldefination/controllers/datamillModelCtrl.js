@@ -18,8 +18,9 @@ function datamillModelController($scope, datamodeldefinationservice, $element, $
   datamodeldefinationservice.getAttrType().then(function(res) {    ctrl.attrtype = res;    }, function(res) { $log.info("failed to get"); });
   ctrl.add = function() {
       if (ctrl.attrs.length) {
-        if (ctrl.attrs[ctrl.attrs.length - 1].name == "" || ctrl.attrs[ctrl.attrs.length].name == null) return;
-        if (ctrl.attrs[ctrl.attrs.length - 1].domain == "" || ctrl.attrs[ctrl.attrs.length].domain == null) return;
+        //console.log(ctrl.attrs[ctrl.attrs.length - 1]['name'])
+        if (ctrl.attrs[ctrl.attrs.length - 1]['name'] === "" || ctrl.attrs[ctrl.attrs.length - 1]['name'] === null) return;
+        if (ctrl.attrs[ctrl.attrs.length - 1]['domain'] === "" || ctrl.attrs[ctrl.attrs.length - 1]['domain'] == null) return;
       }
       ctrl.attrs.push({});
     }
