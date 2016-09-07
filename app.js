@@ -9,12 +9,8 @@ var jsonServer = require('json-server');
 //APP logger
 // var logger = require("./applogger");
 var nav_router = require('./datamillserver/nav_router');
-<<<<<<< HEAD
 var datasource = require('./datamillserver/datasource/datasourceModel');
-
-=======
 var oauth_router = require('./datamillserver/authlogin');
->>>>>>> a3627334b41a6e5ecac6cdff154c0175b7fc2293
 //Express App created
 var app = express();
 

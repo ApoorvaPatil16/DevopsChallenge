@@ -1,67 +1,3 @@
-<<<<<<< HEAD
-var express = require('express');
-var nav_router = express.Router();
-nav_router.get('/', function(req, res) {
-  var data = [{
-    "appName": [{
-      "id": 1,
-      "name": "DataMill.io"
-    }],
-    "sideNavBottomItems": [{
-      "id": 1,
-      "link": "About",
-      "state": "datamill.about"
-    }],
-    "sideNavItems": [{
-      "id": 1,
-      "icon": "dashboard",
-      "state": "datamill.dashboard",
-      "link": "Dashboard"
-    }, {
-      "id": 2,
-      "icon": "launch",
-      "state": "datamill.datamodeldefination",
-      "link": "New Data Model"
-    }, {
-      "id": 3,
-      "icon": "domain",
-      "state": "datamill.listdomain",
-      "link": "Data Domain",
-      "children": [{
-        "state": "datamill.randomDomain",
-        "link": "Random"
-      }, {
-        "state": "meaningfulDomain",
-        "link": "Realistic"
-      }]
-    }, {
-      "id": 4,
-      "icon": "backup",
-      "state": "datamill.datasource",
-      "link": "Data Sources"
-    }],
-    "accountItems": [{
-      "id": 1,
-      "name": "Profile"
-    }, {
-      "id": 2,
-      "name": "SignOut"
-    }],
-    "materialIcons": [{
-      "id": 1,
-      "name": "menu"
-    }, {
-      "id": 1,
-      "name": "notifications"
-    }, {
-      "id": 1,
-      "name": "account_circle"
-    }]
-  }];
-  return res.send(data);
-});
-module.exports = nav_router;
-=======
 var express = require('express');
 var nav_router = express.Router();
 nav_router.get('/', function(req, res) {
@@ -124,4 +60,3 @@ nav_router.get('/', function(req, res) {
   return res.send(data);
 });
 module.exports = nav_router;
->>>>>>> a3627334b41a6e5ecac6cdff154c0175b7fc2293
