@@ -1,6 +1,7 @@
 var authrouter = require('express').Router();
 var request = require("request");
 var qs = require('querystring');
+var usermodel = require('./userschema/userprofile');
 authrouter.post('/oauth/github', function(req, res) {
   console.log("Req param: ", req.params);
   console.log("Req query: ", req.query);

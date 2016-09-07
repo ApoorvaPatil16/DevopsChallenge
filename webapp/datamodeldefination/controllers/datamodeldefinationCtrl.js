@@ -31,7 +31,7 @@ angular.module('datamill')
       $log.info($state.current.name);
     };
     // for posting the data to the server
-    $scope.createDataModel = function() {
+    $scope.saveDataModel = function() {
       datamodeldefinationservice.postDataModel($scope.dataModel).then(function(res) {
           $log.info("submited successfully " + res);
           showAlert(res.id);

@@ -27,7 +27,7 @@ angular.module('datamill')
       postDataModel: function(postdata) {
         return $http({
           method: "POST",
-          url: "api/datamodel",
+          url: "/datamodel",
           data: postdata,
           'content-type': "aplication/json"
         }).then(function(res) {

@@ -5,7 +5,7 @@ var morgan = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var jsonServer = require('json-server');
-
+var datamodeldefination = require('./datamillserver/datamodel/datamodel_router');
 //APP logger
 // var logger = require("./applogger");
 var nav_router = require('./datamillserver/nav_router');
@@ -32,6 +32,7 @@ app.post('/login', function(req, res) {
 
 });
 app.use('/', oauth_router);
+app.use('/datamodel', datamodeldefination);
 app.use(function(req, res, next) {
   var err = new Error('Resource not found');
   err.status = 404;
