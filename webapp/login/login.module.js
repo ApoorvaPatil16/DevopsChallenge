@@ -14,7 +14,7 @@ angular.module('datamill')
       $authProvider.github({
         url: '/oauth/github',
         authorizationEndpoint: 'https://github.com/login/oauth/authorize',
-        responseType: 'token',
+        //responseType: 'token',
         optionalUrlParams: ['scope'],
         scope: ['user'],
         scopeDelimiter: ' ',
