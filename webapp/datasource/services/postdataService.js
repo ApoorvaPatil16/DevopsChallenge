@@ -6,7 +6,7 @@ angular.module('datamill')
           method: 'POST',
           data: data,
           'content-type': 'application/json',
-          url: 'api/datasource'
+          url: '/createdatasource'
         }).then(function successCallback(response) {
           $log.info(response);
         }, function errorCallback(response) {
