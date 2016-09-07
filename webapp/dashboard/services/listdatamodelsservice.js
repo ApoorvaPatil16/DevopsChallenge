@@ -14,5 +14,6 @@ angular.module('datamill')
             return response.data;
           })
       }
+
     }
   }]);
