@@ -5,14 +5,6 @@ angular.module('datamill')
       $scope.datamodel = res;
     });
     console.log($scope.datamodel);
-    /*  $scope.getSearchResults = function() {
-    $log.log("In simple search");
-    listDataModelsService.getDatamodelSearch($scope.search).then(function(res) {
-      $scope.datamodel = res;
-    });
-    $log.log($scope.datamodel);
-  }
-*/
     $scope.searchAll = function() {
       $scope.count = 0;
       $scope.status = true;

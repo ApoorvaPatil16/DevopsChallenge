@@ -1,16 +1,17 @@
 var authrouter = require('express').Router();
 var request = require("request");
 var qs = require('querystring');
-authrouter.get('/oauth/github', function(req, res) {
+authrouter.post('/oauth/github', function(req, res) {
   console.log("Req param: ", req.params);
   console.log("Req query: ", req.query);
+  console.log("Req body: ", req.body);
   var options = {
     method: 'POST',
     url: 'https://github.com/login/oauth/access_token',
     qs: {
       client_id: '15ccef8b737c4839249e',
       client_secret: '196e0ee75fe8854c6f687712d6021a7fb0e01016',
-      code: req.query.code
+      code: req.body.code
     }
   };
   request(options, function(error, response, body) {

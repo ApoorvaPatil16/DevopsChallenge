@@ -470,6 +470,15 @@
     "baseType": "String",
     "type": "Random Generated Domain",
     "id": 34
+  }, {
+    "type": "Real Domain",
+    "name": "CityBangalore",
+    "description": "This will include all bangalore cities",
+    "baseDataSource": "City",
+    "functions": [
+      "UpperCase"
+    ],
+    "id": 35
   }],
   "datamodel": [{
     "id": 1,
