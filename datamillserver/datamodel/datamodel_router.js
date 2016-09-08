@@ -42,7 +42,7 @@ datamodel_router.post('/', function(req, res) {
 datamodel_router.patch('/update/:datamodelname', function(req, res) {
   datamodelModel.findOneAndUpdate({ name: req.params.datamodelname }, req.body, function(err, doc) {
     if (err) {
-      return res.status(500).send(err);
+      return res.status(500).send({ "error": err });
     }
     return res.send(doc);
   })

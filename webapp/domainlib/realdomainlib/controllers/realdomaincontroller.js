@@ -23,13 +23,7 @@ angular.module('datamill')
     function querySearch(query) {
       var results = query ? self.states.filter(createFilterFor(query)) : self.states,
         deferred;
-      if (self.simulateQuery) {
-        deferred = $q.defer();
-        $timeout(function() { deferred.resolve(results); }, Math.random() * 1000, false);
-        return deferred.promise;
-      } else {
-        return results;
-      }
+      return results;
     }
 
     function searchTextChange(text) {

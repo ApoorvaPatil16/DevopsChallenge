@@ -30,20 +30,31 @@ angular.module('datamill')
       }, function() {}).finally(function() {});
       $log.info($state.current.name);
     };
-    // for posting the data to the server
+    // for posting/patching the data to the server
     $scope.saveDataModel = function() {
-      datamodeldefinationservice.postDataModel($scope.dataModel).then(function(res) {
-          $log.info("submited successfully " + res);
-          showAlert(res.id);
-        },
-        function(res) {
-          $log.info(res)
-        })
+      if ($stateParams.datamodelname) {
+        datamodeldefinationservice.patchDataModel($scope.dataModel, $stateParams.datamodelname).then(function() {
+            showAlert(res.name);
+          },
+          function() {
+            showAlert(res.error);
+          });
+      } else {
+        datamodeldefinationservice.postDataModel($scope.dataModel).then(function(res) {
+            $log.info("submited successfully " + res);
+            showAlert(res.name);
+          },
+          function(res) {
+            $log.info(res);
+            showAlert(res.error);
+          });
+      }
     };
     // for canceling the data model
     $scope.cancelDataModel = function() {
         $state.go('datamill.dashboard');
       }
+      // @TODO Reset Button
       // datamodel create success message show
     function showAlert(id) {
       alert = $mdDialog.alert()

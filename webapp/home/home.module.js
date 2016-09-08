@@ -48,6 +48,7 @@ angular.module('datamill')
   .config(['$stateProvider', '$urlRouterProvider',
     function($stateProvider, $urlRouterProvider) {
       $stateProvider.state('datamill', {
+        controller: 'datamillCtrl',
         views: {
           "appBar": {
             templateUrl: "/home/templates/appBar.html",
