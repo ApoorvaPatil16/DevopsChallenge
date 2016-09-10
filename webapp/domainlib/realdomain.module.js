@@ -6,7 +6,7 @@ angular.module('datamill')
           url: '/realdomaindomain',
           views: {
             "content@": {
-              templateUrl: "/domainlib/realdomainlib/templates/realdomain.html",
+              templateUrl: "/domainlib/templates/realdomain.html",
               controller: 'realDomainCtrl as realCtrl'
             }
           },

@@ -41,7 +41,7 @@ angular.module('datamill')
     $scope.domainUpdateFunction = function() {}
     $scope.showListBottomSheet = function() {
       $mdBottomSheet.show({
-        templateUrl: '/listdomain/templates/domainbottomlist.html',
+        templateUrl: '/domainlib/templates/domainbottomlist.html',
         controller: 'domainListBottomSheetCtrl'
       })
     };

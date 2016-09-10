@@ -28,7 +28,7 @@
           </md-subheader>
           <md-divider></md-divider>
           <div layout-xs="row" layout-sm="row" layout-md="row" layout-gt-md="row" layout-wrap>
-            <md-list-item flex-xs="100" flex-sm="50" flex-md="33" flex-gt-md="25" md-ink-ripple class="md-3-line" ng-repeat="item in domainItems" ng-show="item.type=='Random Generated Domain'" ui-sref="datamill.randomDomain({randomDomain:item})">
+            <md-list-item flex-xs="100" flex-sm="50" flex-md="33" flex-gt-md="25" md-ink-ripple class="md-3-line" ng-repeat="item in domainItems" ng-show="item.type=='Random Generated Domain'" ui-sref="datamill.randomDomain({mode:'edit',randomDomain:item})">
               <md-list-content id="domainListItems" layout="row">
                 <ng-avatar string="{{item.name | avatarstring}}" round-shape="true" auto-color="true"></ng-avatar>
                 <div class="md-list-item-text" style="padding-left:10px;">
