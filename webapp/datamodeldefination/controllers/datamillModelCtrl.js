@@ -15,7 +15,12 @@ angular.module('datamill')
 function datamillModelController($scope, datamodeldefinationservice, $element, $transclude, $log) {
   var ctrl = this;
   // getting the domain list from server
-  datamodeldefinationservice.getDomain().then(function(res) {    ctrl.domain = res;    }, function(res) { $log.info("failed to get"); });
+  datamodeldefinationservice.getDomain().then(function(res) {   
+    ctrl.domain = res;
+    ctrl.domainName = ctrl.domain.map(function(d) {
+      return d.name;
+    });   
+  }, function(res) { $log.info("failed to get"); });
   //datamodeldefinationservice.getAttrType().then(function(res) {    ctrl.attrtype = res;    }, function(res) { $log.info("failed to get"); });
   ctrl.add = function() {
       if (ctrl.attrs.length) {
@@ -30,14 +35,15 @@ function datamillModelController($scope, datamodeldefinationservice, $element, $
       ctrl.attrs.splice(index, 1);
     }
     //md-autocomplete supporting function
+
   ctrl.querySearch = function querySearch(query) {
-    var results = query ? ctrl.domain.filter(createFilterFor(query)) : ctrl.domain;
+    var results = query ? ctrl.domain.filter(createFilterFor(query)) : ctrl.domainName;
     return results;
   };
 
   function createFilterFor(query) {
     return function filterFn(domain) {
-      return (domain.name.toLowerCase().indexOf(query.toLowerCase()) === 0);
+      return (domain.toLowerCase().indexOf(query.toLowerCase()) === 0);
     };
   }
   $log.info(ctrl.formTitle);

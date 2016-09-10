@@ -41,12 +41,12 @@
         <div flex="20">
           <h4>On Interrupt</h4>
         </div>
-        <md-radio-group ng-model="datafeed.onInterrupt" layout-gt-xs="row" layout-xs="column" flex="80" layout-margin>
+        <md-radio-group ng-model="datafeed.oninterrupt" layout-gt-xs="row" layout-xs="column" flex="80" layout-margin>
           <div flex-gt-xs="">
-            <md-radio-button value="autoRestart" class="md-primary" flex="">AutoRestart</md-radio-button>
+            <md-radio-button value="restart" class="md-primary" flex="">AutoRestart</md-radio-button>
           </div>
           <div flex-gt-xs="">
-            <md-radio-button value="doNothing" class="md-primary" flex="">Do Nothing</md-radio-button>
+            <md-radio-button value="donothing" class="md-primary" flex="">Do Nothing</md-radio-button>
           </div>
         </md-radio-group>
       </div>
@@ -54,23 +54,23 @@
       <div layout-gt-xs="row" layout-xs="column" layout-margin>
         <div flex-gt-xs="20">
           <h4>Feed Flow</h4></div>
-        <md-radio-group ng-model="datafeed.feedflow" flex-gt-xs="80" layout="row" layout-margin>
+        <md-radio-group ng-model="datafeed.flow.type" flex-gt-xs="80" layout="row" layout-margin>
           <div flex="" layout="column">
             <md-radio-button value="continuous" ng-disabled="data.group1" class="md-primary" flex="">Continuous</md-radio-button>
             <md-input-container class="md-block" md-no-float="">
-              <input ng-model="datafeed.continuous.dataRate" ng-disabled="datafeed.feedflow!='continuous'" placeholder="Data Rate" flex="50" type="number">
+              <input ng-model="datafeed.flow.frequency.packets" ng-disabled="datafeed.flow.type!='continuous'" placeholder="Data Rate" flex="50" type="number">
             </md-input-container>
             <md-input-container class="md-block" md-no-float="">
-              <input ng-model="datafeed.continuous.timeUnit" ng-disabled="datafeed.feedflow!='continuous'" placeholder="Time Unit" flex="50" type="number">
+              <input ng-model="datafeed.flow.frequency.time" ng-disabled="datafeed.flow.type!='continuous'" placeholder="Time Unit" flex="50" type="number">
             </md-input-container>
           </div>
           <div flex="" layout="column">
             <md-radio-button value="sporadic" class="md-primary" flex="">Sporadic</md-radio-button>
             <md-input-container class="md-block" md-no-float="">
-              <input ng-model="datafeed.sporadic.data" ng-disabled="datafeed.feedflow!='sporadic'" placeholder="Data" flex="50" type="number">
+              <input ng-model="datafeed.flow.brusts.totalpackets" ng-disabled="datafeed.feedflow!='sporadic'" placeholder="Data" flex="50" type="number">
             </md-input-container>
             <md-input-container class="md-block" md-no-float="">
-              <input ng-model="datafeed.sporadic.burst" ng-disabled="datafeed.feedflow!='sporadic'" placeholder="No.of Bursts" min="10" flex="50" type="number">
+              <input ng-model="datafeed.sporadic.bursts.occurences" ng-disabled="datafeed.feedflow!='sporadic'" placeholder="No.of Bursts" min="10" flex="50" type="number">
             </md-input-container>
           </div>
         </md-radio-group>
@@ -81,7 +81,7 @@
           <h4>Transport Type</h4>
         </div>
         <div flex-gt-xs="80" layout-margin>
-          <md-autocomplete md-no-cache="ctrl.noCache" md-selected-item="datafeed.transportType" md-search-text-change="ctrl.searchTextChange(ctrl.searchText)" md-search-text="ctrl.searchText" md-selected-item-change="ctrl.selectedItemChange(item)" md-items="item in ctrl.querySearch(ctrl.searchText)" md-item-text="item.name" md-min-length="0" placeholder="Type of Transport" md-require-match="true">
+          <md-autocomplete md-no-cache="ctrl.noCache" md-selected-item="datafeed.transportmedia" md-search-text-change="ctrl.searchTextChange(ctrl.searchText)" md-search-text="ctrl.searchText" md-selected-item-change="ctrl.selectedItemChange(item)" md-items="item in ctrl.querySearch(ctrl.searchText)" md-item-text="item.name" md-min-length="0" placeholder="Type of Transport" md-require-match="true">
             <md-item-template>
               <span md-highlight-text="ctrl.searchText" md-highlight-flags="^i">{{item.name}}</span>
             </md-item-template>

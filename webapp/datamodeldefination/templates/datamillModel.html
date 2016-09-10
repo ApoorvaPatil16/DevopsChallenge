@@ -37,9 +37,9 @@
             </md-option>
           </md-select>
         </md-input-container> -->
-        <md-autocomplete md-selected-item="attr.domain" md-search-text="attr.searchText" md-items="item in $ctrl.querySearch(attr.searchText)" md-item-text="item.name" md-min-length="0" placeholder="Attribute domain">
+        <md-autocomplete md-selected-item="attr.domain" md-search-text="attr.searchText" md-items="item in $ctrl.querySearch(attr.searchText)" md-item-text="item" md-min-length="0" placeholder="Attribute domain" required>
           <md-item-template>
-            <span md-highlight-text="attr.searchText" md-highlight-flags="^i">{{item.name}}</span>
+            <span md-highlight-text="attr.searchText" md-highlight-flags="^i">{{item}}</span>
           </md-item-template>
           <md-not-found>
             No data source matching "{{attr.searchText}}" were found.

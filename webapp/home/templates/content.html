@@ -5,7 +5,7 @@
       <p>Now get rid from the generating your own dummy data and generate data in one click</p>
     </div>
   </div>
-  <div ng-if="isAuthenticated()" flex-gt-sm="auto" flex-sm="auto" layout="column" layout-align="center center">
+  <div ng-if="!isAuthenticated()" flex-gt-sm="auto" flex-sm="auto" layout="column" layout-align="center center">
     <div>Login with:</div>
     <div layout-gt-xs="row" layout-xs="column" layout-align="center center">
       <md-button class="md-primary md-raised" style="color:white" ng-click="authenticate('github')"><i class="fa fa-github" aria-hidden="true"></i>Github</md-button>

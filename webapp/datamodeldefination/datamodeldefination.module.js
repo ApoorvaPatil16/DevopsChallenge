@@ -15,7 +15,8 @@ angular.module('datamill')
           dataModel: {
             "name": '',
             "description": '',
-            "attributes": []
+            "attributes": [],
+            "username": "vishal"
           }
         }
       });
