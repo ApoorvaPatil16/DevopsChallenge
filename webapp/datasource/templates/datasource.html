@@ -1,6 +1,6 @@
-<div md-no-sticky="" style="background-color:lightgrey;">
-  <div class="layout-row" layout="row">
-    <h4 style="padding-left:20px;padding-top:10px;">Data Sources</h4>
+<!-- <div md-no-sticky="" style="background-color:lightgrey;">
+  <div class="layout-row" layout="row" class="md-toolbar-tools">
+    <h3 style="padding-left:20px;padding-top:10px;">Data Sources</h3>
     <span flex></span>
     <div layout-padding>
       <md-button class="md-fab md-mini" aria-label="edit">
@@ -8,7 +8,25 @@
       </md-button>
     </div>
   </div>
+</div> -->
+<div layout="row">
+  <div style="max-height:none" flex="100" flex-xs="100" layout="column">
+    <div style="background-color:lightgrey">
+      <div class="md-toolbar-tools">
+        <h3>
+           Data Sources
+         </h3>
+        <span flex></span>
+        <div layout-padding>
+          <md-button class="md-fab md-mini" aria-label="edit">
+            <md-icon ui-sref="datamill.createdatasource({user:{tags:[]}})">input</md-icon>
+          </md-button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+<md-divider></md-divider>
 <div layout-gt-sm="row" layout-sm="column">
   <div flex="">
     <md-list flex="">

@@ -1,7 +1,7 @@
 <div>
   <div md-no-sticky="" style="background-color:lightgrey;">
     <div class="layout-row" layout="row">
-      <h4 style="padding-left:20px;padding-top:10px;">Data Sources </h4>
+      <h3 style="padding-left:20px;padding-top:10px;">Data Sources </h3>
       <span flex></span>
       <div layout-padding>
         <md-button class="md-fab md-mini" aria-label="edit">
@@ -12,8 +12,8 @@
   </div>
   <md-divider></md-divider>
 </div>
-<div layout="row" ng-controller="createdatasourceController" layout-padding>
-  <div layout-padding style="max-height:none" flex="100" flex-xs="100" layout="column">
+<div layout="row" ng-controller="createdatasourceController" layout-padding layout-align="center center">
+  <div layout-padding style="max-height:none" flex="95" flex-xs="100" layout="column">
     <div md-padding>
       <form name="userForm">
         <div>
@@ -26,16 +26,17 @@
             </div>
           </md-input-container>
         </div>
+        <p ng-show="ctrl.showerror" id="errorid" style="color:red">You have to give atleast one tag.</p>
         <div layout-gt-gm="row" layout-padding>
-          <md-chips ng-model="ctrl.user.tags" name="tags" md-max-chips="5" placeholder="Add tags" ng-error="ctrl.user.tags
+          <md-chips ng-model="ctrl.user.tags" name="tags" ng-required="" md-max-chips="5" placeholder="Add tags" ng-error="ctrl.user.tags
 .length==0">
             <md-chip-template>
               <strong>{{$chip}}</strong>
-              <em>(xyz...)</em>
             </md-chip-template>
           </md-chips>
           <div ng-messages="userForm.tags.$error" ng-if="userForm.$dirty">
             <div ng-message="md-max-chips">You reached the maximum amount of chips</div>
+            <div ng-message="required">Required</div>
           </div>
         </div>
         <div flex="100" layout="column" layout-margin>

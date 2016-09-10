@@ -1,22 +1,30 @@
-<div style="background:#282a31;height:100%">
-  <div layout="row" layout-align="center center" style="height:50%">
-    <div flex="30" style="text-align:center;color:white;">
+<div style="background:#366336;min-height:100%" layout-gt-sm="column" layout-sm="column">
+  <div flex-gt-sm="40" flex-sm="auto" layout-gt-sm="row" layout-sm="row" layout-xs="row" layout-align="center center">
+    <div flex-gt-sm="40" flex-sm="60" flex-xs="70" style="text-align:center;color:white;">
       <h1>Realistic Time Series Data Generator</h1>
       <p>Now get rid from the generating your own dummy data and generate data in one click</p>
     </div>
   </div>
-  <div layout="row" layout-align="center center" style="text-align:center;color:white;" layout-margin style=" height:50% ">
-    <div flex="30">
+  <div ng-if="isAuthenticated()" flex-gt-sm="auto" flex-sm="auto" layout="column" layout-align="center center">
+    <div>Login with:</div>
+    <div layout-gt-xs="row" layout-xs="column" layout-align="center center">
+      <md-button class="md-primary md-raised" style="color:white" ng-click="authenticate('github')"><i class="fa fa-github" aria-hidden="true"></i>Github</md-button>
+      <md-button class="md-primary md-raised" style="color:white"><i class="fa fa-google-plus" aria-hidden="true"></i>Google</md-button>
+      <md-button class="md-primary md-raised" ng-disabled="true" style="color:white"><i class="fa fa-stack-overflow" aria-hidden="true"></i>Stack Exchange</md-button>
+    </div>
+  </div>
+  <div flex-gt-sm="auto" flex-sm="auto" layout-gt-sm="row" layout-sm="column" layout-align="center center" style="text-align:center;color:white;" layout-gt-sm-margin>
+    <div flex-gt-sm="33" flex-sm>
       <img style="height:100px;width:100px " src="/assets/images/data_sources.png "></img>
       <h2>Briefcase Your Own Data Sources</h2>
       <p>You can add your custom data sources and use to create your own domains</p>
     </div>
-    <div flex="30">
+    <div flex-gt-sm="33" flex-sm>
       <img style="height:100px;width:100px " src="/assets/images/domain_lib.png "></img>
       <h2>Domain For Easing</h2>
       <p>You can add your custom Domain use to create your own datamodel</p>
     </div>
-    <div flex="30">
+    <div flex-gt-sm="33" flex-sm>
       <img style="height:100px;width:100px " src="/assets/images/redis.png "></img>
       <h2>Providing Wide Range of Feeds</h2>
       <p>You can get your data over the streams, websockets,redis,kafka etc</p>

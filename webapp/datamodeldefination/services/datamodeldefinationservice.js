@@ -17,7 +17,7 @@ angular.module('datamill')
       },
       // getting all the config from the server
       getDataModelConfig: function() {
-        return $http.get("api/datamodelconf").then(function(res) {
+        return $http.get("datamodel/conf").then(function(res) {
           return res.data;
         }, function() {
           return "Unable to connect server";
@@ -27,7 +27,7 @@ angular.module('datamill')
       postDataModel: function(postdata) {
         return $http({
           method: "POST",
-          url: "api/datamodel",
+          url: "/datamodel",
           data: postdata,
           'content-type': "aplication/json"
         }).then(function(res) {
@@ -35,6 +35,21 @@ angular.module('datamill')
         }, function() {
           return "unable to create data";
         });
+      },
+      //request to update the data in database
+      patchDataModel: function(patchData, datamodelname) {
+        return $http({
+          method: "PATCH",
+          url: "/datamodel/update/" + datamodelname,
+          data: patchData,
+          'content-type': 'aplication/json'
+        }).then(function(res) {
+            console.log(res);
+            return res.data;
+          },
+          function(res) {
+            return res;
+          })
       }
     }
   });

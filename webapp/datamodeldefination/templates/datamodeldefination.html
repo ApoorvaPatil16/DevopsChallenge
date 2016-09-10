@@ -9,7 +9,7 @@
 <div layout-gt-md="row" layout="column" layout-margin="10px" ng-cloak>
   <div flex-gt-md="70" class="md-whiteframe-3dp" style="max-height:none;padding:10px">
     <!-- <h1>{{datamodelconf.heading}}</h1> -->
-    <form ng-submit="createDataModel()" name="dataModelForm">
+    <form ng-submit="saveDataModel()" name="dataModelForm">
       <div layout="column" layout-margin="2px">
         <!-- Data Model Defination -->
         <div layout-gt-xs="row" layout-xs="row">
@@ -22,17 +22,20 @@
               <div ng-message="md-maxlength">Exceeded the limit(50)</div>
             </div>
           </md-input-container flex-gt-xs="20">
-          <md-switch ng-model="dataModel.privacy" aria-label="Switch 1">
-            Privacy
+          <md-switch ng-model="dataModel.ispublic" aria-label="Switch 1">
+            visible to all
           </md-switch>
         </div>
-        <label>Description</label>
-        <textarea ng-model="dataModel.description" name="description" maxlength="150" minlength="10" rows="4" required>
-        </textarea>
-        <div ng-messages="dataModelForm.description.$error" style="color:maroon" role="alert" ng-if="dataModel.description!=''">
-          <div ng-message="required">This field required</div>
-          <div ng-message="minlength">Minimum length should be 10</div>
-        </div>
+        <md-input-container>
+          <label>Description</label>
+          <textarea ng-model="dataModel.description" name="description" md-maxlength="150" md-minlength="10" rows="2" required>
+          </textarea>
+          <div ng-messages="dataModelForm.description.$error" style="color:maroon" role="alert">
+            <div ng-message="required">This field required</div>
+            <div ng-message="md-minlength">Minimum length should be 10</div>
+            <div ng-message="md-maxlength">Exceeded the limit(150)</div>
+          </div>
+        </md-input-container>
       </div>
       <md-divider></md-divider>
       <!-- datamill model component -->
@@ -77,26 +80,6 @@
               </md-input-container>
             </md-slider-container>
           </div>
-          <div flex="" layout="row">
-            <h5 flex="10">Pattern1</h5>
-            <md-slider-container flex="80">
-              <md-slider disabled ng-model="color.blue" min="0" max="100" aria-label="blue" id="blue-slider" class="md-primary" flex-offset="5">
-              </md-slider>
-              <md-input-container>
-                <input disabled flex="" type="number" ng-model="color.blue" aria-label="red" aria-controls="red-slider">
-              </md-input-container>
-            </md-slider-container>
-          </div>
-          <div flex="" layout="row">
-            <h5 flex="10">Pattern2</h5>
-            <md-slider-container flex="80">
-              <md-slider disabled ng-model="color.red" min="0" max="{{100-color.blue}}" aria-label="blue" id="blue-slider" class="md-primary" flex-offset="5">
-              </md-slider>
-              <md-input-container>
-                <input disabled flex="" type="number" ng-model="color.red" aria-label="red" aria-controls="red-slider">
-              </md-input-container>
-            </md-slider-container>
-          </div>
         </div>
       </div>
       <div layout="row" layout-align="end center">
@@ -108,7 +91,7 @@
   <div flex-gt-md="30" class="md-whiteframe-3dp" style="max-height:none;" layout="column">
     <div style="max-height:none;padding:8px">
       <h3>Json Format</h3>
-      <pre style="word-wrap:break-word;"><p style="font-size:16px">{{dataModel | json}}</p></pre>
+      <pre style="word-wrap:break-word;"><p style="font-size:16px">{{dataModel | json|generationjson|json}}</p></pre>
     </div>
   </div>
 </div>
