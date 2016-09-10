@@ -767,9 +767,6 @@
     "id": 5,
     "description": "Lists the expected  names of Indian students. "
   }, {
-    "tags": [
-      "World"
-    ],
     "name": "Countries",
     "description": "All the Countries are here for you to go throught. Is it not Cool..",
     "id": 6

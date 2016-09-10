@@ -6,7 +6,7 @@ angular.module('datamill')
     ctrl.states = [];
     listdataService.getdatasources().then(function(res) {
       ctrl.states = loadAll();
-
+      console.log(ctrl.states);
       function loadAll() {
         return res.map(function(state) {
           return {

@@ -10,7 +10,6 @@ app.use(bodyParser.urlencoded({
   extended: false
 }));
 datasource_router.post('/', function(req, res) {
-  mongoose.connect('mongodb://localhost:27017/datamillserver');
   var dataSourceData = new datasource(req.body);
   dataSourceData.save(function(err, result) {
     if (err) {

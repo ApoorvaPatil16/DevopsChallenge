@@ -3,7 +3,6 @@ var express = require('express');
 var app = express();
 var DomainLib = require('./domainlib');
 var domainlib_router = express.Router();
-mongoose.connect('mongodb://localhost:27018/datamillserver');
 domainlib_router.post('/addData', function(req, res) {
   console.log(req.body);
   var domainData = new DomainLib(req.body);

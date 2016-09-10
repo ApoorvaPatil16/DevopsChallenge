@@ -3,7 +3,7 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var userSchema = require('./userschema/userprofile');
-var userModel = mongoose.model('userprofileModel', userSchema);
+//var userModel = mongoose.model('userprofileModel', userSchema);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
   extended: false
@@ -12,7 +12,6 @@ app.use(bodyParser.urlencoded({
 var authrouter = require('express').Router();
 var request = require("request");
 var qs = require('querystring');
-mongoose.connect('mongodb://localhost/datamillserver');
 
 authrouter.post('/oauth/github', function(req, res) {
   console.log("Req param: ", req.params);
