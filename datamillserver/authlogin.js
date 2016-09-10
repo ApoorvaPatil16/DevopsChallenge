@@ -12,7 +12,6 @@ app.use(bodyParser.urlencoded({
 var authrouter = require('express').Router();
 var request = require("request");
 var qs = require('querystring');
-
 mongoose.connect('mongodb://localhost/datamillserver');
 
 authrouter.post('/oauth/github', function(req, res) {

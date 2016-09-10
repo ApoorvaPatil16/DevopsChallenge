@@ -6,7 +6,8 @@ angular.module('datamill')
           url: '/datamill',
           views: {
             "content@": {
-              templateUrl: "/landingpage/templates/landingpage.html"
+              templateUrl: "/landingpage/templates/landingpage.html",
+              controller: 'landingpageCtrl'
             }
           }
         });

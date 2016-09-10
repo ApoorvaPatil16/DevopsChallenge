@@ -29,14 +29,23 @@
             </md-option>
           </md-select>
         </md-input-container> -->
-        <md-input-container flex-gt-sm="25">
+        <!-- <md-input-container flex-gt-sm="25">
           <label>Attribute Domain</label>
           <md-select ng-model="attr.domain">
             <md-option ng-repeat="state in $ctrl.domain" value="{{state.name}}">
               {{state.name}}
             </md-option>
           </md-select>
-        </md-input-container>
+        </md-input-container> -->
+        <md-autocomplete md-selected-item="attr.domain" md-search-text="attr.searchText" md-items="item in $ctrl.querySearch(attr.searchText)" md-item-text="item.name" md-min-length="0" placeholder="Attribute domain">
+          <md-item-template>
+            <span md-highlight-text="attr.searchText" md-highlight-flags="^i">{{item.name}}</span>
+          </md-item-template>
+          <md-not-found>
+            No data source matching "{{attr.searchText}}" were found.
+            <a ui-sref="datamill.createdatasource">Create a new one!</a>
+          </md-not-found>
+        </md-autocomplete>
         <!-- <md-input-container ng-if="attr.type==='schema'" flex-gt-sm="25">
           <label>Attribute schema</label>
           <input ng-model="attr.schema">
