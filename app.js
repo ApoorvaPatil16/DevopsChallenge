@@ -9,8 +9,11 @@ var jsonServer = require('json-server');
 //APP logger
 // var logger = require("./applogger");
 var nav_router = require('./datamillserver/nav_router');
-var datasource = require('./datamillserver/datasource/datasourceModel');
+var createdatasource = require('./datamillserver/datasource/datasourceModel');
 var oauth_router = require('./datamillserver/authlogin');
+var datasource = require('./datamillserver/datasource/getdatasource');
+var validate = require('./datamillserver/datasource/validate');
+
 //Express App created
 var app = express();
 
@@ -26,7 +29,9 @@ app.use(bodyParser.urlencoded({
 app.use(cookieParser());
 app.use('/api', jsonServer.router('db.json'));
 app.use('/navbarItems', nav_router);
-app.use('/createdatasource', datasource);
+app.use('/createdatasource', createdatasource);
+app.use('/getdatasource', datasource);
+app.use('/validatename', validate);
 app.use(express.static(path.join(__dirname, 'webapp')));
 app.use(express.static(path.join(__dirname, 'bower_modules')));
 // app.use(express.static(path.join(__dirname, 'public')));

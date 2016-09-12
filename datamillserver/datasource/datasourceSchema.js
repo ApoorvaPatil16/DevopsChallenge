@@ -1,9 +1,10 @@
 var mongoose = require('mongoose');
 var schema = mongoose.Schema;
 var datasourceSchema = new schema({
-  name: String,
-  tags: [String],
-  description: String,
-  data: String
+  name: { type: String, unique: true, required:true},
+  tags: [{ type: String }],
+  description: String
+    // on: { type: Date, default: Date.now }
 });
-module.exports = datasourceSchema;
+var datasource = mongoose.model('datasourcemodels', datasourceSchema, 'datasourcemodels');
+module.exports = datasource;

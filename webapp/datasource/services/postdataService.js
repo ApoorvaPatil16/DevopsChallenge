@@ -9,6 +9,7 @@ angular.module('datamill')
           url: '/createdatasource'
         }).then(function successCallback(response) {
           $log.info(response);
+          return response.data;
         }, function errorCallback(response) {
           $log.info(response);
         });
