@@ -12,7 +12,7 @@ var userProfile = new mongoose.Schema({
   facebook: String,
   google: String,
   github: String,
-  linkedin: String,
+  linkedin: String
 });
 
-module.exports = userProfile;
+module.exports = mongoose.model("Users", userProfile);

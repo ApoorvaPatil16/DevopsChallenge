@@ -5,11 +5,14 @@ var morgan = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var jsonServer = require('json-server');
-
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost:27018/datamillserver');
+var datamodeldefination = require('./datamillserver/datamodel/datamodel_router');
 //APP logger
 // var logger = require("./applogger");
 var nav_router = require('./datamillserver/nav_router');
 var createdatasource = require('./datamillserver/datasource/datasourceModel');
+var domainlib_router = require('./datamillserver/domainlib/domainlib_router');
 var oauth_router = require('./datamillserver/authlogin');
 var datasource = require('./datamillserver/datasource/getdatasource');
 var validate = require('./datamillserver/datasource/validate');
@@ -32,6 +35,7 @@ app.use('/navbarItems', nav_router);
 app.use('/createdatasource', createdatasource);
 app.use('/getdatasource', datasource);
 app.use('/validatename', validate);
+app.use('/domain', domainlib_router);
 app.use(express.static(path.join(__dirname, 'webapp')));
 app.use(express.static(path.join(__dirname, 'bower_modules')));
 // app.use(express.static(path.join(__dirname, 'public')));
@@ -39,6 +43,7 @@ app.post('/login', function(req, res) {
 
 });
 app.use('/', oauth_router);
+app.use('/datamodel', datamodeldefination);
 app.use(function(req, res, next) {
   var err = new Error('Resource not found');
   err.status = 404;
