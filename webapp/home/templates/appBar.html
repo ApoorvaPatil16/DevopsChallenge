@@ -15,11 +15,14 @@
                 </md-button>
                 <md-menu>
                     <md-button class="md-icon-button " aria-label="Account " ng-click="$mdOpenMenu() ">
-                        <md-icon class="material-icons ">{{materialIcons[2].name}}</md-icon>
+                    <md-icon class=" material-icons ">{{materialIcons[2].name}}</md-icon>
+                        <!-- <md-icon class="material-icons ">{{data.picture}}</md-icon> -->
+                      <!-- <img src="{{data.picture}}" alt="DataMill Icon ">  -->
+
                     </md-button>
                     <md-menu-content id="account-circle-content">
                         <md-menu-item ng-repeat="item in accountItems">
-                            <md-button ng-click=" ">
+                            <md-button ng-click="this[item.func]()">
                                 {{item.name}}
                             </md-button>
                         </md-menu-item>

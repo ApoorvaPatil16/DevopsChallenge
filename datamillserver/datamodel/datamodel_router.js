@@ -2,7 +2,7 @@ var express = require('express');
 var mongoose = require('mongoose');
 var datamodel_router = express.Router();
 var datamodelModel = require('./datamodel');
-mongoose.connect('mongodb://localhost:27017/datamillserver');
+// mongoose.connect('mongodb://localhost:27017/datamillserver');
 datamodel_router.get('/', function(req, res) {
   if (req.query.q) {
     datamodelModel.find({ title: req.query.q }, function(err, result) {
