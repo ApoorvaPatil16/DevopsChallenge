@@ -2,7 +2,7 @@ angular.module('datamill')
     .factory('listdataService', function($http, $log) {
         return {
             getdatasources: function() {
-                return $http.get('/datasource')
+                return $http.get('/datasources')
                     .then(function(response) {
                         // $log.info(response);
                         return response.data;
