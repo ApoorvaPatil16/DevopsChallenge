@@ -11,6 +11,7 @@ var datamodeldefination = require('./datamillserver/datamodel/datamodel_router')
 //APP logger
 // var logger = require("./applogger");
 var nav_router = require('./datamillserver/nav_router');
+var primitivedomain_router = require('./datamillserver/primitivedomain_router');
 var domainlib_router = require('./datamillserver/domainlib/domainlib_router');
 var datasource = require('./datamillserver/datasource/datasourceModel');
 var oauth_router = require('./datamillserver/authlogin');
@@ -29,6 +30,7 @@ app.use(bodyParser.urlencoded({
 app.use(cookieParser());
 app.use('/api', jsonServer.router('db.json'));
 app.use('/navbarItems', nav_router);
+app.use('/primitiveDomains', primitivedomain_router);
 app.use('/domain', domainlib_router);
 app.use('/createdatasource', datasource);
 app.use(express.static(path.join(__dirname, 'webapp')));

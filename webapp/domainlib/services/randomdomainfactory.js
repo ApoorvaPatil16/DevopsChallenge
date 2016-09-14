@@ -2,7 +2,7 @@ angular.module('datamill')
   .factory('randomDomainFactory', function($http) {
     return {
       getRandomDomainItems: function() {
-        return $http.get("api/randomDomainLibData").then(function(res) {
+        return $http.get("/primitiveDomains").then(function(res) {
           return res.data;
         })
       },
@@ -27,8 +27,8 @@ angular.module('datamill')
           'content-type': "application/json"
         }).then(function(res) {
           return res;
-        }, function() {
-          return "Unable to Create domain";
+        }, function(err) {
+          return err;
         });
       }
     }
