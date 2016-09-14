@@ -11,6 +11,13 @@ angular.module('datamill')
         return $http.get("/domain/notprimitive?q=" + name).then(function(res) {
           return res.data;
         })
+      },
+      getAllDomain: function() {
+        console.log("inside list domain factory")
+        return $http.get("/domain/all").then(function(res) {
+          console.log("inside list domain factory")
+          return res.data;
+        })
       }
     }
   });

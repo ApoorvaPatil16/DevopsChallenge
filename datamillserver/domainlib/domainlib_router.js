@@ -106,15 +106,16 @@ domainlib_router.post('/', function(req, res) {
 
   })
 });
-domainlib_router.get('/', function(req, res) {
-  DomainLib.find({ $or: [{ email: req.email }, { email: null }] }).exec(function(err, domainLib) {
-    if (err) {
-      return res.send(err);
-    }
-    return res.send(domainLib);
-  })
-});
+
 domainlib_router.get('/:type', function(req, res) {
+  if (req.params.type == 'all') {
+    DomainLib.find({ $or: [{ email: 'admin' }, { email: req.email }] }).exec(function(err, domainLib) {
+      if (err) {
+        return res.send(err);
+      }
+      return res.send(domainLib);
+    })
+  }
   if (req.params.type == 'primitive') {
     DomainLib.find({ type: 'Primitive' }).exec(function(err, domainLib) {
       if (err) {
