@@ -3,7 +3,6 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var userModel = require('./userschema/userprofile');
-
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
   extended: false
@@ -47,7 +46,61 @@ authrouter.post('/oauth/github', function(req, res) {
       if (result.email == "null") {
         console.log("Email is not accessible");
       } else {
-        var email = result.email;
+        var userEmail = result.email;
+        userModel.find({ 'email': userEmail }, function(err, found) {
+          if (err) return handleError(err);
+          if (found.length == 0) {
+            console.log("not found");
+            //For new user create user info entry
+            var userprofileData = new userModel();
+            userprofileData.email = userEmail;
+            userprofileData.displayName = result.name;
+            userprofileData.picture = result.picture;
+            userprofileData.gender = result.gender;
+            userprofileData.user_ID = result.id;
+            console.log(userprofileData.email);
+            userprofileData.save(function(err, data) {
+              if (err) {
+                return res.send(err);
+              } else {
+                console.log(data);
+                // JSONwebtoken
+                var secretKey = uuid.v4();
+                console.log(secretKey);
+                //preparing the claims, the payload
+                var payload = {
+                  sub: data._id,
+                  iss: 'https://localhost:8080',
+                  email: data.email,
+                }
+                var token = jwt.sign(payload, secretKey, { expiresIn: "7d" });
+                return res.status(201).json({
+                  success: true,
+                  token: token
+                });
+              }
+            })
+
+          } else {
+            console.log("Found");
+            // JSONwebtoken
+            var secretKey = uuid.v4();
+            console.log(secretKey);
+            //preparing the claims, the payload
+            console.log(found[0]._id);
+            var payload = {
+              sub: found[0]._id,
+              iss: 'https://localhost:8080',
+              email: found[0].email,
+              // permissions: 'upload-photos'
+            }
+            var token = jwt.sign(payload, secretKey, { expiresIn: "7d" });
+            return res.status(201).json({
+              success: true,
+              token: token
+            })
+          }
+        })
       }
       console.log(body1);
       res.send(body1);
@@ -104,28 +157,27 @@ authrouter.post('/auth/google', function(req, res) {
             userprofileData.user_ID = result.id;
             console.log(userprofileData.email);
             userprofileData.save(function(err, data) {
-                if (err) {
-                  return res.send(err);
-                } else {
-                  console.log(data);
-                }
-              })
-              // JSONwebtoken
-            var secretKey = uuid.v4();
-            console.log(secretKey);
-            //preparing the claims, the payload
-            var payload = {
-              sub: found[0]._id,
-              iss: 'https://localhost:8080',
-              // permissions: 'upload-photos'
-              exp: '7d'
-            }
-            var token = jwt.sign(payload, secretKey);
+              if (err) {
+                return res.send(err);
+              } else {
+                console.log(data);
 
-            res.json({
-              success: true,
-              token: token
-            });
+                // JSONwebtoken
+                var secretKey = uuid.v4();
+                console.log(secretKey);
+                //preparing the claims, the payload
+                var payload = {
+                  sub: data._id,
+                  iss: 'https://localhost:8080',
+                  email: data.email,
+                }
+                var token = jwt.sign(payload, secretKey, { expiresIn: "7d" });
+                return res.status(201).json({
+                  success: true,
+                  token: token
+                });
+              }
+            })
           } else {
             //found[0]
             console.log("Found");
@@ -137,10 +189,11 @@ authrouter.post('/auth/google', function(req, res) {
             var payload = {
               sub: found[0]._id,
               iss: 'https://localhost:8080',
+              email: found[0].email,
               // permissions: 'upload-photos'
             }
-            var token = jwt.sign(payload, secretKey);
-            res.json({
+            var token = jwt.sign(payload, secretKey, { expiresIn: "7d" });
+            return res.status(201).json({
               success: true,
               token: token
             })
@@ -151,6 +204,5 @@ authrouter.post('/auth/google', function(req, res) {
     })
   });
 });
-
 
 module.exports = authrouter;
