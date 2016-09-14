@@ -13,12 +13,6 @@ angular.module('datamill')
           params: {
             mode: "create",
             randomDomain: {
-              "id": '',
-              "name": '',
-              "baseType": '',
-              "pattern": '',
-              "type": '',
-              "isEditable": 'false'
             }
           }
         });

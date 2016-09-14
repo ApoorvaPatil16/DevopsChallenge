@@ -6,7 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var jsonServer = require('json-server');
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/datamillserver');
+mongoose.connect('mongodb://localhost:27018/datamillserver');
 var datamodeldefination = require('./datamillserver/datamodel/datamodel_router');
 //APP logger
 // var logger = require("./applogger");
@@ -37,7 +37,7 @@ app.use('/navbarItems', nav_router);
 app.use('/createdatasource', createdatasource);
 app.use('/getdatasource', datasource);
 app.use('/validatename', validate);
-app.use('/domain', domainlib_router);
+app.use('/domain', isAuthenticated, domainlib_router);
 app.use(express.static(path.join(__dirname, 'webapp')));
 app.use(express.static(path.join(__dirname, 'bower_modules')));
 // app.use(express.static(path.join(__dirname, 'public')));

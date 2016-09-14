@@ -48,8 +48,8 @@ angular.module('datamill')
   }])
   .controller('domainListBottomSheetCtrl', function($scope, $mdBottomSheet) {
     $scope.items = [
-      { name: 'Random Domain', icon: 'class', 'state': 'datamill.randomDomain' },
-      { name: 'Real Domain', icon: 'description', 'state': 'datamill.realDomain' }
+      { name: 'Random Domain', icon: 'class', 'state': 'datamill.randomDomain({mode:"create",randomDomain:{}})' },
+      { name: 'Real Domain', icon: 'description', 'state': 'datamill.realDomain({mode:"create",realDomain:{}})' }
     ];
     $scope.listItemClick = function($index) {
       var clickedItem = $scope.items[$index];

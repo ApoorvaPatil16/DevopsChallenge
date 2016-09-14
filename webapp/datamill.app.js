@@ -14,10 +14,12 @@ angular.module('datamill', ['ngMaterial',
         $auth.authenticate(provider)
           .then(function(res) {
             console.log(res);
+            $state.go('datamill.dashboard');
           });
       };
-      $scope.logout=function(){
+      $scope.logout = function() {
         $auth.logout();
+        $state.go('datamill');
       }
       console.log($scope.isAuthenticated());
       if ($scope.isAuthenticated()) {

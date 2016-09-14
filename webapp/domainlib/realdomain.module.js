@@ -3,7 +3,7 @@ angular.module('datamill')
     function($stateProvider, $urlRouterProvider) {
       $stateProvider
         .state('datamill.realDomain', {
-          url: '/realdomaindomain',
+          url: '/realdomaindomain/:mode',
           views: {
             "content@": {
               templateUrl: "/domainlib/templates/realdomain.html",
@@ -11,13 +11,8 @@ angular.module('datamill')
             }
           },
           params: {
+            mode:"create",
             realDomain: {
-              "id": '',
-              "name": '',
-              "description": '',
-              "functions": '',
-              "baseDataSource": '',
-              "type": ''
             }
           }
         });

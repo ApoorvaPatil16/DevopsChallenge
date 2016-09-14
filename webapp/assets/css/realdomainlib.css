@@ -1,0 +1,6 @@
+.md-dialog-container {
+  z-index: 200;
+}
+md-backdrop._md-dialog-backdrop {
+  z-index: 110;
+}
