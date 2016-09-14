@@ -54,7 +54,7 @@ authrouter.post('/oauth/github', function(req, res) {
             var userprofileData = new userModel();
             userprofileData.email = userEmail;
             userprofileData.displayName = result.name;
-            userprofileData.picture = result.picture;
+            userprofileData.picture = result.avatar_url;
             userprofileData.gender = result.gender;
             userprofileData.user_ID = result.id;
             console.log(userprofileData.email);
