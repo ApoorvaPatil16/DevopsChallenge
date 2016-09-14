@@ -6,7 +6,7 @@ angular.module('datamill')
         views: {
           "content@": {
             templateUrl: "/datamodeldefination/templates/datamodeldefination.html",
-            controller: 'datamodeldefinationController',
+            controller: 'datamodeldefinationController'
           }
         },
         params: {

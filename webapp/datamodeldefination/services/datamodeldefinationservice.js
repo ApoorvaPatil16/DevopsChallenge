@@ -23,6 +23,17 @@ angular.module('datamill')
           return "Unable to connect server";
         })
       },
+      //get the main structure of the datamodel
+      getStructure: function(name) {
+        return $http({
+          method: "GET",
+          url: '/datamodel/structure/' + name
+        }).then(function(res) {
+          return res.data;
+        }, function(res) {
+          return "unable to get the data";
+        })
+      },
       // posting the datamodeldefination to server
       postDataModel: function(postdata) {
         return $http({

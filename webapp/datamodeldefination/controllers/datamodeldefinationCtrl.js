@@ -1,12 +1,18 @@
 angular.module('datamill')
   .controller('datamodeldefinationController', ['$scope', 'datamodeldefinationservice', '$state', '$stateParams', '$mdDialog', '$log', function($scope, datamodeldefinationservice, $state, $stateParams, $mdDialog, $log) {
+    //deciding mode and also getting related data
     if ($stateParams.mode === 'edit') {
       $scope.dataModel = $stateParams.dataModel;
       $scope.isedit = true;
       if ($stateParams.dataModel.name === $stateParams.datamodelname) {
         $scope.dataModel = $stateParams.dataModel;
+        datamodeldefinationservice.getStructure($stateParams.datamodelname).then(function(res) {
+          //console.log("Here we geting getStructure", res);
+          $scope.dataModel.attributes = res.attributes;
+          //console.log("changed the value", $scope.dataModel.attributes)
+        })
       } else {
-
+        // @TODO for direct URL work
       }
     } else if ($stateParams.mode === 'create') {
       $scope.dataModel = {
@@ -44,10 +50,10 @@ angular.module('datamill')
         $log.info(answer);
         $scope.dataModel[state] = answer;
       }, function() {}).finally(function() {});
-      $log.info($state.current.name);
     };
     // for posting/patching the data to the server
     $scope.saveDataModel = function() {
+      console.log("dataModel we request for edit", $scope.dataModel);
       if ($stateParams.datamodelname) {
         datamodeldefinationservice.patchDataModel($scope.dataModel, $stateParams.datamodelname).then(function(res) {
             console.log(res);

@@ -37,7 +37,7 @@ function datamillModelController($scope, datamodeldefinationservice, $element, $
     //md-autocomplete supporting function
 
   ctrl.querySearch = function querySearch(query) {
-    var results = query ? ctrl.domain.filter(createFilterFor(query)) : ctrl.domainName;
+    var results = query ? ctrl.domainName.filter(createFilterFor(query)) : ctrl.domainName;
     return results;
   };
 

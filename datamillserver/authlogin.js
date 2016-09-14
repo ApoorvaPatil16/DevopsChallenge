@@ -2,8 +2,8 @@ var mongoose = require('mongoose');
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
-var userSchema = require('./userschema/userprofile');
-var userModel = mongoose.model('userprofileModel', userSchema);
+var mongoose = require('mongoose')
+var userModel = require('./userschema/userprofile');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
   extended: false
@@ -12,7 +12,6 @@ app.use(bodyParser.urlencoded({
 var authrouter = require('express').Router();
 var request = require("request");
 var qs = require('querystring');
-mongoose.connect('mongodb://localhost/datamillserver');
 
 authrouter.post('/oauth/github', function(req, res) {
   console.log("Req param: ", req.params);
@@ -91,6 +90,7 @@ authrouter.post('/auth/google', function(req, res) {
         console.log("Email is not accessible");
       } else {
         var userEmail = result.email;
+        mongoose.connect('mongodb://localhost/datamillserver');
         userModel.find({ 'email': userEmail }, function(err, found) {
           if (err) return handleError(err);
           if (found.length == 0) {

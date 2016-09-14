@@ -10,7 +10,7 @@ var schema = new mongoose.Schema({
   download: {
     packets: { type: Number }
   },
-  feed: {
+  datafeed: {
     start: { type: Date },
     end: { type: Date },
     oninterrupt: { type: String, enum: ['restart', 'donothing'], default: 'donothing' },
@@ -30,13 +30,15 @@ var schema = new mongoose.Schema({
         }
       }
     },
-    transportmedia: { type: String, enum: ['redis', 'kafka', 'stream'] }
+    transport: {
+      medium: { type: String, enum: ['redis', 'kafka', 'stream'] },
+      config: { type: Object }
+    }
   },
-  attributes: [{
-    name: { type: String, required: true },
-    domain: { type: String, required: true },
-    isunique: { type: Boolean },
-    options: { type: Array }
+  structurename: { type: String },
+  patterns: [{
+    name: { type: String },
+    mix: { type: Number }
   }],
   username: { type: String, required: true },
   updatedon: { type: Date, default: Date.now }
