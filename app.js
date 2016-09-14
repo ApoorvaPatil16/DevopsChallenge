@@ -11,10 +11,13 @@ var datamodeldefination = require('./datamillserver/datamodel/datamodel_router')
 //APP logger
 // var logger = require("./applogger");
 var nav_router = require('./datamillserver/nav_router');
-var primitivedomain_router = require('./datamillserver/primitivedomain_router');
+var createdatasource = require('./datamillserver/datasource/datasourceModel');
 var domainlib_router = require('./datamillserver/domainlib/domainlib_router');
-var datasource = require('./datamillserver/datasource/datasourceModel');
 var oauth_router = require('./datamillserver/authlogin');
+var isAuthenticated = require('./datamillserver/authorization/authorize').isAuthenticated;
+var profile_router = require('./datamillserver/profile_router');
+var datasource = require('./datamillserver/datasource/getdatasource');
+var validate = require('./datamillserver/datasource/validate');
 //Express App created
 var app = express();
 
@@ -28,11 +31,13 @@ app.use(bodyParser.urlencoded({
   extended: false
 }));
 app.use(cookieParser());
+app.use('/profile', isAuthenticated, profile_router);
 app.use('/api', jsonServer.router('db.json'));
 app.use('/navbarItems', nav_router);
-app.use('/primitiveDomains', primitivedomain_router);
-app.use('/domain', domainlib_router);
-app.use('/createdatasource', datasource);
+app.use('/createdatasource', createdatasource);
+app.use('/getdatasource', datasource);
+app.use('/validatename', validate);
+app.use('/domain', isAuthenticated, domainlib_router);
 app.use(express.static(path.join(__dirname, 'webapp')));
 app.use(express.static(path.join(__dirname, 'bower_modules')));
 // app.use(express.static(path.join(__dirname, 'public')));
@@ -40,7 +45,7 @@ app.post('/login', function(req, res) {
 
 });
 app.use('/', oauth_router);
-app.use('/datamodel', datamodeldefination);
+app.use('/datamodel', isAuthenticated, datamodeldefination);
 app.use(function(req, res, next) {
   var err = new Error('Resource not found');
   err.status = 404;

@@ -1,7 +1,5 @@
 angular.module('datamill')
-
-
-.config(function($mdThemingProvider) {
+  .config(function($mdThemingProvider) {
     $mdThemingProvider.definePalette('palegreen', {
       '50': '#f2f8f2',
       '100': '#c0dcc0',
@@ -37,16 +35,39 @@ angular.module('datamill')
       })
   })
   .config(function($mdThemingProvider) {
-    $mdThemingProvider.theme('Theme1')
-      .primaryPalette('grey', {
-        'default': '900'
+    $mdThemingProvider.definePalette('deeppurple', {
+      '50': '#cfafdd',
+      '100': '#af79c6',
+      '200': '#9852b6',
+      '300': '#6f3987',
+      '400': '#5e3071',
+      '500': '#4c275c',
+      '600': '#3a1e46',
+      '700': '#281531',
+      '800': '#170c1c',
+      '900': '#050306',
+      'A100': '#cfafdd',
+      'A200': '#af79c6',
+      'A400': '#5e3071',
+      'A700': '#281531',
+      'contrastDefaultColor': 'light',
+      'contrastDarkColors': '50 100 A100 A200'
+    })
+  })
+  .config(function($mdThemingProvider) {
+    $mdThemingProvider.theme('theme1')
+      .primaryPalette('deeppurple', {
+        'default': '500',
+        'hue-1': 'A100',
+        'hue-2': '500',
+        'hue-3': 'A100'
       })
-      .accentPalette('grey', {
-        'default': '700'
+      .accentPalette('deeppurple', {
+        'default': '200'
       })
   })
-  .config(['$stateProvider', '$urlRouterProvider','$authProvider',
-    function($stateProvider, $urlRouterProvider,$authProvider) {
+  .config(['$stateProvider', '$urlRouterProvider', '$authProvider',
+    function($stateProvider, $urlRouterProvider, $authProvider) {
       $stateProvider.state('datamill', {
         controller: 'datamillCtrl',
         views: {

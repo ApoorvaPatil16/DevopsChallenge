@@ -2,7 +2,8 @@ angular.module('datamill')
   .factory('randomDomainFactory', function($http) {
     return {
       getRandomDomainItems: function() {
-        return $http.get("/primitiveDomains").then(function(res) {
+        return $http.get("/domain/primitive").then(function(res) {
+          console.log('Here is Primitive', res);
           return res.data;
         })
       },
@@ -22,7 +23,7 @@ angular.module('datamill')
       postNewDomain: function(postdata) {
         return $http({
           method: "POST",
-          url: "/domain/addData",
+          url: "/domain",
           data: postdata,
           'content-type': "application/json"
         }).then(function(res) {

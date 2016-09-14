@@ -2,8 +2,7 @@ var mongoose = require('mongoose');
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
-var userSchema = require('./userschema/userprofile');
-//var userModel = mongoose.model('userprofileModel', userSchema);
+var userModel = require('./userschema/userprofile');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
   extended: false
@@ -12,7 +11,10 @@ app.use(bodyParser.urlencoded({
 var authrouter = require('express').Router();
 var request = require("request");
 var qs = require('querystring');
-
+var jwt = require('jsonwebtoken');
+var uuid = require('node-uuid');
+var Joi = require('joi');
+var jws = require('jws');
 authrouter.post('/oauth/github', function(req, res) {
   console.log("Req param: ", req.params);
   console.log("Req query: ", req.query);
@@ -44,12 +46,64 @@ authrouter.post('/oauth/github', function(req, res) {
       if (result.email == "null") {
         console.log("Email is not accessible");
       } else {
-        var email = result.email;
+        var userEmail = result.email;
+        userModel.find({ 'email': userEmail }, function(err, found) {
+          if (err) return handleError(err);
+          if (found.length == 0) {
+            console.log("not found");
+            //For new user create user info entry
+            var userprofileData = new userModel();
+            userprofileData.email = userEmail;
+            userprofileData.displayName = result.name;
+            userprofileData.picture = result.picture;
+            userprofileData.gender = result.gender;
+            userprofileData.user_ID = result.id;
+            console.log(userprofileData.email);
+            userprofileData.save(function(err, data) {
+              if (err) {
+                return res.send(err);
+              } else {
+                console.log(data);
+                // JSONwebtoken
+                var secretKey = uuid.v4();
+                console.log(secretKey);
+                //preparing the claims, the payload
+                var payload = {
+                  sub: data._id,
+                  iss: 'https://localhost:8080',
+                  email: data.email,
+                }
+                var token = jwt.sign(payload, secretKey, { expiresIn: "7d" });
+                return res.status(201).json({
+                  success: true,
+                  token: token
+                });
+              }
+            })
 
+          } else {
+            console.log("Found");
+            // JSONwebtoken
+            var secretKey = uuid.v4();
+            console.log(secretKey);
+            //preparing the claims, the payload
+            console.log(found[0]._id);
+            var payload = {
+              sub: found[0]._id,
+              iss: 'https://localhost:8080',
+              email: found[0].email,
+              // permissions: 'upload-photos'
+            }
+            var token = jwt.sign(payload, secretKey, { expiresIn: "7d" });
+            return res.status(201).json({
+              success: true,
+              token: token
+            })
+          }
+        })
       }
       console.log(body1);
       res.send(body1);
-
     });
   });
 })
@@ -100,38 +154,55 @@ authrouter.post('/auth/google', function(req, res) {
             userprofileData.displayName = result.name;
             userprofileData.picture = result.picture;
             userprofileData.gender = result.gender;
-
+            userprofileData.user_ID = result.id;
             console.log(userprofileData.email);
             userprofileData.save(function(err, data) {
               if (err) {
                 return res.send(err);
               } else {
+                console.log(data);
 
+                // JSONwebtoken
+                var secretKey = uuid.v4();
+                console.log(secretKey);
+                //preparing the claims, the payload
+                var payload = {
+                  sub: data._id,
+                  iss: 'https://localhost:8080',
+                  email: data.email,
+                }
+                var token = jwt.sign(payload, secretKey, { expiresIn: "7d" });
+                return res.status(201).json({
+                  success: true,
+                  token: token
+                });
               }
             })
           } else {
-            found[0]
+            //found[0]
             console.log("Found");
+            // JSONwebtoken
+            var secretKey = uuid.v4();
+            console.log(secretKey);
+            //preparing the claims, the payload
+            console.log(found[0]._id);
+            var payload = {
+              sub: found[0]._id,
+              iss: 'https://localhost:8080',
+              email: found[0].email,
+              // permissions: 'upload-photos'
+            }
+            var token = jwt.sign(payload, secretKey, { expiresIn: "7d" });
+            return res.status(201).json({
+              success: true,
+              token: token
+            })
           }
         })
-
       }
       console.log(body1);
-      res.send(body1);
     })
   });
 });
 
 module.exports = authrouter;
-
-
-
-/*
-user_router.post('/', function(req, res) {
-  mongoose.connect('mongodb://localhost/datamillserver');
-  var userprofileData = new userModel();
-  userprofileData.email = res.body1;
-  userprofileData.save(function)
-
-})
-*/
