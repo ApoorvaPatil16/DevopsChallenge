@@ -17,7 +17,7 @@ angular.module('datamill')
       },
       // getting all the config from the server
       getDataModelConfig: function() {
-        return $http.get("api/datamodelconf").then(function(res) {
+        return $http.get("datamodel/conf").then(function(res) {
           return res.data;
         }, function() {
           return "Unable to connect server";
@@ -44,10 +44,11 @@ angular.module('datamill')
           data: patchData,
           'content-type': 'aplication/json'
         }).then(function(res) {
+            console.log(res);
             return res.data;
           },
           function(res) {
-            return res
+            return res;
           })
       }
     }

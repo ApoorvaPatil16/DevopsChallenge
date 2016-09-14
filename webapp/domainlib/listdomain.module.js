@@ -2,12 +2,12 @@ angular.module('datamill')
   .config(['$stateProvider', '$urlRouterProvider',
     function($stateProvider, $urlRouterProvider) {
       $stateProvider
-        .state('datamill.about', {
-          url: '/datamill',
+        .state('datamill.listdomain', {
+          url: '/listdomain',
           views: {
             "content@": {
-              templateUrl: "/landingpage/templates/landingpage.html",
-              controller: 'landingpageCtrl'
+              templateUrl: "/domainlib/templates/listdomain.html",
+              controller: 'listdomainCtrl'
             }
           }
         });

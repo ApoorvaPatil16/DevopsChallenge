@@ -40,13 +40,13 @@
           <label>Apply Functions</label>
           <md-select ng-model="realCtrl.selectFunction" multiple="">
             <md-optgroup label="Functions">
-              <md-option ng-value="name" ng-repeat="name in realCtrl.functionNames">{{name}}</md-option>
+              <md-option ng-value="name" ng-repeat="name in realCtrl.functionNames" ng-click="showDialog($event,$index)">{{name}}</md-option>
             </md-optgroup>
           </md-select>
         </md-input-container>
-        <div layout="row" layout-align="end center">
-          <md-button ui-sref="datamill.listdomain" class="md-accent"><b>Cancel</b></md-button>
-          <md-button class="md-primary" type="submit"><b>Save</b></md-button>
+        <div layout=" row " layout-align="end center ">
+          <md-button ui-sref="datamill.listdomain " class="md-accent "><b>Cancel</b></md-button>
+          <md-button class="md-primary " type="submit "><b>Save</b></md-button>
         </div>
       </form>
     </div>

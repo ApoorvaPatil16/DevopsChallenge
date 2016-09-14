@@ -1,0 +1,68 @@
+<div layout="row" layout-align="center center">
+  <div style="max-height:none" flex="100" flex-xs="100" layout="column">
+    <div layout-gt-xs="row" layout-xs="column">
+      <div>
+        <h3 style="padding-left:20px;">Data Domains</h3>
+      </div>
+      <div flex-gt-xs></div>
+      <div layout="row" style="padding:5px" layout-align="center center">
+        <div layout="row" class="searchBorderStyle" ng-style="closeStyle">
+          <a layout="row" class="md-mini" aria-label="Search">
+            <md-icon>search</md-icon>
+          </a>
+          <input layout="row" class="searchInput" ng-model="searchDomain" placeholder="enter search" ng-click="searchInputFunction()" ng-change="searchDomainFunction(searchDomain)">
+          <a layout="row" style="cursor:pointer;" class="md-mini" ng-click="searchAllDomain()" aria-label="Back">
+            <md-icon>close</md-icon>
+          </a>
+        </div>
+        <md-button class="md-fab md-mini" aria-label="Open Settings" ng-click="showListBottomSheet($event)">
+          <md-icon>add</md-icon>
+        </md-button>
+      </div>
+    </div>
+    <div>
+      <md-content style="background-color:white">
+        <md-list flex="" style="padding-top:0px;">
+          <md-subheader class="md-no-sticky">
+            Showing {{length}} Records
+          </md-subheader>
+          <md-divider></md-divider>
+          <div layout-xs="row" layout-sm="row" layout-md="row" layout-gt-md="row" layout-wrap>
+            <md-list-item flex-xs="100" flex-sm="50" flex-md="33" flex-gt-md="25" md-ink-ripple class="md-3-line" ng-repeat="item in domainItems" ng-show="item.type=='Random Generated Domain'" ui-sref="datamill.randomDomain({mode:'edit',randomDomain:item})">
+              <md-list-content id="domainListItems" layout="row">
+                <ng-avatar string="{{item.name | avatarstring}}" round-shape="true" auto-color="true"></ng-avatar>
+                <div class="md-list-item-text" style="padding-left:10px;">
+                  <h3>{{item.name}}</h3>
+                  <h4>{{item.type}}</h4>
+                  <p>Base Type: {{item.baseType}} Pattern: {{item.pattern}}</p>
+                </div>
+              </md-list-content>
+              <md-divider></md-divider>
+            </md-list-item>
+            <md-list-item flex-xs="100" flex-sm="50" flex-md="33" flex-gt-md="25" md-ink-ripple class="md-3-line" ng-repeat="item in domainItems" ng-show="item.type=='Real Domain'" ui-sref="datamill.realDomain({realDomain:item})">
+              <md-list-content id="domainListItems" layout="row">
+                <ng-avatar string="{{item.name | avatarstring}}" round-shape="true" auto-color="true"></ng-avatar>
+                <div class="md-list-item-text" style="padding-left:10px;">
+                  <h3>{{item.name}}</h3>
+                  <h4>{{item.type}}</h4>
+                  <p>Base Source Type: {{item.baseDataSource}}</p>
+                </div>
+              </md-list-content>
+              <md-divider></md-divider>
+            </md-list-item>
+          </div>
+          <div layout="row">
+            <span flex=""></span>
+            <md-button ng-hide="status" class="md-primary" ng-click="searchPreviousFunction()">
+              <md-icon>skip_previous</md-icon>Previous
+            </md-button>
+            <md-button ng-hide="status" class="md-primary" ng-click="searchNextFunction()">
+              Next
+              <md-icon>skip_next</md-icon>
+            </md-button>
+          </div>
+        </md-list>
+      </md-content>
+    </div>
+  </div>
+</div>
