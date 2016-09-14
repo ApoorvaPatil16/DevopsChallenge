@@ -12,10 +12,10 @@ angular.module('datamill')
     transclude: true
   });
 
-function datamillModelController($scope, datamodeldefinationservice, $element, $transclude, $log) {
+function datamillModelController($scope, listDomainFactory, $element, $transclude, $log) {
   var ctrl = this;
   // getting the domain list from server
-  datamodeldefinationservice.getDomain().then(function(res) {   
+  listDomainFactory.getAllDomain().then(function(res) {   
     ctrl.domain = res;
     ctrl.domainName = ctrl.domain.map(function(d) {
       return d.name;

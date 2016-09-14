@@ -79,10 +79,10 @@ angular.module('datamill')
       }
       // @TODO Reset Button
       // datamodel create success message show
-    function showAlert(id) {
+    function showAlert(name) {
       alert = $mdDialog.alert()
-        .title('Attention, ' + $scope.userName)
-        .textContent('Created Data Model with Id:' + id)
+        .title('Attention')
+        .textContent('Submited Data Model:' + name)
         .ok('Close');
       $mdDialog
         .show(alert)
