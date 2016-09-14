@@ -14,7 +14,8 @@ var request = require("request");
 var qs = require('querystring');
 var jwt = require('jsonwebtoken');
 var uuid = require('node-uuid');
-//oauth2 login for github 
+var Joi = require('joi');
+var jws = require('jws');
 authrouter.post('/oauth/github', function(req, res) {
   console.log("Req param: ", req.params);
   console.log("Req query: ", req.query);
@@ -46,72 +47,18 @@ authrouter.post('/oauth/github', function(req, res) {
       if (result.email == "null") {
         console.log("Email is not accessible");
       } else {
-        var userEmail = result.email;
-        userModel.find({ 'email': userEmail }, function(err, found) {
-          if (err) return handleError(err);
-          if (found.length == 0) {
-            console.log("not found");
-            //For new user create user info entry
-            var userprofileData = new userModel();
-            userprofileData.email = userEmail;
-            userprofileData.displayName = result.name;
-            userprofileData.picture = result.picture;
-            userprofileData.gender = result.gender;
-            userprofileData.user_ID = result.id;
-            console.log(userprofileData.email);
-            userprofileData.save(function(err, data) {
-                if (err) {
-                  return res.send(err);
-                } else {
-                  console.log(data);
-                }
-              })
-              // JSONwebtoken
-            var secretKey = uuid.v4();
-            console.log(secretKey);
-            //preparing the claims, the payload
-            var payload = {
-              sub: found[0]._id,
-              iss: 'https://localhost:8080',
-              // permissions: 'upload-photos'
-              exp: 300000
-            }
-            var token = jwt.sign(payload, secretKey);
-            res.json({
-              success: true,
-              token: token
-            });
-          } else {
-            console.log("Found");
-            // JSONwebtoken
-            var secretKey = uuid.v4();
-            console.log(secretKey);
-            //preparing the claims, the payload
-            console.log(found[0]._id);
-            var payload = {
-              sub: found[0]._id,
-              iss: 'https://localhost:8080',
-              // permissions: 'upload-photos'
-            }
-            var token = jwt.sign(payload, secretKey);
-            res.json({
-              success: true,
-              token: token
-            })
-          }
-        })
+        var email = result.email;
       }
       console.log(body1);
-      //            res.send(body1);
+      res.send(body1);
     });
   });
 })
+
 authrouter.post('/auth/google', function(req, res) {
   console.log("Req param: ", req.params);
   console.log("Req query: ", req.query);
   console.log("Req body: ", req.body);
-  //mongoose.connection.close();
-  //mongoose.connect('mongodb://localhost/datamillserver');
   var options = {
     method: 'POST',
     url: 'https://www.googleapis.com/oauth2/v4/token',
@@ -157,15 +104,13 @@ authrouter.post('/auth/google', function(req, res) {
             userprofileData.user_ID = result.id;
             console.log(userprofileData.email);
             userprofileData.save(function(err, data) {
-              if (err) {
-                return res.send(err);
-              } else {
-                console.log(data);
-              }
-            })
-
-            // JSONwebtoken
-
+                if (err) {
+                  return res.send(err);
+                } else {
+                  console.log(data);
+                }
+              })
+              // JSONwebtoken
             var secretKey = uuid.v4();
             console.log(secretKey);
             //preparing the claims, the payload
@@ -173,8 +118,7 @@ authrouter.post('/auth/google', function(req, res) {
               sub: found[0]._id,
               iss: 'https://localhost:8080',
               // permissions: 'upload-photos'
-              email: found[0].email,
-              exp: 300000
+              exp: '7d'
             }
             var token = jwt.sign(payload, secretKey);
 
@@ -182,12 +126,6 @@ authrouter.post('/auth/google', function(req, res) {
               success: true,
               token: token
             });
-
-
-
-            /*jwt.verify(token, secretKey, function(err, decoded) {
-                console.log(decoded.token) // bar
-            });*/
           } else {
             //found[0]
             console.log("Found");
@@ -199,14 +137,9 @@ authrouter.post('/auth/google', function(req, res) {
             var payload = {
               sub: found[0]._id,
               iss: 'https://localhost:8080',
-              //email: found[0].email,
-              exp: 300000
-                // permissions: 'upload-photos'
+              // permissions: 'upload-photos'
             }
             var token = jwt.sign(payload, secretKey);
-            /*jwt.verify(token, secretKey, function(err, decoded) {
-                console.log(decoded.token) // bar
-            });*/
             res.json({
               success: true,
               token: token
@@ -215,7 +148,6 @@ authrouter.post('/auth/google', function(req, res) {
         })
       }
       console.log(body1);
-      //res.send(body1);
     })
   });
 });
