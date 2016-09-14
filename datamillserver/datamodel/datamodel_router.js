@@ -4,7 +4,6 @@ var datamodel_router = express.Router();
 var datamodelModel = require('./datamodel');
 var datamodelstructure = require('./datamodelstructure');
 
-mongoose.connect('mongodb://localhost:27017/datamillserver');
 datamodel_router.get('/', function(req, res) {
   if (req.query && req.query.q) {
     try {

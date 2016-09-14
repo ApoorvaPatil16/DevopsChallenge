@@ -41,10 +41,14 @@ nav_router.get('/', function(req, res) {
     }],
     "accountItems": [{
       "id": 1,
-      "name": "Profile"
+      "name": "Profile",
+      "link":"datamill.userprofile",
+      "func":"profile"
     }, {
       "id": 2,
-      "name": "SignOut"
+      "name": "SignOut",
+      "link":"#",
+      "func":"logout"
     }],
     "materialIcons": [{
       "id": 1,

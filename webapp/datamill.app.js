@@ -16,9 +16,13 @@ angular.module('datamill', ['ngMaterial',
             console.log(res);
           });
       };
+      $scope.logout=function(){
+        $auth.logout();
+      }
       console.log($scope.isAuthenticated());
       if ($scope.isAuthenticated()) {
-        $state.go('datamill.dashboard');
+        //$state.go('datamill.dashboard');
+        $state.go('datamill');
       } else {
         $state.go('datamill');
       }
