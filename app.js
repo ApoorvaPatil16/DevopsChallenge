@@ -45,7 +45,7 @@ app.post('/login', function(req, res) {
 
 });
 app.use('/', oauth_router);
-app.use('/datamodel', datamodeldefination);
+app.use('/datamodel', isAuthenticated, datamodeldefination);
 app.use(function(req, res, next) {
   var err = new Error('Resource not found');
   err.status = 404;

@@ -40,7 +40,7 @@ var schema = new mongoose.Schema({
     name: { type: String },
     mix: { type: Number }
   }],
-  username: { type: String, required: true },
+  email: { type: String, required: true },
   updatedon: { type: Date, default: Date.now }
 });
 

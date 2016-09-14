@@ -7,7 +7,7 @@ var datamodelstructure = require('./datamodelstructure');
 datamodel_router.get('/', function(req, res) {
   if (req.query && req.query.q) {
     try {
-      datamodelModel.find({ name: req.query.q }, function(err, result) {
+      datamodelModel.find({ name: req.query.q, email: req.email }, function(err, result) {
         if (err) {
           return res.status(500).send({ error: err });
         }
@@ -18,7 +18,7 @@ datamodel_router.get('/', function(req, res) {
     }
   } else {
     try {
-      datamodelModel.find(function(err, result) {
+      datamodelModel.find({ email: req.email }, function(err, result) {
         if (err) {
           return res.status(500).send(err);
         }
@@ -31,7 +31,7 @@ datamodel_router.get('/', function(req, res) {
 });
 datamodel_router.get('/patterns/:modelname', function(req, res) {
   try {
-    datamodelstructure.find({ datamodelname: req.params.modelname, username: req.username, name: { $ne: req.params.modelname } }, function(err, result) {
+    datamodelstructure.find({ datamodelname: req.params.modelname, email: req.email, name: { $ne: req.params.modelname } }, function(err, result) {
       if (err) {
         return res.status(500).send({ error: err });
       }
@@ -42,9 +42,8 @@ datamodel_router.get('/patterns/:modelname', function(req, res) {
   }
 });
 datamodel_router.get('/structure/:modelname', function(req, res) {
-  req.username = "vishal";
   try {
-    datamodelstructure.find({ datamodelname: req.params.modelname, username: req.username, name: req.params.modelname }, function(err, result) {
+    datamodelstructure.find({ datamodelname: req.params.modelname, email: req.email, name: req.params.modelname }, function(err, result) {
       if (err) {
         return res.status(500).send({ error: err });
       }
@@ -99,19 +98,20 @@ datamodel_router.get('/conf', function(req, res) {
 })
 datamodel_router.post('/', function(req, res) {
   try {
-    datamodelModel.find({ name: req.body.name }, function(err, result) {
+    datamodelModel.find({ name: req.body.name, email: req.email }, function(err, result) {
       if (err) {
         console.log(err);
         res.status(500).send({ error: err });
       }
       if (result.length == 0) {
         req.body.structname = req.body.name;
+        req.body.email = req.email;
         var datamodeldata = new datamodelModel(req.body);
         var docs = [];
-        docs.push({ name: req.body.name, username: req.body.username, datamodelname: req.body.name, attributes: req.body.attributes })
+        docs.push({ name: req.body.name, email: req.email, datamodelname: req.body.name, attributes: req.body.attributes })
         if (req.body.patternstruct) {
           req.body.patternstruct.forEach(function(pattern) {
-            docs.push({ name: pattern.name, username: req.body.username, datamodelname: req.body.name, attributes: pattern.attributes })
+            docs.push({ name: pattern.name, email: req.email, datamodelname: req.body.name, attributes: pattern.attributes })
           });
         }
         datamodelstructure.insertMany(docs, function(err, docs) {
@@ -137,23 +137,24 @@ datamodel_router.post('/', function(req, res) {
 })
 datamodel_router.patch('/update/:datamodelname', function(req, res) {
   try {
-    datamodelstructure.remove({ username: req.body.username, datamodelname: req.params.datamodelname }, function(err) {
+    datamodelstructure.remove({ email: req.email, datamodelname: req.params.datamodelname }, function(err) {
       if (err) {
         return res.status(500).send({ error: "unable to remove structures/patterns" });
       }
       req.body.structname = req.body.name;
+      req.body.email = req.email;
       var docs = [];
-      docs.push({ name: req.body.name, username: req.body.username, datamodelname: req.body.name, attributes: req.body.attributes })
+      docs.push({ name: req.body.name, email: req.email, datamodelname: req.body.name, attributes: req.body.attributes })
       if (req.body.patternstruct) {
         req.body.patternstruct.forEach(function(pattern) {
-          docs.push({ name: pattern.name, username: req.body.username, datamodelname: req.body.name, attributes: pattern.attributes })
+          docs.push({ name: pattern.name, email: req.email, datamodelname: req.body.name, attributes: pattern.attributes })
         });
       }
       datamodelstructure.insertMany(docs, function(err, docs) {
         if (err) {
           return res.status(500).send({ error: "insert many failed" });
         } else {
-          datamodelModel.findOneAndUpdate({ name: req.params.datamodelname, username: req.body.username }, req.body, function(err, doc) {
+          datamodelModel.findOneAndUpdate({ name: req.params.datamodelname, email: req.email }, req.body, function(err, doc) {
             if (err) {
               return res.status(500).send({ "error": err });
             }
