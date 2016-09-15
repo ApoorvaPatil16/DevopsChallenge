@@ -102,8 +102,6 @@ authrouter.post('/oauth/github', function(req, res) {
           }
         })
       }
-      console.log(body1);
-      res.send(body1);
     });
   });
 })
@@ -200,7 +198,6 @@ authrouter.post('/auth/google', function(req, res) {
           }
         })
       }
-      console.log(body1);
     })
   });
 });
