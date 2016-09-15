@@ -4,20 +4,21 @@ angular.module('datamill')
 function datafeedCtrl($timeout, $q, $log, $filter, datafeedService, $scope, $mdDialog, options) {
   var ctrl = this;
   $scope.datafeed = options;
+  $scope.datafeed.start = new Date($scope.datafeed.start);
+  $scope.datafeed.end = new Date($scope.datafeed.end);
   $scope.pattern = "Pattern Matches";
   datafeedService.getTransportType().then(function(res) {
-    ctrl.states = res;
+    ctrl.transports = res;
+    ctrl.transportName = ctrl.transports.map(function(d) {
+      return d.name;
+    });
     console.log(ctrl.states);
   });
   ctrl.color = {
     blue: Math.floor(Math.random() * 200)
   };
-  ctrl.simulateQuery = false;
   ctrl.isDisabled = false;
-  ctrl.rating1 = 50;
   ctrl.querySearch = querySearch;
-  ctrl.selectedItemChange = selectedItemChange;
-  ctrl.searchTextChange = searchTextChange;
   $scope.saveOption = function(answer) {
     $log.info(answer);
     $mdDialog.hide(answer);
@@ -27,32 +28,17 @@ function datafeedCtrl($timeout, $q, $log, $filter, datafeedService, $scope, $mdD
   }
 
   function querySearch(query) {
-    var results = query ? ctrl.states.filter(createFilterFor(query)) : ctrl.states,
-      deferred;
-    if (ctrl.simulateQuery) {
-      deferred = $q.defer();
-      $timeout(function() { deferred.resolve(results); }, Math.random() * 1000, false);
-      return deferred.promise;
-    } else {
-      return results;
-    }
+    var results = query ? ctrl.transportName.filter(createFilterFor(query)) : ctrl.transportName;
+    return results;
   }
 
   function createFilterFor(query) {
-    var lowercaseQuery = angular.lowercase(query);
 
-    return function filterFn(state) {
-      return (state.value.indexOf(lowercaseQuery) === 0);
+    return function filterFn(name) {
+      return (name.toLowerCase().indexOf(query.toLowerCase()) === 0);
     };
 
   }
 
-  function searchTextChange(text) {
-    $log.info('Text changed to ' + text);
-  }
-
-  function selectedItemChange(item) {
-    $log.info('Item changed to ' + JSON.stringify(item));
-  }
   $log.info("datafeedCtrl is registered");
 }

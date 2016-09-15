@@ -29,6 +29,25 @@ datamodel_router.get('/', function(req, res) {
     }
   }
 });
+datamodel_router.get('/transporttype', function(req, res) {
+  var transporttype = [{
+    "id": 1,
+    "name": "Mongo DB"
+  }, {
+    "id": 2,
+    "name": "Redis"
+  }, {
+    "id": 3,
+    "name": "Redis MQ"
+  }, {
+    "id": 4,
+    "name": "Kafka"
+  }, {
+    "id": 5,
+    "name": "Websocket"
+  }]
+  return res.status(200).send(transporttype);
+})
 datamodel_router.get('/patterns/:modelname', function(req, res) {
   try {
     datamodelstructure.find({ datamodelname: req.params.modelname, email: req.email, name: { $ne: req.params.modelname } }, function(err, result) {

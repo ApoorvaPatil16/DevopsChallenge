@@ -44,12 +44,12 @@ function populate($stateParams,$log, listdataService, postdataService, $state, $
              $http({
                 method:'PATCH',
                 data:ctrl.user,
-                url:'/createdatasource'
+                url:'/datasources'
              }).then(function successcallback(response){
                 $log.info("response of successcallback for patch");
                 $log.info(response);
                 $state.go('datamill.datasource');
-             },function errorcallback(reponse){
+             },function errorcallback(response){
                 $log.info("response of errorback for patch");
                 $log.info(response);
              });

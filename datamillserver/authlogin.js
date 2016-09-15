@@ -42,8 +42,9 @@ authrouter.post('/oauth/github', function(req, res) {
       if (error1) throw new Error(error1);
       var result = JSON.parse(body1);
       console.log("Email :", result.email);
-      if (result.email == "null") {
+      if (result.email == "null" || result.email == null || result.email == undefined) {
         console.log("Email is not accessible");
+        return res.status(500).send({ "error": "can't able to get email Please make email visible" });
       } else {
         var userEmail = result.email;
         userModel.find({ 'email': userEmail }, function(err, found) {
@@ -54,7 +55,7 @@ authrouter.post('/oauth/github', function(req, res) {
             var userprofileData = new userModel();
             userprofileData.email = userEmail;
             userprofileData.displayName = result.name;
-            userprofileData.picture = result.picture;
+            userprofileData.picture = result.avatar_url;
             userprofileData.gender = result.gender;
             userprofileData.user_ID = result.id;
             console.log(userprofileData.email);
@@ -101,8 +102,6 @@ authrouter.post('/oauth/github', function(req, res) {
           }
         })
       }
-      console.log(body1);
-      res.send(body1);
     });
   });
 })
@@ -200,7 +199,6 @@ authrouter.post('/auth/google', function(req, res) {
           }
         })
       }
-      console.log(body1);
     })
   });
 })

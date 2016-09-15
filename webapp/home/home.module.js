@@ -69,6 +69,7 @@ angular.module('datamill')
   .config(['$stateProvider', '$urlRouterProvider', '$authProvider',
     function($stateProvider, $urlRouterProvider, $authProvider) {
       $stateProvider.state('datamill', {
+        url: '/datamill',
         controller: 'datamillCtrl',
         views: {
           "appBar": {
@@ -89,7 +90,7 @@ angular.module('datamill')
         authorizationEndpoint: 'https://github.com/login/oauth/authorize',
         //responseType: 'token',
         optionalUrlParams: ['scope'],
-        scope: ['user'],
+        scope: ['user', 'user:email'],
         scopeDelimiter: ' ',
         oauthType: '2.0',
         popupOptions: { width: 1020, height: 618 },

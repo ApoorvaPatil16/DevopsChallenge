@@ -118,9 +118,9 @@
           <h5>Range</h5>
           <div layout="row " layout-xs="column " layout-margin="2px " layout-xs-margin="2px ">
             <h5>From</h5>
-            <mdp-time-picker flex="40 " flex-xs="10 " md-no-float aria-label="stime " ng-model="randomDomain.range.fromTime "></mdp-time-picker>
+            <mdp-time-picker flex="40 " flex-xs="10 " md-no-float aria-label="stime " ng-model="randomDomain.range[0].min"></mdp-time-picker>
             <h5>To</h5>
-            <mdp-time-picker flex="40 " flex-xs="10 " md-no-float ng-model="toTime " aria-label="randomDomain.range.toTime "></mdp-time-picker>
+            <mdp-time-picker flex="40 " flex-xs="10 " md-no-float ng-model="randomDomain.range[0].max " aria-label="randomDomain.range.toTime "></mdp-time-picker>
           </div>
         </div>
         <div ng-if="randomDomain.base=='Hexadecimal' ">

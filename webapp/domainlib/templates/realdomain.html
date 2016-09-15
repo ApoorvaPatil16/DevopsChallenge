@@ -1,3 +1,4 @@
+<link type="text/css" rel="stylesheet" href="/assets/css/realdomainlib.css"/>
 <div layout="row" class="domainLibraryContent" layout-align="center center">
   <div style="max-height:none;" flex="100" flex-xs="100" layout="column">
     <div md-no-sticky="">
@@ -26,7 +27,7 @@
             <div ng-message="md-maxlength">The title must be less than 100 characters long.</div>
           </div>
         </md-input-container>
-        <md-autocomplete md-selected-item="realCtrl.selectedItem" md-search-text="realCtrl.searchText" md-items="item in realCtrl.querySearch(realCtrl.searchText)" md-item-text="item.display" placeholder="Base Data Source">
+        <md-autocomplete md-selected-item="realCtrl.selectedItem" md-search-text="realCtrl.searchText" md-min-length='0' md-items="item in realCtrl.querySearch(realCtrl.searchText)" md-item-text="item.display" placeholder="Base Data Source">
           <md-item-template>
             <span md-highlight-text="realCtrl.searchText" md-highlight-flags="^i">{{item.display}}</span>
           </md-item-template>
@@ -35,15 +36,21 @@
             <a ui-sref="datamill.createdatasource">Create a new one!</a>
           </md-not-found>
         </md-autocomplete>
+        <p ng-hide="realCtrl.selectedItem" class="errorForDomain">{{realCtrl.errmsg}}</p>
         <h4 style="margin-top:40px;margin-bottom:0px;color:green;">Transformations</h4>
         <md-input-container style="width:100%">
           <label>Apply Functions</label>
-          <md-select ng-model="realCtrl.selectFunction" multiple="">
+          <md-select ng-model="realCtrl.selectFunction" multiple="realCtrl.selectFunction" ng-change=" createOrder()">
             <md-optgroup label="Functions">
               <md-option ng-value="name" ng-repeat="name in realCtrl.functionNames" ng-click="showDialog($event,$index)">{{name}}</md-option>
             </md-optgroup>
           </md-select>
         </md-input-container>
+        <div ng-show="realCtrl.selectFunction.length>0">
+          <h4 style="margin-top:40px;margin-bottom:0px;color:green;">Order of Functions</h4>
+          <h5>{{realCtrl.selectFunction}}</h5>
+          <p style="font-size: 12px;" ng-show="realCtrl.selectFunction.length>1"><i>Order is from left to right . For example, <b>{{realCtrl.selectFunction[0]}}</b> will be applied first and <b>{{realCtrl.selectFunction[realCtrl.selectFunction.length-1]}}</b> will be applied last.</i></p>
+        </div>
         <div layout=" row " layout-align="end center ">
           <md-button ui-sref="datamill.listdomain " class="md-accent "><b>Cancel</b></md-button>
           <md-button class="md-primary " type="submit "><b>Save</b></md-button>
