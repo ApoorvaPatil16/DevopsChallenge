@@ -5,8 +5,8 @@ angular.module('datamill', ['ngMaterial',
     'ngAvatar',
     'satellizer'
   ])
-  .controller('datamillCtrl', ['$scope', '$state', '$auth',
-    function($scope, $state, $auth) {
+  .controller('datamillCtrl', ['$scope', '$state', '$auth', 'profileservice',
+    function($scope, $state, $auth, profileservice) {
       $scope.isAuthenticated = function() {
         return $auth.isAuthenticated();
       };
@@ -28,5 +28,8 @@ angular.module('datamill', ['ngMaterial',
       } else {
         $state.go('datamill');
       }
+      profileservice.getProfile().then(function(res) {
+        $scope.user = res;
+      })
     }
   ]);

@@ -109,5 +109,16 @@ angular.module('datamill')
         popupOptions: { width: 452, height: 633 },
         clientId: "440591203673-vlfttsppabo6ldkdleu08spg4jc7hmvm.apps.googleusercontent.com"
       });
+      /*   $authProvider.oauth2({
+           name: "stackexchange",
+           url: '/oauth/stackexchange',
+           authorizationEndpoint: 'https://stackexchange.com/oauth',
+           requiredUrlParams: ['scope'],
+           redirectUri: "http://localhost:8080",
+           display: 'popup',
+           oauthType: '2.0',
+           popupOptions: { width: 452, height: 633 },
+           clientId: "7870"
+         })*/
     }
   ]);
