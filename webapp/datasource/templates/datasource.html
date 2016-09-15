@@ -22,8 +22,7 @@
                 <ng-avatar string="{{source.name | avatarstring}}" round-shape="true" auto-color="true"></ng-avatar>
                 <div class="md-list-item-text" style="padding-left:10px;">
                   <h3>{{source.name}}</h3>
-                  <h4>{{source.tags[0]}}</h4>
-                  <!-- <p>Base Source Type: {{item.baseDataSource}}</p> -->
+                  <h4><span ng-repeat="tag in source.tags">{{tag}}<span ng-if="$index!=source.tags.length-1">,</span></span></h4>
                 </div>
               </md-list-content>
               <md-divider></md-divider>

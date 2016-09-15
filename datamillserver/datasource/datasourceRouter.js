@@ -14,7 +14,7 @@ datasource_router.post('/', function(req, res) {
         name: req.body.name,
         tags: req.body.tags,
         description: req.body.description,
-        email:req.email
+        email:req.email,
     }
     var savedata = {
         email:req.email,
