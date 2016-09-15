@@ -24,7 +24,7 @@
                 <div>
                     <md-input-container class="md-block" flex-gt-sm="">
                         <label>Source Name</label>
-                        <input md-maxlength="30" required="" name="name" type="text" ng-model="ctrl.user.name" ng-disabled="{{ctrl.mode=='edit'}}">
+                        <input md-maxlength="30" required="" name="name" type="text" ng-model="ctrl.user.name" capitalize-first ng-disabled="{{ctrl.mode=='edit'}}">
                         <div ng-messages="userForm.name.$error">
                             <div ng-message="required">Name is required.</div>
                             <div ng-message="md-maxlength">The name has to be less than 30 characters long.</div>
