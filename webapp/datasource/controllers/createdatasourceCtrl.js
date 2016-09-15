@@ -44,7 +44,7 @@ function populate($stateParams,$log, listdataService, postdataService, $state, $
              $http({
                 method:'PATCH',
                 data:ctrl.user,
-                url:'/datasource'
+                url:'/datasources'
              }).then(function successcallback(response){
                 $log.info("response of successcallback for patch");
                 $log.info(response);

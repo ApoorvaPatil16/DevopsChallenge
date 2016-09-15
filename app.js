@@ -4,9 +4,9 @@ var favicon = require('serve-favicon');
 var morgan = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var jsonServer = require('json-server');
+// var jsonServer = require('json-server');
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/datamillserver');
+mongoose.connect('mongodb://localhost:27018/datamillserver');
 var datamodeldefination = require('./datamillserver/datamodel/datamodel_router');
 //APP logger
 // var logger = require("./applogger");
@@ -31,11 +31,12 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(cookieParser());
 app.use('/profile', isAuthenticated, profile_router);
-app.use('/api', jsonServer.router('db.json'));
+// app.use('/api', jsonServer.router('db.json'));
+
 app.use('/navbarItems', nav_router);
 // app.use('/createdatasource', createdatasource);
-app.use('/datasource', datasource);
-app.use('/validatename', validate);
+app.use('/datasources',isAuthenticated,datasource);
+app.use('/validatename',isAuthenticated, validate);
 app.use('/domain', isAuthenticated, domainlib_router);
 app.use(express.static(path.join(__dirname, 'webapp')));
 app.use(express.static(path.join(__dirname, 'bower_modules')));
