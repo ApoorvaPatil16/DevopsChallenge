@@ -5,8 +5,8 @@ angular.module('datamill', ['ngMaterial',
     'ngAvatar',
     'satellizer'
   ])
-  .controller('datamillCtrl', ['$scope', '$state', '$auth',
-    function($scope, $state, $auth) {
+  .controller('datamillCtrl', ['$scope', '$state', '$auth', '$rootScope',
+    function($scope, $state, $auth, $rootScope) {
       $scope.isAuthenticated = function() {
         return $auth.isAuthenticated();
       };
@@ -28,5 +28,17 @@ angular.module('datamill', ['ngMaterial',
       } else {
         $state.go('datamill');
       }
+      $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState) {
+
+        console.log("inside state change");
+        if (toState.name == 'datamill') {
+          return;
+        }
+        if (!$scope.isAuthenticated()) {
+          event.preventDefault(); // stop current execution
+          $state.go('datamill');
+          return;
+        }
+      });
     }
   ]);
