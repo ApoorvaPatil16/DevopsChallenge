@@ -10,7 +10,7 @@
     <div layout-gt-xs="row" layout-xs="column" layout-align="center center">
       <md-button class="md-primary md-raised" style="color:white" ng-click="authenticate('github')"><i class="fa fa-github" aria-hidden="true"></i>Github</md-button>
       <md-button class="md-primary md-raised" style="color:white" ng-click="authenticate('google')"><i class="fa fa-google-plus" aria-hidden="true"></i>Google</md-button>
-      <md-button class="md-primary md-raised" ng-disabled="true" style="color:white"><i class="fa fa-stack-overflow" aria-hidden="true"></i>Stack Exchange</md-button>
+      <md-button class="md-primary md-raised" ng-disabled="true" ng-click="authenticate('stackexchange')" style="color:white"><i class="fa fa-stack-overflow" aria-hidden="true"></i>Stack Exchange</md-button>
     </div>
   </div>
   <div flex-gt-sm="auto" flex-sm="auto" layout-gt-sm="row" layout-sm="column" layout-align="center center" style="text-align:center;color:white;" layout-gt-sm-margin>
