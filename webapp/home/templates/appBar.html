@@ -3,12 +3,14 @@
   <md-content class="appbar-section">
     <md-toolbar class="md-hue-2">
       <div class="md-toolbar-tools">
-        <md-button class="md-icon-button" aria-label="SideList" ng-click="toggleLeft('left')">
-          <md-icon class="material-icons">{{materialIcons[0].name}}</md-icon>
-        </md-button>
+        <div ng-if="isAuthenticated()">
+          <md-button class="md-icon-button" aria-label="SideList" ng-click="toggleLeft('left')">
+            <md-icon class="material-icons">{{materialIcons[0].name}}</md-icon>
+          </md-button>
+        </div>
         <h2>
-                    <span>{{appName}}</span>
-                </h2>
+          <span>{{appName}}</span>
+        </h2>
         <span flex=""></span>
         <div ng-if="isAuthenticated()">
           <md-button class="md-icon-button" aria-label="Notifications" ng-click="showNotification($event)">
@@ -16,9 +18,10 @@
           </md-button>
           <md-menu>
             <md-button class="md-icon-button " aria-label="Account " ng-click="$mdOpenMenu() ">
-              <md-icon class=" material-icons ">{{materialIcons[2].name}}</md-icon>
-              <!-- <md-icon class="material-icons ">{{data.picture}}</md-icon> -->
-              <!-- <img src="{{data.picture}}" alt="DataMill Icon ">  -->
+              <img src="{{user.picture}}" style="height:28px;width:28px;border-radius:28px;" alt="DataMill Icon ">
+              <!--  <md-icon class=" material-icons ">{{materialIcons[2].name}}</md-icon>
+             <md-icon class="material-icons ">{{data.picture}}</md-icon>
+             <img src="{{data.picture}}" alt="DataMill Icon "> -->
             </md-button>
             <md-menu-content id="account-circle-content">
               <md-menu-item ng-repeat="item in accountItems">

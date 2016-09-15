@@ -7,14 +7,13 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
   extended: false
 }));
-
 var authrouter = require('express').Router();
 var request = require("request");
 var qs = require('querystring');
 var jwt = require('jsonwebtoken');
 var uuid = require('node-uuid');
-var Joi = require('joi');
-var jws = require('jws');
+
+//Oauth2 login for Github
 authrouter.post('/oauth/github', function(req, res) {
   console.log("Req param: ", req.params);
   console.log("Req query: ", req.query);
@@ -43,8 +42,9 @@ authrouter.post('/oauth/github', function(req, res) {
       if (error1) throw new Error(error1);
       var result = JSON.parse(body1);
       console.log("Email :", result.email);
-      if (result.email == "null") {
+      if (result.email == "null" || result.email == null || result.email == undefined) {
         console.log("Email is not accessible");
+        return res.status(500).send({ "error": "can't able to get email Please make email visible" });
       } else {
         var userEmail = result.email;
         userModel.find({ 'email': userEmail }, function(err, found) {
@@ -106,6 +106,7 @@ authrouter.post('/oauth/github', function(req, res) {
   });
 })
 
+//Oauth2 login for Google
 authrouter.post('/auth/google', function(req, res) {
   console.log("Req param: ", req.params);
   console.log("Req query: ", req.query);
@@ -200,6 +201,36 @@ authrouter.post('/auth/google', function(req, res) {
       }
     })
   });
-});
+})
+
+/*authrouter.post('/oauth/stackexchange', function(req, res) {
+  var options = {
+    method: 'POST',
+    url: 'https://stackexchange.com/oauth/access_token',
+    qs: {
+      client_id: '7870',
+      client_secret: 'Htn4VpHEw)lGdgtdskbtFA((',
+      code: req.body.code,
+      redirect_uri: 'http://localhost:8080',
+      grant_type: 'authorization_code',
+    },
+    json: true
+  };
+  request(options, function(error, response, body) {
+    if (error) throw new Error(error);
+    console.log("Access Token", body.access_token);
+    console.log(body);
+    var options1 = {
+      method: 'GET',
+      url: '',
+      qs: { access_token: body.access_token },
+      headers: {
+        'User-Agent': 'request'
+      }
+    };
+
+  })
+})*/
+;
 
 module.exports = authrouter;

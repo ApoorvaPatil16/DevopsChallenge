@@ -1,4 +1,11 @@
-<div>
-
-<p>{{data}}</p>
+<div layout="column">
+  <div layout="row" layout-align="center center"><img src={{user.picture}}></div>
+  <div layout="row" layout-align="center center">
+    <b>Email:</b>
+    <p>{{user.email}}</p>
+  </div>
+  <div layout="row" layout-align="center center">
+    <b>Profile Name:</b>
+    <p>{{user.displayName}}</p>
+  </div>
 </div>
