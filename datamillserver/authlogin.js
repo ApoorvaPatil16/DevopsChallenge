@@ -43,7 +43,7 @@ authrouter.post('/oauth/github', function(req, res) {
       if (error1) throw new Error(error1);
       var result = JSON.parse(body1);
       console.log("Email :", result.email);
-      if (result.email == "null" || result.email = null || result.email = undefined) {
+      if (result.email == "null" || result.email == null || result.email == undefined) {
         console.log("Email is not accessible");
         return res.status(500).send({ "error": "can't able to get email Please make email visible" });
       } else {
