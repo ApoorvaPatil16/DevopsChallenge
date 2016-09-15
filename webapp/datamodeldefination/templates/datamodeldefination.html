@@ -1,9 +1,20 @@
-<div style="background-color:white;">
+<!-- <div style="background-color:white;">
   <div class="layout-row" layout="row">
     <h3 style="padding-left:20px;">Data Model Defination</h3>
   </div>
   <div>
     <md-divider></md-divider>
+  </div>
+</div> -->
+<div layout-gt-xs="row" layout-xs="column">
+  <div>
+    <h3 style="padding-left:20px;">Data Model Defination</h3>
+  </div>
+  <div flex-gt-xs></div>
+  <div layout="row" style="padding:5px" layout-align="center center">
+    <md-button class="md-warn" aria-label="edit" ng-click="reset()">
+      Reset
+    </md-button>
   </div>
 </div>
 <div layout-gt-md="row" layout="column" layout-margin="10px" ng-cloak>

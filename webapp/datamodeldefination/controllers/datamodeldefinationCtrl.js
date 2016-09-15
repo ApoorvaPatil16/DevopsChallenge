@@ -3,12 +3,15 @@ angular.module('datamill')
     //deciding mode and also getting related data
     if ($stateParams.mode === 'edit') {
       $scope.dataModel = $stateParams.dataModel;
+      updateMaster($scope.dataModel);
       $scope.isedit = true;
       if ($stateParams.dataModel.name === $stateParams.datamodelname) {
         $scope.dataModel = $stateParams.dataModel;
+        updateMaster($scope.dataModel);
         datamodeldefinationservice.getStructure($stateParams.datamodelname).then(function(res) {
           //console.log("Here we geting getStructure", res);
           $scope.dataModel.attributes = res.attributes;
+          updateMaster($scope.dataModel);
           //console.log("changed the value", $scope.dataModel.attributes)
         })
       } else {
@@ -21,9 +24,14 @@ angular.module('datamill')
         "attributes": [],
         "username": "vishal"
       }
+      updateMaster($scope.dataModel);
       $scope.isedit = false;
     }
 
+    function updateMaster(datamodel) {
+      $scope.masterdataModel = angular.copy(datamodel);
+      console.log("master data", $scope.masterdataModel, $scope.dataModel)
+    }
     /*Getting Data Model Input config*/
     datamodeldefinationservice.getDataModelConfig().then(function(res) {    $scope.datamodelconf = res;    });
     // Adding Attributes Variable for on Fly showing
@@ -33,7 +41,11 @@ angular.module('datamill')
         $scope.dataModel.attributes.push(attr);
       }
     };
-    // For Delivery option modal opening
+    //for Reset the data to early stage
+    $scope.reset = function() {
+        angular.copy($scope.masterdataModel, $scope.dataModel);
+      }
+      // For Delivery option modal opening
     $scope.showDeliveryOption = function(ev, state) {
       $log.info(state);
       // to show the deliveryOption
