@@ -6,7 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 // var jsonServer = require('json-server');
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27018/datamillserver');
+mongoose.connect('mongodb://localhost:27017/datamillserver');
 var datamodeldefination = require('./datamillserver/datamodel/datamodel_router');
 //APP logger
 // var logger = require("./applogger");
