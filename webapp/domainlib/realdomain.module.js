@@ -11,9 +11,8 @@ angular.module('datamill')
             }
           },
           params: {
-            mode:"create",
-            realDomain: {
-            }
+            mode: "create",
+            realDomain: {}
           }
         });
     }
