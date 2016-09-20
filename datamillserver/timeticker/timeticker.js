@@ -1,4 +1,4 @@
-var ticker = function(name, starttime, endtime, interval, irregularconfig) {
+var ticker = function(name, starttime, endtime, mode, intervalorbrust) {
   function computeTimeInterval(time) {
     var computedinterval = time - new Date();
     if (computedinterval >= 0)
@@ -13,9 +13,17 @@ var ticker = function(name, starttime, endtime, interval, irregularconfig) {
       } else return false;
     else return true;
   }
-  //utility function to generate a irregular interval
-  function random(self) {
 
+  function checkArgument() {
+    if (mode == 'continuous' || mode == 'none' || mode == 'burst') {
+      return true;
+    } else {
+      return false;
+    }
+  }
+  //utility function to generate a irregular interval
+  function randomTimeInterval(end, count) {
+    return (Math.random() * ((end - count) - new Date()) + 1)
   }
   return {
     name: function() {
@@ -26,13 +34,14 @@ var ticker = function(name, starttime, endtime, interval, irregularconfig) {
       name: name || "ticker",
       end: endtime || undefined,
       start: starttime || undefined,
-      regularinterval: interval || 100,
-      irregularconfig: irregularconfig || undefined,
+      intervalorburst: intervalorbrust || 100,
       timer: undefined,
+      mode: mode || 'none',
       running: false,
       scheduled: false,
       starttimer: undefined,
-      endtimeout: undefined
+      endtimer: undefined,
+      currentcount: 0
     },
     //function to call the ticker instantiate
     start: function(cb) {
@@ -40,36 +49,65 @@ var ticker = function(name, starttime, endtime, interval, irregularconfig) {
       if (self.conf.start) {
         if (self.conf.scheduled) {
           self.conf.running = true;
-          self.conf.timer = setInterval(cb, self.conf.regularinterval);
-        } else self.schedular(cb);
+          if (self.conf.mode == 'continuous' || self.conf.mode == 'none') {
+            self.conf.timer = setInterval(cb, self.conf.intervalorburst);
+          } else if (self.conf.mode == 'burst') {
+            var recursivecb = function() {
+              cb();
+              if (self.conf.currentcount < self.conf.intervalorburst - 1) {
+                self.conf.currentcount++;
+                self.conf.timer = setTimeout(recursivecb, randomTimeInterval(self.conf.end, self.conf.currentcount))
+              }
+            }
+            self.conf.timer = setTimeout(recursivecb, randomTimeInterval(self.conf.end, self.conf.currentcount))
+          }
+        } else self.scheduler(cb);
       } else {
         self.conf.running = true;
-        self.conf.timer = setInterval(cb, self.conf.regularinterval);
+        if (self.conf.mode == 'continuous' || self.conf.mode == 'none') {
+          self.conf.timer = setInterval(cb, self.conf.intervalorburst);
+        } else if (self.conf.mode == 'burst') {
+          var recursivecb = function() {
+            cb();
+            if (self.conf.currentcount < self.conf.intervalorburst) {
+              self.conf.currentcount++;
+              self.conf.timer = setTimeout(recursivecb, randomTimeInterval(self.conf.end, self.conf.currentcount))
+            }
+          }
+          self.conf.timer = setTimeout(recursivecb, randomTimeInterval(self.conf.end, self.conf.currentcount))
+        }
       }
     },
-    schedular: function(cb) {
+    //scheduler to schedule when to call start and when to call stop
+    scheduler: function(startcb, stopcb) {
       var self = this;
       var starttimeout = computeTimeInterval(self.conf.start);
       if (self.conf.end)
         var endtimeout = computeTimeInterval(self.conf.end);
       if (checkStartAndEnd(starttimeout, endtimeout)) {
         self.conf.scheduled = true;
-        setTimeout(function() { self.start(cb) }, starttimeout);
-        if (endtimeout) setTimeout(function() {
-          self.stop();
+        self.conf.starttimer = setTimeout(function() { self.start(startcb) }, starttimeout);
+        if (endtimeout) self.conf.endtimer = setTimeout(function() {
+          self.stop(stopcb);
         }, endtimeout);
       } else {
         throw "start and time not set properly";
       }
     },
-    stop: function() {
+    //stop the the ticker
+    stop: function(cb) {
       var self = this;
       clearInterval(self.conf.timer);
       self.conf.timer = undefined;
       self.conf.running = false;
+      if (cb) cb();
     },
     cancelschedular: function() {
-
+      clearTimeout(self.conf.starttimer);
+      clearTimeout(self.conf.endtimer);
+      self.conf.starttimer = undefined;
+      self.conf.endtimer = undefined;
+      self.conf.scheduled = false;
     }
   }
 }

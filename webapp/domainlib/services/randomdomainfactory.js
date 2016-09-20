@@ -27,6 +27,7 @@ angular.module('datamill')
           data: postdata,
           'content-type': "application/json"
         }).then(function(res) {
+          console.log(res);
           return res;
         }, function(err) {
           return err;
