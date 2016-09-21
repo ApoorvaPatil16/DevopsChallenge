@@ -27,8 +27,8 @@ angular.module('datamill')
         'hue-2': '800',
         'hue-3': 'A100'
       })
-      .accentPalette('palegreen', {
-        'default': '200',
+      .accentPalette('red', {
+        'default': '400',
         'hue-1': '50',
         'hue-2': '400',
         'hue-3': '300'

@@ -50,6 +50,19 @@ describe('datamodel route api test suite', function() {
     }]
   };
   var authhead = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1N2Q4ZmM1MTk0ZTQ4NzNhOGJmNzUyY2QiLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4MDgwIiwiZW1haWwiOiJuYXZlZW5wcmFzaGFudC42NUBnbWFpbC5jb20iLCJpYXQiOjE0NzQzODI3NTMsImV4cCI6MTQ3NDk4NzU1M30.sbDIDNlrVjG31_Z59Ptc12-qBFdn_9mO_CSG7KuKcLQ';
+  it('getting all the datamodels', function(done) {
+    request.get('/datamodel')
+      .set('Authorization', authhead)
+      .expect(200)
+      .end(function(err, res) {
+        if (err) {
+          done(err);
+        }
+        console.log(res.body)
+        expect(res.body).to.not.be.equal(undefined);
+        done();
+      })
+  });
   it('Creating New Data model with datafeed', function(done) {
     request.post('/datamodel/')
       .set('Authorization', authhead)
@@ -63,8 +76,8 @@ describe('datamodel route api test suite', function() {
         done();
       })
   });
-  it('getting all the datamodels', function(done) {
-    request.get('/datamodel')
+  it('getting structure of defined datamodel', function(done) {
+    request.get('/datamodel/structure/obj.name')
       .set('Authorization', authhead)
       .expect(200)
       .end(function(err, res) {

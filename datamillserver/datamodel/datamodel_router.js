@@ -54,7 +54,7 @@ datamodel_router.get('/structure/:modelname', function(req, res) {
   var query = { datamodelname: req.params.modelname, email: req.email, name: req.params.modelname }
   try {
     datamodelProcessor.datamodelstructurefind(query, function(code, result) {
-      return res.status(code).send(result);
+      return res.status(code).send(result[0]);
     }, function(code, err) {
       return res.status(code).send({ error: err });
     })

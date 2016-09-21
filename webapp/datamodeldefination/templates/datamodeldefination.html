@@ -12,7 +12,8 @@
   </div>
   <div flex-gt-xs></div>
   <div layout="row" style="padding:5px" layout-align="center center">
-    <md-button class="md-warn" aria-label="edit" ng-click="reset()">
+    <md-button class="md-ink-ripple=#990000
+ md-raised md-accent" aria-label="edit" ng-click="reset()">
       Reset
     </md-button>
   </div>
@@ -52,21 +53,6 @@
       <!-- datamill model component -->
       <datamill-model model-name="dataModel.name" form-title="Attributes" file-src-include="/datamodel/templates/attribute.html" attrs="dataModel.attributes" on-update="addAttribute(attr)">
       </datamill-model>
-      <md-divider></md-divider>
-      <div layout-gt-xs="row" layout-margin="2px" layout-padiing="2px">
-        <div flex layout-gt-xs="row">
-          <div flex-gt-xs="20">
-            <h4>Delivery</h4>
-          </div>
-          <md-radio-group ng-model="dataModel.delivery" flex-gt-xs="80" layout-gt-xs="row" style="min-height:auto" layout-xs="column" required>
-            <div ng-repeat="d in datamodelconf.inputs.deliverytype" flex-gt-xs layout="column" style="min-height:auto" layout-margin="3px">
-              <md-radio-button flex ng-value="d.value">
-                {{ d.type }}</md-radio-button>
-              <md-button class="md-raised md-primary" ng-click="showDeliveryOption($event,d.state)" ng-disabled="dataModel.delivery!=d.value">{{d.linkname}}</md-button>
-            </div>
-          </md-radio-group>
-        </div>
-      </div>
       <!-- @TODO patterns to define by the USER -->
       <md-divider></md-divider>
       <div layout-gt-sm="row" layout-margin layout="column">
@@ -93,8 +79,24 @@
           </div>
         </div>
       </div>
+      <!-- Delivery type-->
+      <md-divider></md-divider>
+      <div layout-gt-xs="row" layout-margin="2px" layout-padiing="2px">
+        <div flex layout-gt-xs="row">
+          <div flex-gt-xs="20">
+            <h4>Delivery</h4>
+          </div>
+          <md-radio-group ng-model="dataModel.delivery" flex-gt-xs="80" layout-gt-xs="row" style="min-height:auto" layout-xs="column" required>
+            <div ng-repeat="d in datamodelconf.inputs.deliverytype" flex-gt-xs layout="column" style="min-height:auto" layout-margin="3px">
+              <md-radio-button flex ng-value="d.value">
+                {{ d.type }}</md-radio-button>
+              <md-button class="md-raised md-primary" ng-click="showDeliveryOption($event,d.state)" ng-disabled="dataModel.delivery!=d.value">{{d.linkname}}</md-button>
+            </div>
+          </md-radio-group>
+        </div>
+      </div>
       <div layout="row" layout-align="end center">
-        <md-button class="md-warn md-raised" ng-click="cancelDataModel()">Cancel</md-button>
+        <md-button class="md-ink-ripple md-raised md-accent" ng-click="cancelDataModel()">Cancel</md-button>
         <md-button type="submit" class="md-ink-ripple md-raised md-primary">Save</md-button>
       </div>
     </form>
