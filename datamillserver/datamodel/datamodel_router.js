@@ -1,32 +1,22 @@
 var express = require('express');
-var mongoose = require('mongoose');
 var datamodel_router = express.Router();
 var datamodelModel = require('./datamodel');
 var datamodelstructure = require('./datamodelstructure');
+var datamodelProcessor = require('./datamodelProcessor')
 
 datamodel_router.get('/', function(req, res) {
+  var query = { email: req.email };
   if (req.query && req.query.q) {
-    try {
-      datamodelModel.find({ name: req.query.q, email: req.email }, function(err, result) {
-        if (err) {
-          return res.status(500).send({ error: err });
-        }
-        return res.send(result);
-      })
-    } catch (exception) {
-      return res.status(500).send({ 'error': "internal server Error" })
-    }
-  } else {
-    try {
-      datamodelModel.find({ email: req.email }, function(err, result) {
-        if (err) {
-          return res.status(500).send(err);
-        }
-        return res.status(200).send(result);
-      })
-    } catch (exception) {
-      return res.status(500).send({ error: "Internal server error" });
-    }
+    query.name = req.query.q;
+  }
+  try {
+    datamodelProcessor.datamodelfind(query, function(result) {
+      return res.status(200).send(result);
+    }, function(err) {
+      return res.status(500).send({ error: err })
+    })
+  } catch (exception) {
+    return res.status(500).send({ error: "Internal server error", 'exception': exception });
   }
 });
 datamodel_router.get('/transporttype', function(req, res) {
@@ -49,25 +39,24 @@ datamodel_router.get('/transporttype', function(req, res) {
   return res.status(200).send(transporttype);
 })
 datamodel_router.get('/patterns/:modelname', function(req, res) {
+  var query = { datamodelname: req.params.modelname, email: req.email, name: { $ne: req.params.modelname } }
   try {
-    datamodelstructure.find({ datamodelname: req.params.modelname, email: req.email, name: { $ne: req.params.modelname } }, function(err, result) {
-      if (err) {
-        return res.status(500).send({ error: err });
-      }
+    datamodelProcessor.datamodelstructurefind(query, function(result) {
       return res.status(200).send(result);
+    }, function(err) {
+      return res.status(500).send({ error: err });
     })
   } catch (exception) {
     return res.status(500).send({ error: "Internal server error" });
   }
 });
 datamodel_router.get('/structure/:modelname', function(req, res) {
+  var query = { datamodelname: req.params.modelname, email: req.email, name: req.params.modelname }
   try {
-    datamodelstructure.find({ datamodelname: req.params.modelname, email: req.email, name: req.params.modelname }, function(err, result) {
-      if (err) {
-        return res.status(500).send({ error: err });
-      }
-      console.log("result", result);
-      return res.status(200).send(result[0]);
+    datamodelProcessor.datamodelstructurefind(query, function(result) {
+      return res.status(200).send(result);
+    }, function(err) {
+      return res.status(500).send({ error: err });
     })
   } catch (exception) {
     return res.status(500).send({ error: "Internal server error" });
@@ -185,6 +174,23 @@ datamodel_router.patch('/update/:datamodelname', function(req, res) {
     });
   } catch (exception) {
     return res.status(500).send({ "error": "Internal Server Error" });
+  }
+})
+datamodel_router.delete('/delete/:datamodelname', function(req, res) {
+  try {
+    datamodelstructure.remove({ email: req.email, datamodelname: req.params.datamodelname }, function(err) {
+      if (err) {
+        return res.status(500).send({ error: "unable to remove structures/patterns" });
+      }
+      datamodelModel.remove({ name: req.params.datamodelname, email: req.email }, function(err, doc) {
+        if (err) {
+          return res.status(500).send({ "error": err });
+        }
+        return res.status(200).send(doc);
+      });
+    });
+  } catch (exception) {
+    return res.status(500).send({ error: "internal server error", exception: exception })
   }
 })
 module.exports = datamodel_router;
