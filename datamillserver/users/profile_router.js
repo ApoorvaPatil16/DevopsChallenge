@@ -2,7 +2,7 @@ var express = require('express');
 var profile_router = express.Router();
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
-var userModel = require('./userschema/userprofile');
+var userModel = require('../users/userprofile');
 var app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({

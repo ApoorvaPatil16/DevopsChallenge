@@ -14,9 +14,9 @@ var datamodeldefination = require('./datamillserver/datamodel/datamodel_router')
 var nav_router = require('./datamillserver/nav_router');
 var datasource = require('./datamillserver/datasource/datasourceRouter');
 var domainlib_router = require('./datamillserver/domainlib/domainlib_router');
-var oauth_router = require('./datamillserver/authlogin');
+var oauth_router = require('./datamillserver/oauth/authlogin');
 var isAuthenticated = require('./datamillserver/authorization/authorize').isAuthenticated;
-var profile_router = require('./datamillserver/profile_router');
+var profile_router = require('./datamillserver/users/profile_router');
 var validate = require('./datamillserver/datasource/validate');
 //Express App created
 var app = express();

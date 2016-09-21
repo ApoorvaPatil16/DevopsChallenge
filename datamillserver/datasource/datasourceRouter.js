@@ -1,5 +1,7 @@
 var mongoose = require('mongoose');
 var express = require('express');
+var datasourceProcessor = require('./datasourceProcessor');
+console.log(datasourceProcessor);
 var app = express();
 var bodyParser = require('body-parser');
 var datasourceSchema = require('./datasourceSchema');
@@ -10,51 +12,47 @@ app.use(bodyParser.urlencoded({
     extended: false
 }));
 datasource_router.post('/', function(req, res) {
-    var add = {
-        name: req.body.name,
-        tags: req.body.tags,
-        description: req.body.description,
-        email:req.email,
+    try {
+        req.body.email = req.email;
+        datasourceProcessor.postDataSource(req.body, function(success) {
+            res.status(201).json(success);
+        }, function(errorcallback) {
+            console.log("error occurred in errorcallback from posting datasource");
+            res.status(501).json({ error: "Internal Server Error" });
+        });
+    } catch (error) {
+        console.log("error occurred in posting data source");
+        res.status(500).json({ error: "Internal Error Recorded" });
     }
-    var savedata = {
-        email:req.email,
-        "sourcename": req.body.name,
-        "data": req.body.json
+});
+datasource_router.patch('/', function(req, res) {
+    try 
+    {
+        req.body.email = req.email;
+        datasourceProcessor.patchDataSource(req.body, function(success) {
+            res.status(201).json(success);
+        }, function(errorcallback) {
+            console.log("error occurred in errorcallback from patching datasource");
+            res.status(501).json({ error: "Internal Server Error in patching" });
+        });
+    } catch (error) 
+    {
+        console.log("error occurred in patching data source");
+        res.status(500).json({ error: "Internal Error Recorded" });
     }
-    var dataSourceData = new datasourceSchema(add);
-    var postdata = new importsourceSchema(savedata);
-    dataSourceData.save(function(err, result) {
-        if (err) {
-            return res.send(err);
-        }
-        console.log(result);
-        postdata.save(function(err, impresult) {
-            if (err) {
-                return res.send(err);
-            }
-            console.log(impresult);
-            return res.send(result);
-        })
-    });
 });
-
-datasource_router.patch('/', function(req, res){
-datasourceSchema.findOneAndUpdate({name:req.body.name,email:req.email},req.body,function(err,doc){
-if(err){ 
-return res.send(err);
-}
-else
-{
-    return res.send(doc);
-}
-});
-});
-
 datasource_router.get('/', function(req, res) {
-    datasourceSchema.find({email:req.email},function(err, result) {
-        if (err) return console.error(err);
-        return res.send(result);
-
-    });
+    try {
+        req.body.email = req.email;
+        datasourceProcessor.getDataSource(req.body, function(success) {
+            res.status(201).json(success);
+        }, function(errorcallback) {
+            console.log("error occurred in errorcallback from listing datasource");
+            res.status(501).json({ error: "Internal Server Error in listing" });
+        });
+    } catch (error) {
+        console.log("error occurred in listing data source");
+        res.status(500).json({ error: "Internal Error Recorded" });
+    }
 });
-module.exports =datasource_router;
+module.exports = datasource_router;
