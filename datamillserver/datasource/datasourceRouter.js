@@ -1,7 +1,6 @@
 var mongoose = require('mongoose');
 var express = require('express');
 var datasourceProcessor = require('./datasourceProcessor');
-console.log(datasourceProcessor);
 var app = express();
 var bodyParser = require('body-parser');
 var datasourceSchema = require('./datasourceSchema');
