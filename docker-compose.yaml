@@ -14,3 +14,19 @@ services:
       - "8080:8080"
     volumes:
       - .:/usr/src/app
+    depends_on:
+    - mongodb
+    environment:
+      MONGO_HOST: localhost
+      MONGO_PORT: 27017
+      MONGO_DB_NAME: datamillsever
+  mongodb:
+    image: mvertes/alpine-mongo
+    network_mode: host
+    restart: always
+    volumes:
+      - /data:/data/db
+    expose:
+      - 27017
+    ports:
+      - "27017:27017"

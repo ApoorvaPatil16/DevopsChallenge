@@ -11,6 +11,7 @@
     "cookie-parser": "~1.4.3",
     "debug": "~2.2.0",
     "express": "~4.14.0",
+    "highland": "^3.0.0-beta.3",
     "json-server": "^0.8.19",
     "jsonwebtoken": "^7.1.9",
     "log4js": "^0.6.37",
@@ -18,7 +19,8 @@
     "mongoose": "^4.6.0",
     "morgan": "~1.7.0",
     "node-uuid": "^1.4.7",
-    "serve-favicon": "~2.3.0"
+    "serve-favicon": "~2.3.0",
+    "socket.io": "^1.4.8"
   },
   "devDependencies": {
     "supertest": "^2.0.0"
