@@ -9,8 +9,9 @@ angular.module('datamill')
         $scope.dataModel = $stateParams.dataModel;
         updateMaster($scope.dataModel);
         datamodeldefinationservice.getStructure($stateParams.datamodelname).then(function(res) {
-          //console.log("Here we geting getStructure", res);
-          $scope.dataModel.attributes = res.attributes;
+          console.log("Here we geting getStructure", res);
+          if (res && res.attributes[0]) $scope.dataModel.attributes = res.attributes;
+          else $scope.dataModel.attributes = [];
           updateMaster($scope.dataModel);
           //console.log("changed the value", $scope.dataModel.attributes)
         })

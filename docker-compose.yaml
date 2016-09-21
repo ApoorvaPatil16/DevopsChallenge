@@ -16,10 +16,13 @@ services:
       - .:/usr/src/app
     depends_on:
     - mongodb
+    - redis
     environment:
       MONGO_HOST: localhost
       MONGO_PORT: 27017
       MONGO_DB_NAME: datamillsever
+      REDIS_HOST: localhost
+      REDIS_PORT: 6379
   mongodb:
     image: mvertes/alpine-mongo
     network_mode: host
@@ -30,3 +33,11 @@ services:
       - 27017
     ports:
       - "27017:27017"
+  redis:
+   image: redis
+   network_mode: host
+   restart: always
+   expose:
+     - 6379
+   ports:
+     - "6379:6379"

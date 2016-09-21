@@ -188,3 +188,7 @@ md-list-item._md-button-wrap>div.md-button:first-child ._md-list-item-inner {
 #realSubheader {
   padding-left: 20px;
 }
+
+.material-icons.orange600 {
+  color: #FB8C00;
+}

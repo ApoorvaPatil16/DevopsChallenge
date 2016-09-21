@@ -5,7 +5,11 @@ var schema = new mongoose.Schema({
   description: { type: String, required: true },
   status: { type: String, enum: ['active', 'inactive', 'error', 'interrupt'], default: 'inactive' },
   ispublic: { type: Boolean, default: false },
-  delivery: { type: String, enum: ["download", "feed"] },
+  delivery: {
+    type: String,
+    enum: ["download", "feed"],
+    default: 'download'
+  },
   format: { type: String, enum: ['csv', 'json', 'tsv'], default: 'json' },
   download: {
     packets: { type: Number }
@@ -13,25 +17,24 @@ var schema = new mongoose.Schema({
   datafeed: {
     start: { type: Date },
     end: { type: Date },
-    oninterrupt: { type: String, enum: ['restart', 'donothing'], default: 'donothing' },
+    oninterrupt: { type: String, enum: ['restart', 'donothing', undefined] },
     flow: {
-      type: { type: String, enum: ['sporadic', 'continuous'] },
+      type: { type: String, enum: ['sporadic', 'continuous', undefined] },
       bursts: {
         totalpackets: { type: Number },
         occurrences: { type: Number, min: 1 },
       },
       frequency: {
         packets: { type: Number },
-        time: { type: Number, min: 1, default: 1 },
+        time: { type: Number, min: 1 },
         unit: {
           type: String,
-          enum: ['mm', 'hh', 'ss'],
-          default: 'mm'
+          enum: ['mm', 'hh', 'ss', undefined]
         }
       }
     },
     transport: {
-      medium: { type: String, enum: ['redis', 'kafka', 'stream'] },
+      medium: { type: String, enum: ['Redis', 'Kafka', 'Websocket', 'Mongo DB', 'Redis MQ'] },
       config: { type: Object }
     }
   },

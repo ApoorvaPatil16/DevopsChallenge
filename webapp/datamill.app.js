@@ -6,16 +6,33 @@ angular.module('datamill', ['ngMaterial',
   'satellizer'
 ])
 
-.controller('datamillCtrl', ['$scope', '$state', '$auth', '$rootScope', 'profileservice',
-  function($scope, $state, $auth, $rootScope, profileservice) {
+.controller('datamillCtrl', ['$scope', '$state', '$auth', '$rootScope', 'profileservice', '$mdDialog',
+  function($scope, $state, $auth, $rootScope, profileservice, $mdDialog) {
     $scope.isAuthenticated = function() {
       return $auth.isAuthenticated();
     };
+
+    function showAlert(error) {
+      alert = $mdDialog.alert()
+        .title('Attention')
+        .textContent('Not Authourized:' + error)
+        .ok('Close');
+      $mdDialog
+        .show(alert)
+        .finally(function() {
+          alert = undefined;
+        });
+    }
     $scope.authenticate = function(provider) {
       $auth.authenticate(provider)
         .then(function(res) {
           console.log(res);
           $state.go('datamill.dashboard');
+        }).catch(function(err) {
+          console.log(err);
+          if (err.status == 422) {
+            showAlert(err.data.error)
+          }
         });
     };
     $scope.logout = function() {
