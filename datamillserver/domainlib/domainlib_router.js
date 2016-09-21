@@ -2,6 +2,7 @@ var mongoose = require('mongoose');
 var express = require('express');
 var app = express();
 var DomainLib = require('./domainlib');
+var domainProcessor = require('./domainlibprocessor');
 var domainlib_router = express.Router();
 var primitive = [{
   email: "admin",
@@ -90,67 +91,53 @@ var primitive = [{
 DomainLib.insertMany(primitive, function(err, res) {
   console.log("err", err);
   console.log("suc", res);
-
 });
 domainlib_router.post('/', function(req, res) {
-  console.log(req.body);
-  req.body.email = req.email;
-  var domainData = new DomainLib(req.body);
-  domainData.save(function(err, result) {
-    if (err) {
-      console.log(err);
-      return res.send(err);
-    }
-    console.log(result);
-    return res.send(result);
-
-  })
+  try {
+    req.body.email = req.email;
+    domainProcessor.createNewDomain(req.body, function(success) {
+      res.status(201).json(success);
+    }, function(err) {
+      console.log("Error occurred in adding new domain: ", err);
+      res.status(500).json({ error: "Internal error occurred, please report" });
+    });
+  } catch (err) {
+    console.log("Error occurred in adding new domain:", err);
+    res.status(500).json({
+      error: "Internal error occurred, please report"
+    });
+  }
 });
 
 domainlib_router.get('/:type', function(req, res) {
-  if (req.params.type == 'all') {
-    DomainLib.find({ $or: [{ email: 'admin' }, { email: req.email }] }).exec(function(err, domainLib) {
-      if (err) {
-        return res.send(err);
-      }
-      return res.send(domainLib);
+  try {
+    domainProcessor.getDomain(req, function(success) {
+      res.status(201).json(success);
+    }, function(err) {
+      console.log("Error occurred in getting domain: ", err);
+      res.status(500).json({ error: "Internal error occurred, please report" });
     })
-  }
-  if (req.params.type == 'primitive') {
-    DomainLib.find({ type: 'Primitive' }).exec(function(err, domainLib) {
-      if (err) {
-        return res.send(err);
-      }
-      return res.send(domainLib);
-    })
-  }
-  if (req.params.type == 'notprimitive') {
-    if (req.query._start) {
-      DomainLib.find({ email: req.email }).skip(+req.query._start).limit(+req.query._limit).exec(function(err, domainLib) {
-        if (err) {
-          return res.send(err);
-        }
-        return res.send(domainLib);
-      })
-    }
-    if (req.query.q) {
-      DomainLib.find({ name: req.query.q, email: req.email }, function(err, success) {
-        if (err) {
-          return res.send(err);
-        }
-        console.log(success);
-        return res.send(success);
-      })
-    }
+  } catch (err) {
+    console.log("Error occurred in getting domain: ", err);
+    res.status(500).json({
+      error: "Internal error occurred, please report"
+    });
   }
 });
 domainlib_router.patch('/updateData', function(req, res) {
-  req.body.email = req.email;
-  DomainLib.findOneAndUpdate({ name: req.body.name, email: req.email }, req.body, function(err, docs) {
-    if (err) {
-      console.log(err);
-    }
-    return res.send(docs);
-  })
+  try {
+    req.body.email = req.email;
+    domainProcessor.updateDomain(req, function(success) {
+      res.status(201).json(success);
+    }, function(err) {
+      console.log("Error occurred in updating domain: ", err);
+      res.status(500).json({ error: "Internal error occurred, please report" });
+    })
+  } catch (err) {
+    console.log("Error occurred in updating domain: ", err);
+    res.status(500).json({
+      error: "Internal error occurred, please report"
+    });
+  }
 });
 module.exports = domainlib_router;
