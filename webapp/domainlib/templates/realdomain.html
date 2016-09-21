@@ -1,4 +1,4 @@
-<link type="text/css" rel="stylesheet" href="/assets/css/realdomainlib.css"/>
+<link type="text/css" rel="stylesheet" href="/assets/css/realdomainlib.css" />
 <div layout="row" class="domainLibraryContent" layout-align="center center">
   <div style="max-height:none;" flex="100" flex-xs="100" layout="column">
     <div md-no-sticky="">
@@ -13,7 +13,7 @@
       <form flex-gt-sm="80" name="domainForm" flex="100" ng-submit="createRealDomain()" style="max-height:none;">
         <md-input-container class="md-block domainNameStyle">
           <label>Domain Name</label>
-          <input required="" name="domainName" ng-model="realCtrl.realDomain.name" capitalize-first md-maxlength="30">
+          <input required="" name="domainName" ng-model="realCtrl.realDomain.name" capitalize-first md-maxlength="30" ng-disabled="{{realCtrl.mode=='edit'}}">
           <div ng-messages="domainForm.domainName.$error">
             <div ng-message="required">Name is required.</div>
             <div ng-message="md-maxlength">The title must be less than 30 characters long.</div>

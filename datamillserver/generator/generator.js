@@ -19,7 +19,7 @@ var generatorfunction = {
         return obj;
       }))
     })
-    return highland.pipeline.appy(null, mapper);
+    return highland.pipeline.apply(null, mapper);
   },
   createSource: function(domainObj) {
     if (domainObj.delivery) {

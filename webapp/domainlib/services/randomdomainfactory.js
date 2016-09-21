@@ -26,12 +26,13 @@ angular.module('datamill')
           url: "/domain",
           data: postdata,
           'content-type': "application/json"
-        }).then(function(res) {
+        }).then(function successCB(res) {
           console.log(res);
           return res;
-        }, function(err) {
+        }, function errorCB(err) {
+          console.log(err)
           return err;
         });
       }
     }
-  });
+  })

@@ -7,7 +7,11 @@ var bodyParser = require('body-parser');
 var appconf = require('./appconf');
 // var jsonServer = require('json-server');
 var mongoose = require('mongoose');
+<<<<<<< HEAD
 mongoose.connect(appconf.MONGO_HOST + ":" + appconf.MONGO_PORT + '/datamillserver');
+=======
+mongoose.connect('mongodb://localhost:27018/datamillserver');
+>>>>>>> 53a4739deac86a45a284d4a41cfc5139376690fb
 var datamodeldefination = require('./datamillserver/datamodel/datamodel_router');
 //APP logger
 // var logger = require("./applogger");
