@@ -11,10 +11,12 @@ var datamodelProcessor = {
     })
   },
   datamodelstructurefind: function(query, successCallback, errorCallback) {
+    console.log("query is:", query)
     datamodelstructure.find(query, function(err, result) {
       if (err) {
         return errorCallback(500, err);
       }
+      console.log(result)
       return successCallback(200, result);
     })
   },

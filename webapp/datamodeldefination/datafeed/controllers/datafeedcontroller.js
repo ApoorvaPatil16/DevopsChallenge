@@ -3,9 +3,11 @@ angular.module('datamill')
 
 function datafeedCtrl($timeout, $q, $log, $filter, datafeedService, $scope, $mdDialog, options) {
   var ctrl = this;
-  $scope.datafeed = options;
-  $scope.datafeed.start = new Date($scope.datafeed.start);
-  $scope.datafeed.end = new Date($scope.datafeed.end);
+  if (options) {
+    $scope.datafeed = options;
+    if ($scope.datafeed.start) $scope.datafeed.start = new Date($scope.datafeed.start);
+    if ($scope.datafeed.end) $scope.datafeed.end = new Date($scope.datafeed.end);
+  }
   $scope.pattern = "Pattern Matches";
   datafeedService.getTransportType().then(function(res) {
     ctrl.transports = res;
