@@ -69,19 +69,19 @@ angular.module('datamill')
       if ($stateParams.datamodelname) {
         datamodeldefinationservice.patchDataModel($scope.dataModel, $stateParams.datamodelname).then(function(res) {
             console.log(res);
-            showAlert(res.name);
+            showSuccessAlert(res.name);
           },
           function(res) {
-            showAlert(res.error);
+            showErrorAlert(res);
           });
       } else {
         datamodeldefinationservice.postDataModel($scope.dataModel).then(function(res) {
-            $log.info("submited successfully " + res);
-            showAlert(res.name);
+            $log.info("submitted successfully " + res);
+            showSuccessAlert(res.name);
           },
           function(res) {
             $log.info(res);
-            showAlert(res.error);
+            showErrorAlert(res);
           });
       }
     };
@@ -91,15 +91,27 @@ angular.module('datamill')
       }
       // @TODO Reset Button
       // datamodel create success message show
-    function showAlert(name) {
+    function showSuccessAlert(name) {
       alert = $mdDialog.alert()
         .title('Attention')
-        .textContent('Submited Data Model:' + name)
+        .textContent('Submitted Data Model:' + name)
         .ok('Close');
       $mdDialog
         .show(alert)
         .finally(function() {
           $state.go('datamill.dashboard');
+          alert = undefined;
+        });
+    }
+
+    function showErrorAlert(Error) {
+      alert = $mdDialog.alert()
+        .title('Attention')
+        .textContent('Error Occurred:' + Error)
+        .ok('Close');
+      $mdDialog
+        .show(alert)
+        .finally(function() {
           alert = undefined;
         });
     }

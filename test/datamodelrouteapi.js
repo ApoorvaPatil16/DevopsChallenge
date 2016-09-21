@@ -113,4 +113,16 @@ describe('datamodel route api test suite', function() {
         done();
       })
   })
+  it('trying to create the obj without Authorization header', function(done) {
+    request.post('/datamodel')
+      .send(obj)
+      .expect(401)
+      .end(function(err, res) {
+        if (err) {
+          done(err);
+        }
+        expect(res.body.message).to.be.equal("Please make sure your request has an Authorization header");
+        done();
+      })
+  })
 });

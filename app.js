@@ -4,9 +4,10 @@ var favicon = require('serve-favicon');
 var morgan = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var appconf = require('./appconf');
 // var jsonServer = require('json-server');
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/datamillserver');
+mongoose.connect(appconf.MONGO_HOST + ":" + appconf.MONGO_PORT + '/datamillserver');
 var datamodeldefination = require('./datamillserver/datamodel/datamodel_router');
 //APP logger
 // var logger = require("./applogger");

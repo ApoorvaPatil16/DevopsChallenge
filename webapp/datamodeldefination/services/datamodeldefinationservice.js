@@ -13,13 +13,15 @@ angular.module('datamill')
       getAttrType: function() {
         return $http.get("api/attrtype").then(function(res) {            
           return res.data;        
+        }, function(res) {
+          return "Unable to connect server";
         })
       },
       // getting all the config from the server
       getDataModelConfig: function() {
         return $http.get("datamodel/conf").then(function(res) {
           return res.data;
-        }, function() {
+        }, function(res) {
           return "Unable to connect server";
         })
       },
@@ -44,7 +46,7 @@ angular.module('datamill')
         }).then(function(res) {
           return res.data;
         }, function() {
-          return "unable to create data";
+          return "unable to create datamodel";
         });
       },
       //request to update the data in database
@@ -59,7 +61,7 @@ angular.module('datamill')
             return res.data;
           },
           function(res) {
-            return res;
+            return "Unable to update datamodel";
           })
       }
     }

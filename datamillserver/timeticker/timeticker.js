@@ -23,7 +23,8 @@ var ticker = function(name, starttime, endtime, mode, intervalorbrust) {
   }
   //utility function to generate a irregular interval
   function randomTimeInterval(end, count) {
-    return (Math.random() * ((end - count) - new Date()) + 1)
+    if (end) return (Math.random() * ((end - count) - new Date()) + 1)
+    else return (Math.random() * 10000 + 1)
   }
   return {
     name: function() {
