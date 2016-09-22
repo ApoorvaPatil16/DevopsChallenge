@@ -3,14 +3,16 @@ var highland = require('highland')
 var pipeliner = require('./pipelining/attrpipeline')
 var consumepipeliner = require('./pipelining/consumepipeline')
 
-function startGeneration(datamodel) {
+function startGeneration(datamodel, cb) {
   tickerObj = getTicker(datamodel)
   generatorFunc = getGeneratorFunc(datamodel, tickerObj);
+  console.log("the ticker obj is:", tickerObj)
   genPipeline = pipeliner.attrPipeline(datamodel.attributes);
   consumePipeline = consumepipeliner.consumePipeline(datamodel)
   process.nextTick(function() {
     highland(generatorFunc).pipe(genPipeline).pipe(consumePipeline).each(function(data) {
       console.log("done", data);
+      cb(data);
     })
   })
 }
@@ -40,7 +42,6 @@ function getTicker(datamodel) {
 // generate a generator function for highland
 function getGeneratorFunc(datamodel, tickerObj) {
   var packets = undefined;
-  pusher = [];
   if (datamodel.delivery == "download") {
     packets = datamodel["download"]["packets"]
   } else if (datamodel.delivery == 'feed') {
@@ -50,12 +51,12 @@ function getGeneratorFunc(datamodel, tickerObj) {
       packets = datamodel['datafeed']['flow']['frequency']['packets'];
     }
   }
-  for (var i = 0; i < packets; i++) {
-    pusher.push({})
-  }
+
   return function(push, next) {
     tickerObj.start(function() {
-      push(null, pusher);
+      for (var i = 0; i < packets; i++) {
+        push(null, {});
+      }
       if (tickerObj.status != "complete") {
         next();
       }

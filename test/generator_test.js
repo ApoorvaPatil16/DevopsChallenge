@@ -6,7 +6,7 @@ describe('Scenario:Test Suit For Generator', function() {
     "name": "Report",
     "delivery": "download",
     "download": {
-      "packets": 20
+      "packets": 2
     },
     "attributes": [{
       name: "Name",
@@ -112,7 +112,10 @@ describe('Scenario:Test Suit For Generator', function() {
   it('Instantiate ticker instance', function(done) {
     this.timeout(30000)
     var count = 0;
-    generator.startGeneration(datamodel);
+    generator.startGeneration(datamodel, function() {
+      count++;
+      console.log("Count is:" + count);
+    });
     if (count == 10) {
       done()
     }
