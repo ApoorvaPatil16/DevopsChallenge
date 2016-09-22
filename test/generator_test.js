@@ -35,11 +35,11 @@ describe('Scenario:Test Suit For Generator', function() {
       }
     }, {
       name: "Fathers Name",
-      domain: "String",
+      domain: "Firstname",
       uniqueness: false,
       options: {
         email: "vishal221092@gmail.com",
-        base: "String",
+        base: "First name",
         range: [{
           rangeOf: "words",
           min: 2,
@@ -48,6 +48,58 @@ describe('Scenario:Test Suit For Generator', function() {
           rangeOf: "length",
           min: 10,
           max: 30
+        }]
+      }
+    }, {
+      name: "id",
+      domain: "Number",
+      uniqueness: false,
+      options: {
+        email: "vishal221092@gmail.com",
+        base: "Number",
+        range: [{
+          rangeOf: "value",
+          min: 1000,
+          max: 9999
+        }]
+      }
+    }, {
+      name: "Birthdate",
+      domain: "Date",
+      uniqueness: false,
+      options: {
+        email: "vishal221092@gmail.com",
+        base: "Date",
+        range: [{
+          rangeOf: "value",
+          min: 100000000,
+          max: 300000000
+        }]
+      }
+    }, {
+      name: "isActive",
+      domain: "Boolean",
+      uniqueness: false,
+      options: {
+        email: "vishal221092@gmail.com",
+        base: "Boolean",
+        range: [{
+          rangeOf: "value",
+          min: 10,
+          max: 30
+        }]
+      }
+    }, {
+      name: "age",
+      domain: "Number",
+      uniqueness: false,
+      options: {
+        email: "vishal221092@gmail.com",
+        base: "Number",
+        range: [{
+          rangeOf: "value",
+          min: 1,
+          max: 200
         }]
       }
     }]
