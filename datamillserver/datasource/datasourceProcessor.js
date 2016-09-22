@@ -2,7 +2,6 @@ var mongoose = require('mongoose');
 var datasourceSchema = require('./datasourceSchema');
 var importsourceSchema = require('./importdataSchema');
 function postDataSource(req, successcallback, errorcallback) {
-    console.log("inside postDataSource");
     var add = {
         name: req.name,
         tags: req.tags,

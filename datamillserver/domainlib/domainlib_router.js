@@ -13,12 +13,12 @@ var primitive = [{
   pattern: null,
   range: [{
     rangeOf: "words",
-    min: null,
-    max: null
+    min: 1,
+    max: 3
   }, {
     rangeOf: "length",
-    min: null,
-    max: null
+    min: 6,
+    max: 30
   }]
 }, {
   email: "admin",
@@ -29,8 +29,8 @@ var primitive = [{
   pattern: null,
   range: [{
     rangeOf: "value",
-    min: null,
-    max: null
+    min: 1000,
+    max: 100000
   }]
 }, {
   email: "admin",
@@ -41,8 +41,8 @@ var primitive = [{
   pattern: null,
   range: [{
     rangeOf: "value",
-    min: null,
-    max: null
+    min: 1000,
+    max: 100000
   }]
 }, {
   email: "admin",
@@ -53,8 +53,8 @@ var primitive = [{
   pattern: null,
   range: [{
     rangeOf: "value",
-    min: null,
-    max: null
+    min: 1472668200,
+    max: 1474569000
   }]
 }, {
   email: "admin",
@@ -73,7 +73,7 @@ var primitive = [{
   range: [{
     rangeOf: "value",
     min: null,
-    max: null
+    max: 16777215
   }]
 }, {
   email: "admin",

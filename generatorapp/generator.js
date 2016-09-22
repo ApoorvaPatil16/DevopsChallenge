@@ -1,14 +1,16 @@
 var ticker = require('./timeticker/timeticker');
 var highland = require('highland')
+var pipeliner = require('./pipelining/attrpipeline')
+var consumepipeliner = require('./pipelining/consumepipeline')
 
 function startGeneration(datamodel) {
   tickerObj = getTicker(datamodel)
   generatorFunc = getGeneratorFunc(datamodel)
-  genPipeline = getGenPipeline(datamodel)
-  consumePipeline = getConsumePipeline(datamodel)
+  genPipeline = pipeliner.attrPipeline(datamodel.attributes);
+  consumePipeline = consumepipeliner.getConsumePipeline(datamodel)
   process.nexttick(function() {
     highland(generatorFunc).pipe(genPipeline).pipe(consumePipeline).each(function(data) {
-      console.log("done");
+      console.log("done", data);
     })
   })
 }
@@ -59,4 +61,10 @@ function getGeneratorFunc(datamodel, tickerObj) {
       }
     })
   }
+}
+
+
+
+module.exports = {
+  startGeneration: startGeneration
 }

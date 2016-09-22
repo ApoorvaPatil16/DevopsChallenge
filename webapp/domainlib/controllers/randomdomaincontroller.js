@@ -45,14 +45,28 @@ angular.module('datamill')
         if ($scope.randomDomain.base) {
           $scope.randomDomain.type = "Random Generated Domain";
           if ($scope.randomDomain.base == "String") {
+            if (($scope.randomDomain.range[0].max * 2) > $scope.randomDomain.range[1].min) {
+              alert("The minimum no. of characters should be greater than equal to:" + ($scope.randomDomain.range[0].max * 2));
+              return;
+            }
+            if ($scope.randomDomain.range[0].max < $scope.randomDomain.range[0].min) {
+              alert("The minimum no. of words should be less than maximum no. of words");
+              return;
+            }
+            if ($scope.randomDomain.range[1].max < $scope.randomDomain.range[1].min) {
+              alert("The minimum no. of characters should be less than maximum no. of characters");
+              return;
+            }
             $scope.randomDomain.range[0].rangeOf = "words";
-            $scope.randomDomain.range[0].rangeOf = "length";
+            $scope.randomDomain.range[1].rangeOf = "length";
             var range = {};
             angular.copy($scope.randomDomain.range, range);
             $scope.randomDomain.range = [];
             Object.keys(range).forEach(function(k) {
               $scope.randomDomain.range.push(range[k]);
             });
+            console.log($scope.randomDomain.range[0].max * 2);
+            console.log($scope.randomDomain.range[1].min);
           } else if ($scope.randomDomain.base == "Number" || $scope.randomDomain.base == "Decimal" || $scope.randomDomain.base == "Time" || $scope.randomDomain.base == "Date") {
             $scope.randomDomain.range[0].rangeOf = "value";
             if ($scope.randomDomain.base == "Date" || $scope.randomDomain.base == "Time") {
@@ -68,6 +82,7 @@ angular.module('datamill')
               $scope.randomDomain.range.push(range[k]);
             });
           }
+
           randomDomainFactory.postNewDomain($scope.randomDomain).then(function(res) {
             $log.info(res);
             var alert = $mdDialog.alert({

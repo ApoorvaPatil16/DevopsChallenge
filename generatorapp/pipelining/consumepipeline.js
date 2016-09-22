@@ -27,3 +27,7 @@ function consumePipeline(datamodel) {
   }
   return highland.pipeline.apply(null, myConsumepipe);
 }
+
+module.exports = {
+  consumePipeline: consumePipeline
+}
