@@ -19,6 +19,17 @@ datamodel_router.get('/', function(req, res) {
     return res.status(500).send({ error: "Internal server error", 'exception': exception });
   }
 });
+datamodel_router.get('/fulldatamodel/:datamodelname', function(req, res) {
+  try {
+    datamodelProcessor.getfulldatamodel(req.email, req.params.datamodelname, function(code, result) {
+      return res.status(code).send(result);
+    }, function(code, err) {
+      return res.status(code).send({ error: err });
+    })
+  } catch (exception) {
+    return res.status(500).send({ error: "Internal server error" });
+  }
+})
 datamodel_router.get('/transporttype', function(req, res) {
   var transporttype = [{
     "id": 1,

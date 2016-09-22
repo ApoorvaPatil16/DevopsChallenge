@@ -1,5 +1,5 @@
 /*writing test cases for the ticker component*/
-var ticker = require('../datamillserver/timeticker/timeticker');
+var ticker = require('../generatorapp/timeticker/timeticker');
 var expect = require('chai').expect;
 
 describe('Scenario: Instantiate Ticker with Parameters', function() {
