@@ -76,6 +76,18 @@ describe('datamodel route api test suite', function() {
         done();
       })
   });
+  it('getting full structure of datamodel', function(done) {
+    request.get('/datamodel/fulldatamodel/' + obj.name)
+      .set('Authorization', authhead)
+      .expect(200)
+      .end(function(err, res) {
+        if (err) {
+          done(err);
+        }
+        expect(res.body.name).to.be.equal(obj.name);
+        done();
+      })
+  });
   it('getting structure of defined datamodel', function(done) {
     request.get('/datamodel/structure/obj.name')
       .set('Authorization', authhead)

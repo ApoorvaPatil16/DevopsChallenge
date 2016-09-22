@@ -15,6 +15,7 @@ angular.module('datamill')
 function datamillModelController($scope, listDomainFactory, $element, $transclude, $log) {
   var ctrl = this;
   // getting the domain list from server
+
   listDomainFactory.getAllDomain().then(function(res) {   
     ctrl.domain = res;
     ctrl.domainName = ctrl.domain.map(function(d) {
@@ -40,6 +41,10 @@ function datamillModelController($scope, listDomainFactory, $element, $transclud
     var results = query ? ctrl.domainName.filter(createFilterFor(query)) : ctrl.domainName;
     return results;
   };
+  ctrl.selectedItemChange = function(item, index) {
+    ctrl.attrs[index]['options'] = ctrl.domain[ctrl.domainName.indexOf(item)];
+    console.log("now attributes are", ctrl.attrs);
+  }
 
   function createFilterFor(query) {
     return function filterFn(domain) {

@@ -39,6 +39,7 @@ var ticker = function(name, starttime, endtime, mode, intervalorbrust) {
       timer: undefined,
       mode: mode || 'none',
       running: false,
+      status: "notstart",
       scheduled: false,
       starttimer: undefined,
       endtimer: undefined,
@@ -55,9 +56,13 @@ var ticker = function(name, starttime, endtime, mode, intervalorbrust) {
           } else if (self.conf.mode == 'burst') {
             var recursivecb = function() {
               cb();
-              if (self.conf.currentcount < self.conf.intervalorburst - 1) {
-                self.conf.currentcount++;
+              if (++self.conf.currentcount < self.conf.intervalorburst) {
                 self.conf.timer = setTimeout(recursivecb, randomTimeInterval(self.conf.end, self.conf.currentcount))
+              } else {
+                clearTimeout(self.conf.timer)
+                self.conf.timer = undefined;
+                self.conf.running = false;
+                self.conf.status = "completed";
               }
             }
             self.conf.timer = setTimeout(recursivecb, randomTimeInterval(self.conf.end, self.conf.currentcount))
@@ -67,12 +72,22 @@ var ticker = function(name, starttime, endtime, mode, intervalorbrust) {
         self.conf.running = true;
         if (self.conf.mode == 'continuous' || self.conf.mode == 'none') {
           self.conf.timer = setInterval(cb, self.conf.intervalorburst);
+          if (self.conf.end) {
+            var endtimeout = computeTimeInterval(self.conf.end);
+            if (endtimeout) self.conf.endtimer = setTimeout(function() {
+              self.stop(stopcb);
+            }, endtimeout);
+          }
         } else if (self.conf.mode == 'burst') {
           var recursivecb = function() {
             cb();
-            if (self.conf.currentcount < self.conf.intervalorburst) {
-              self.conf.currentcount++;
+            if (++self.conf.currentcount < self.conf.intervalorburst) {
               self.conf.timer = setTimeout(recursivecb, randomTimeInterval(self.conf.end, self.conf.currentcount))
+            } else {
+              clearTimeout(self.conf.timer)
+              self.conf.timer = undefined;
+              self.conf.running = false;
+              self.conf.status = "completed";
             }
           }
           self.conf.timer = setTimeout(recursivecb, randomTimeInterval(self.conf.end, self.conf.currentcount))
@@ -101,6 +116,7 @@ var ticker = function(name, starttime, endtime, mode, intervalorbrust) {
       clearInterval(self.conf.timer);
       self.conf.timer = undefined;
       self.conf.running = false;
+      self.conf.status = "completed";
       if (cb) cb();
     },
     cancelschedular: function() {
@@ -109,6 +125,7 @@ var ticker = function(name, starttime, endtime, mode, intervalorbrust) {
       self.conf.starttimer = undefined;
       self.conf.endtimer = undefined;
       self.conf.scheduled = false;
+      self.conf.status = "interrupted"
     }
   }
 }

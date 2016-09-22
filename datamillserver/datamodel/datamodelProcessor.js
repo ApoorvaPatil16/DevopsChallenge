@@ -10,6 +10,27 @@ var datamodelProcessor = {
       successCallback(200, result);
     })
   },
+  getfulldatamodel: function(email, datamodelname, successCallback, errorCallback) {
+    datamodelModel.find({ email: email, name: datamodelname }, function(err, result) {
+      if (err) {
+        return errorCallback(500, err)
+      }
+      datamodelstructure.find({ email: email, datamodelname: datamodelname, name: datamodelname }, function(err, result1) {
+        if (err) {
+          return errorCallback(500, err);
+        }
+        if (result1[0] && result1[0].attributes) result.attributes = result1[0].attributes;
+        datamodelstructure.find({ email: email, datamodelname: datamodelname, name: { $ne: datamodelname } }, function(err, result2) {
+          if (err) {
+            return errorCallback(500, err);
+          }
+          result.patternstruct = result2;
+          console.log(result)
+          return successCallback(200, result);
+        })
+      })
+    })
+  },
   datamodelstructurefind: function(query, successCallback, errorCallback) {
     console.log("query is:", query)
     datamodelstructure.find(query, function(err, result) {

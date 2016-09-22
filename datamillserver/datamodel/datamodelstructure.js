@@ -7,7 +7,7 @@ var schema = new mongoose.Schema({
     name: { type: String, required: true },
     domain: { type: String, required: true },
     isunique: { type: Boolean },
-    options: { type: Array }
+    options: { type: Object }
   }]
 });
 schema.index({
