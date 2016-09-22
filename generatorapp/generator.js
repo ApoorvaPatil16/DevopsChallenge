@@ -55,15 +55,15 @@ function getGeneratorFunc(datamodel, tickerObj) {
   }
   return function(push, next) {
     tickerObj.start(function() {
-      push(null, pusher);
+      for (var i = 0; i < packets; i++) {
+        push(null, {});
+      }
       if (tickerObj.status != "complete") {
         next();
       }
     })
   }
 }
-
-
 
 module.exports = {
   startGeneration: startGeneration
