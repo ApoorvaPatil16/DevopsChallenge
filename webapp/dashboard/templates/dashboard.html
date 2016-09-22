@@ -24,7 +24,7 @@
     <div ng-repeat="card in datamodel" flex-gt-sm="33" flex-sm="100">
       <md-card>
         <md-card-title style="padding:7px;" md-colors="::{backgroundColor: 'default-primary-300'} ">
-          <ng-avatar string="{{card.name}} " auto-color="true " text-color="white " round-shape="true "></ng-avatar>
+          <ng-avatar string="{{card.name | avatarstring}} " auto-color="true " text-color="white " round-shape="true "></ng-avatar>
           <md-card-title-text style="padding:5px;">
             <span style="color:white;" class="md-headline ">{{card.name}}</span>
           </md-card-title-text>
@@ -40,6 +40,9 @@
           </md-button>
           <md-button aria-label="fav " class="md-icon-button" ng-click="">
             <md-icon class="material-icons orange600">star</md-icon>
+          </md-button>
+          <md-button aria-label="download " class="md-primary" ng-click="showDownload($event,card)" ng-if="card.delivery=='download'">
+            Download
           </md-button>
         </md-card-actions>
       </md-card>

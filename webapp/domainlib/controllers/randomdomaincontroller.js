@@ -33,7 +33,7 @@ angular.module('datamill')
     };
     $scope.randomDomain = $stateParams.randomDomain;
     $scope.mode = $stateParams.mode;
-    if ($scope.randomDomain.base == "Date") {
+    if ($scope.randomDomain.base == "Date" || $scope.randomDomain.base == "TimeStamp") {
       var fromDate = new Date($scope.randomDomain.range[0].min * 1000);
       $scope.randomDomain.range[0].min = fromDate;
       var toDate = new Date($scope.randomDomain.range[0].max * 1000);
@@ -67,10 +67,9 @@ angular.module('datamill')
             });
             console.log($scope.randomDomain.range[0].max * 2);
             console.log($scope.randomDomain.range[1].min);
-          } else if ($scope.randomDomain.base == "Number" || $scope.randomDomain.base == "Decimal" || $scope.randomDomain.base == "Time" || $scope.randomDomain.base == "Date") {
+          } else if ($scope.randomDomain.base == "Number" || $scope.randomDomain.base == "Decimal" || $scope.randomDomain.base == "TimeStamp" || $scope.randomDomain.base == "Date") {
             $scope.randomDomain.range[0].rangeOf = "value";
-            if ($scope.randomDomain.base == "Date" || $scope.randomDomain.base == "Time") {
-              //$scope.randomDomain.range[0].min=$filter('date')($scope.randomDomain.range[0].min,'','+0530');
+            if ($scope.randomDomain.base == "Date" || $scope.randomDomain.base == "TimeStamp") {
               console.log($scope.randomDomain.range[0].min);
               $scope.randomDomain.range[0].min = (new Date($scope.randomDomain.range[0].min).getTime() / 1000).toFixed(0);
               $scope.randomDomain.range[0].max = (new Date($scope.randomDomain.range[0].max).getTime() / 1000).toFixed(0);
@@ -115,7 +114,7 @@ angular.module('datamill')
         }
 
       } else {
-        if ($scope.randomDomain.base == "Date" || $scope.randomDomain.base == "Time") {
+        if ($scope.randomDomain.base == "Date" || $scope.randomDomain.base == "TimeStamp") {
           //$scope.randomDomain.range[0].min=$filter('date')($scope.randomDomain.range[0].min,'','+0530');
           console.log($scope.randomDomain.range[0].min);
           $scope.randomDomain.range[0].min = (new Date($scope.randomDomain.range[0].min).getTime() / 1000).toFixed(0);

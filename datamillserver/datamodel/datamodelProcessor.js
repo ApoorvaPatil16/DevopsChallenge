@@ -11,22 +11,33 @@ var datamodelProcessor = {
     })
   },
   getfulldatamodel: function(email, datamodelname, successCallback, errorCallback) {
+    var mainresult = undefined;
     datamodelModel.find({ email: email, name: datamodelname }, function(err, result) {
       if (err) {
         return errorCallback(500, err)
       }
+      mainresult = Object.assign({}, result[0]);
+      console.log("we are here getting result", result, "\nmain result:", mainresult);
       datamodelstructure.find({ email: email, datamodelname: datamodelname, name: datamodelname }, function(err, result1) {
         if (err) {
           return errorCallback(500, err);
         }
-        if (result1[0] && result1[0].attributes) result.attributes = result1[0].attributes;
+        if (result1[0] && result1[0].attributes) {
+          console.log("found attributes")
+          result[0]["attributes"] = result1[0]["attributes"];
+          mainresult["attributes"] = {}
+          Object.assign(mainresult["attributes"], result[0]["attributes"])
+        }
+        console.log("we are here getting results:", result, "result1:", result1, "\nmain result:", mainresult)
         datamodelstructure.find({ email: email, datamodelname: datamodelname, name: { $ne: datamodelname } }, function(err, result2) {
           if (err) {
             return errorCallback(500, err);
           }
-          result.patternstruct = result2;
-          console.log(result)
-          return successCallback(200, result);
+          result[0]["patternstruct"] = result2;
+          mainresult["patternstruct"] = [];
+          Object.assign(mainresult["patternstruct"], result2)
+          console.log(mainresult)
+          return successCallback(200, mainresult);
         })
       })
     })

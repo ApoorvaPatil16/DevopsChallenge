@@ -1,5 +1,5 @@
 angular.module('datamill')
-  .controller('dashboardCtrl', ['$scope', '$http', '$log', 'listDataModelsService', function($scope, $http, $log, listDataModelsService) {
+  .controller('dashboardCtrl', ['$mdDialog', '$scope', '$http', '$log', 'listDataModelsService', function($mdDialog, $scope, $http, $log, listDataModelsService) {
     var socket = io();
     listDataModelsService.getDatamodelsList().then(function(res) {
       console.log(res);
@@ -43,4 +43,51 @@ angular.module('datamill')
         'background': 'rgb(221,240,221)'
       }
     }
+    $scope.showDownload = function(ev, datamodel) {
+      console.log(datamodel);
+      $mdDialog.show({
+          controller: downloadDialogCtrl,
+          templateUrl: '/dashboard/templates/downloaddialog.html',
+          locals: {
+            datamodel: datamodel
+          },
+          parent: angular.element(document.body),
+          targetEvent: ev,
+          clickOutsideToClose: false,
+          fullscreen: $scope.customFullscreen
+        })
+        .then(function(answer) {
+          $scope.status = answer;
+        }, function() {
+          $log.info('You cancelled the dialog.');
+        });
+    };
   }])
+
+function downloadDialogCtrl($scope, $mdDialog, datamodel, datamodeldefinationservice) {
+  $scope.card = {};
+  $scope.card = datamodel;
+
+  datamodeldefinationservice.getStructure(datamodel.name).then(function(res) {
+    console.log("Here we geting getStructure", res);
+    if (res && res.attributes[0]) $scope.card.attributes = res.attributes;
+    else $scope.card.attributes = [];
+    console.log("we are with data model:", $scope.card)
+    socket = io();
+    socket.emit('download', $scope.card);
+    var onEventName = "download_" + $scope.card.email + "_" + $scope.card.name;
+    socket.on(onEventName, function(data) {
+      $scope.data = $scope.data + data;
+    })
+  })
+  console.log($scope.card);
+  $scope.hide = function() {
+    $mdDialog.hide();
+  };
+  $scope.cancel = function() {
+    $mdDialog.cancel();
+  };
+  $scope.answer = function(answer) {
+    $mdDialog.hide(answer);
+  };
+}

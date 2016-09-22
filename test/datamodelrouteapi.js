@@ -32,7 +32,7 @@ describe('datamodel route api test suite', function() {
         }
       },
       transport: {
-        medium: "redis"
+        medium: "Redis"
       }
     },
     attributes: [{
@@ -84,7 +84,8 @@ describe('datamodel route api test suite', function() {
         if (err) {
           done(err);
         }
-        expect(res.body.name).to.be.equal(obj.name);
+        console.log(res.body);
+        expect(res.body).to.be.equal(obj.name);
         done();
       })
   });
