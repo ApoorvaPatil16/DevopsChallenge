@@ -5,9 +5,10 @@ function attrPipeline(attrList) {
   var myAttrPipeline = [];
   var createGenMapper = function(field, settings) {
     var genMap = highland.map(function(data) {
-      var result = managerFunction.managerFunction(settings);
-      data[field] = result;
-      return data;
+      return managerFunction.managerFunction(settings, function(result) {
+        data[field] = result;
+        return data;
+      });
     });
     return genMap;
   }

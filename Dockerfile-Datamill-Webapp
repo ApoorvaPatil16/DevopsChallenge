@@ -1,7 +1,8 @@
 FROM mhart/alpine-node:6.3.0
 RUN mkdir -p /usr/src/app
-RUN npm install --no-bin-links
 ADD . /usr/src/app
 WORKDIR /usr/src/app
+RUN npm install --no-bin-links
 #ENTRYPOINT ["/usr/src/app/run.sh"]
+WORKDIR /usr/src/app
 CMD ["npm","start"]
