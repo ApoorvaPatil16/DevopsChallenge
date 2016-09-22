@@ -57,14 +57,9 @@ function getGeneratorFunc(datamodel, tickerObj) {
       for (var i = 0; i < packets; i++) {
         push(null, {});
       }
-      if (tickerObj.status != "complete") {
-        next();
-      }
     })
   }
 }
-
-
 
 module.exports = {
   startGeneration: startGeneration

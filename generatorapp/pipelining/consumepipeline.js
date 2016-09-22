@@ -14,14 +14,14 @@ function consumePipeline(datamodel) {
   if (datamodel.delivery == 'download') {
     myConsumepipe.push(highland.map(function(data) {
       publishdata.data = data;
-      redisClient.publish("download", publishdata)
+      redisClient.publish("download", JSON.stringify(publishdata))
       return data;
     }))
   }
   if (datamodel.delivery == 'feed') {
     myConsumepipe.push(highland.map(function(data) {
       publishdata.data = data;
-      redisClient.publish("data", publishdata)
+      redisClient.publish("data", JSON.stringify(publishdata))
       return data;
     }))
   }

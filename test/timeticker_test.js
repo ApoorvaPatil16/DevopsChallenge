@@ -190,7 +190,7 @@ describe('Scenario: Ticking the ticker', function() {
     var starttime = new Date(now.getTime() + 7000 * 1);
     var endtime = new Date(now.getTime() + 7000 * 3);
     var ticks = 0;
-    var simpleticker = new ticker("burstticker", starttime, endtime, 'burst', 10);
+    var simpleticker = new ticker("burstticker", starttime, endtime, 'burst', 2);
     expect(simpleticker).to.be.an('object')
     expect(simpleticker.conf.start).to.be.above(now)
     simpleticker.start(function() {
@@ -200,7 +200,7 @@ describe('Scenario: Ticking the ticker', function() {
     })
     setTimeout(function() {
       console.log("time gets over now ticks is", ticks);
-      if (ticks == 10) {
+      if (ticks == 2) {
         done()
       }
     }, 29000)

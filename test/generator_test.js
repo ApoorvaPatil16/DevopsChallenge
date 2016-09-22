@@ -4,9 +4,30 @@ var generator = require('../generatorapp/generator');
 describe('Scenario:Test Suit For Generator', function() {
   var datamodel = {
     "name": "Report",
-    "delivery": "download",
+    "delivery": "feed",
     "download": {
       "packets": 2
+    },
+    "datafeed": {
+      start: new Date(),
+      end: new Date((new Date()).getTime() + 10000),
+      oninterrupt: "donothing",
+      flow: {
+        type: "sporadic",
+        bursts: {
+          totalpackets: 100,
+          occurrences: 4,
+        },
+        frequency: {
+          packets: 10,
+          time: 2,
+          unit: "ss"
+        }
+      },
+      transport: {
+        medium: "Redis",
+        config: { type: "nothing" }
+      }
     },
     "attributes": [{
       name: "Name",
