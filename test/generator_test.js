@@ -3,6 +3,11 @@ var generator = require('../generatorapp/generator');
 
 describe('Scenario:Test Suit For Generator', function() {
   var datamodel = {
+    "name": "Report",
+    "delivery": "download",
+    "download": {
+      "packets": 20
+    },
     "attributes": [{
       name: "Name",
       domain: "String",
@@ -35,11 +40,11 @@ describe('Scenario:Test Suit For Generator', function() {
       }
     }, {
       name: "Fathers Name",
-      domain: "Firstname",
+      domain: "String",
       uniqueness: false,
       options: {
         email: "vishal221092@gmail.com",
-        base: "First name",
+        base: "String",
         range: [{
           rangeOf: "words",
           min: 2,
@@ -107,16 +112,9 @@ describe('Scenario:Test Suit For Generator', function() {
   it('Instantiate ticker instance', function(done) {
     this.timeout(30000)
     var count = 0;
-    generator.kicker(datamodel, function(data) {
-      console.log(data);
-      count++;
-      expect(data['Name']).to.not.equal(undefined)
-      expect(data['Pincode']).to.not.equal(undefined)
-      expect(data['Fathers Name']).to.not.equal(undefined)
-      if (count == 10) {
-        done()
-      }
-    });
-
+    generator.startGeneration(datamodel);
+    if (count == 10) {
+      done()
+    }
   });
 });
