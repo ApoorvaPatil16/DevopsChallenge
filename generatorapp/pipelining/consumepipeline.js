@@ -13,8 +13,11 @@ function consumePipeline(datamodel) {
       var publishdata = {
         name: datamodel.name,
         email: datamodel.email,
-        data: undefined
+        data: null
       };
+      if (data == null) {
+        console.log("get null")
+      }
       publishdata.data = data;
       console.log("we are publishing data:", publishdata, "and original data:", data)
       redisClient.publish("download", JSON.stringify(publishdata))

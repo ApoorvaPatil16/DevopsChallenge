@@ -75,7 +75,7 @@ var ticker = function(name, starttime, endtime, mode, intervalorbrust) {
           if (self.conf.end) {
             var endtimeout = computeTimeInterval(self.conf.end);
             if (endtimeout) self.conf.endtimer = setTimeout(function() {
-              self.stop(stopcb);
+              self.stop();
             }, endtimeout);
           }
         } else if (self.conf.mode == 'burst') {

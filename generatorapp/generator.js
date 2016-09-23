@@ -57,6 +57,11 @@ function getGeneratorFunc(datamodel, tickerObj) {
       for (var i = 0; i < packets; i++) {
         push(null, {});
       }
+      if (datamodel.delivery == 'download') {
+        console.log("this is download type")
+        push(null, null)
+        push(null, highland.nil)
+      }
     })
   }
 }

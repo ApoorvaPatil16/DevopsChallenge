@@ -67,7 +67,7 @@ angular.module('datamill')
 function downloadDialogCtrl($scope, $mdDialog, datamodel, datamodeldefinationservice) {
   $scope.datamodeldialog = angular.copy(datamodel);
   $scope.data = []
-
+  $scope.copydis = true;
   datamodeldefinationservice.getFullDatamodel(datamodel.name).then(function(res) {
     console.log("Here we geting getStructure", res);
     if (res && res.attributes[0]) $scope.datamodeldialog.attributes = res.attributes;
@@ -78,7 +78,13 @@ function downloadDialogCtrl($scope, $mdDialog, datamodel, datamodeldefinationser
     var onEventName = "download_" + $scope.datamodeldialog.email + "_" + $scope.datamodeldialog.name;
     console.log('listener name is :', onEventName);
     socket.on(onEventName, function(data) {
-      $scope.data.push(data);
+      console.log(data)
+      if (data == null) {
+        $scope.copydis = false;
+        $scope.show();
+      } else {
+        $scope.data.push(data);
+      }
     })
   })
   $scope.show = function() {

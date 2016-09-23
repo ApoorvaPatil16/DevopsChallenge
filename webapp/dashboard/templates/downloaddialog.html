@@ -17,12 +17,13 @@
     </md-dialog-content>
     <md-dialog-actions layout="row ">
       <span flex></span>
-      <md-button ng-click="answer(status) ">
+      <md-button ng-click="answer(status)" ng-disabled="copydis">
         Copy
       </md-button>
-      <md-button ng-click="show()">
-        Show
-      </md-button>
+      <!-- <md-button ng-click="show()">
+  Show
+</md-button>
+ -->
     </md-dialog-actions>
   </form>
 </md-dialog>
