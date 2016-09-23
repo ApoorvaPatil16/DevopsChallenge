@@ -12,7 +12,7 @@ function startGeneration(datamodel, cb) {
   process.nextTick(function() {
     highland(generatorFunc).pipe(genPipeline).pipe(consumePipeline).each(function(data) {
       console.log("done", data);
-      cb(data);
+      if (cb) cb(data);
     })
   })
 }

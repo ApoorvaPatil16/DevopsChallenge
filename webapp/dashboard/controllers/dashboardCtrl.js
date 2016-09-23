@@ -74,7 +74,7 @@ function downloadDialogCtrl($scope, $mdDialog, datamodel, datamodeldefinationser
     else $scope.card.attributes = [];
     console.log("we are with data model:", $scope.card)
     socket = io();
-    socket.emit('download', $scope.card);
+    socket.emit('download', JSON.stringify($scope.card));
     var onEventName = "download_" + $scope.card.email + "_" + $scope.card.name;
     socket.on(onEventName, function(data) {
       $scope.data = $scope.data + data;
