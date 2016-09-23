@@ -96,6 +96,7 @@ function downloadDialogCtrl($scope, $mdDialog, datamodel, datamodeldefinationser
     console.log('listener name is :', onEventName);
     socket.on(onEventName, function(data) {
       $scope.data.push(data);
+      $scope.$apply();
     })
   })
   $scope.show = function() {
@@ -116,6 +117,7 @@ function downloadDialogCtrl($scope, $mdDialog, datamodel, datamodeldefinationser
 function feedDialogCtrl($scope, $mdDialog, datamodel, datamodeldefinationservice) {
   $scope.datamodeldialog = angular.copy(datamodel);
   $scope.data = [];
+  $scope.count = 0;
 
   datamodeldefinationservice.getFullDatamodel(datamodel.name).then(function(res) {
     console.log("Here we geting getStructure", res);
@@ -128,7 +130,15 @@ function feedDialogCtrl($scope, $mdDialog, datamodel, datamodeldefinationservice
     console.log('listener name is :', onEventName);
     socket.on(onEventName, function(data) {
       console.log("Packets:", data);
-      $scope.data = data;
+      $scope.data.push(data);
+      if ($scope.data.length > 20) {
+        $scope.data.shift();
+      }
+      $scope.datastr = "";
+      $scope.data.forEach(function(k) {
+        $scope.datastr += JSON.stringify(k) + "\n";
+      })
+      $scope.$apply();
     })
   })
   $scope.hide = function() {
