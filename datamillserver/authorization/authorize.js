@@ -23,7 +23,7 @@ function isAuthenticated(req, res, next) {
   }
   req.user = decoded.payload.sub;
   req.email = decoded.payload.email;
-  console.log("Authenticated", req.email.req.user);
+  console.log("Authenticated", req.email, req.user);
   next();
 }
 module.exports = { isAuthenticated: isAuthenticated };
