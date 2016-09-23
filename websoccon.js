@@ -5,19 +5,22 @@ console.log("socket file entered");
 io.on('connection', function(socket) {
   console.log("subscribing to client");
   var redisClient = new redis.createClient();
-  socket.on("subscribe", function() {
-    redisClient.subscribe('data', function(data) {
-      emitterEventName = "feed_" + data.email + '_' + data.name;
+  socket.on("subscribe", function(msg) {
+    redisClient.subscribe('feed')
+    redisClient.on('message', function(channel, dataStr) {
+      var data = JSON.parse(dataStr)
+      emitterEventName = channel + "_" + data.email + '_' + data.name;
       socket.emit(emitterEventName, data.data)
     })
   })
   socket.on("download", function(datamodel) {
     datamodel = JSON.parse(datamodel)
     generator.startGeneration(datamodel)
-    redisClient.subscribe('download', function(data) {
-      data = JSON.parse(data)
+    redisClient.subscribe('download')
+    redisClient.on('message', function(channel, dataStr) {
+      var data = JSON.parse(data)
       console.log("getting the data in redis subscribe")
-      emitterEventName = "download_" + data.email + '_' + data.name;
+      emitterEventName = channel + "_" + data.email + '_' + data.name;
       socket.emit(emitterEventName, data.data)
     })
   })
