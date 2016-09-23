@@ -68,7 +68,7 @@ function downloadDialogCtrl($scope, $mdDialog, datamodel, datamodeldefinationser
   $scope.datamodeldialog = angular.copy(datamodel);
   $scope.data = []
 
-  datamodeldefinationservice.getStructure(datamodel.name).then(function(res) {
+  datamodeldefinationservice.getFullDatamodel(datamodel.name).then(function(res) {
     console.log("Here we geting getStructure", res);
     if (res && res.attributes[0]) $scope.datamodeldialog.attributes = res.attributes;
     else $scope.datamodeldialog.attributes = [];
