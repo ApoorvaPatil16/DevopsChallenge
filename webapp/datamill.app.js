@@ -27,6 +27,9 @@ angular.module('datamill', ['ngMaterial',
       $auth.authenticate(provider)
         .then(function(res) {
           console.log(res);
+          profileservice.getProfile().then(function(res) {
+            $scope.user = res;
+          })
           $state.go('datamill.dashboard');
         }).catch(function(err) {
           console.log(err);
@@ -46,9 +49,7 @@ angular.module('datamill', ['ngMaterial',
     } else {
       $state.go('datamill');
     }
-    profileservice.getProfile().then(function(res) {
-      $scope.user = res;
-    })
+
     $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState) {
       console.log("inside state change");
       if (toState.name == 'datamill') {

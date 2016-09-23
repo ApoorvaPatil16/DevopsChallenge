@@ -21,7 +21,7 @@ var datamodelProcessor = {
           return errorCallback(500, err);
         }
 
-        if (result1[0] && result1[0].attributes) doc['attributes'] = Object.assign({}, result1[0]['_doc']['attributes'])
+        if (result1[0] && result1[0].attributes) doc['attributes'] = Object.assign([], result1[0]['_doc']['attributes'])
         datamodelstructure.find({ email: email, datamodelname: datamodelname, name: { $ne: datamodelname } }, function(err, result2) {
           if (err) {
             return errorCallback(500, err);

@@ -18,12 +18,6 @@ function consumePipeline(datamodel) {
       publishdata.data = data;
       console.log("we are publishing data:", publishdata, "and original data:", data)
       redisClient.publish("download", JSON.stringify(publishdata))
-        //emitterEventName = "download_" + publishdata.email + '_' + publishdata.name;
-        // socket.on('connect', function() {
-        //   // socket connected
-        //   socket.emit("downloaded", publishdata)
-        // });
-
       return data;
     }))
   }
