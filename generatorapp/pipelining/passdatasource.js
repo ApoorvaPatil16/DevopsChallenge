@@ -3,22 +3,19 @@ var importsourceModel = require('../../datamillserver/datasource/importdataSchem
 var client = redis.createClient();
 
 function passdatasource(sourcename, email) {
-    console.log("inside passdatasource");
+    //console.log("inside passdatasource");
     importsourceModel.find({ sourcename: sourcename, email: email }, function(err, docs) {
         if (err) {
             console.log("error in passdatasource in fetching data from datasource");
             console.log(err)
         } else {
-            console.log("success callback from passdatasource");
+            //console.log("success callback from passdatasource");
             var data = docs[0].data;
-            for (i = 0; i < 20; i++) {
+            for (i = 0; i < 500; i++) {
                 var randomvalue = Math.floor(Math.random() * (data.length));
-                client.lpush(sourcename, data[randomvalue].firstname);
+                var keys=Object.keys(data[0])
+                client.lpush(sourcename+"_"+email, data[randomvalue][keys[0]]);
             }
-            // client.lindex(sourcename,13,function(err,obj){
-            // 	console.log(obj);
-            // });
-            // client.publish('realData',lpush);
         }
     });
 }

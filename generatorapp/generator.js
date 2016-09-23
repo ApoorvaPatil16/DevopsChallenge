@@ -2,11 +2,12 @@ var ticker = require('./timeticker/timeticker');
 var highland = require('highland')
 var pipeliner = require('./pipelining/attrpipeline')
 var consumepipeliner = require('./pipelining/consumepipeline')
-
+var globalactivedatasources=require('../generatorloops/activedatasrc')
 function startGeneration(datamodel, cb) {
   tickerObj = getTicker(datamodel)
   generatorFunc = getGeneratorFunc(datamodel, tickerObj);
   console.log("the ticker obj is:", tickerObj)
+  globalactivedatasources.registerDataSource(datamodel.attributes);
   genPipeline = pipeliner.attrPipeline(datamodel.attributes);
   consumePipeline = consumepipeliner.consumePipeline(datamodel)
   process.nextTick(function() {
@@ -16,6 +17,7 @@ function startGeneration(datamodel, cb) {
     })
   })
 }
+
 // generate a ticker object
 function getTicker(datamodel) {
   var mode = 'burst';
