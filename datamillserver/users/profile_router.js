@@ -13,6 +13,7 @@ profile_router.get('/', function(req, res) {
   console.log("profile of :");
   var profileId = req.user;
   userModel.find({ '_id': profileId }, function(err, found) {
+    console.log("error", err, "found", found)
     if (err) return handleError(err);
     //var userprofileData = new userModel();
     console.log("User Email", found[0].email);
