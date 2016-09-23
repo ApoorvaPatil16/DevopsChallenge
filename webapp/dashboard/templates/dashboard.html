@@ -31,7 +31,8 @@
         </md-card-title>
         <md-card-content class="wrap-content ">
           <p>Purpose: {{card.description}}</p>
-          <span>File Export type : {{card.delivery}}</span>
+          <span>File Export type : {{card.delivery
+}}</span>
           <pre>{{ card | json }}</pre>
         </md-card-content>
         <md-card-actions layout="row " layout-align="end center ">
@@ -43,6 +44,9 @@
           </md-button>
           <md-button aria-label="download " class="md-primary" ng-click="showDownload($event,card)" ng-if="card.delivery=='download'">
             Download
+          </md-button>
+          <md-button aria-label="feed " class="md-primary" ng-click="showFeed($event,card)" ng-if="card.delivery=='feed'">
+            Start Feed
           </md-button>
         </md-card-actions>
       </md-card>
