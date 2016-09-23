@@ -44,10 +44,27 @@ angular.module('datamill')
       }
     }
     $scope.showDownload = function(ev, datamodel) {
-      console.log(datamodel);
       $mdDialog.show({
           controller: downloadDialogCtrl,
           templateUrl: '/dashboard/templates/downloaddialog.html',
+          locals: {
+            datamodel: datamodel
+          },
+          parent: angular.element(document.body),
+          targetEvent: ev,
+          clickOutsideToClose: false,
+          fullscreen: $scope.customFullscreen
+        })
+        .then(function(answer) {
+          $scope.status = answer;
+        }, function() {
+          $log.info('You cancelled the dialog.');
+        });
+    };
+    $scope.showFeed = function(ev, datamodel) {
+      $mdDialog.show({
+          controller: feedDialogCtrl,
+          templateUrl: '/dashboard/templates/feeddialog.html',
           locals: {
             datamodel: datamodel
           },
@@ -81,16 +98,68 @@ function downloadDialogCtrl($scope, $mdDialog, datamodel, datamodeldefinationser
       console.log(data)
       if (data == null) {
         $scope.copydis = false;
-        $scope.show();
+        $scope.$apply();
       } else {
         $scope.data.push(data);
+        $scope.$apply();
       }
+
     })
   })
   $scope.show = function() {
     console.log($scope.data);
   }
   console.log($scope.datamodeldialog);
+  $scope.hide = function() {
+    $mdDialog.hide();
+  };
+  $scope.cancel = function() {
+    $mdDialog.cancel();
+  };
+  $scope.answer = function(answer) {
+    var text = JSON.stringify($scope.data)
+    var textFileAsBlob = new Blob([text], { type: 'text/plain' });
+    var filename = "db.json";
+    var downloadlink = document.createElement("a");
+    downloadlink.download = filename;
+    window.URL = window.URL || window.webkitURL;
+    downloadlink.href = window.URL.createObjectURL(textFileAsBlob);
+    downloadlink.onclick = function(ev) {
+      document.body.removeChild(ev.target);
+    }
+    document.body.appendChild(downloadlink);
+    downloadlink.click();
+    $mdDialog.hide(answer);
+  };
+}
+
+function feedDialogCtrl($scope, $mdDialog, datamodel, datamodeldefinationservice) {
+  $scope.datamodeldialog = angular.copy(datamodel);
+  $scope.data = [];
+  $scope.count = 0;
+
+  datamodeldefinationservice.getFullDatamodel(datamodel.name).then(function(res) {
+    console.log("Here we geting getStructure", res);
+    if (res && res.attributes[0]) $scope.datamodeldialog.attributes = res.attributes;
+    else $scope.datamodeldialog.attributes = [];
+    console.log("we are with data model:", $scope.datamodeldialog);
+    socket = io();
+    socket.emit('feed', JSON.stringify($scope.datamodeldialog));
+    var onEventName = "feed_" + $scope.datamodeldialog.email + "_" + $scope.datamodeldialog.name;
+    console.log('listener name is :', onEventName);
+    socket.on(onEventName, function(data) {
+      console.log("Packets:", data);
+      $scope.data.push(data);
+      if ($scope.data.length > 20) {
+        $scope.data.shift();
+      }
+      $scope.datastr = "";
+      $scope.data.forEach(function(k) {
+        $scope.datastr += JSON.stringify(k) + "\n";
+      })
+      $scope.$apply();
+    })
+  })
   $scope.hide = function() {
     $mdDialog.hide();
   };

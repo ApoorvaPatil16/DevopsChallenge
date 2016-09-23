@@ -26,6 +26,11 @@ function consumePipeline(datamodel) {
   }
   if (datamodel.delivery == 'feed') {
     myConsumepipe.push(highland.map(function(data) {
+      var publishdata = {
+        name: datamodel.name,
+        email: datamodel.email,
+        data: undefined
+      };
       publishdata.data = data;
       redisClient.publish("feed", JSON.stringify(publishdata))
       return data;

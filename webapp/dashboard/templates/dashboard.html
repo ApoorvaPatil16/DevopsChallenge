@@ -21,7 +21,7 @@
   </div>
   <!-- Datamodel Cards-->
   <div class='md-padding' layout-gt-sm="row" layout-sm="column" layout-wrap>
-    <div ng-repeat="card in datamodel" flex-gt-sm="33" flex-sm="100">
+    <div ng-repeat="card in datamodel" flex-gt-sm="33" flex-sm="100" style="max-height:none">
       <md-card>
         <md-card-title style="padding:7px;" md-colors="::{backgroundColor: 'default-primary-300'} ">
           <ng-avatar string="{{card.name | avatarstring}} " auto-color="true " text-color="white " round-shape="true "></ng-avatar>
@@ -29,21 +29,26 @@
             <span style="color:white;" class="md-headline ">{{card.name}}</span>
           </md-card-title-text>
         </md-card-title>
-        <md-card-content class="wrap-content ">
+        <md-card-content class="wrap-content" style="padding:30px">
           <p>Purpose: {{card.description}}</p>
           <span>File Export type : {{card.delivery}}</span>
           <pre>{{ card | json }}</pre>
         </md-card-content>
-        <md-card-actions layout="row " layout-align="end center ">
-          <md-button aria-label="edit " class="md-icon-button " ui-sref="datamill.datamodeldefination({dataModel:card,mode:'edit',datamodelname:card.name}) ">
-            <md-icon class="material-icons ">mode_edit</md-icon>
-          </md-button>
-          <md-button aria-label="fav " class="md-icon-button" ng-click="">
-            <md-icon class="material-icons orange600">star</md-icon>
-          </md-button>
-          <md-button aria-label="download " class="md-primary" ng-click="showDownload($event,card)" ng-if="card.delivery=='download'">
-            Download
-          </md-button>
+        <md-card-actions>
+          <div layout="row " layout-align="end center ">
+            <md-button aria-label="edit " class="md-icon-button " ui-sref="datamill.datamodeldefination({dataModel:card,mode:'edit',datamodelname:card.name}) ">
+              <md-icon class="material-icons ">mode_edit</md-icon>
+            </md-button>
+            <md-button aria-label="fav " class="md-icon-button" ng-click="">
+              <md-icon class="material-icons orange600">star</md-icon>
+            </md-button>
+            <md-button aria-label="download " class="md-primary" ng-click="showDownload($event,card)" ng-if="card.delivery=='download'">
+              Download
+            </md-button>
+            <md-button aria-label="feed " class="md-primary" ng-click="showFeed($event,card)" ng-if="card.delivery=='feed'">
+              Show Feed
+            </md-button>
+          </div>
         </md-card-actions>
       </md-card>
     </div>

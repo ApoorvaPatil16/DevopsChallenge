@@ -2,7 +2,7 @@
   <form ng-cloak>
     <md-toolbar>
       <div class="md-toolbar-tools">
-        <h2>Data</h2>
+        <h2>Datafeed</h2>
         <span flex></span>
         <md-button class="md-icon-button" ng-click="cancel()">
           <md-icon aria-label="Close dialog">close</md-icon>
@@ -11,18 +11,14 @@
     </md-toolbar>
     <md-dialog-content>
       <div class="md-dialog-content">
-        <textarea style="width:700px;height:400px" ng-model="data|json"></textarea>
+        <textarea style="width:700px;height:400px" ng-model="datastr"></textarea>
       </div>
     </md-dialog-content>
     <md-dialog-actions layout="row ">
       <span flex></span>
-      <md-button ng-click="answer(status)" ng-disabled="copydis">
-        Download
+      <md-button ng-click="answer(status) ">
+        Copy
       </md-button>
-      <!-- <md-button ng-click="show()">
-  Show
-</md-button>
- -->
     </md-dialog-actions>
   </form>
 </md-dialog>

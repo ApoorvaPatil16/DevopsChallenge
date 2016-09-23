@@ -18,9 +18,10 @@ var oauth_router = require('./datamillserver/oauth/authlogin');
 var isAuthenticated = require('./datamillserver/authorization/authorize').isAuthenticated;
 var profile_router = require('./datamillserver/users/profile_router');
 var validate = require('./datamillserver/datasource/validate');
+var dataSourceCache = require('./generatorloops/dataSourceCache');
 //Express App created
 var app = express();
-
+dataSourceCache.startBufferring();
 app.onAppStart = function(addr) {
   // logger.info("DataMill web app is now Running on port:",addr.port);
 }

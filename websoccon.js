@@ -5,7 +5,10 @@ console.log("socket file entered");
 io.on('connection', function(socket) {
   console.log("subscribing to client");
   var redisClient = new redis.createClient();
-  socket.on("subscribe", function(msg) {
+  socket.on("feed", function(datamodel) {
+    console.log("Request for feed");
+    datamodel = JSON.parse(datamodel)
+    generator.startGeneration(datamodel)
     redisClient.subscribe('feed')
     redisClient.on('message', function(channel, dataStr) {
       var data = JSON.parse(dataStr)
