@@ -4,12 +4,14 @@ var highland = require('highland')
 function attrPipeline(attrList) {
   var myAttrPipeline = [];
   var createGenMapper = function(field, settings) {
-    var genMap = highland.map(function(data) {
-      console.log("feild name:", field, "and data is ", data);
-      return managerFunction.managerFunction(settings, function(result) {
+    var genMap = highland.flatMap(function(data) {
+      return highland(function(push,next){
+      managerFunction.managerFunction(settings, function(result) {
         data[field] = result;
-        return data;
+        push(null,data);
+        push(null,highland.nil);
       });
+      })
     });
     return genMap;
   }

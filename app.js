@@ -5,6 +5,7 @@ var morgan = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var appconf = require('./appconf');
+var realData=require('./generatorapp/pipelining/passdatasource');
 // var jsonServer = require('json-server');
 var mongoose = require('mongoose');
 mongoose.connect(appconf.MONGO_HOST + ":" + appconf.MONGO_PORT + '/datamillserver');
@@ -21,6 +22,7 @@ var validate = require('./datamillserver/datasource/validate');
 //Express App created
 var app = express();
 
+realData.passdatasource('First name','rawat24892@gmail.com');
 app.onAppStart = function(addr) {
   // logger.info("DataMill web app is now Running on port:",addr.port);
 }

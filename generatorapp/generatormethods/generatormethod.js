@@ -1,4 +1,4 @@
-var getRealVal = require('./passdatasource');
+var getRealVal = require('../pipelining/redisSubscribe');
 
 function managerFunction(domain, cb) {
   if (domain.type != "Real Domain") {
@@ -24,7 +24,7 @@ function managerFunction(domain, cb) {
 function generateTimestamp(obj, cb) {
   var maxtime = new Date(obj.range[0].max * 1000);
   var mintime = new Date(obj.range[0].min * 1000);
-  cb(new Date(mintime.getTime() + Math.random() * (maxtime.getTime() - mintime.getTime())));
+  return cb(new Date(mintime.getTime() + Math.random() * (maxtime.getTime() - mintime.getTime())));
 
 }
 
@@ -86,8 +86,9 @@ function generateHexadecimal(obj, cb) {
 
 function generateRealValue(obj, cb) {
   console.log("inside generateRealValue");
-  return getRealVal.passdatasource(obj.base, obj.email, function(data) {
+  return getRealVal.getRealData(function(data) {
     var i = 0;
+    console.log("Vishal:",data);
     while (i < obj.transformers.length) {
       if (obj.transformers[i].name == "UpperCase") {
         data = data.toUpperCase();

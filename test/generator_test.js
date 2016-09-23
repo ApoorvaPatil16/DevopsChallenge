@@ -31,11 +31,12 @@ describe('Scenario:Test Suit For Generator', function() {
     },
     "attributes": [{
       name: "Name",
-      domain: "String",
+      domain: "First name",
+      type:"Real Domain",
       uniqueness: false,
       options: {
         email: "vishal221092@gmail.com",
-        base: "String",
+        base: "Names",
         range: [{
           rangeOf: "words",
           min: 2,
