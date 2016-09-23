@@ -18,8 +18,8 @@ io.on('connection', function(socket) {
     generator.startGeneration(datamodel)
     redisClient.subscribe('download')
     redisClient.on('message', function(channel, dataStr) {
-      var data = JSON.parse(data)
-      console.log("getting the data in redis subscribe")
+      var data = JSON.parse(dataStr)
+      console.log("getting the data in redis subscribe", data, "and channel is:", channel)
       emitterEventName = channel + "_" + data.email + '_' + data.name;
       socket.emit(emitterEventName, data.data)
     })

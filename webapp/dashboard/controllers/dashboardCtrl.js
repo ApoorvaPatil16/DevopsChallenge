@@ -1,5 +1,5 @@
 angular.module('datamill')
-  .controller('dashboardCtrl', ['$scope', '$http', '$log', 'listDataModelsService', function($scope, $http, $log, listDataModelsService) {
+  .controller('dashboardCtrl', ['$mdDialog', '$scope', '$http', '$log', 'listDataModelsService', function($mdDialog, $scope, $http, $log, listDataModelsService) {
     var socket = io();
     listDataModelsService.getDatamodelsList().then(function(res) {
       console.log(res);
@@ -43,4 +43,55 @@ angular.module('datamill')
         'background': 'rgb(221,240,221)'
       }
     }
+    $scope.showDownload = function(ev, datamodel) {
+      console.log(datamodel);
+      $mdDialog.show({
+          controller: downloadDialogCtrl,
+          templateUrl: '/dashboard/templates/downloaddialog.html',
+          locals: {
+            datamodel: datamodel
+          },
+          parent: angular.element(document.body),
+          targetEvent: ev,
+          clickOutsideToClose: false,
+          fullscreen: $scope.customFullscreen
+        })
+        .then(function(answer) {
+          $scope.status = answer;
+        }, function() {
+          $log.info('You cancelled the dialog.');
+        });
+    };
   }])
+
+function downloadDialogCtrl($scope, $mdDialog, datamodel, datamodeldefinationservice) {
+  $scope.datamodeldialog = angular.copy(datamodel);
+  $scope.data = []
+
+  datamodeldefinationservice.getStructure(datamodel.name).then(function(res) {
+    console.log("Here we geting getStructure", res);
+    if (res && res.attributes[0]) $scope.datamodeldialog.attributes = res.attributes;
+    else $scope.datamodeldialog.attributes = [];
+    console.log("we are with data model:", $scope.datamodeldialog)
+    socket = io();
+    socket.emit('download', JSON.stringify($scope.datamodeldialog));
+    var onEventName = "download_" + $scope.datamodeldialog.email + "_" + $scope.datamodeldialog.name;
+    console.log('listener name is :', onEventName);
+    socket.on(onEventName, function(data) {
+      $scope.data.push(data);
+    })
+  })
+  $scope.show = function() {
+    console.log($scope.data);
+  }
+  console.log($scope.datamodeldialog);
+  $scope.hide = function() {
+    $mdDialog.hide();
+  };
+  $scope.cancel = function() {
+    $mdDialog.cancel();
+  };
+  $scope.answer = function(answer) {
+    $mdDialog.hide(answer);
+  };
+}
