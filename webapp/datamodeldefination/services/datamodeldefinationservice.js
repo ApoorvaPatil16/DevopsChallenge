@@ -44,6 +44,19 @@ angular.module('datamill')
           })
         })
       },
+      //get fulldatamodel
+      getFullDatamodel: function(damodelname) {
+        return $q(function(resolve, reject) {
+          $http({
+            method: "GET",
+            url: '/datamodel/fulldatamodel/' + damodelname
+          }).then(function(res) {
+            resolve(res.data);
+          }, function(res) {
+            reject("unable to get the data");
+          })
+        })
+      },
       // posting the datamodeldefination to server
       postDataModel: function(postdata) {
         return $q(function(resolve, reject) {

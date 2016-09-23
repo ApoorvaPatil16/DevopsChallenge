@@ -37,7 +37,7 @@
             </md-option>
           </md-select>
         </md-input-container> -->
-        <md-autocomplete md-selected-item="attr.domain" md-search-text="attr.searchText" md-items="item in $ctrl.querySearch(attr.searchText)" md-item-text="item" md-min-length="0" placeholder="Attribute domain" required>
+        <md-autocomplete md-selected-item="attr.domain" md-search-text="attr.searchText" md-selected-item-change="$ctrl.selectedItemChange(item,$index)" md-items="item in $ctrl.querySearch(attr.searchText)" md-item-text="item" md-min-length="0" placeholder="Attribute domain" required>
           <md-item-template>
             <span md-highlight-text="attr.searchText" md-highlight-flags="^i">{{item}}</span>
           </md-item-template>

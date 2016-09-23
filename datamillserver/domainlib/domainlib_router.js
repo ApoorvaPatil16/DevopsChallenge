@@ -84,8 +84,8 @@ var primitive = [{
   pattern: null,
   range: [{
     rangeOf: "value",
-    min: null,
-    max: null
+    min: 1472668200,
+    max: 1474569000
   }]
 }]
 DomainLib.insertMany(primitive, function(err, res) {

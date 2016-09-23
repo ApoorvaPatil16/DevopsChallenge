@@ -1,4 +1,6 @@
-function managerFunction(domain) {
+var getRealVal = require('../pipelining/redisSubscribe');
+
+function managerFunction(domain, cb) {
   if (domain.type != "Real Domain") {
     var mapperObj = {
       'String': generateString,
@@ -12,22 +14,21 @@ function managerFunction(domain) {
     var result = {};
     var callFunc = mapperObj[domain.base];
     if (callFunc) {
-      result = callFunc(domain);
+      return callFunc(domain, cb);
     }
-    return result;
   } else {
-    return generateRealValue(domain);
+    return generateRealValue(domain, cb);
   }
 }
 
-function generateTimestamp(obj) {
+function generateTimestamp(obj, cb) {
   var maxtime = new Date(obj.range[0].max * 1000);
   var mintime = new Date(obj.range[0].min * 1000);
-  return new Date(mintime.getTime() + Math.random() * (maxtime.getTime() - mintime.getTime()));
+  return cb(new Date(mintime.getTime() + Math.random() * (maxtime.getTime() - mintime.getTime())));
 
 }
 
-function generateString(obj) {
+function generateString(obj, cb) {
   var maxword = obj.range[0].max;
   var minword = obj.range[0].min;
   var maxlength = obj.range[1].max;
@@ -55,36 +56,65 @@ function generateString(obj) {
     randArr.push(randomPosition);
     text = text.substring(0, (randomPosition - 1)) + " " + text.substring(randomPosition);
   }
-  return text;
+  return cb(text);
 }
 
-function generateNumber(obj) {
-  return Math.floor((Math.random() * (obj.range[0].max - obj.range[0].min)) + obj.range[0].min);
+function generateNumber(obj, cb) {
+  return cb(Math.floor((Math.random() * (obj.range[0].max - obj.range[0].min)) + obj.range[0].min));
 }
 
-function generateDecimal(obj) {
+function generateDecimal(obj, cb) {
   var afterDecimal = Math.floor((Math.random() * (10000 - 1)) + 1);
   var beforeDecimal = Math.floor((Math.random() * (obj.range[0].max - obj.range[0].min)) + obj.range[0].min);
-  return beforeDecimal + "." + afterDecimal;
+  return cb(beforeDecimal + "." + afterDecimal);
 }
 
-function generateDate(obj) {
+function generateDate(obj, cb) {
   var start = new Date(obj.range[0].min * 1000);
   var end = new Date(obj.range[0].max * 1000);
   var date = new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
-  return JSON.stringify(date).substring(1, 11);
+  return cb(JSON.stringify(date).substring(1, 11));
 }
 
-function generateBoolean(obj) {
-  return Math.random() >= 0.5;
+function generateBoolean(obj, cb) {
+  return cb(Math.random() >= 0.5);
 }
 
-function generateHexadecimal(obj) {
-  return '#' + Math.floor(Math.random() * obj.range[0].max).toString(16);
+function generateHexadecimal(obj, cb) {
+  return cb('#' + Math.floor(Math.random() * 16777215).toString(16));
 }
 
-function generateRealValue(obj) {
-
+function generateRealValue(obj, cb) {
+  console.log("inside generateRealValue");
+  return getRealVal.getRealData(function(data) {
+    var i = 0;
+    console.log("Vishal:",data);
+    while (i < obj.transformers.length) {
+      if (obj.transformers[i].name == "UpperCase") {
+        data = data.toUpperCase();
+      }
+      if (obj.transformers[i].name == "LowerCase") {
+        data = data.toLowerCase();
+      }
+      if (obj.transformers[i].name == "CamelCase") {
+        dataArr = data.split(" ");
+        var finalVal = dataArr[0];
+        for (var j = 1; j < dataArr.length; j++) {
+          dataArr[j] = dataArr[j].charAt(0).toUpperCase() + dataArr[j].substring(1);
+          finalVal = finalVal + dataArr[j];
+        }
+        data = finalVal;
+      }
+      if (obj.transformers[i].name == "Prefix") {
+        data = obj.transformers[i].value + data;
+      }
+      if (obj.transformers[i].name == "Suffix") {
+        data = data + obj.transformers[i].value;
+      }
+      i++;
+    }
+    return cb(data);
+  });
 }
 
 

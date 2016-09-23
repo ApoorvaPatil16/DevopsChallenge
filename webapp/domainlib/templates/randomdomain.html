@@ -130,20 +130,20 @@
         <div ng-if="randomDomain.base=='TimeStamp' ">
           <h5 class="rangeHeading ">Range</h5>
           <div layout="row " layout-xs="column " layout-margin="2px " layout-xs-margin="2px ">
-            <mdp-date-picker md-no-float flex="40 " flex-xs="10 " mdp-open-on-click required name="dateFormat " mdp-placeholder="From Date(dd/mm/yyyy) " mdp-format="DD/MM/YYYY " ng-model="randomDomain.range.fromDate ">
+            <mdp-date-picker md-no-float flex="40 " flex-xs="10 " mdp-open-on-click required name="dateFormat " mdp-placeholder="From Date(dd/mm/yyyy) " mdp-format="DD/MM/YYYY " ng-model="randomDomain.range[0].min ">
               <div ng-messages="domainForm.dateFormat.$error ">
                 <div ng-message="required ">This is required</div>
                 <div ng-message="format ">Invalid format</div>
               </div>
             </mdp-date-picker>
-            <mdp-time-picker flex="40 " flex-xs="10 " md-no-float aria-label="stime " ng-model="randomDomain.range.fromTime "></mdp-time-picker>
-            <mdp-date-picker md-no-float flex="40 " flex-xs="10 " mdp-open-on-click required name="dateFormat " mdp-placeholder="To Date(dd/mm/yyyy) " mdp-format="DD/MM/YYYY " ng-model="randomDomain.range.toDate ">
+            <mdp-time-picker flex="40 " flex-xs="10 " md-no-float aria-label="stime " ng-model="randomDomain.range[0].min "></mdp-time-picker>
+            <mdp-date-picker md-no-float flex="40 " flex-xs="10 " mdp-open-on-click required name="dateFormat " mdp-placeholder="To Date(dd/mm/yyyy) " mdp-format="DD/MM/YYYY " ng-model="randomDomain.range[0].max ">
               <div ng-messages="domainForm.dateFormat.$error ">
                 <div ng-message="required ">This is required</div>
                 <div ng-message="format ">Invalid format</div>
               </div>
             </mdp-date-picker>
-            <mdp-time-picker flex="40 " flex-xs="10 " md-no-float ng-model="randomDomain.range.toTime " aria-label="toTime "></mdp-time-picker>
+            <mdp-time-picker flex="40 " flex-xs="10 " md-no-float ng-model="randomDomain.range[0].max " aria-label="toTime "></mdp-time-picker>
           </div>
         </div>
         <md-input-container class="md-block " style="max-height:none; ">

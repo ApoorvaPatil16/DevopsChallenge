@@ -32,7 +32,7 @@ describe('datamodel route api test suite', function() {
         }
       },
       transport: {
-        medium: "redis"
+        medium: "Redis"
       }
     },
     attributes: [{
@@ -73,6 +73,19 @@ describe('datamodel route api test suite', function() {
           done(err);
         }
         expect(res.body.name).to.be.equal(obj.name);
+        done();
+      })
+  });
+  it('getting full structure of datamodel', function(done) {
+    request.get('/datamodel/fulldatamodel/' + obj.name)
+      .set('Authorization', authhead)
+      .expect(200)
+      .end(function(err, res) {
+        if (err) {
+          done(err);
+        }
+        console.log(res.body);
+        expect(res.body).to.be.equal(obj.name);
         done();
       })
   });
