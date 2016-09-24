@@ -6,11 +6,18 @@
     </div>
   </div>
   <div ng-if="!isAuthenticated()" flex-gt-sm="auto" flex-sm="auto" layout="column" layout-align="center center">
-    <div>Login with:</div>
     <div layout-gt-xs="row" layout-xs="column" layout-align="center center">
-      <md-button class="md-primary md-raised" style="color:white" ng-click="authenticate('github')"><i class="fa fa-github" aria-hidden="true"></i>Github</md-button>
-      <md-button class="md-primary md-raised" style="color:white" ng-click="authenticate('google')"><i class="fa fa-google-plus" aria-hidden="true"></i>Google</md-button>
-      <md-button class="md-primary md-raised" ng-disabled="true" ng-click="authenticate('stackexchange')" style="color:white"><i class="fa fa-stack-overflow" aria-hidden="true"></i>Stack Exchange</md-button>
+      <div layout="column" layout-padding layout-margin>
+        <img class="png-icon" src="./assets/images/github_logo1.png">
+        <md-button class="md-primary md-raised" style="font-family:monospace;background-color:#333030;color:white;padding-top:0;padding-bottom:0;" ng-click="authenticate('github')">
+          GITHUB
+        </md-button>
+      </div>
+      <div layout="column" layout-padding layout-margin>
+        <img class="png-icon" style="width:120px;height:120px;" src="./assets/images/google_logo.png">
+        <md-button class="md-primary md-raised" style="font-family:monospace;background-color:#e0492f;color:white;padding-top:0;padding-bottom:0;" ng-click="authenticate('google')">GOOGLE</md-button>
+      </div>
+      <md-button ng-if="false" class="md-primary md-raised" ng-disabled="true" ng-click="authenticate('stackexchange')" style="color:white"><i class="fa fa-stack-overflow" aria-hidden="true"></i>Stack Exchange</md-button>
     </div>
   </div>
   <div flex-gt-sm="auto" flex-sm="auto" layout-gt-sm="row" layout-sm="column" layout-align="center center" style="text-align:center;color:white;" layout-gt-sm-margin>
