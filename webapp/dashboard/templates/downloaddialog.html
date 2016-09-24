@@ -11,17 +11,18 @@
     </md-toolbar>
     <md-dialog-content>
       <div class="md-dialog-content">
-        <textarea style="width:700px;height:400px" ng-model="data|json"></textarea>
+        <textarea style="width:700px;height:400px" ng-model="data|json" id="myCpWindow" class="codepress javascript linenumbers-off"></textarea>
       </div>
     </md-dialog-content>
     <md-dialog-actions layout="row ">
       <span flex></span>
-      <md-button ng-click="answer(status) ">
-        Copy
-      </md-button>
-      <md-button ng-click="show()">
+      <md-button ng-click="answer(status)" ng-disabled="copydis">
         Download
       </md-button>
+      <!-- <md-button ng-click="show()">
+  Show
+</md-button>
+ -->
     </md-dialog-actions>
   </form>
 </md-dialog>

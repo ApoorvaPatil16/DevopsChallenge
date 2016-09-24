@@ -2,17 +2,19 @@ var ticker = require('./timeticker/timeticker');
 var highland = require('highland')
 var pipeliner = require('./pipelining/attrpipeline')
 var consumepipeliner = require('./pipelining/consumepipeline')
-var globalactivedatasources=require('../generatorloops/activedatasrc')
+var globalactivedatasources = require('../generatorloops/activedatasrc')
+
 function startGeneration(datamodel, cb) {
   tickerObj = getTicker(datamodel)
   generatorFunc = getGeneratorFunc(datamodel, tickerObj);
+  console.log("now to ", (new Date()));
   console.log("the ticker obj is:", tickerObj)
   globalactivedatasources.registerDataSource(datamodel.attributes);
   genPipeline = pipeliner.attrPipeline(datamodel.attributes);
   consumePipeline = consumepipeliner.consumePipeline(datamodel)
   process.nextTick(function() {
     highland(generatorFunc).pipe(genPipeline).pipe(consumePipeline).each(function(data) {
-      console.log("done", data);
+      //console.log("done", data);
       if (cb) cb(data);
     })
   })
@@ -58,6 +60,11 @@ function getGeneratorFunc(datamodel, tickerObj) {
     tickerObj.start(function() {
       for (var i = 0; i < packets; i++) {
         push(null, {});
+      }
+      if (datamodel.delivery == 'download') {
+        console.log("this is download type")
+        push(null, null)
+        push(null, highland.nil)
       }
     })
   }

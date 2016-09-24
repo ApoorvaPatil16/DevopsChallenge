@@ -71,11 +71,15 @@ var ticker = function(name, starttime, endtime, mode, intervalorbrust) {
       } else {
         self.conf.running = true;
         if (self.conf.mode == 'continuous' || self.conf.mode == 'none') {
-          self.conf.timer = setInterval(cb, self.conf.intervalorburst);
+          if (self.conf.end) {
+            if (computeTimeInterval(self.conf.end)) self.conf.timer = setInterval(cb, self.conf.intervalorburst);
+          } else {
+            self.conf.timer = setInterval(cb, self.conf.intervalorburst);
+          }
           if (self.conf.end) {
             var endtimeout = computeTimeInterval(self.conf.end);
             if (endtimeout) self.conf.endtimer = setTimeout(function() {
-              self.stop(stopcb);
+              self.stop();
             }, endtimeout);
           }
         } else if (self.conf.mode == 'burst') {

@@ -13,7 +13,6 @@
     "debug": "~2.2.0",
     "express": "~4.14.0",
     "highland": "^3.0.0-beta.3",
-    "json-server": "^0.8.19",
     "jsonwebtoken": "^7.1.9",
     "log4js": "^0.6.37",
     "mongodb": "^2.2.10",

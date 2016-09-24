@@ -83,8 +83,8 @@ angular.module('datamill')
 
 function downloadDialogCtrl($scope, $mdDialog, datamodel, datamodeldefinationservice) {
   $scope.datamodeldialog = angular.copy(datamodel);
-  $scope.data = [];
-
+  $scope.data = []
+  $scope.copydis = true;
   datamodeldefinationservice.getFullDatamodel(datamodel.name).then(function(res) {
     console.log("Here we geting getStructure", res);
     if (res && res.attributes[0]) $scope.datamodeldialog.attributes = res.attributes;
@@ -95,8 +95,15 @@ function downloadDialogCtrl($scope, $mdDialog, datamodel, datamodeldefinationser
     var onEventName = "download_" + $scope.datamodeldialog.email + "_" + $scope.datamodeldialog.name;
     console.log('listener name is :', onEventName);
     socket.on(onEventName, function(data) {
-      $scope.data.push(data);
-      $scope.$apply();
+      console.log(data)
+      if (data == null) {
+        $scope.copydis = false;
+        $scope.$apply();
+      } else {
+        $scope.data.push(data);
+        $scope.$apply();
+      }
+
     })
   })
   $scope.show = function() {
@@ -110,6 +117,18 @@ function downloadDialogCtrl($scope, $mdDialog, datamodel, datamodeldefinationser
     $mdDialog.cancel();
   };
   $scope.answer = function(answer) {
+    var text = JSON.stringify($scope.data)
+    var textFileAsBlob = new Blob([text], { type: 'text/plain' });
+    var filename = "db.json";
+    var downloadlink = document.createElement("a");
+    downloadlink.download = filename;
+    window.URL = window.URL || window.webkitURL;
+    downloadlink.href = window.URL.createObjectURL(textFileAsBlob);
+    downloadlink.onclick = function(ev) {
+      document.body.removeChild(ev.target);
+    }
+    document.body.appendChild(downloadlink);
+    downloadlink.click();
     $mdDialog.hide(answer);
   };
 }
