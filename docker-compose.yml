@@ -1,0 +1,43 @@
+version: '2'
+services:
+  webapp:
+    image: datamill/datamill-webapp:v1.1.0
+    build:
+      context: ./
+      dockerfile: Dockerfile-Datamill-Webapp
+   # container_name: tattva-webapp
+    network_mode: host
+    restart: always
+    expose:
+      - 8080
+    ports:
+      - "8080:8080"
+    volumes:
+      - .:/usr/src/app
+    depends_on:
+    - mongodb
+    - redis
+    environment:
+      MONGO_HOST: localhost
+      MONGO_PORT: 27017
+      MONGO_DB_NAME: datamillsever
+      REDIS_HOST: localhost
+      REDIS_PORT: 6379
+  mongodb:
+    image: mvertes/alpine-mongo
+    network_mode: host
+    restart: always
+    volumes:
+      - /data:/data/db
+    expose:
+      - 27017
+    ports:
+      - "27017:27017"
+  redis:
+   image: redis
+   network_mode: host
+   restart: always
+   expose:
+     - 6379
+   ports:
+     - "6379:6379"

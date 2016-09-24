@@ -2,6 +2,7 @@ var authrouter = require('express').Router();
 var authprocessor = require('./authprocessor');
 var request = require("request");
 var qs = require('querystring');
+var appconf = require('../../appconf')
 
 
 //Oauth2 login for Github
@@ -13,8 +14,8 @@ authrouter.post('/oauth/github', function(req, res) {
     method: 'POST',
     url: 'https://github.com/login/oauth/access_token',
     qs: {
-      client_id: '15ccef8b737c4839249e',
-      client_secret: '196e0ee75fe8854c6f687712d6021a7fb0e01016',
+      client_id: appconf.GITHUB_CLIENTID,
+      client_secret: appconf.GITHUB_SECRET,
       code: req.body.code
     }
   };
@@ -58,10 +59,10 @@ authrouter.post('/auth/google', function(req, res) {
     method: 'POST',
     url: 'https://www.googleapis.com/oauth2/v4/token',
     qs: {
-      client_id: '440591203673-vlfttsppabo6ldkdleu08spg4jc7hmvm.apps.googleusercontent.com',
-      client_secret: 'Kh_5Yf0pS0ub30e16u4_nB49',
+      client_id: appconf.GOOGLE_CLIENTID,
+      client_secret: appconf.GOOGLE_SECRET,
       code: req.body.code,
-      redirect_uri: 'http://localhost:8080',
+      redirect_uri: appconf.GOOGLE_URI,
       grant_type: 'authorization_code',
     },
     json: true
