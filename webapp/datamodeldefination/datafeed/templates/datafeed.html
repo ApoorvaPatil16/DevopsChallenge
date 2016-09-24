@@ -67,10 +67,10 @@
           <div flex="" layout="column">
             <md-radio-button value="sporadic" class="md-primary" flex="">Sporadic</md-radio-button>
             <md-input-container class="md-block" md-no-float="">
-              <input ng-model="datafeed.flow.brusts.totalpackets" ng-disabled="datafeed.flow.type!='sporadic'" placeholder="Data" flex="50" type="number">
+              <input ng-model="datafeed.flow.bursts.totalpackets" ng-disabled="datafeed.flow.type!='sporadic'" placeholder="Data" flex="50" type="number">
             </md-input-container>
             <md-input-container class="md-block" md-no-float="">
-              <input ng-model="datafeed.sporadic.bursts.occurences" ng-disabled="datafeed.flow.type!='sporadic'" placeholder="No.of Bursts" min="10" flex="50" type="number">
+              <input ng-model="datafeed.flow.bursts.occurrences" ng-disabled="datafeed.flow.type!='sporadic'" placeholder="No.of Bursts" min="10" flex="50" type="number">
             </md-input-container>
           </div>
         </md-radio-group>
