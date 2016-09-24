@@ -95,10 +95,17 @@ function downloadDialogCtrl($scope, $mdDialog, datamodel, datamodeldefinationser
     var onEventName = "download_" + $scope.datamodeldialog.email + "_" + $scope.datamodeldialog.name;
     console.log('listener name is :', onEventName);
     socket.on(onEventName, function(data) {
-      console.log(data)
+      //console.log(data)
       if (data == null) {
         $scope.copydis = false;
         $scope.$apply();
+        console.log(data)
+        var editor = ace.edit("downloadeditor");
+        editor.setTheme("ace/theme/twilight");
+        var JavaScriptMode = ace.require("ace/mode/json").Mode;
+        editor.session.setMode(new JavaScriptMode())
+        editor.setReadOnly(true);
+        editor.renderer.setShowGutter(false);
       } else {
         $scope.data.push(data);
         $scope.$apply();

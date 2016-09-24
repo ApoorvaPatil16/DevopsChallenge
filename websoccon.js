@@ -22,7 +22,7 @@ io.on('connection', function(socket) {
     redisClient.subscribe('download')
     redisClient.on('message', function(channel, dataStr) {
       var data = JSON.parse(dataStr)
-      console.log("getting the data in redis subscribe", data, "and channel is:", channel)
+        //console.log("getting the data in redis subscribe", data, "and channel is:", channel)
       emitterEventName = channel + "_" + data.email + '_' + data.name;
       socket.emit(emitterEventName, data.data)
     })
