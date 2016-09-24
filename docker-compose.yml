@@ -5,7 +5,6 @@ services:
     build:
       context: ./
       dockerfile: Dockerfile-Datamill-Webapp
-   # container_name: tattva-webapp
     network_mode: host
     restart: always
     expose:

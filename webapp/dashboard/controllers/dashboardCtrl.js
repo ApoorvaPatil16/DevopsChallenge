@@ -81,10 +81,11 @@ angular.module('datamill')
     };
   }])
 
-function downloadDialogCtrl($scope, $mdDialog, datamodel, datamodeldefinationservice) {
+function downloadDialogCtrl($scope, $mdDialog, datamodel, datamodeldefinationservice, $filter) {
   $scope.datamodeldialog = angular.copy(datamodel);
   $scope.data = []
   $scope.copydis = true;
+  var editor = undefined;
   datamodeldefinationservice.getFullDatamodel(datamodel.name).then(function(res) {
     console.log("Here we geting getStructure", res);
     if (res && res.attributes[0]) $scope.datamodeldialog.attributes = res.attributes;
@@ -94,23 +95,25 @@ function downloadDialogCtrl($scope, $mdDialog, datamodel, datamodeldefinationser
     socket.emit('download', JSON.stringify($scope.datamodeldialog));
     var onEventName = "download_" + $scope.datamodeldialog.email + "_" + $scope.datamodeldialog.name;
     console.log('listener name is :', onEventName);
+    editor = ace.edit("downloadeditor");
+    editor.setTheme("ace/theme/twilight");
+    var JavaScriptMode = ace.require("ace/mode/json").Mode;
+    editor.session.setMode(new JavaScriptMode())
+      //editor.setReadOnly(true);
+    editor.renderer.setShowGutter(false);
     socket.on(onEventName, function(data) {
       //console.log(data)
       if (data == null) {
         $scope.copydis = false;
         $scope.$apply();
-        console.log(data)
-        var editor = ace.edit("downloadeditor");
-        editor.setTheme("ace/theme/twilight");
-        var JavaScriptMode = ace.require("ace/mode/json").Mode;
-        editor.session.setMode(new JavaScriptMode())
-        editor.setReadOnly(true);
-        editor.renderer.setShowGutter(false);
+        console.log(data);
+        editor.setValue($filter('json')($scope.data, 2));
+        $scope.downloadFunc();
       } else {
         $scope.data.push(data);
+        //editor.setValue(JSON.stringify($scope.data));
         $scope.$apply();
       }
-
     })
   })
   $scope.show = function() {
@@ -123,8 +126,12 @@ function downloadDialogCtrl($scope, $mdDialog, datamodel, datamodeldefinationser
   $scope.cancel = function() {
     $mdDialog.cancel();
   };
-  $scope.answer = function(answer) {
-    var text = JSON.stringify($scope.data)
+  $scope.downloadFunc = function() {
+    var text = editor.getValue();
+    if (!text) {
+      console.log("getting value from filter");
+      text = $filter('json')($scope.data, 2);
+    }
     var textFileAsBlob = new Blob([text], { type: 'text/plain' });
     var filename = "db.json";
     var downloadlink = document.createElement("a");
@@ -136,6 +143,9 @@ function downloadDialogCtrl($scope, $mdDialog, datamodel, datamodeldefinationser
     }
     document.body.appendChild(downloadlink);
     downloadlink.click();
+  }
+  $scope.answer = function(answer) {
+    $scope.downloadFunc();
     $mdDialog.hide(answer);
   };
 }
