@@ -27,7 +27,7 @@ function unregisterDataSource(attributeList) {
       var key = attr.options.base + '_' + attr.options.email
       activeSrcObj.activedatasource[key]['counts']--;
       if (activeSrcObj.activedatasource[key]['counts'] == 0) {
-        passdataSrc.client.del(attr.options.email, function(err, res) {
+        passdataSrc.client.del(key, function(err, res) {
           if (err) console.log("error while deleting key of redis", err);
           else {
             console.log("removed key", res);
