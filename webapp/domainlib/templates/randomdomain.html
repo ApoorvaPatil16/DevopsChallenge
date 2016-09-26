@@ -148,14 +148,15 @@
         </div>
         <md-input-container class="md-block " style="max-height:none; ">
           <label>{{inputLabelsForDomain.pattern}}</label>
-          <input required name="domainPattern " ng-if="status " value="{{status}} " ng-model="randomDomain.pattern ">
+          <input required name="domainPattern " value="{{status}} " ng-model="randomDomain.pattern " ng-disabled="true">
           <div ng-messages="domainForm.domainPattern.$error ">
             <div ng-message="required ">Name is required.</div>
           </div>
         </md-input-container>
-        <div>
-          <p><i>Test your pattern! <a href=" " class="md-primary md-raised " ng-click="showAdvanced($event) "><b>click here</a></b></i></p>
-        </div>
+        <!-- <div>
+  <p><i>Test your pattern! <a href=" " class="md-primary md-raised " ng-click="showAdvanced($event) "><b>click here</a></b></i></p>
+</div>
+ -->
         <div layout="row " layout-align="end center ">
           <md-button ui-sref="datamill.listdomain " class="md-accent "><b>Cancel</b></md-button>
           <md-button class="md-primary " type="submit "><b>Save</b></md-button>
