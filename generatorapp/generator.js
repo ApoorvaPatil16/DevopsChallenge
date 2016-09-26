@@ -66,6 +66,8 @@ function getGeneratorFunc(datamodel, tickerObj) {
         push(null, null)
         push(null, highland.nil)
       }
+    }, function() {
+      globalactivedatasources.unregisterDataSource(datamodel.attributes);
     })
   }
 }
