@@ -61,7 +61,7 @@ var datamodelProcessor = {
         if (err) {
           return errorCallback(500, "insert many failed");
         } else {
-          datamodelModel.findOneAndUpdate({ name: datamodelname, email: email }, object, function(err, doc) {
+          datamodelModel.findOneAndUpdate({ name: datamodelname, email: email }, object, { upsert: true, 'new': true }, function(err, doc) {
             if (err) {
               return errorCallback(500, err);
             }
