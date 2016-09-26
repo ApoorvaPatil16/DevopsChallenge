@@ -1,10 +1,11 @@
 var ticker = function(name, starttime, endtime, mode, intervalorbrust) {
+  //computing time interval
   function computeTimeInterval(time) {
     var computedinterval = time - new Date();
     if (computedinterval >= 0)
       return computedinterval;
     else return 0;
-  }
+  };
   //checking is their end time is before start time
   function checkStartAndEnd(start, end) {
     if (end)
@@ -12,15 +13,15 @@ var ticker = function(name, starttime, endtime, mode, intervalorbrust) {
         return true;
       } else return false;
     else return true;
-  }
-
+  };
+  //It never used but implement for constructing the object without any further crash
   function checkArgument() {
     if (mode == 'continuous' || mode == 'none' || mode == 'burst') {
       return true;
     } else {
       return false;
     }
-  }
+  };
   //utility function to generate a irregular interval
   function randomTimeInterval(end, count) {
     if (end) return (Math.random() * ((end - count) - new Date()) + 1)
@@ -32,9 +33,9 @@ var ticker = function(name, starttime, endtime, mode, intervalorbrust) {
     },
     //self object returns the dependent configuration
     conf: {
-      name: name || "ticker",
-      end: endtime || undefined,
-      start: starttime || undefined,
+      name: name || "ticker", //timer name
+      end: endtime || undefined, //schedule end time so the ticker to stop
+      start: starttime || undefined, //  
       intervalorburst: intervalorbrust || 100,
       timer: undefined,
       mode: mode || 'none',
@@ -46,7 +47,7 @@ var ticker = function(name, starttime, endtime, mode, intervalorbrust) {
       currentcount: 0
     },
     //function to call the ticker instantiate
-    start: function(cb) {
+    start: function(cb, stopcb) {
       var self = this;
       if (self.conf.start) {
         if (self.conf.scheduled) {
@@ -67,7 +68,7 @@ var ticker = function(name, starttime, endtime, mode, intervalorbrust) {
             }
             self.conf.timer = setTimeout(recursivecb, randomTimeInterval(self.conf.end, self.conf.currentcount))
           }
-        } else self.scheduler(cb);
+        } else self.scheduler(cb, stopcb);
       } else {
         self.conf.running = true;
         if (self.conf.mode == 'continuous' || self.conf.mode == 'none') {
@@ -79,7 +80,7 @@ var ticker = function(name, starttime, endtime, mode, intervalorbrust) {
           if (self.conf.end) {
             var endtimeout = computeTimeInterval(self.conf.end);
             if (endtimeout) self.conf.endtimer = setTimeout(function() {
-              self.stop();
+              self.stop(stopcb);
             }, endtimeout);
           }
         } else if (self.conf.mode == 'burst') {
@@ -123,6 +124,7 @@ var ticker = function(name, starttime, endtime, mode, intervalorbrust) {
       self.conf.status = "completed";
       if (cb) cb();
     },
+    //cancel any scheduled timers
     cancelschedular: function() {
       clearTimeout(self.conf.starttimer);
       clearTimeout(self.conf.endtimer);
