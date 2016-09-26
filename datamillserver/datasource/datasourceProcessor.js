@@ -19,7 +19,6 @@ function postDataSource(req, successcallback, errorcallback) {
         if (err) {
             return errorcallback(err);
         }
-        console.log(result);
         postdata.save(function(err, impresult) {
             if (err) {
                 return errorcallback(err);
