@@ -86,9 +86,9 @@ function generateHexadecimal(obj, cb) {
 
 function generateRealValue(obj, cb) {
   console.log("inside generateRealValue");
-  return getRealVal.getRealData(obj.base,obj.email,function(data) {
+  return getRealVal.getRealData(obj.base, obj.email, function(data) {
     var i = 0;
-    console.log("Vishal:",data);
+    console.log("Vishal:", data);
     while (i < obj.transformers.length) {
       if (obj.transformers[i].name == "UpperCase") {
         data = data.toUpperCase();
