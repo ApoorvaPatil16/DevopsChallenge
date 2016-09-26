@@ -8,8 +8,8 @@
             <md-icon class="material-icons">{{materialIcons[0].name}}</md-icon>
           </md-button>
         </div>
-        <h2>
-          <span>{{appName}}</span>
+        <h2 id="datamillHeading">
+          <a ng-click="goHome()">{{appName}}</a>
         </h2>
         <span flex=""></span>
         <div ng-if="isAuthenticated()">

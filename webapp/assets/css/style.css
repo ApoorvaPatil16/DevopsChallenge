@@ -189,6 +189,10 @@ md-list-item._md-button-wrap>div.md-button:first-child ._md-list-item-inner {
   padding-left: 20px;
 }
 
-.material-icons.orange600 {
-  color: #FB8C00;
+.material-icons.green {
+  color: #5BA45B;
+}
+
+#datamillHeading {
+  cursor: pointer;
 }
