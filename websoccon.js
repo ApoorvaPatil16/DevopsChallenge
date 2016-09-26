@@ -7,13 +7,12 @@ io.on('connection', function(socket) {
   var redisClient = new redis.createClient();
   socket.on("feed", function(datamodel) {
     console.log("Request for feed");
-    datamodel = JSON.parse(datamodel)
-    generator.startGeneration(datamodel)
-    redisClient.subscribe('feed')
+    datamodel = JSON.parse(datamodel);
+    redisClient.subscribe('feed');
     redisClient.on('message', function(channel, dataStr) {
-      var data = JSON.parse(dataStr)
+      var data = JSON.parse(dataStr);
       emitterEventName = channel + "_" + data.email + '_' + data.name;
-      socket.emit(emitterEventName, data.data)
+      socket.emit(emitterEventName, data.data);
     })
   })
   socket.on("download", function(datamodel) {
