@@ -16,7 +16,7 @@ angular.module('datamill')
         $state.go("datamill.userprofile");
       }
       $scope.goHome = function() {
-        $state.go('datamill.dashboard');
+        $state.go('datamill');
       }
 
       function buildToggler(navID) {
