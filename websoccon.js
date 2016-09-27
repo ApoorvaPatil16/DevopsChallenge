@@ -1,10 +1,11 @@
 var io = require('socket.io')();
-var redis = require('redis')
+var redis = require('redis');
+var appconf = require('./appconf');
 var generator = require('./generatorapp/generator')
 console.log("socket file entered");
 io.on('connection', function(socket) {
   console.log("subscribing to client");
-  var redisClient = new redis.createClient();
+  var redisClient = new redis.createClient(appconf.REDIS_PORT, appconf.REDIS_HOST);
   socket.on("feed", function(datamodel) {
     console.log("Request for feed");
     datamodel = JSON.parse(datamodel);

@@ -1,6 +1,7 @@
 var redis = require('redis');
+var appconf = require('../../appconf');
 var importsourceModel = require('../../datamillserver/datasource/importdataSchema');
-var client = redis.createClient();
+var client = redis.createClient(appconf.REDIS_PORT, appconf.REDIS_HOST);
 
 function passdatasource(sourcename, email, balancer) {
   //console.log("inside passdatasource");

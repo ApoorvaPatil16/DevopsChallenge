@@ -2,11 +2,12 @@ var highland = require('highland');
 var redis = require('redis');
 var io = require('socket.io-client');
 var socket = io.connect('http://localhost:8080/');
+var appconf = require('../../appconf');
 
 function consumePipeline(datamodel) {
   var myConsumepipe = [];
 
-  var redisClient = new redis.createClient();
+  var redisClient = new redis.createClient(appconf.REDIS_PORT, appconf.REDIS_HOST);
 
   if (datamodel.delivery == 'download') {
     myConsumepipe.push(highland.map(function(data) {
