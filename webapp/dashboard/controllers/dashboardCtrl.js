@@ -171,6 +171,7 @@ function feedDialogCtrl($scope, $mdDialog, datamodel, datamodeldefinationservice
       }
       $scope.datastr = "";
       $scope.data.forEach(function(k) {
+        $scope.count = $scope.count + 1;
         $scope.datastr += JSON.stringify(k) + "\n";
       })
       $scope.$apply();
