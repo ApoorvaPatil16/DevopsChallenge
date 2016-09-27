@@ -4,7 +4,7 @@ nav_router.get('/', function(req, res) {
   var data = [{
     "appName": [{
       "id": 1,
-      "name": "DataMill.io"
+      "name": "DataMill.io",
     }],
     "sideNavBottomItems": [{
       "id": 1,
@@ -42,13 +42,13 @@ nav_router.get('/', function(req, res) {
     "accountItems": [{
       "id": 1,
       "name": "Profile",
-      "link":"datamill.userprofile",
-      "func":"profile"
+      "link": "datamill.userprofile",
+      "func": "profile"
     }, {
       "id": 2,
       "name": "SignOut",
-      "link":"#",
-      "func":"logout"
+      "link": "#",
+      "func": "logout"
     }],
     "materialIcons": [{
       "id": 1,

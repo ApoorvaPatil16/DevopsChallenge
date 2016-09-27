@@ -1,6 +1,6 @@
 angular.module('datamill')
-  .controller('appBarCtrl', ['$scope', '$mdSidenav', '$mdPanel', 'authFactory','$state',
-    function($scope, $mdSidenav, $mdPanel, authFactory,$state) {
+  .controller('appBarCtrl', ['$scope', '$mdSidenav', '$mdPanel', 'authFactory', '$state',
+    function($scope, $mdSidenav, $mdPanel, authFactory, $state) {
       $this = this;
       // Fetch data from json server with call to factory service which in turn makes a http request
       authFactory.getNavbarItems().then(function(res) {
@@ -12,9 +12,13 @@ angular.module('datamill')
       });
 
       $scope.toggleLeft = buildToggler;
-      $scope.profile=function(){
+      $scope.profile = function() {
         $state.go("datamill.userprofile");
       }
+      $scope.goHome = function() {
+        $state.go('datamill.dashboard');
+      }
+
       function buildToggler(navID) {
         $mdSidenav(navID).toggle().then(function() {});
       }

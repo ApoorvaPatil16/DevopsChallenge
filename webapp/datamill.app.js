@@ -23,6 +23,7 @@ angular.module('datamill', ['ngMaterial',
           alert = undefined;
         });
     }
+
     $scope.authenticate = function(provider) {
       $auth.authenticate(provider)
         .then(function(res) {
@@ -40,7 +41,7 @@ angular.module('datamill', ['ngMaterial',
     };
     $scope.logout = function() {
       $auth.logout();
-      $state.go('datamill');
+      $state.go('datamill.dashboard');
     }
     console.log($scope.isAuthenticated());
     if ($scope.isAuthenticated()) {

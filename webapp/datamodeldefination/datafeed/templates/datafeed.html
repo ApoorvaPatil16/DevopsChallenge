@@ -67,7 +67,7 @@
           <div flex="" layout="column">
             <md-radio-button value="sporadic" class="md-primary" flex="">Sporadic</md-radio-button>
             <md-input-container class="md-block" md-no-float="">
-              <input ng-model="datafeed.flow.bursts.totalpackets" ng-disabled="datafeed.flow.type!='sporadic'" placeholder="Data" flex="50" type="number">
+              <input ng-model="datafeed.flow.bursts.totalpackets" ng-disabled="datafeed.flow.type!='sporadic'" placeholder="No. of records" flex="50" type="number">
             </md-input-container>
             <md-input-container class="md-block" md-no-float="">
               <input ng-model="datafeed.flow.bursts.occurrences" ng-disabled="datafeed.flow.type!='sporadic'" placeholder="No.of Bursts" min="10" flex="50" type="number">
@@ -101,7 +101,7 @@
       <md-divider></md-divider>
       <md-dialog-actions layout="row" layout-align="end center">
         <md-button class="md-warn" ng-click="cancelOption()">Cancel</md-button>
-        <md-button ng-click="saveOption(datafeed)" class="md-primary">Save</md-button>
+        <md-button ng-click="saveOption(datafeed)" class="md-primary">Ok</md-button>
       </md-dialog-actions>
   </div>
 </md-dialog>

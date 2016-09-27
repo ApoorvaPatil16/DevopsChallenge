@@ -9,7 +9,7 @@
         <a layout="row" class="md-mini" aria-label="Search">
           <md-icon>search</md-icon>
         </a>
-        <input layout="row" class="searchInput" ng-model="searchData" placeholder="enter search" ng-click="searchInputFunction()" ng-change="searchDataFunction(searchData)">
+        <input layout="row" class="searchInput" ng-model="searchData" placeholder="Search..." ng-click="searchInputFunction()" ng-change="searchDataFunction(searchData)">
         <a layout="row" style="cursor:pointer;" class="md-mini" ng-click="searchAll()" aria-label="Back">
           <md-icon>close</md-icon>
         </a>
@@ -30,14 +30,14 @@
           </md-card-title-text>
         </md-card-title>
         <md-card-content class="wrap-content" style="padding:30px">
-          <p>Purpose: {{card.description}}</p>
-          <span>File Export type : {{card.delivery}}</span>
-          <pre>{{ card | json }}</pre>
+          <p>Description: {{card.description}}</p>
+          <span>Delivery Type : {{card.delivery}}</span>
+          <!-- <pre>{{ card | json }}</pre> -->
         </md-card-content>
         <md-card-actions>
           <div layout="row " layout-align="end center ">
             <md-button aria-label="edit " class="md-icon-button " ui-sref="datamill.datamodeldefination({dataModel:card,mode:'edit',datamodelname:card.name}) ">
-              <md-icon class="material-icons ">mode_edit</md-icon>
+              <md-icon class="material-icons green">mode_edit</md-icon>
             </md-button>
             <md-button aria-label="download " class="md-primary" ng-click="showDownload($event,card)" ng-if="card.delivery=='download'">
               Download

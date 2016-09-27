@@ -40,7 +40,7 @@
         </div>
         <md-input-container>
           <label>Description</label>
-          <textarea ng-model="dataModel.description" name="description" md-maxlength="150" md-minlength="10" rows="2" required>
+          <textarea ng-model="dataModel.description" name="description" md-maxlength="150" md-minlength="10" rows="1" required>
           </textarea>
           <div ng-messages="dataModelForm.description.$error" style="color:maroon" role="alert">
             <div ng-message="required">This field required</div>
@@ -96,8 +96,8 @@
         </div>
       </div>
       <div layout="row" layout-align="end center">
-        <md-button class="md-ink-ripple md-accent" ng-click="cancelDataModel()"><b>Cancel</b></md-button>
-        <md-button type="submit" class="md-ink-ripple md-primary"><b>Save</b></md-button>
+        <md-button class="md-ink-ripple md-raised md-accent" ng-click="cancelDataModel()"><b>Cancel</b></md-button>
+        <md-button type="submit" class="md-ink-ripple md-raised md-primary"><b>Save</b></md-button>
       </div>
     </form>
   </div>
