@@ -32,7 +32,7 @@
         <md-card-content class="wrap-content" style="padding:30px">
           <p>Description: {{card.description}}</p>
           <span>Delivery Type : {{card.delivery}}</span>
-          <!-- <pre>{{ card | json }}</pre> -->
+          <pre>{{ card  | json|generationjson|json }}</pre>
         </md-card-content>
         <md-card-actions>
           <div layout="row " layout-align="end center ">

@@ -7,7 +7,7 @@ function passdatasource(sourcename, email) {
   importsourceModel.find({ sourcename: sourcename, email: email }, function(err, docs) {
     if (err) {
       console.log("error in passdatasource in fetching data from datasource");
-      console.log(err)
+      console.log(err);
     } else {
       //console.log("success callback from passdatasource");
       var data = docs[0].data;

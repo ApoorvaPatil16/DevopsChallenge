@@ -16,7 +16,10 @@ angular.module('datamill')
           //console.log("changed the value", $scope.dataModel.attributes)
         })
       } else {
-        // @TODO for direct URL work
+        datamodeldefinationservice.getFullDatamodel($stateParams.datamodelname).then(function(res) {
+            $scope.dataModel = res;
+          })
+          // @TODO for direct URL work
       }
     } else if ($stateParams.mode === 'create') {
       $scope.dataModel = {

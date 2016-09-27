@@ -1,16 +1,13 @@
 angular.module('datamill')
-  .controller('dashboardCtrl', ['$mdDialog', '$scope', '$http', '$log', 'listDataModelsService', function($mdDialog, $scope, $http, $log, listDataModelsService) {
-    var socket = io();
+  .controller('dashboardCtrl', ['$mdDialog', '$scope', '$http', '$log', 'listDataModelsService', 'datamodeldefinationservice', function($mdDialog, $scope, $http, $log, listDataModelsService, datamodeldefinationservice) {
     listDataModelsService.getDatamodelsList().then(function(res) {
       console.log(res);
       $scope.datamodel = res;
       $scope.datamodel.forEach(function(obj, i) {
-        var emitEventName = "listener::" + obj.name;
-        var onEventName = "receiver::" + obj.name;
-        socket.emit(emitEventName, obj);
-        socket.on(onEventName, function(incomingData) {
-          $scope.datamodel[i].incomingdata;
-        });
+        datamodeldefinationservice.getStructure(obj.name).then(function(res) {
+          if (res && res.attributes[0]) $scope.datamodel[i]['attributes'] = res.attributes;
+          else $scope.datamodel[i]['attributes'] = [];
+        })
       })
     });
     console.log($scope.datamodel);
@@ -20,12 +17,10 @@ angular.module('datamill')
       listDataModelsService.getDatamodelsList().then(function(res) {
         $scope.datamodel = res;
         $scope.datamodel.forEach(function(obj, i) {
-          var emitEventName = "listener::" + obj.name;
-          var onEventName = "receiver::" + obj.name;
-          socket.emit(emitEventName, obj);
-          socket.on(onEventName, function(incomingData) {
-            $scope.datamodel[i].incomingdata;
-          });
+          datamodeldefinationservice.getStructure(obj.name).then(function(res) {
+            if (res && res.attributes[0]) $scope.dataModel[i]['attributes'] = res.attributes;
+            else $scope.dataModel[i]['attributes'] = [];
+          })
         })
       })
     }
@@ -35,6 +30,7 @@ angular.module('datamill')
       $scope.status = true;
       listDataModelsService.getDatamodelSearch($scope.searchData).then(function(res) {
         $scope.datamodel = res;
+
       })
     }
     $scope.searchInputFunction = function() {
