@@ -5,12 +5,11 @@ services:
     build:
       context: ./
       dockerfile: Dockerfile-Datamill-Webapp
-    network_mode: host
     restart: always
     expose:
       - 8080
     ports:
-      - "8080:8080"
+      - 8080:8080
     depends_on:
     - mongodb
     - redis
@@ -25,7 +24,6 @@ services:
       REDIS_PORT: 6379
   mongodb:
     image: mongo
-    network_mode: host
     restart: always
     volumes:
       - /data:/data/db
@@ -33,7 +31,6 @@ services:
       - 27017
   redis:
    image: redis
-   network_mode: host
    restart: always
    expose:
      - 6379
