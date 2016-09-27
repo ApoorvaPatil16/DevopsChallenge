@@ -53,10 +53,6 @@ angular.module('datamill')
               alert("The minimum no. of words should be less than maximum no. of words");
               return;
             }
-            if ($scope.randomDomain.range[1].max < $scope.randomDomain.range[1].min) {
-              alert("The minimum no. of characters should be less than maximum no. of characters");
-              return;
-            }
             $scope.randomDomain.range[0].rangeOf = "words";
             $scope.randomDomain.range[1].rangeOf = "length";
             var range = {};
