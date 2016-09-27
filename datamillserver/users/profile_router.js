@@ -16,8 +16,12 @@ profile_router.get('/', function(req, res) {
     console.log("error", err, "found", found)
     if (err) return handleError(err);
     //var userprofileData = new userModel();
-    console.log("User Email", found[0].email);
-    return res.send(found[0]);
+    if (found[0]) {
+      console.log("User Email", found[0].email);
+      return res.send(found[0]);
+    } else {
+      return res.status(500).send({ error: "no user found please clear cache" });
+    }
   })
 })
 module.exports = profile_router;

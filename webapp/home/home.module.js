@@ -85,6 +85,14 @@ angular.module('datamill')
           }
         }
       });
+      $stateProvider.state('datamill.about', {
+        url: '/about',
+        views: {
+          "content@": {
+            templateUrl: "/home/templates/about.html"
+          }
+        }
+      });
       $authProvider.github({
         url: '/oauth/github',
         authorizationEndpoint: 'https://github.com/login/oauth/authorize',
