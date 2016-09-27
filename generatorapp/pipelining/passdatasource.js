@@ -2,7 +2,7 @@ var redis = require('redis');
 var importsourceModel = require('../../datamillserver/datasource/importdataSchema');
 var client = redis.createClient();
 
-function passdatasource(sourcename, email) {
+function passdatasource(sourcename, email, balancer) {
   //console.log("inside passdatasource");
   importsourceModel.find({ sourcename: sourcename, email: email }, function(err, docs) {
     if (err) {
@@ -11,9 +11,9 @@ function passdatasource(sourcename, email) {
     } else {
       //console.log("success callback from passdatasource");
       var data = docs[0].data;
-      for (i = 0; i < 500; i++) {
+      for (i = 0; i < balancer; i++) {
         var randomvalue = Math.floor(Math.random() * (data.length));
-        var keys = Object.keys(data[0])
+        var keys = Object.keys(data[0]);
         client.lpush(sourcename + "_" + email, data[randomvalue][keys[0]]);
       }
     }

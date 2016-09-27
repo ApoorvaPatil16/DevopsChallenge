@@ -150,13 +150,12 @@ function feedDialogCtrl($scope, $mdDialog, datamodel, datamodeldefinationservice
   $scope.datamodeldialog = angular.copy(datamodel);
   $scope.data = [];
   $scope.count = 0;
-
+  socket = io();
   datamodeldefinationservice.getFullDatamodel(datamodel.name).then(function(res) {
     console.log("Here we geting getStructure", res);
     if (res && res.attributes[0]) $scope.datamodeldialog.attributes = res.attributes;
     else $scope.datamodeldialog.attributes = [];
     console.log("we are with data model:", $scope.datamodeldialog);
-    socket = io();
     socket.emit('feed', JSON.stringify($scope.datamodeldialog));
     var onEventName = "feed_" + $scope.datamodeldialog.email + "_" + $scope.datamodeldialog.name;
     console.log('listener name is :', onEventName);
@@ -174,12 +173,15 @@ function feedDialogCtrl($scope, $mdDialog, datamodel, datamodeldefinationservice
     })
   })
   $scope.hide = function() {
+    socket.disconnect();
     $mdDialog.hide();
   };
   $scope.cancel = function() {
+    socket.disconnect();
     $mdDialog.cancel();
   };
   $scope.answer = function(answer) {
+    socket.disconnect();
     $mdDialog.hide(answer);
   };
 }
