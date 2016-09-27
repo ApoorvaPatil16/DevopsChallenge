@@ -3,15 +3,24 @@ var highland = require('highland')
 var pipeliner = require('./pipelining/attrpipeline');
 var consumepipeliner = require('./pipelining/consumepipeline');
 var globalactivedatasources = require('../generatorloops/activedatasrc');
+var io = require('socket.io-client');
+var socket = io.connect('http://localhost:8080/');
 
 function startGeneration(datamodel, cb) {
   tickerObj = getTicker(datamodel)
   generatorFunc = getGeneratorFunc(datamodel, tickerObj);
   console.log("now to ", (new Date()));
   console.log("the ticker obj is:", tickerObj)
-  if (datamodel.delivery == 'download') globalactivedatasources.registerDataSource(datamodel.attributes);
+  if (datamodel.delivery == 'download') globalactivedatasources.registerDataSource(datamodel);
+  else { globalactivedatasources.registerDataSource(datamodel); }
   genPipeline = pipeliner.attrPipeline(datamodel.attributes);
-  consumePipeline = consumepipeliner.consumePipeline(datamodel)
+  consumePipeline = consumepipeliner.consumePipeline(datamodel);
+  var disconnectEvent = datamodel.delivery + "_" + datamodel.email + "_" + datamodel.name + "_disconnect";
+  socket.on(disconnectEvent, function(msg) {
+    tickerObj.stop(function() {
+      globalactivedatasources.unregisterDataSource(datamodel);
+    })
+  })
   process.nextTick(function() {
     highland(generatorFunc).pipe(genPipeline).pipe(consumePipeline).each(function(data) {
       //console.log("done", data);
@@ -67,7 +76,7 @@ function getGeneratorFunc(datamodel, tickerObj) {
         push(null, highland.nil)
       }
     }, function() {
-      globalactivedatasources.unregisterDataSource(datamodel.attributes);
+      globalactivedatasources.unregisterDataSource(datamodel);
     })
   }
 }

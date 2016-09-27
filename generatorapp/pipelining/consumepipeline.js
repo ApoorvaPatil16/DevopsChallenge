@@ -1,7 +1,7 @@
 var highland = require('highland');
 var redis = require('redis');
 var io = require('socket.io-client');
-var socket = io.connect('http://localhost:8080/')
+var socket = io.connect('http://localhost:8080/');
 
 function consumePipeline(datamodel) {
   var myConsumepipe = [];

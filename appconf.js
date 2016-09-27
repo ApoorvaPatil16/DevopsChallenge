@@ -1,7 +1,7 @@
 module.exports = {
   MONGO_HOST: "mongodb://localhost",
   MONGO_PORT: 27017,
-  MONGO_DB: "datamillserver",
+  MONGO_DB: "datamill_demo_1",
   REDIS_HOST: "",
   REDIS_POST: "",
   GOOGLE_CLIENTID: "440591203673-vlfttsppabo6ldkdleu08spg4jc7hmvm.apps.googleusercontent.com",

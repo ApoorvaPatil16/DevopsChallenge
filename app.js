@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 var appconf = require('./appconf');
 // var jsonServer = require('json-server');
 var mongoose = require('mongoose');
-mongoose.connect(appconf.MONGO_HOST + ":" + appconf.MONGO_PORT + '/datamillserver');
+mongoose.connect(appconf.MONGO_HOST + ":" + appconf.MONGO_PORT + "/" + appconf.MONGO_DB);
 var datamodeldefination = require('./datamillserver/datamodel/datamodel_router');
 //APP logger
 // var logger = require("./applogger");
@@ -23,7 +23,7 @@ var scheduledatasrc = require('./generatorloops/schedulestart');
 //Express App created
 var app = express();
 dataSourceCache.startBufferring();
-scheduledatasrc.scheduledatasource();
+//scheduledatasrc.scheduledatasource();
 app.onAppStart = function(addr) {
   // logger.info("DataMill web app is now Running on port:",addr.port);
 }

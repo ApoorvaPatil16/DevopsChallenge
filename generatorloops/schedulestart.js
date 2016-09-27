@@ -14,7 +14,7 @@ function scheduledatasource() {
           if (data.datafeed.start.getTime() <= (date.getTime()) && data.datafeed.end.getTime() > date.getTime()) {
             fulldatamodel(data.email, data.name, function(code, datamodel) {
               console.log("we are start generating");
-              globalactivedatasources.registerDataSource(datamodel.attributes);
+              globalactivedatasources.registerDataSource(datamodel);
               setTimeout(function() { generator.startGeneration(datamodel) }, 2000);
               datamodelschema.findOneAndUpdate({ name: data.name, email: data.email }, { $set: { status: 'active' } }, function(err, doc) {
                 if (err) { console.log("error in pasting datamodel in generate loop") } else {
