@@ -1,9 +1,9 @@
 module.exports = {
-  MONGO_HOST: "mongodb://localhost",
-  MONGO_PORT: 27017,
+  MONGO_HOST: process.env.MONGO_HOST || "mongodb://localhost",
+  MONGO_PORT: process.env.MONGO_PORT || 27017,
   MONGO_DB: "datamill_demo_1",
-  REDIS_HOST: "",
-  REDIS_POST: "",
+  REDIS_HOST: process.env.REDIS_HOST || "",
+  REDIS_POST: process.env.REDIS_PORT || "",
   GOOGLE_CLIENTID: "440591203673-vlfttsppabo6ldkdleu08spg4jc7hmvm.apps.googleusercontent.com",
   GOOGLE_SECRET: "Kh_5Yf0pS0ub30e16u4_nB49",
   GOOGLE_URI: "http://localhost:8080",
