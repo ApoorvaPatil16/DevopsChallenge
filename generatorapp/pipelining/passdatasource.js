@@ -1,5 +1,5 @@
 var redis = require('redis');
-var appconf = require('./appconf');
+var appconf = require('../../appconf');
 var importsourceModel = require('../../datamillserver/datasource/importdataSchema');
 var client = redis.createClient(appconf.REDIS_PORT, appconf.REDIS_HOST);
 

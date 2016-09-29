@@ -1,6 +1,6 @@
 var highland = require('highland');
 var redis = require('redis');
-var appconf = require('./appconf');
+var appconf = require('../../appconf');
 
 function consumePipeline(datamodel) {
   var myConsumepipe = [];
