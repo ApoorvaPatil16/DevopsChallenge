@@ -1,0 +1,141 @@
+ [{
+		"Bank identifier position within the BBAN": "Bank Identifier 1-3, Branch Identifier:4-7, Check Digit 8"
+	}, {
+		"Bank identifier position within the BBAN": "Positions 1-4, Branch identifier: positions 5-8"
+	}, {
+		"Bank identifier position within the BBAN": "Positions 1-5"
+	}, {
+		"Bank identifier position within the BBAN": "Positions 1-4"
+	}, {
+		"Bank identifier position within the BBAN": "Positions 1-4"
+	}, {
+		"Bank identifier position within the BBAN": "Positions 1-3"
+	}, {
+		"Bank identifier position within the BBAN": "Positions 1-3, Branch identifier positions: 4-6"
+	}, {
+		"Bank identifier position within the BBAN": "Positions 1-8; branch identifier  9-13"
+	}, {
+		"Bank identifier position within the BBAN": "Positions 1-4, Branch identifier positions: 5-8"
+	}, {
+		"Bank identifier position within the BBAN": "Positions 1-4; Branch is not available"
+	}, {
+		"Bank identifier position within the BBAN": "Positions 1-7"
+	}, {
+		"Bank identifier position within the BBAN": "Positions 1-3, Branch identifier positions: 4-8"
+	}, {
+		"Bank identifier position within the BBAN": "Positions 1-4"
+	}, {
+		"Bank identifier position within the BBAN": "Positions 1-4"
+	}, {
+		"Bank identifier position within the BBAN": "Positions 1-4"
+	}, {
+		"Bank identifier position within the BBAN": "Positions 1-2"
+	}, {
+		"Bank identifier position within the BBAN": "Position 1-3 indicate the bank or banking group"
+	}, {
+		"Bank identifier position within the BBAN": "Positions 1-5"
+	}, {
+		"Bank identifier position within the BBAN": "Position 1-2"
+	}, {
+		"Bank identifier position within the BBAN": "Positions 1-8"
+	}, {
+		"Bank identifier position within the BBAN": "Positions 1-4"
+	}, {
+		"Bank identifier position within the BBAN": "Positions 1-3, Branch identifier positions: 4-7"
+	}, {
+		"Bank identifier position within the BBAN": "Positions 1-4"
+	}, {
+		"Bank identifier position within the BBAN": "positions 1-3, Branch identifier positions: 4-7"
+	}, {
+		"Bank identifier position within the BBAN": "Positions 1-4"
+	}, {
+		"Bank identifier position within the BBAN": "Positions 1-4, Branch identifier: positions 5-10"
+	}, {
+		"Bank identifier position within the BBAN": "Positions 1-3, Branch identifier: positions 4-6"
+	}, {
+		"Bank identifier position within the BBAN": "Positions 2-6, Branch identifier positions: 7-11"
+	}, {
+		"Bank identifier position within the BBAN": "1 to 4"
+	}, {
+		"Bank identifier position within the BBAN": "Positions 1-3"
+	}, {
+		"Bank identifier position within the BBAN": "Positions 1-4 (position 1-2: Bank identifier, position 3-4: branch identifier)"
+	}, {
+		"Bank identifier position within the BBAN": "Positions 1-4"
+	}, {
+		"Bank identifier position within the BBAN": "Positions 1-4"
+	}, {
+		"Bank identifier position within the BBAN": "Positions 1-4"
+	}, {
+		"Bank identifier position within the BBAN": "Positions 1-5"
+	}, {
+		"Bank identifier position within the BBAN": "Positions 1-5"
+	}, {
+		"Bank identifier position within the BBAN": "Positions 1-3"
+	}, {
+		"Bank identifier position within the BBAN": "Positions 1-3"
+	}, {
+		"Bank identifier position within the BBAN": "Positions 1-4, Branch identifier positions: 5-9"
+	}, {
+		"Bank identifier position within the BBAN": "Positions 1-5, Branch identifier positions: 6-10"
+	}, {
+		"Bank identifier position within the BBAN": "Positions 1-6,  Branch identifier positions: 7-8"
+	}, {
+		"Bank identifier position within the BBAN": "Positions 1-2"
+	}, {
+		"Bank identifier position within the BBAN": "Positions 1-5, Branch identifier positions: 6-10"
+	}, {
+		"Bank identifier position within the BBAN": "Positions 1-3"
+	}, {
+		"Bank identifier position within the BBAN": "Positions 1-4"
+	}, {
+		"Bank identifier position within the BBAN": "Positions 1-4"
+	}, {
+		"Bank identifier position within the BBAN": "Positions 1-4, Branch is not available"
+	}, {
+		"Bank identifier position within the BBAN": "Positions 1-4"
+	}, {
+		"Bank identifier position within the BBAN": "Positions 1-8"
+	}, {
+		"Bank identifier position within the BBAN": "Positions 1-4"
+	}, {
+		"Bank identifier position within the BBAN": "Position 1-4"
+	}, {
+		"Bank identifier position within the BBAN": "Positions 1-4"
+	}, {
+		"Bank identifier position within the BBAN": "Position 1-4"
+	}, {
+		"Bank identifier position within the BBAN": "Bank identifier position: 2-6,Branch identifier position: 7-11"
+	}, {
+		"Bank identifier position within the BBAN": "Positions 1-4  Branch identifier positions 5-8"
+	}, {
+		"Bank identifier position within the BBAN": "Bank identifier position: 1-2"
+	}, {
+		"Bank identifier position within the BBAN": "Positions 1-3"
+	}, {
+		"Bank identifier position within the BBAN": "First 8 digits of the BBAN, from Position 1 to 8"
+	}, {
+		"Bank identifier position within the BBAN": "Positions 1-4"
+	}, {
+		"Bank identifier position within the BBAN": "Positions 1-5 (positions 1-2 bank identifier; positions 3-5 branch identifier). In case of payment institutions: positions 1-5 payment institution identifier, where positions 1-2 is always 91"
+	}, {
+		"Bank identifier position within the BBAN": "Positions 1-4, Branch identifier positions: 5-8"
+	}, {
+		"Bank identifier position within the BBAN": "Positions 1-3"
+	}, {
+		"Bank identifier position within the BBAN": "Positions 1-5"
+	}, {
+		"Bank identifier position within the BBAN": "Positions 1 to 3, Positions 1-4: TL38, Positions 5-7: Bank Code, Positions 8-21 : Customer account number, Positions 22-23: National check digit (modulo 97)"
+	}, {
+		"Bank identifier position within the BBAN": "1-2, Branch identifier positions:  3-5"
+	}, {
+		"Bank identifier position within the BBAN": "Positions 1-5"
+	}, {
+		"Bank identifier position within the BBAN": "1-6"
+	}, {
+		"Bank identifier position within the BBAN": "Positions 1-3 ;Branch is not available"
+	}, {
+		"Bank identifier position within the BBAN": "Positions 1-4"
+	}, {
+		"Bank identifier position within the BBAN": "Positions 1-4"
+	}]

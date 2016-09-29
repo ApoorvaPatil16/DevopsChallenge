@@ -1,0 +1,19 @@
+SWIFT Message
+{
+    "Name of country": "Albania",
+    "Domestic account number example": 235698741,
+    "BBAN": 0,
+    "BBAN structure": "8!n16!c",
+    "BBAN length": 24,
+    "Bank identifier position within the BBAN": "Bank Identifier 1-3, Branch Identifier:4-7, Check Digit 8",
+    "Bank identifier length": "8!n",
+    "Bank identifier example": "212-1100-9",
+    "BBAN example": 2.1211009000000025e+23,
+    "IBAN": 0,
+    "IBAN length": 28,
+    "IBAN electronic format example": "AL47212110090000000235698741",
+    "IBAN print format example": "AL47 2121 1009 0000 0002 3569 8741",
+    "SEPA Country": "No",
+    "Valid from date": "",
+    "Contact details": "Miho Valer , Deputy Director, Payment Systems Department, BANK OF ALBANIA, Kompleksi Halili, Rruga e Dibres, 1000 TIRANA, ALBANIA, Tel: 355 4 2419301/2/3 ext 3061, Fax: 355 4 2419408 , Email: vmiho@bankofalbania.org"
+  }

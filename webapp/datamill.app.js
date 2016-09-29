@@ -41,7 +41,7 @@ angular.module('datamill', ['ngMaterial',
     };
     $scope.logout = function() {
       $auth.logout();
-      $state.go('datamill.dashboard');
+      $state.go('datamill');
     }
     console.log($scope.isAuthenticated());
     if ($scope.isAuthenticated()) {

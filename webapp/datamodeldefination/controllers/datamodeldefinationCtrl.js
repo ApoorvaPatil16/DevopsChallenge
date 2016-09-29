@@ -97,7 +97,7 @@ angular.module('datamill')
       // datamodel create success message show
     function showSuccessAlert(name) {
       alert = $mdDialog.alert()
-        .title('Attention')
+        .title('Saved')
         .textContent('Submitted Data Model:' + name)
         .ok('Close');
       $mdDialog

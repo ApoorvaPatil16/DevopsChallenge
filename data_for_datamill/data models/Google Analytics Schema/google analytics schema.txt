@@ -1,0 +1,8 @@
+Google Analytics Data
+{
+ 	"StartDate":
+	"End Date":
+	"Total Visits":
+	"Total PageReviews":
+	"Total"
+}

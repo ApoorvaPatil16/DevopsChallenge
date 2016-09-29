@@ -1,0 +1,141 @@
+ [{
+ 	"IBAN electronic format example": "AL47212110090000000235698741"
+ }, {
+ 	"IBAN electronic format example": "AD1200012030200359100100"
+ }, {
+ 	"IBAN electronic format example": "AT611904300234573201"
+ }, {
+ 	"IBAN electronic format example": "AZ21NABZ00000000137010001944"
+ }, {
+ 	"IBAN electronic format example": "BH67BMAG00001299123456"
+ }, {
+ 	"IBAN electronic format example": "BE68539007547034"
+ }, {
+ 	"IBAN electronic format example": "BA391290079401028494"
+ }, {
+ 	"IBAN electronic format example": "BR9700360305000010009795493P1  -  BR1800000000141455123924100C2"
+ }, {
+ 	"IBAN electronic format example": "BG80BNBG96611020345678"
+ }, {
+ 	"IBAN electronic format example": "CR05015202001026284066"
+ }, {
+ 	"IBAN electronic format example": "HR1210010051863000160"
+ }, {
+ 	"IBAN electronic format example": "CY17002001280000001200527600"
+ }, {
+ 	"IBAN electronic format example": "CZ6508000000192000145399 CZ9455000000001011038930"
+ }, {
+ 	"IBAN electronic format example": "DK5000400440116243, FO6264600001631634, GL8964710001000206"
+ }, {
+ 	"IBAN electronic format example": "DO28BAGR00000001212453611324"
+ }, {
+ 	"IBAN electronic format example": "EE382200221020145685"
+ }, {
+ 	"IBAN electronic format example": "FI2112345600000785 or FI5542345670000081"
+ }, {
+ 	"IBAN electronic format example": "FR1420041010050500013M02606"
+ }, {
+ 	"IBAN electronic format example": "GE29NB0000000101904917"
+ }, {
+ 	"IBAN electronic format example": "DE89370400440532013000"
+ }, {
+ 	"IBAN electronic format example": "GI75NWBK000000007099453"
+ }, {
+ 	"IBAN electronic format example": "GR1601101250000000012300695"
+ }, {
+ 	"IBAN electronic format example": "GT82TRAJ01020000001210029690"
+ }, {
+ 	"IBAN electronic format example": "HU42117730161111101800000000"
+ }, {
+ 	"IBAN electronic format example": "IS140159260076545510730339"
+ }, {
+ 	"IBAN electronic format example": "IE29AIBK93115212345678"
+ }, {
+ 	"IBAN electronic format example": "IL620108000000099999999"
+ }, {
+ 	"IBAN electronic format example": "IT60X0542811101000000123456"
+ }, {
+ 	"IBAN electronic format example": "JO94CBJO0010000000000131000302"
+ }, {
+ 	"IBAN electronic format example": "KZ86125KZT5004100100"
+ }, {
+ 	"IBAN electronic format example": "XK051212012345678906"
+ }, {
+ 	"IBAN electronic format example": "KW81CBKU0000000000001234560101"
+ }, {
+ 	"IBAN electronic format example": "LV80BANK0000435195001"
+ }, {
+ 	"IBAN electronic format example": "LB62099900000001001901229114"
+ }, {
+ 	"IBAN electronic format example": "LI21088100002324013AA"
+ }, {
+ 	"IBAN electronic format example": "LT121000011101001000"
+ }, {
+ 	"IBAN electronic format example": "LU280019400644750000"
+ }, {
+ 	"IBAN electronic format example": "MK07250120000058984"
+ }, {
+ 	"IBAN electronic format example": "MT84MALT011000012345MTLCAST001S"
+ }, {
+ 	"IBAN electronic format example": "MR1300020001010000123456753"
+ }, {
+ 	"IBAN electronic format example": "MU17BOMM0101101030300200000MUR"
+ }, {
+ 	"IBAN electronic format example": "MD24AG000225100013104168"
+ }, {
+ 	"IBAN electronic format example": "MC58 11222 00001 0123456789030"
+ }, {
+ 	"IBAN electronic format example": "ME25505000012345678951"
+ }, {
+ 	"IBAN electronic format example": "NL91ABNA0417164300"
+ }, {
+ 	"IBAN electronic format example": "NO9386011117947"
+ }, {
+ 	"IBAN electronic format example": "PK36SCBL0000001123456702"
+ }, {
+ 	"IBAN electronic format example": "PS92PALS000000000400123456702"
+ }, {
+ 	"IBAN electronic format example": "PL61109010140000071219812874"
+ }, {
+ 	"IBAN electronic format example": "PT50000201231234567890154"
+ }, {
+ 	"IBAN electronic format example": "QA58DOHB00001234567890ABCDEFG"
+ }, {
+ 	"IBAN electronic format example": "RO49AAAA1B31007593840000"
+ }, {
+ 	"IBAN electronic format example": "LC55HEMM000100010012001200023015"
+ }, {
+ 	"IBAN electronic format example": "SM86U0322509800000000270100"
+ }, {
+ 	"IBAN electronic format example": "ST68000100010051845310112"
+ }, {
+ 	"IBAN electronic format example": "SA0380000000608010167519"
+ }, {
+ 	"IBAN electronic format example": "RS35260005601001611379"
+ }, {
+ 	"IBAN electronic format example": "SC18SSCB11010000000000001497USD"
+ }, {
+ 	"IBAN electronic format example": "SK3112000000198742637541"
+ }, {
+ 	"IBAN electronic format example": "SI56191000000123438"
+ }, {
+ 	"IBAN electronic format example": "ES9121000418450200051332"
+ }, {
+ 	"IBAN electronic format example": "SE4550000000058398257466"
+ }, {
+ 	"IBAN electronic format example": "CH9300762011623852957"
+ }, {
+ 	"IBAN electronic format example": "TL380080012345678910157"
+ }, {
+ 	"IBAN electronic format example": "TN5910006035183598478831"
+ }, {
+ 	"IBAN electronic format example": "TR330006100519786457841326"
+ }, {
+ 	"IBAN electronic format example": "UA213996220000026007233566001"
+ }, {
+ 	"IBAN electronic format example": "AE070331234567890123456"
+ }, {
+ 	"IBAN electronic format example": "GB29NWBK60161331926819"
+ }, {
+ 	"IBAN electronic format example": "VG96VPVG0000012345678901"
+ }]

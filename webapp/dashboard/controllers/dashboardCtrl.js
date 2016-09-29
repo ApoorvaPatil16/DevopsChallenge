@@ -162,6 +162,7 @@ function feedDialogCtrl($scope, $mdDialog, datamodel, datamodeldefinationservice
     socket.on(onEventName, function(data) {
       console.log("Packets:", data);
       $scope.data.push(data);
+      $scope.count = $scope.count + 1;
       if ($scope.data.length > 20) {
         $scope.data.shift();
       }

@@ -1,4 +1,3 @@
-var redis = require('redis');
 var redisClient = require('./passdatasource');
 
 function getRealData(sourcename, email, cb) {

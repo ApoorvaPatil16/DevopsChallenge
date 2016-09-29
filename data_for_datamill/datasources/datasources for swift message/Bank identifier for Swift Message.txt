@@ -1,0 +1,153 @@
+[{
+	"Bank identifier example": "212-1100-9"
+}, {
+	"Bank identifier example": "0001, Branch identifier example: 2030"
+}, {
+	"Bank identifier example": 19043
+}, {
+	"Bank identifier example": "NABZ"
+}, {
+	"Bank identifier example": "BMAG"
+}, {
+	"Bank identifier example": 539
+}, {
+	"Bank identifier example": "199, Branch identifier example: 044"
+}, {
+	"Bank identifier example": 360305
+}, {
+	"Bank identifier example": "BNBG, Branch identifier example: 9661"
+}, {
+	"Bank identifier example": 152
+}, {
+	"Bank identifier example": 1001005
+}, {
+	"Bank identifier example": "002, Branch identifier example: 00128"
+}, {
+	"Bank identifier example": 800
+}, {
+	"Bank identifier example": "0040, 6460, 6471"
+}, {
+	"Bank identifier example": "BAGR"
+}, {
+	"Bank identifier example": 22
+}, {
+	"Bank identifier example": "Not in use"
+}, {
+	"Bank identifier example": 20041
+}, {
+	"Bank identifier example": "NB"
+}, {
+	"Bank identifier example": 37040044
+}, {
+	"Bank identifier example": "NWBK"
+}, {
+	"Bank identifier example": "011, Branch identifier example: 0012"
+}, {
+	"Bank identifier example": "TRAJ"
+}, {
+	"Bank identifier example": "117, Branch identifier example 7301"
+}, {
+	"Bank identifier example": 159
+}, {
+	"Bank identifier example": "AIBK, Branch identifier example: 931152"
+}, {
+	"Bank identifier example": "010, Branch identifier example: 800"
+}, {
+	"Bank identifier example": "05428, Branch identifier example: 11101"
+}, {
+	"Bank identifier example": "CBJO"
+}, {
+	"Bank identifier example": 125
+}, {
+	"Bank identifier example": 1212
+}, {
+	"Bank identifier example": "CBKU"
+}, {
+	"Bank identifier example": "BANK"
+}, {
+	"Bank identifier example": 999
+}, {
+	"Bank identifier example": 8810
+}, {
+	"Bank identifier example": 10000
+}, {
+	"Bank identifier example": 1
+}, {
+	"Bank identifier example": 300
+}, {
+	"Bank identifier example": "MALT"
+}, {
+	"Branch identifier example": "01100"
+}, {
+	"Bank identifier example": "00020"
+}, {
+	"Branch identifier example": "00101"
+}, {
+	"Bank identifier example": "BOMM01"
+}, {
+	"Branch identifier example": "01"
+}, {
+	"Bank identifier example": "AG"
+}, {
+	"Bank identifier example": "11222"
+}, {
+	"Branch identifier": "11222 00001"
+}, {
+	"Bank identifier example": 505
+}, {
+	"Bank identifier example": "ABNA"
+}, {
+	"Bank identifier example": 8601
+}, {
+	"Bank identifier example": "SCBL"
+}, {
+	"Bank identifier example": "PALS"
+}, {
+	"Bank identifier example": 10901014
+}, {
+	"Bank identifier example": 2
+}, {
+	"Bank identifier example": "DOHB"
+}, {
+	"Bank identifier example": "AAAA"
+}, {
+	"Bank identifier example": "HEMM"
+}, {
+	"Bank identifier example": "09800"
+}, {
+	"Bank identifier example": "00010 00100"
+}, {
+	"Bank identifier example": 80
+}, {
+	"Bank identifier example": 260
+}, {
+	"Bank identifier example": "SSCB1101"
+}, {
+	"Bank identifier example": 1200
+}, {
+	"Bank identifier example": 26330
+}, {
+	"Bank identifier example": "2100"
+}, {
+	"Branch identifier example": "0418"
+}, {
+	"Bank identifier example": 123
+}, {
+	"Bank identifier example": 762
+}, {
+	"Bank identifier example": 8
+}, {
+	"Bank identifier example": "10"
+}, {
+	"Branch identifier example": "006 "
+}, {
+	"Bank identifier example": 61
+}, {
+	"Bank identifier example": 399622
+}, {
+	"Bank identifier example": 33
+}, {
+	"Bank identifier example": "NWBK"
+}, {
+	"Bank identifier example": "VPVG"
+}]

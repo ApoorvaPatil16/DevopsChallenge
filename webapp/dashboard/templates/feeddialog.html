@@ -2,7 +2,7 @@
   <form ng-cloak>
     <md-toolbar>
       <div class="md-toolbar-tools">
-        <h2>Datafeed</h2>
+        <h2>Datafeed Preview</h2>
         <span flex></span>
         <md-button class="md-icon-button" ng-click="cancel()">
           <md-icon aria-label="Close dialog">close</md-icon>
@@ -11,7 +11,8 @@
     </md-toolbar>
     <md-dialog-content>
       <div class="md-dialog-content">
-        <textarea style="width:700px;height:400px" ng-model="datastr"></textarea>
+        <h4>{{count}}</h4>
+        <textarea style="width:700px;height:400px;background-color:#181907;color:green;font-weight:bold;" ng-model="datastr"></textarea>
       </div>
     </md-dialog-content>
     <md-dialog-actions layout="row ">
