@@ -1,0 +1,139 @@
+[{
+		"BBAN example": 2.1211009000000025e+23
+	}, {
+		"BBAN example": 12030200359100100
+	}, {
+		"BBAN example": 1904300234573201
+	}, {
+		"BBAN example": "NABZ00000000137010001944"
+	}, {
+		"BBAN example": "BMAG00001299123456"
+	}, {
+		"BBAN example": 539007547034
+	}, {
+		"BBAN example": 1990440001200279
+	}, {
+		"BBAN example": "00360305000010009795493P1"
+	}, {
+		"BBAN example": "BNBG96611020345678"
+	}, {
+		"BBAN example": 15202001026284066
+	}, {
+		"BBAN example": 10010051863000160
+	}, {
+		"BBAN example": 2.0012800000012006e+21
+	}, {
+		"BBAN example": 8000000192000145000
+	}, {
+		"BBAN example": "00400440116243, 64600001631634, 64710001000206"
+	}, {
+		"BBAN example": "AGR00000001212453611324"
+	}, {
+		"BBAN example": 2200221020145685
+	}, {
+		"BBAN example": "Not in use"
+	}, {
+		"BBAN example": "20041010050500013M02606"
+	}, {
+		"BBAN example": "NB0000000101904917"
+	}, {
+		"BBAN example": 370400440532013000
+	}, {
+		"BBAN example": "NWBK000000007099453"
+	}, {
+		"BBAN example": 1.1012500000000123e+21
+	}, {
+		"BBAN example": "TRAJ01020000001210029690"
+	}, {
+		"BBAN example": 1.177301611111018e+23
+	}, {
+		"BBAN example": 159260076545510740000
+	}, {
+		"BBAN example": "AIBK93115212345678"
+	}, {
+		"BBAN example": 10800000100000000
+	}, {
+		"BBAN example": "X0542811101000000123456"
+	}, {
+		"BBAN example": "CBJO0010000000000131000302"
+	}, {
+		"BBAN example": "125KZT5004100100"
+	}, {
+		"BBAN example": 1212012345678906
+	}, {
+		"BBAN example": "CBKU0000000000001234560101"
+	}, {
+		"BBAN example": "BANK0000435195001"
+	}, {
+		"BBAN example": "0999 0000 0001 0019 0122 9114"
+	}, {
+		"BBAN example": "088100002324013AA"
+	}, {
+		"BBAN example": 1000011101001000
+	}, {
+		"BBAN example": 19400644750000
+	}, {
+		"BBAN example": 250120000058984
+	}, {
+		"BBAN example": "MALT011000012345MTLCAST001S"
+	}, {
+		"BBAN example": 20001010000123458000
+	}, {
+		"BBAN example": "BOMM0101101030300200000MUR"
+	}, {
+		"BBAN example": "AG000225100013104168"
+	}, {
+		"BBAN example": "11222 00001 01234567890 30"
+	}, {
+		"BBAN example": 505000012345679000
+	}, {
+		"BBAN example": "ABNA0417164300"
+	}, {
+		"BBAN example": 86011117947
+	}, {
+		"BBAN example": "SCBL0000001123456702"
+	}, {
+		"BBAN example": "PALS000000000400123456702"
+	}, {
+		"BBAN example": 1.0901014000007123e+23
+	}, {
+		"BBAN example": 201231234567890140
+	}, {
+		"BBAN example": "DOHB00001234567890ABCDEFG"
+	}, {
+		"BBAN example": "AAAA1B31007593840000"
+	}, {
+		"BBAN example": "HEMM000100010012001200023015"
+	}, {
+		"BBAN example": "U0322509800000000270100"
+	}, {
+		"BBAN example": 100010051845310110
+	}, {
+		"BBAN example": 80000000608010170000
+	}, {
+		"BBAN example": 260005601001611400
+	}, {
+		"BBAN example": "SSCB11010000000000001497USD"
+	}, {
+		"BBAN example": 12000000198742637000
+	}, {
+		"BBAN example": 21000418450200050000
+	}, {
+		"BBAN example": "5000 0000 0583 9825 7466"
+	}, {
+		"BBAN example": 762011623852957
+	}, {
+		"BBAN example": 80012345678910160
+	}, {
+		"BBAN example": 10006035183598480000
+	}, {
+		"BBAN example": 6100519786457842000
+	}, {
+		"BBAN example": 3.996220000026007e+24
+	}, {
+		"BBAN example": 331234567890123460
+	}, {
+		"BBAN example": "NWBK60161331926819"
+	}, {
+		"BBAN example": "VPVG0000012345678901"
+	}]

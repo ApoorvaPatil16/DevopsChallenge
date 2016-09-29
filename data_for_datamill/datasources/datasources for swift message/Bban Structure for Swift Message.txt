@@ -1,0 +1,141 @@
+		"BBAN structure": "8!n16!c"
+ [{
+	}, {
+		"BBAN structure": "4!n4!n12!c"
+	}, {
+		"BBAN structure": "5!n11!n"
+	}, {
+		"BBAN structure": "4!a20!c"
+	}, {
+		"BBAN structure": "4!a14!c"
+	}, {
+		"BBAN structure": "3!n7!n2!n"
+	}, {
+		"BBAN structure": "3!n3!n8!n2!n"
+	}, {
+		"BBAN structure": "8!n5!n10!n1!a1!c"
+	}, {
+		"BBAN structure": "4!a4!n2!n8!c"
+	}, {
+		"BBAN structure": "4!n14!n"
+	}, {
+		"BBAN structure": "7!n10!n"
+	}, {
+		"BBAN structure": "3!n5!n16!c"
+	}, {
+		"BBAN structure": "4!n6!n10!n"
+	}, {
+		"BBAN structure": "4!n9!n1!n"
+	}, {
+		"BBAN structure": "4!c20!n"
+	}, {
+		"BBAN structure": "2!n2!n11!n1!n"
+	}, {
+		"BBAN structure": "Not in use"
+	}, {
+		"BBAN structure": "5!n5!n11!c2!n"
+	}, {
+		"BBAN structure": "2!a16!n"
+	}, {
+		"BBAN structure": "8!n10!n;"
+	}, {
+		"BBAN structure": "4!a15!c"
+	}, {
+		"BBAN structure": "3!n4!n16!c"
+	}, {
+		"BBAN structure": "4!c20!c"
+	}, {
+		"BBAN structure": "3!n4!n1!n15!n1!n:"
+	}, {
+		"BBAN structure": "4!n2!n6!n10!n"
+	}, {
+		"BBAN structure": "4!a6!n8!n"
+	}, {
+		"BBAN structure": "3!n3!n13!n"
+	}, {
+		"BBAN structure": "1!a5!n5!n12!c"
+	}, {
+		"BBAN structure": "4!a4!n18!c"
+	}, {
+		"BBAN structure": "3!n13!c"
+	}, {
+		"BBAN structure": "4!n10!n2!n"
+	}, {
+		"BBAN structure": "4!a22!c"
+	}, {
+		"BBAN structure": "4!a13!c"
+	}, {
+		"BBAN structure": "4!n20!c"
+	}, {
+		"BBAN structure": "5!n12!c"
+	}, {
+		"BBAN structure": "5!n11!n"
+	}, {
+		"BBAN structure": "3!n13!c"
+	}, {
+		"BBAN structure": "3!n10!c2!n"
+	}, {
+		"BBAN structure": "4!a5!n18!c"
+	}, {
+		"BBAN structure": "5!n5!n11!n2!n"
+	}, {
+		"BBAN structure": "4!a2!n2!n12!n3!n3!a"
+	}, {
+		"BBAN structure": "2!c18!c"
+	}, {
+		"BBAN structure": "5!n5!n11!c2!n"
+	}, {
+		"BBAN structure": "3!n13!n2!n"
+	}, {
+		"BBAN structure": "4!a10!n"
+	}, {
+		"BBAN structure": "4!n6!n1!n"
+	}, {
+		"BBAN structure": "4!a16!c"
+	}, {
+		"BBAN structure": "4!a21!c"
+	}, {
+		"BBAN structure": "8!n16!n"
+	}, {
+		"BBAN structure": "4!n4!n11!n2!n"
+	}, {
+		"BBAN structure": "4!a21!c"
+	}, {
+		"BBAN structure": "4!a16!c"
+	}, {
+		"BBAN structure": "4!a24!c"
+	}, {
+		"BBAN structure": "1!a5!n5!n12!c"
+	}, {
+		"BBAN structure": "8!n11!n2!n"
+	}, {
+		"BBAN structure": "2!n18!c"
+	}, {
+		"BBAN structure": "3!n13!n2!n"
+	}, {
+		"BBAN structure": "4a!2n!2n!16n!3a!"
+	}, {
+		"BBAN structure": "4!n6!n10!n"
+	}, {
+		"BBAN structure": "5!n8!n2!n"
+	}, {
+		"BBAN structure": "4!n4!n1!n1!n10!n"
+	}, {
+		"BBAN structure": "3!n16!n1!n"
+	}, {
+		"BBAN structure": "5!n12!c"
+	}, {
+		"BBAN structure": "3!n 14!n 2!n"
+	}, {
+		"BBAN structure": "2!n3!n13!n2!n"
+	}, {
+		"BBAN structure": "5!n1!n16!c"
+	}, {
+		"BBAN structure": "6!n19!c"
+	}, {
+		"BBAN structure": "3!n16!n"
+	}, {
+		"BBAN structure": "4!a6!n8!n"
+	}, {
+		"BBAN structure": "4!a16!n"
+	}]

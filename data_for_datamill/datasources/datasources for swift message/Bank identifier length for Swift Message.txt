@@ -1,0 +1,171 @@
+[{
+	"Bank identifier length": "8!n"
+}, {
+	"Bank identifier length": "4!n"
+}, {
+	"Branch identifier length": "4!n "
+}, {
+	"Bank identifier length": "5!n"
+}, {
+	"Bank identifier length": "4!a"
+}, {
+	"Bank identifier length": "4!n"
+}, {
+	"Bank identifier length": "3!n"
+}, {
+	"Bank identifier length": "3!n"
+}, {
+	"Branch identifier length ": "3!n "
+}, {
+	"Bank identifier length": "8"
+}, {
+	"Bank identifier length": "4!a"
+}, {
+	"Branch identifier length": "4!n "
+}, {
+	"Bank identifier length": "4!n"
+}, {
+	"Bank identifier length": "7!n"
+}, {
+	"Bank identifier length": "3!n"
+}, {
+	"Branch identifier length": "5!n"
+}, {
+	"Bank identifier length": "4!n"
+}, {
+	"Bank identifier length": "4!n"
+}, {
+	"Bank identifier length": "4!a"
+}, {
+	"Bank identifier length": "2!n - first digit of bank code can not be 0"
+}, {
+	"Bank identifier length": "Not in use"
+}, {
+	"Bank identifier length": "5!n"
+}, {
+	"Bank identifier length": "2!a"
+}, {
+	"Bank identifier length": "8!n"
+}, {
+	"Bank identifier length": "4!a"
+}, {
+	"Bank identifier length": "3!n"
+}, {
+	"Branch identifier length": "4!n"
+}, {
+	"Bank identifier length": "4!c"
+}, {
+	"Bank identifier length": "3!n"
+}, {
+	"Branch identifier length": "4!n"
+}, {
+	"Bank identifier length": "4!n"
+}, {
+	"Bank identifier length": "4!a"
+}, {
+	"Branch identifier length": "6!n"
+}, {
+	"Bank identifier length": "3!n"
+}, {
+	"Branch identifier length": "3!n"
+}, {
+	"Bank identifier length": "5!n"
+}, {
+	"Branch identifier length": "5!n"
+}, {
+	"Bank identifier length": "4!a"
+}, {
+	"Bank identifier length": "3!n"
+}, {
+	"Bank identifier length": "4!n"
+}, {
+	"Bank identifier length": "4!a"
+}, {
+	"Bank identifier length": "4!a"
+}, {
+	"Bank identifier length": "4!a"
+}, {
+	"Bank identifier length": "5!n"
+}, {
+	"Bank identifier length": "5!n"
+}, {
+	"Bank identifier length": "3!n"
+}, {
+	"Bank identifier length": "3!n"
+}, {
+	"Bank identifier length": "4!a"
+}, {
+	"Branch identifier length": "5!n "
+}, {
+	"Bank identifier length": "5!n"
+}, {
+	"Branch identifier length": "5!n"
+}, {
+	"Bank identifier length": "6!c"
+}, {
+	"Branch identifier length": "2!n"
+}, {
+	"Bank identifier length": "2!c"
+}, {
+	"Bank identifier length": "5!n"
+}, {
+	"Branch identifier length": "5!n"
+}, {
+	"Bank identifier length": "3!n"
+}, {
+	"Bank identifier length": "4!a"
+}, {
+	"Bank identifier length": "4!n"
+}, {
+	"Bank identifier length": "4!a"
+}, {
+	"Bank identifier length": 4
+}, {
+	"Bank identifier length": "8!n"
+}, {
+	"Bank identifier length": "4!n"
+}, {
+	"Bank identifier length": "4!a"
+}, {
+	"Bank identifier length": "4!a"
+}, {
+	"Bank identifier length": "4!a"
+}, {
+	"Bank identifier length": "5!n"
+}, {
+	"Bank identifier length": "4!f"
+}, {
+	"Bank identifier length": 2
+}, {
+	"Bank identifier length": "3!n"
+}, {
+	"Bank identifier length": 8
+}, {
+	"Bank identifier length": "4!n"
+}, {
+	"Bank identifier length": "5!n"
+}, {
+	"Bank identifier length": "4!n"
+}, {
+	"Branch identifier length": "4!n"
+}, {
+	"Bank identifier length": "3!n"
+}, {
+	"Bank identifier length": "5!n"
+}, {
+	"Bank identifier length": "3!n"
+}, {
+	"Bank identifier length": "2!n"
+}, {
+	"Branch identifier length": "3!n"
+}, {
+	"Bank identifier length": "5!n"
+}, {
+	"Bank identifier length": "6!n"
+}, {
+	"Bank identifier length": "3!n"
+}, {
+	"Bank identifier length": "4!a"
+}, {
+	"Bank identifier length": "4!a"
+}]
