@@ -42,7 +42,7 @@ nav_router.get('/', function(req, res) {
             "id": 5,
             "icon": "add",
             "state": "datamill.datausage",
-            "link": "datausage"
+            "link": "Data Usage"
         }],
         "accountItems": [{
             "id": 1,
