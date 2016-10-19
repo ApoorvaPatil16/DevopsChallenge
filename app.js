@@ -25,13 +25,13 @@ var app = express();
 dataSourceCache.startBufferring();
 //scheduledatasrc.scheduledatasource();
 app.onAppStart = function(addr) {
-  // logger.info("DataMill web app is now Running on port:",addr.port);
+    // logger.info("DataMill web app is now Running on port:",addr.port);
 }
 
 app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
-  extended: false
+    extended: false
 }));
 app.use(cookieParser());
 app.use('/profile', isAuthenticated, profile_router);
@@ -50,27 +50,27 @@ app.post('/login', function(req, res) {
 app.use('/', oauth_router);
 app.use('/datamodel', isAuthenticated, datamodeldefination);
 app.use(function(req, res, next) {
-  var err = new Error('Resource not found');
-  err.status = 404;
-  return res.status(err.status).json({
-    "error": err.message
-  });
+    var err = new Error('Resource not found');
+    err.status = 404;
+    return res.status(err.status).json({
+        "error": err.message
+    });
 });
 
 if (app.get('env') === 'development') {
-  app.use(function(err, req, res, next) {
-    // logger.error("Internal error in watch processor: ", err);
-    return res.status(err.status || 500).json({
-      "error": err.message
+    app.use(function(err, req, res, next) {
+        // logger.error("Internal error in watch processor: ", err);
+        return res.status(err.status || 500).json({
+            "error": err.message
+        });
     });
-  });
 }
 
 app.use(function(err, req, res, next) {
-  // logger.error("Internal error in watch processor: ", err);
-  return res.status(err.status || 500).json({
-    "error": err.message
-  });
+    // logger.error("Internal error in watch processor: ", err);
+    return res.status(err.status || 500).json({
+        "error": err.message
+    });
 });
 
 module.exports = app;

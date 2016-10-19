@@ -11,7 +11,7 @@
     </div>
 </div>
 <div layout-gt-md="row" layout="column" layout-margin="10px" ng-cloak>
-    <div flex-gt-md="60" class="md-whiteframe-3dp" style="max-height:none;padding:10px">
+    <div flex-gt="60" flex-gt-sm="60" flex-sm="60" flex-xs="100" class="md-whiteframe-3dp" style="max-height:none;padding:10px">
         <!-- <h1>{{datamodelconf.heading}}</h1> -->
         <form ng-submit="saveDataModel()" name="dataModelForm">
             <div layout="column" layout-margin="2px">
@@ -91,12 +91,13 @@
             </div>
         </form>
     </div>
-    <div>
-        <!-- <md-input-container class="md-block"> -->
-        <textarea style="width:450; height:700;" class="txtareajson" ng-model="uploadjsontext" required area-invalid="true" placeholder="paste your json here"></textarea>
+    <div flex-gt-md="30" class="md-whiteframe-3dp" style="max-height:none;" layout="column">
+        <md-input-container>
+            <textarea ng-model="uploadjsontext" required area-invalid="true" placeholder="paste your json here" style="min-height: 700px">
+            </textarea>
+        </md-input-container>
         <div layout="row" layout-align="center center">
             <md-button class="md-raised" ng-click=" uploadJson(uploadjsontext)">parse</md-button>
         </div>
-        <!-- </md-input-container> -->
     </div>
 </div>
