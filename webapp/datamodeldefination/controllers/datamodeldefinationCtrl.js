@@ -37,6 +37,8 @@ angular.module('datamill')
                 "name": '',
                 "description": '',
                 "attributes": [],
+                "patterns": [],
+                "patternstruct": [],
                 "username": "vishal"
             }
             updateMaster($scope.dataModel);
@@ -130,6 +132,25 @@ angular.module('datamill')
                     alert = undefined;
                 });
         }
+
+        $scope.showDialog = function(ev) {
+            $mdDialog.show({
+                    controller: 'patterndialogCtrl',
+                    templateUrl: '/datamodeldefination/templates/patterndialog.html',
+                    locals: {
+                        attributes: $scope.dataModel.attributes
+                    },
+                    parent: angular.element(document.body),
+                    targetEvent: ev,
+                    clickOutsideToClose: true,
+                    fullscreen: $scope.customFullscreen // Only for -xs, -sm breakpoints.
+                })
+                .then(function() {
+
+                }, function() {
+
+                });
+        };
         $scope.uploadJson = function(json) {
             var dataobject = parseString(json);
             var outputData = [];
