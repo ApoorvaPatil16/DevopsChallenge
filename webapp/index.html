@@ -1,22 +1,28 @@
 <html lang="en">
 
 <head>
-  <!-- @TODO: Add meta tags for SEO -->
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>datamill.io</title>
-  <!-- Vendor Styles -->
-  <link rel="shortcut icon" href="/assets/images/CaptureLogo.PNG" />
-  <link rel="stylesheet" type="text/css" href="/angular-material/angular-material.min.css">
-  <link rel="stylesheet" type="text/css" href="/mdPickers/dist/mdPickers.css">
-  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
-  <!-- App Style and Custom Style -->
-  <link href="/assets/css/style.css" rel="stylesheet">
+    <!-- @TODO: Add meta tags for SEO -->
+    <meta property="og:url" content="http://datamill.stackroute.in/#/datamill" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="DataMill" />
+    <meta property="og:image" content="assests/images/CaptureLogo.PNG" />
+    <meta property="og:description" description="The DataMill is a time series data generator" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>datamill.io</title>
+    <!-- Vendor Styles -->
+    <link rel="shortcut icon" href="/assets/images/CaptureLogo.PNG" />
+    <link rel="stylesheet" type="text/css" href="/angular-material/angular-material.min.css">
+    <link rel="stylesheet" type="text/css" href="/mdPickers/dist/mdPickers.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+    <!-- App Style and Custom Style -->
+    <link href="/assets/css/style.css" rel="stylesheet">
 </head>
 
 <body ng-app="datamill" ng-controller="datamillCtrl" ng-cloak>
-  <div ui-view="appBar"></div>
-  <div ui-view="content" class="main-content"></div>
-  <div ui-view="footer"></div>
+    <base href="/">
+    <div ui-view="appBar"></div>
+    <div ui-view="content" class="main-content"></div>
+    <div ui-view="footer"></div>
 </body>
 <script type="text/javascript" src="/assets/js/ace/ace.js"></script>
 <script type="text/javascript" src="/assets/js/ace/theme-twilight.js"></script>
@@ -54,6 +60,9 @@
 <script src="/dashboard/dashboard.module.js"></script>
 <script src="/dashboard/controllers/dashboardCtrl.js"></script>
 <script src="/dashboard/services/listdatamodelsservice.js"></script>
+<script src="/datamillshare/controllers/datamillshareCtrl.js"></script>
+<script src="/datamillshare/datamillshare.module.js"></script>
+<script src="/datamillshare/services/datamillshareservice.js"></script>
 <script src="/datasource/datasource.module.js"></script>
 <script src="/datasource/services/postdataService.js"></script>
 <script src="/datasource/services/listdataService.js"></script>
