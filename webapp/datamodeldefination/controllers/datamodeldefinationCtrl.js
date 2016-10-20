@@ -1,8 +1,4 @@
 angular.module('datamill')
-<<<<<<< HEAD
-    .controller('datamodeldefinationController', ['$scope', 'datamodeldefinationservice', '$state', '$stateParams', '$mdDialog', '$log', function($scope, datamodeldefinationservice, $state, $stateParams, $mdDialog, $log) {
-        //deciding mode and also getting related data
-=======
     .controller('datamodeldefinationController', ['$scope', 'datamodeldefinationservice', 'listDomainFactory', '$state', '$stateParams', '$mdDialog', '$log', function($scope, datamodeldefinationservice, listDomainFactory, $state, $stateParams, $mdDialog, $log) {
         var domain;
         var domainName;
@@ -16,7 +12,6 @@ angular.module('datamill')
             });   
         }, function(res) { $log.info("failed to get"); });
         //...........................................//
->>>>>>> afc4df8f14be6e2686001bae7e958e0a83978403
         if ($stateParams.mode === 'edit') {
             $scope.dataModel = $stateParams.dataModel;
             updateMaster($scope.dataModel);
@@ -25,11 +20,11 @@ angular.module('datamill')
                 $scope.dataModel = $stateParams.dataModel;
                 updateMaster($scope.dataModel);
                 datamodeldefinationservice.getStructure($stateParams.datamodelname).then(function(res) {
-<<<<<<< HEAD
-                    console.log("Here we geting getStructure", res);
-=======
+
+
+
                     console.log("Here we getting getStructure", res);
->>>>>>> afc4df8f14be6e2686001bae7e958e0a83978403
+
                     if (res && res.attributes[0]) $scope.dataModel.attributes = res.attributes;
                     else $scope.dataModel.attributes = [];
                     updateMaster($scope.dataModel);
@@ -46,11 +41,11 @@ angular.module('datamill')
                 "name": '',
                 "description": '',
                 "attributes": [],
-<<<<<<< HEAD
-=======
+
+
                 "patterns": [],
                 "patternstruct": [],
->>>>>>> afc4df8f14be6e2686001bae7e958e0a83978403
+
                 "username": "vishal"
             }
             updateMaster($scope.dataModel);
@@ -62,11 +57,8 @@ angular.module('datamill')
             console.log("master data", $scope.masterdataModel, $scope.dataModel)
         }
         /*Getting Data Model Input config*/
-<<<<<<< HEAD
-        datamodeldefinationservice.getDataModelConfig().then(function(res) {    $scope.datamodelconf = res;    });
-=======
         datamodeldefinationservice.getDataModelConfig().then(function(res) { $scope.datamodelconf = res;    });
->>>>>>> afc4df8f14be6e2686001bae7e958e0a83978403
+
         // Adding Attributes Variable for on Fly showing
         $scope.addAttribute = function(attr) {
             console.log("me inside save main have data:" + attr);
@@ -101,12 +93,12 @@ angular.module('datamill')
             console.log("dataModel we request for edit", $scope.dataModel);
             if ($stateParams.datamodelname) {
                 datamodeldefinationservice.patchDataModel($scope.dataModel, $stateParams.datamodelname).then(function(res) {
-<<<<<<< HEAD
+
                         console.log("AA", res);
                         console.log("stateParams", $stateParams.datamodelname);
-=======
+
                         console.log(res);
->>>>>>> afc4df8f14be6e2686001bae7e958e0a83978403
+
                         showSuccessAlert(res.name);
                     },
                     function(res) {
@@ -153,8 +145,7 @@ angular.module('datamill')
                     alert = undefined;
                 });
         }
-<<<<<<< HEAD
-=======
+
 
         $scope.showDialog = function(ev) {
             $mdDialog.show({
@@ -216,6 +207,5 @@ angular.module('datamill')
             }
 
         }
->>>>>>> afc4df8f14be6e2686001bae7e958e0a83978403
         $log.info("datamodeldefinationController is registered");
     }]);
