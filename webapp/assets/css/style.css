@@ -195,6 +195,7 @@ md-list-item._md-button-wrap>div.md-button:first-child ._md-list-item-inner {
 
 #datamillHeading {
     cursor: pointer;
+<<<<<<< HEAD
 }
 
 #googleplus {
@@ -211,4 +212,20 @@ md-list-item._md-button-wrap>div.md-button:first-child ._md-list-item-inner {
 
 #slack {
     padding-left: 90px;
+=======
+>>>>>>> afc4df8f14be6e2686001bae7e958e0a83978403
 }
+
+.card {
+    height: 400;
+}
+
+.card-content {
+    height: 250;
+}
+
+
+/*.text-area {
+    min-height: 700px;
+}
+*/

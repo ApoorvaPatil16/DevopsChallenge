@@ -1,6 +1,22 @@
 angular.module('datamill')
+<<<<<<< HEAD
     .controller('datamodeldefinationController', ['$scope', 'datamodeldefinationservice', '$state', '$stateParams', '$mdDialog', '$log', function($scope, datamodeldefinationservice, $state, $stateParams, $mdDialog, $log) {
         //deciding mode and also getting related data
+=======
+    .controller('datamodeldefinationController', ['$scope', 'datamodeldefinationservice', 'listDomainFactory', '$state', '$stateParams', '$mdDialog', '$log', function($scope, datamodeldefinationservice, listDomainFactory, $state, $stateParams, $mdDialog, $log) {
+        var domain;
+        var domainName;
+        //deciding mode and also getting related data
+        // getting the domain list from server
+        listDomainFactory.getAllDomain().then(function(res) {   
+            domain = res;
+            // console.log(res);
+            domainName = domain.map(function(d) {
+                return d.name;
+            });   
+        }, function(res) { $log.info("failed to get"); });
+        //...........................................//
+>>>>>>> afc4df8f14be6e2686001bae7e958e0a83978403
         if ($stateParams.mode === 'edit') {
             $scope.dataModel = $stateParams.dataModel;
             updateMaster($scope.dataModel);
@@ -9,7 +25,11 @@ angular.module('datamill')
                 $scope.dataModel = $stateParams.dataModel;
                 updateMaster($scope.dataModel);
                 datamodeldefinationservice.getStructure($stateParams.datamodelname).then(function(res) {
+<<<<<<< HEAD
                     console.log("Here we geting getStructure", res);
+=======
+                    console.log("Here we getting getStructure", res);
+>>>>>>> afc4df8f14be6e2686001bae7e958e0a83978403
                     if (res && res.attributes[0]) $scope.dataModel.attributes = res.attributes;
                     else $scope.dataModel.attributes = [];
                     updateMaster($scope.dataModel);
@@ -26,6 +46,11 @@ angular.module('datamill')
                 "name": '',
                 "description": '',
                 "attributes": [],
+<<<<<<< HEAD
+=======
+                "patterns": [],
+                "patternstruct": [],
+>>>>>>> afc4df8f14be6e2686001bae7e958e0a83978403
                 "username": "vishal"
             }
             updateMaster($scope.dataModel);
@@ -37,7 +62,11 @@ angular.module('datamill')
             console.log("master data", $scope.masterdataModel, $scope.dataModel)
         }
         /*Getting Data Model Input config*/
+<<<<<<< HEAD
         datamodeldefinationservice.getDataModelConfig().then(function(res) {    $scope.datamodelconf = res;    });
+=======
+        datamodeldefinationservice.getDataModelConfig().then(function(res) { $scope.datamodelconf = res;    });
+>>>>>>> afc4df8f14be6e2686001bae7e958e0a83978403
         // Adding Attributes Variable for on Fly showing
         $scope.addAttribute = function(attr) {
             console.log("me inside save main have data:" + attr);
@@ -72,8 +101,12 @@ angular.module('datamill')
             console.log("dataModel we request for edit", $scope.dataModel);
             if ($stateParams.datamodelname) {
                 datamodeldefinationservice.patchDataModel($scope.dataModel, $stateParams.datamodelname).then(function(res) {
+<<<<<<< HEAD
                         console.log("AA", res);
                         console.log("stateParams", $stateParams.datamodelname);
+=======
+                        console.log(res);
+>>>>>>> afc4df8f14be6e2686001bae7e958e0a83978403
                         showSuccessAlert(res.name);
                     },
                     function(res) {
@@ -120,5 +153,69 @@ angular.module('datamill')
                     alert = undefined;
                 });
         }
+<<<<<<< HEAD
+=======
+
+        $scope.showDialog = function(ev) {
+            $mdDialog.show({
+                    controller: 'patterndialogCtrl',
+                    templateUrl: '/datamodeldefination/templates/patterndialog.html',
+                    locals: {
+                        attributes: $scope.dataModel.attributes
+                    },
+                    parent: angular.element(document.body),
+                    targetEvent: ev,
+                    clickOutsideToClose: true,
+                    fullscreen: $scope.customFullscreen // Only for -xs, -sm breakpoints.
+                })
+                .then(function() {
+
+                }, function() {
+
+                });
+        };
+        $scope.uploadJson = function(json) {
+            var dataobject = parseString(json);
+            var outputData = [];
+            var type;
+            var count = 0;
+            var option;
+            console.log(domain[5]);
+            for (var i in dataobject) {
+                console.log("value of i=", i);
+                var date = Date.parse(dataobject[i]);
+                if (isNaN(dataobject[i])) {
+                    if (isNaN(date)) {
+                        type = "String",
+                            option = domain[5];
+                    } else {
+                        type = "TimeStamp",
+                            option = domain[6]
+                    }
+
+                } else {
+                    type = "Number",
+                        option = domain[4]
+                }
+                outputData.push({
+                    "domain": type,
+                    "name": i,
+                    "options": option
+                });
+            }
+            //@TODO: vadlidation in TextArea as well as Responsive
+            console.log("domains=", domain);
+            console.log("domain names=", domainName);
+            $scope.dataModel.attributes = outputData;
+        }
+
+        function parseString(data) {
+            if ((typeof data) === 'string') {
+                data = JSON.parse(data);
+                return data;
+            }
+
+        }
+>>>>>>> afc4df8f14be6e2686001bae7e958e0a83978403
         $log.info("datamodeldefinationController is registered");
     }]);

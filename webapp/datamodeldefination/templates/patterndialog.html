@@ -1,0 +1,18 @@
+<div layout-gt-xs="row" layout-xs="column">
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <h3>Define new pattern</h3>
+        </div>
+    </md-toolbar>
+</div>
+<form ng-submit="save()">
+    <datamill-model model-name="New" attrs="dataModelStructure" form-title="Patterns"> </datamill-model>
+    <div layout="row" layout-align="end center">
+        <md-button class="md-ink-ripple md-raised md-accent " ng-click="cancel()">
+            Cancel
+        </md-button>
+        <md-button type="submit " class="md-ink-ripple md-raised md-primary">
+            Save
+        </md-button>
+    </div>
+</form>

@@ -1,56 +1,56 @@
 angular.module('datamill')
-  .component('datamillModel', {
-    bindings: {
-      formTitle: "@?",
-      modelName: "<",
-      attrs: "<",
-      onUpdate: '&',
-      fileSrcInclude: "@?"
-    },
-    templateUrl: '/datamodeldefination/templates/datamillModel.html',
-    controller: datamillModelController,
-    transclude: true
-  });
+    .component('datamillModel', {
+        bindings: {
+            formTitle: "@?",
+            modelName: "<",
+            attrs: "<",
+            onUpdate: '&',
+            fileSrcInclude: "@?"
+        },
+        templateUrl: '/datamodeldefination/templates/datamillModel.html',
+        controller: datamillModelController,
+        transclude: true
+    });
 
 function datamillModelController($scope, listDomainFactory, $element, $transclude, $log) {
-  var ctrl = this;
-  // getting the domain list from server
+    var ctrl = this;
+    // getting the domain list from server
 
-  listDomainFactory.getAllDomain().then(function(res) {   
-    ctrl.domain = res;
-    ctrl.domainName = ctrl.domain.map(function(d) {
-      return d.name;
-    });   
-  }, function(res) { $log.info("failed to get"); });
-  //datamodeldefinationservice.getAttrType().then(function(res) {    ctrl.attrtype = res;    }, function(res) { $log.info("failed to get"); });
-  ctrl.add = function() {
-      if (ctrl.attrs.length) {
-        //console.log(ctrl.attrs[ctrl.attrs.length - 1]['name'])
-        if (ctrl.attrs[ctrl.attrs.length - 1]['name'] === "" || ctrl.attrs[ctrl.attrs.length - 1]['name'] === null || ctrl.attrs[ctrl.attrs.length - 1]['name'] == undefined) return;
-        if (ctrl.attrs[ctrl.attrs.length - 1]['domain'] === "" || ctrl.attrs[ctrl.attrs.length - 1]['domain'] == null || ctrl.attrs[ctrl.attrs.length - 1]['domain'] == undefined) return;
-      }
-      ctrl.attrs.push({});
-    }
-    /*it will remove the one attribute from datamilldomain */
-  ctrl.remove = function(index) {
-      ctrl.attrs.splice(index, 1);
-    }
-    //md-autocomplete supporting function
+    listDomainFactory.getAllDomain().then(function(res) {   
+        ctrl.domain = res;
+        ctrl.domainName = ctrl.domain.map(function(d) {
+            return d.name;
+        });   
+    }, function(res) { $log.info("failed to get"); });
 
-  ctrl.querySearch = function querySearch(query) {
-    var results = query ? ctrl.domainName.filter(createFilterFor(query)) : ctrl.domainName;
-    return results;
-  };
-  ctrl.selectedItemChange = function(item, index) {
-    ctrl.attrs[index]['options'] = ctrl.domain[ctrl.domainName.indexOf(item)];
-    console.log("now attributes are", ctrl.attrs);
-  }
+    ctrl.add = function() {
+            if (ctrl.attrs.length) {
+                //console.log(ctrl.attrs[ctrl.attrs.length - 1]['name'])
+                if (ctrl.attrs[ctrl.attrs.length - 1]['name'] === "" || ctrl.attrs[ctrl.attrs.length - 1]['name'] === null || ctrl.attrs[ctrl.attrs.length - 1]['name'] == undefined) return;
+                if (ctrl.attrs[ctrl.attrs.length - 1]['domain'] === "" || ctrl.attrs[ctrl.attrs.length - 1]['domain'] == null || ctrl.attrs[ctrl.attrs.length - 1]['domain'] == undefined) return;
+            }
+            ctrl.attrs.push({});
+        }
+        /*it will remove the one attribute from datamilldomain */
+    ctrl.remove = function(index) {
+            ctrl.attrs.splice(index, 1);
+        }
+        //md-autocomplete supporting function
 
-  function createFilterFor(query) {
-    return function filterFn(domain) {
-      return (domain.toLowerCase().indexOf(query.toLowerCase()) === 0);
+    ctrl.querySearch = function querySearch(query) {
+        var results = query ? ctrl.domainName.filter(createFilterFor(query)) : ctrl.domainName;
+        return results;
     };
-  }
-  $log.info(ctrl.formTitle);
-  $log.info("datamillModelController registered");
+    ctrl.selectedItemChange = function(item, index) {
+        ctrl.attrs[index]['options'] = ctrl.domain[ctrl.domainName.indexOf(item)];
+        console.log("now attributes are", ctrl.attrs);
+    }
+
+    function createFilterFor(query) {
+        return function filterFn(domain) {
+            return (domain.toLowerCase().indexOf(query.toLowerCase()) === 0);
+        };
+    }
+    $log.info(ctrl.formTitle);
+    $log.info("datamillModelController registered");
 }
