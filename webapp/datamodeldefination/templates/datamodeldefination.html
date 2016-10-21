@@ -55,12 +55,15 @@
                     <div ng-repeat="d in dataModel.patterns" flex="" layout="row">
                         <h5 flex="10">{{d.name}}</h5>
                         <md-slider-container flex="80">
-                            <md-slider ng-model="color.blue" min="0" max="100" aria-label="blue" id="blue-slider" class="md-primary" flex-offset="5">
+                            <md-slider ng-model="d.mix" min="0" max="100" aria-label="blue" id="blue-slider" class="md-primary" flex-offset="5">
                             </md-slider>
                             <md-input-container>
-                                <input flex="" type="number" ng-model="color.blue" aria-label="red" aria-controls="red-slider">
+                                <input flex="" type="number" ng-model="d.mix" aria-label="red" aria-controls="red-slider">
                             </md-input-container>
                         </md-slider-container>
+                        <md-button aria-label="edit " class="md-icon-button ">
+                            <md-icon class="material-icons green">mode_edit</md-icon>
+                        </md-button>
                     </div>
                 </div>
                 <div layout="row" layout-align="end center">

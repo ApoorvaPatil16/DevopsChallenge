@@ -145,10 +145,36 @@ angular.module('datamill')
                     clickOutsideToClose: true,
                     fullscreen: $scope.customFullscreen // Only for -xs, -sm breakpoints.
                 })
-                .then(function() {
+                .then(function(result) {
+                    console.log("Data from dialog on save: ", JSON.stringify(result.name));
+                    var mix = null;
+                    var len = 0;
+                    if (!$scope.dataModel.patternstruct) {
+                        $scope.dataModel.patternstruct = [];
+                    }
 
-                }, function() {
+                    $scope.dataModel.patternstruct.push(result);
 
+                    $scope.dataModel.patterns.push({ "name": result.name, "mix": 0 });
+                    if ($scope.dataModel.patterns) {
+                        len = $scope.dataModel.patterns.length;
+                        mixValue = 100 / len;
+                        if ((mixValue % 1) === 0) {
+                            $scope.dataModel.patterns.forEach(function(pattern) {
+                                pattern.mix = mixValue;
+                            })
+                        } else {
+                            var mix = Math.floor(mixValue);
+                            var rem = 100 - (mix * (len - 1));
+                            for (var i = 0; i < (len - 1); i++) {
+                                $scope.dataModel.patterns[i].mix = mix;
+                            }
+                            $scope.dataModel.patterns[len - 1].mix = rem;
+                        }
+                    }
+
+                }, function(result) {
+                    console.log("Data from dialog on cancel: ", result);
                 });
         };
         $scope.uploadJson = function(json) {
@@ -157,7 +183,7 @@ angular.module('datamill')
             var type;
             var count = 0;
             var option;
-            console.log(domain[5]);
+            //console.log(domain[5]);
             for (var i in dataobject) {
                 console.log("value of i=", i);
                 var date = Date.parse(dataobject[i]);
