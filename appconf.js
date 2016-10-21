@@ -8,6 +8,10 @@ module.exports = {
     GOOGLE_SECRET: "Kh_5Yf0pS0ub30e16u4_nB49",
     GOOGLE_URI: "http://localhost:8080",
     GITHUB_CLIENTID: "15ccef8b737c4839249e",
+<<<<<<< HEAD
     GITHUB_SECRET: "196e0ee75fe8854c6f687712d6021a7fb0e01016",
 
+=======
+    GITHUB_SECRET: "196e0ee75fe8854c6f687712d6021a7fb0e01016"
+>>>>>>> 10d255563dde7dccd473f1cd6c52f8e0b9c4a399
 }

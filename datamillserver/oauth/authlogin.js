@@ -16,7 +16,8 @@ authrouter.post('/oauth/github', function(req, res) {
         qs: {
             client_id: appconf.GITHUB_CLIENTID,
             client_secret: appconf.GITHUB_SECRET,
-            code: req.body.code
+            code: req.body.code,
+            redirect_uri: appconf.GITHUB_URI
         }
     };
     request(options, function(error, response, body) {

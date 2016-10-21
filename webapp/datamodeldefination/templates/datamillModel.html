@@ -1,5 +1,4 @@
 <div style="min-height:10px" layout="column" layout-margin="2px">
-    <!-- <h4>{{$ctrl.modelName}}</h4> -->
     <div layout="row">
         <md-subheader class="md-no-sticky">{{$ctrl.formTitle}}</md-subheader>
         <div flex></div>
@@ -7,6 +6,7 @@
     </div>
     <!-- EACH attribute defination-->
     <form>
+        <!-- style="border:1px solid #00ffff;"  -->
         <div ng-repeat="attr in $ctrl.attrs" layout="row" layout-align="none center">
             <div flex="90" layout-gt-sm="row" layout="column" layout-margin="2px">
                 <md-input-container flex-gt-sm="25">

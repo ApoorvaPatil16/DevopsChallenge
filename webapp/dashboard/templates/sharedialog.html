@@ -1,0 +1,41 @@
+<!-- add new -->
+<md-dialog>
+    <form ng-cloak>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>Share Data ......</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="cancel()">
+                    <md-icon aria-label="Close dialog">close</md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content>
+            <div class="md-dialog-content" class="share-buttons">
+                <div id="share-buttons" style="width:350px;height:250px">
+                    <!-- Google+ -->
+                    <a id="googleplus" href="https://plus.google.com/share?url={{shareURL}}" target="_blank ">
+                        <img src="https://simplesharebuttons.com/images/somacro/google.png " alt="Google " />
+                    </a>
+                    <!-- Twitter -->
+                    <a id="twitter" href="https://twitter.com/share?url=https://simplesharebuttons.com&amp;text=Simple%20Share%20Buttons&amp;hashtags=simplesharebuttons " target="_blank ">
+                        <img src="https://simplesharebuttons.com/images/somacro/twitter.png " alt="Twitter " />
+                    </a>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <!-- Facebook -->
+                    <a id="facebook" href="http://www.facebook.com/sharer.php?u=https://datamill.stackroute.in?d=States&u=anishu2011@gmail.com" target="_blank ">
+                        <img src="https://simplesharebuttons.com/images/somacro/facebook.png " alt="Facebook " />
+                    </a>
+                    <!-- Slack -->
+                    <!-- <ng-avatar round-shape="true "></ng-avatar> -->
+                    <a id="slack" href="https://wave9stackroute.slack.com/share?url={{shareURL}}" target="_blank ">
+                        <img style="height:50px;width:50px " src="/assets/images/slackicon.jpg "></img>
+                    </a>
+                </div>
+            </div>
+        </md-dialog-content>
+    </form>
+</md-dialog>

@@ -59,6 +59,14 @@ var datamodelProcessor = {
                     docs.push({ name: pattern.name, email: email, datamodelname: object.name, attributes: object.attributes })
                 });
             }
+            // object.structname = object.name;
+            // object.email = email;
+            // var docs = [];
+            // docs.push({ name: object.name, email: email, datamodelname: object.name, attributes: object.attributes }) if (object.patternstruct) {
+            //     object.patternstruct.forEach(function(pattern) {
+            //         docs.push({ name: pattern.name, email: email, datamodelname: object.name, attributes: pattern.attributes })
+            //     });
+            // }
             datamodelstructure.insertMany(docs, function(err, docs) {
 
                 if (err) {
@@ -87,7 +95,11 @@ var datamodelProcessor = {
                 object.email = email;
                 var datamodeldata = new datamodelModel(object);
                 var docs = [];
+<<<<<<< HEAD
                 console.log("Data : " + JSON.stringify(object.attributes));
+=======
+                // docs.push({ name: object.name, email: email, datamodelname: object.name, attributes: object.attributes })
+>>>>>>> 10d255563dde7dccd473f1cd6c52f8e0b9c4a399
                 //Create a default or primary pattern of the datamodel 
                 docs.push({
                     name: object.name,
@@ -95,12 +107,15 @@ var datamodelProcessor = {
                     datamodelname: object.name,
                     attributes: object.attributes
                 });
+<<<<<<< HEAD
 
                 /*if(object.attributes){
                     object.attributes.forEach(function(attributes){
 
                     })
                 }*/
+=======
+>>>>>>> 10d255563dde7dccd473f1cd6c52f8e0b9c4a399
                 if (object.patternstruct) {
                     object.patternstruct.forEach(function(pattern) {
                         docs.push({ name: pattern.name, email: email, datamodelname: object.name, attributes: object.attributes })

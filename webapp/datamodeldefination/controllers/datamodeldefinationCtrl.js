@@ -20,7 +20,11 @@ angular.module('datamill')
                 $scope.dataModel = $stateParams.dataModel;
                 updateMaster($scope.dataModel);
                 datamodeldefinationservice.getStructure($stateParams.datamodelname).then(function(res) {
+
+
+
                     console.log("Here we getting getStructure", res);
+
                     if (res && res.attributes[0]) $scope.dataModel.attributes = res.attributes;
                     else $scope.dataModel.attributes = [];
                     updateMaster($scope.dataModel);
@@ -37,8 +41,11 @@ angular.module('datamill')
                 "name": '',
                 "description": '',
                 "attributes": [],
+
+
                 "patterns": [],
                 "patternstruct": [],
+
                 "username": "vishal"
             }
             updateMaster($scope.dataModel);
@@ -51,6 +58,7 @@ angular.module('datamill')
         }
         /*Getting Data Model Input config*/
         datamodeldefinationservice.getDataModelConfig().then(function(res) { $scope.datamodelconf = res;    });
+
         // Adding Attributes Variable for on Fly showing
         $scope.addAttribute = function(attr) {
             console.log("me inside save main have data:" + attr);
@@ -85,7 +93,12 @@ angular.module('datamill')
             console.log("dataModel we request for edit", $scope.dataModel);
             if ($stateParams.datamodelname) {
                 datamodeldefinationservice.patchDataModel($scope.dataModel, $stateParams.datamodelname).then(function(res) {
+
+                        console.log("AA", res);
+                        console.log("stateParams", $stateParams.datamodelname);
+
                         console.log(res);
+
                         showSuccessAlert(res.name);
                     },
                     function(res) {
@@ -132,6 +145,7 @@ angular.module('datamill')
                     alert = undefined;
                 });
         }
+
 
         $scope.showDialog = function(ev) {
             $mdDialog.show({
