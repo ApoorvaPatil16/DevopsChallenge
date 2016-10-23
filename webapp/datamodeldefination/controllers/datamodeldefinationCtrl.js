@@ -20,7 +20,11 @@ angular.module('datamill')
                 $scope.dataModel = $stateParams.dataModel;
                 updateMaster($scope.dataModel);
                 datamodeldefinationservice.getStructure($stateParams.datamodelname).then(function(res) {
+
+
+
                     console.log("Here we getting getStructure", res);
+
                     if (res && res.attributes[0]) $scope.dataModel.attributes = res.attributes;
                     else $scope.dataModel.attributes = [];
                     updateMaster($scope.dataModel);
@@ -37,8 +41,11 @@ angular.module('datamill')
                 "name": '',
                 "description": '',
                 "attributes": [],
+
+
                 "patterns": [],
                 "patternstruct": [],
+
                 "username": "vishal"
             }
             updateMaster($scope.dataModel);
@@ -51,6 +58,7 @@ angular.module('datamill')
         }
         /*Getting Data Model Input config*/
         datamodeldefinationservice.getDataModelConfig().then(function(res) { $scope.datamodelconf = res;    });
+
         // Adding Attributes Variable for on Fly showing
         $scope.addAttribute = function(attr) {
             console.log("me inside save main have data:" + attr);
@@ -85,7 +93,12 @@ angular.module('datamill')
             console.log("dataModel we request for edit", $scope.dataModel);
             if ($stateParams.datamodelname) {
                 datamodeldefinationservice.patchDataModel($scope.dataModel, $stateParams.datamodelname).then(function(res) {
+
+                        console.log("AA", res);
+                        console.log("stateParams", $stateParams.datamodelname);
+
                         console.log(res);
+
                         showSuccessAlert(res.name);
                     },
                     function(res) {
@@ -133,6 +146,7 @@ angular.module('datamill')
                 });
         }
 
+
         $scope.showDialog = function(ev) {
             $mdDialog.show({
                     controller: 'patterndialogCtrl',
@@ -145,10 +159,36 @@ angular.module('datamill')
                     clickOutsideToClose: true,
                     fullscreen: $scope.customFullscreen // Only for -xs, -sm breakpoints.
                 })
-                .then(function() {
+                .then(function(result) {
+                    console.log("Data from dialog on save: ", JSON.stringify(result.name));
+                    var mix = null;
+                    var len = 0;
+                    if (!$scope.dataModel.patternstruct) {
+                        $scope.dataModel.patternstruct = [];
+                    }
 
-                }, function() {
+                    $scope.dataModel.patternstruct.push(result);
 
+                    $scope.dataModel.patterns.push({ "name": result.name, "mix": 0 });
+                    if ($scope.dataModel.patterns) {
+                        len = $scope.dataModel.patterns.length;
+                        mixValue = 100 / len;
+                        if ((mixValue % 1) === 0) {
+                            $scope.dataModel.patterns.forEach(function(pattern) {
+                                pattern.mix = mixValue;
+                            })
+                        } else {
+                            var mix = Math.floor(mixValue);
+                            var rem = 100 - (mix * (len - 1));
+                            for (var i = 0; i < (len - 1); i++) {
+                                $scope.dataModel.patterns[i].mix = mix;
+                            }
+                            $scope.dataModel.patterns[len - 1].mix = rem;
+                        }
+                    }
+
+                }, function(result) {
+                    console.log("Data from dialog on cancel: ", result);
                 });
         };
         $scope.uploadJson = function(json) {
@@ -157,7 +197,7 @@ angular.module('datamill')
             var type;
             var count = 0;
             var option;
-            console.log(domain[5]);
+            //console.log(domain[5]);
             for (var i in dataobject) {
                 console.log("value of i=", i);
                 var date = Date.parse(dataobject[i]);

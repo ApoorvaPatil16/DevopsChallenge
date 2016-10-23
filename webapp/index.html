@@ -2,6 +2,11 @@
 
 <head>
     <!-- @TODO: Add meta tags for SEO -->
+    <!-- <meta property="og:url" content="http://datamill.stackroute.in/#/datamill" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="DataMill" />
+    <meta property="og:image" content="assests/images/CaptureLogo.PNG" />
+    <meta property="og:description" description="The DataMill is a time series data generator" /> -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>datamill.io</title>
     <!-- Vendor Styles -->
@@ -15,6 +20,7 @@
 </head>
 
 <body ng-app="datamill" ng-controller="datamillCtrl" ng-cloak>
+    <base href="/">
     <div ui-view="appBar"></div>
     <div ui-view="content" class="main-content"></div>
     <div ui-view="footer"></div>
@@ -53,6 +59,9 @@
 <script src="/datamodeldefination/controllers/patterndialogCtrl.js"></script>
 <script src="/datamodeldefination/datafeed/services/datafeedservice.js"></script>
 <script src="/datamodeldefination/datafeed/controllers/datafeedcontroller.js"></script>
+<script src="/datamillshare/datamillshare.module.js"></script>
+<script src="/datamillshare/controllers/datamillshareCtrl.js"></script>
+<script src="/datamillshare/services/datamillshareservice.js"></script>
 <script src="/dashboard/dashboard.module.js"></script>
 <script src="/dashboard/controllers/dashboardCtrl.js"></script>
 <script src="/dashboard/services/listdatamodelsservice.js"></script>
