@@ -1,6 +1,6 @@
 module.exports = {
     MONGO_HOST: process.env.MONGO_HOST || "mongodb://localhost",
-    MONGO_PORT: process.env.MONGO_PORT || 27017,
+    MONGO_PORT: process.env.MONGO_PORT || 27018,
     MONGO_DB: "datamill_demo_1",
     REDIS_HOST: process.env.REDIS_HOST || "localhost",
     REDIS_POST: process.env.REDIS_POST || 6379,
@@ -9,4 +9,6 @@ module.exports = {
     GOOGLE_URI: "http://localhost:8080",
     GITHUB_CLIENTID: "15ccef8b737c4839249e",
     GITHUB_SECRET: "196e0ee75fe8854c6f687712d6021a7fb0e01016"
+
+
 }

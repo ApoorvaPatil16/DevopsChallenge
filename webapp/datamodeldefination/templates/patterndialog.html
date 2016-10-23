@@ -6,6 +6,12 @@
     </md-toolbar>
 </div>
 <form ng-submit="save()">
+    <div layout-gt-sm="row" layout="column" layout-margin="2px">
+        <md-input-container flex-gt-sm="20">
+            <label>Name</label>
+            <input ng-model="patterns.name" required>{{patterns.name}}
+        </md-input-container>
+    </div>
     <datamill-model model-name="New" attrs="dataModelStructure" form-title="Patterns"> </datamill-model>
     <div layout="row" layout-align="end center">
         <md-button class="md-ink-ripple md-raised md-accent " ng-click="cancel()">
