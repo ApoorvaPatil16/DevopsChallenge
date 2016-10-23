@@ -5,6 +5,7 @@ var morgan = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var appconf = require('./appconf');
+
 // var jsonServer = require('json-server');
 var mongoose = require('mongoose');
 mongoose.connect(appconf.MONGO_HOST + ":" + appconf.MONGO_PORT + "/" + appconf.MONGO_DB);
@@ -20,10 +21,11 @@ var profile_router = require('./datamillserver/users/profile_router');
 var validate = require('./datamillserver/datasource/validate');
 var dataSourceCache = require('./generatorloops/dataSourceCache');
 var scheduledatasrc = require('./generatorloops/schedulestart');
+var datausage_router = require('./datamillserver/datausage/datausageRouter');
 //Express App created
 var app = express();
 dataSourceCache.startBufferring();
-//scheduledatasrc.scheduledatasource();
+//scheduledatasrc.sdatamodecheduledatasource();
 app.onAppStart = function(addr) {
     // logger.info("DataMill web app is now Running on port:",addr.port);
 }
@@ -49,6 +51,7 @@ app.post('/login', function(req, res) {
 });
 app.use('/', oauth_router);
 app.use('/datamodel', isAuthenticated, datamodeldefination);
+app.use('/stats', isAuthenticated, datausage_router);
 app.use(function(req, res, next) {
     var err = new Error('Resource not found');
     err.status = 404;

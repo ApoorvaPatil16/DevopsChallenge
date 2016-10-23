@@ -205,8 +205,36 @@ md-list-item._md-button-wrap>div.md-button:first-child ._md-list-item-inner {
     height: 250;
 }
 
+.stats-card {
+    width: 200;
+    height: 200;
+    background-color: black;
+    opacity: 0.9;
+    margin-left: 10;
+    margin-bottom: 5;
+    margin-top: 20;
+    color: white;
+    text-align: left;
+    text-align: left;
+}
 
-/*.text-area {
-    min-height: 700px;
+.stats-card p {
+    font-size: 28;
+    margin-top: 8;
+    margin-left: 15;
+    margin-bottom: 0;
+}
+
+.stats-card span {
+    margin-top: 0;
+    color: white;
+    margin-left: 15;
+    font-size: 100;
+}
+
+
+/*.numbers {
+    font-family: 'Open Sans Condensed';
+    font-size: 56;
 }
 */
