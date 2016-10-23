@@ -1,1 +1,11 @@
-<h1>This is share data model page<h1>
+<h1>Copying shared {{sharedEntityName}} <h1>
+
+<h3 ng-if="errorMessage" style='color:red'>{{errorMessage}}</h3>
+
+<h3> This was shared by : {{ownerName}}</h3>
+
+<h3> This was shared for : {{entityType}} </h3>
+
+<h3> The instance shared was : {{entityName}} </h3>
+
+<h3> This was shared on : {{sharedDate}} </h3>

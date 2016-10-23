@@ -6,36 +6,12 @@ angular.module('datamill', ['ngMaterial',
     'satellizer'
 ])
 
-.controller('datamillCtrl', ['$scope', '$state', '$auth', '$rootScope', '$location', 'profileservice', '$mdDialog',
-    function($scope, $state, $auth, $rootScope, $location, profileservice, $mdDialog) {
+.controller('datamillCtrl', ['$scope', '$state', '$auth', '$rootScope', '$location',
+    'profileservice', '$mdDialog', 'datamillshareservice',
+    function($scope, $state, $auth, $rootScope, $location, profileservice, $mdDialog, datamillshareservice) {
         $scope.isAuthenticated = function() {
             return $auth.isAuthenticated();
         };
-
-        $scope.isDataModelShareAccess = function() {
-            //Check if the user landed on datamill for accessing the shared data model
-            //This can be checked by inspecting the search string for the appropraite query parameter
-            var query = $location.search();
-            var queryParam1 = query['d'];
-            var queryParam2 = query['u'];
-            //         console.log(queryParam1);
-            console.log("Host ", $location.host());
-            console.log("Path ", $location.path());
-            console.log("Search string ", $location.search());
-
-            if ((queryParam1 != null) && (queryParam2 != null)) {
-                console.log("queryParam1", queryParam1);
-                console.log("queryParam1", queryParam2);
-                return (true);
-
-
-            } else {
-
-                console.log("error");
-            }
-
-
-        }
 
         function showAlert(error) {
             alert = $mdDialog.alert()
@@ -56,6 +32,7 @@ angular.module('datamill', ['ngMaterial',
                     profileservice.getProfile().then(function(res) {
                         $scope.user = res;
                     })
+                    console.log("inside authenticate function go to dashboard");
                     $state.go('datamill.dashboard');
                 }).catch(function(err) {
                     console.log(err);
@@ -72,9 +49,9 @@ angular.module('datamill', ['ngMaterial',
 
         if ($scope.isAuthenticated()) {
             //$state.go('datamill.dashboard');
-
-            if ($scope.isAuthenticated() && $scope.isDataModelShareAccess()) {
-                $state.go('datamill.datamodelshare');
+            var shareURLParams = datamillshareservice.isSharedURLAccess();
+            if (shareURLParams) {
+                $state.go('datamill.datamillshare', shareURLParams);
             } else {
                 $state.go('datamill');
             }
@@ -86,7 +63,6 @@ angular.module('datamill', ['ngMaterial',
             $scope.user = res;
         })
         $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState) {
-            console.log("inside state change");
             if (toState.name == 'datamill') {
                 return;
             }
