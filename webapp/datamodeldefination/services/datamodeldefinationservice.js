@@ -67,11 +67,15 @@ angular.module('datamill')
                         'content-type': "aplication/json"
                     }).then(function(res) {
                         resolve(res.data);
+                        // console.log(res.data, "mine");
+
                     }, function() {
                         reject("unable to create datamodel");
                     });
                 })
             },
+
+
             //request to update the data in database
             patchDataModel: function(patchData, datamodelname) {
                 return $q(function(resolve, reject) {
@@ -90,4 +94,5 @@ angular.module('datamill')
                 })
             }
         }
+
     });

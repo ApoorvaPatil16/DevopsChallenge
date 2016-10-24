@@ -20,11 +20,7 @@ angular.module('datamill')
                 $scope.dataModel = $stateParams.dataModel;
                 updateMaster($scope.dataModel);
                 datamodeldefinationservice.getStructure($stateParams.datamodelname).then(function(res) {
-
-
-
                     console.log("Here we getting getStructure", res);
-
                     if (res && res.attributes[0]) $scope.dataModel.attributes = res.attributes;
                     else $scope.dataModel.attributes = [];
                     updateMaster($scope.dataModel);
@@ -41,12 +37,9 @@ angular.module('datamill')
                 "name": '',
                 "description": '',
                 "attributes": [],
-
-
                 "patterns": [],
                 "patternstruct": [],
-
-                "username": "vishal"
+                "username": "lokesh"
             }
             updateMaster($scope.dataModel);
             $scope.isedit = false;
@@ -93,12 +86,6 @@ angular.module('datamill')
             console.log("dataModel we request for edit", $scope.dataModel);
             if ($stateParams.datamodelname) {
                 datamodeldefinationservice.patchDataModel($scope.dataModel, $stateParams.datamodelname).then(function(res) {
-
-                        console.log("AA", res);
-                        console.log("stateParams", $stateParams.datamodelname);
-
-                        console.log(res);
-
                         showSuccessAlert(res.name);
                     },
                     function(res) {
@@ -146,7 +133,33 @@ angular.module('datamill')
                 });
         }
 
+        $scope.showAdvanced = function(ev, object) {
+            var array = $scope.dataModel.patternstruct;
+            var len = array.length;
+            for (var i = 0; i < len; i++) {
+                if (array[i].name == object.name) {
+                    $scope.val = array[i];
+                    break;
+                }
+            }
+            $mdDialog.show({
+                controller: 'editPatternCtrl',
+                templateUrl: '/datamodeldefination/templates/editpattern.html',
+                locals: {
+                    object: object,
+                    patternattributes: $scope.val.attributes
+                },
+                parent: angular.element(document.body),
+                targetEvent: ev,
+                clickOutsideToClose: true,
+                fullscreen: $scope.customFullscreen
+            }).then(function(result) {
+                console.log("data from dialog", result);
 
+            }, function(result) {
+
+            });
+        };
         $scope.showDialog = function(ev) {
             $mdDialog.show({
                     controller: 'patterndialogCtrl',
@@ -160,15 +173,12 @@ angular.module('datamill')
                     fullscreen: $scope.customFullscreen // Only for -xs, -sm breakpoints.
                 })
                 .then(function(result) {
-                    console.log("Data from dialog on save: ", JSON.stringify(result.name));
                     var mix = null;
                     var len = 0;
                     if (!$scope.dataModel.patternstruct) {
                         $scope.dataModel.patternstruct = [];
                     }
-
-                    $scope.dataModel.patternstruct.push(result);
-
+                    $scope.dataModel.patternstruct.push({ "name": result.name, "attributes": result.structure });
                     $scope.dataModel.patterns.push({ "name": result.name, "mix": 0 });
                     if ($scope.dataModel.patterns) {
                         len = $scope.dataModel.patterns.length;
@@ -191,6 +201,7 @@ angular.module('datamill')
                     console.log("Data from dialog on cancel: ", result);
                 });
         };
+
         $scope.uploadJson = function(json) {
             var dataobject = parseString(json);
             var outputData = [];

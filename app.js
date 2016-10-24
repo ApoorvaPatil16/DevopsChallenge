@@ -9,6 +9,7 @@ var appconf = require('./appconf');
 var mongoose = require('mongoose');
 mongoose.connect(appconf.MONGO_HOST + ":" + appconf.MONGO_PORT + "/" + appconf.MONGO_DB);
 var datamodeldefination = require('./datamillserver/datamodel/datamodel_router');
+
 //APP logger
 // var logger = require("./applogger");
 var nav_router = require('./datamillserver/nav_router');
@@ -49,6 +50,7 @@ app.post('/login', function(req, res) {
 });
 app.use('/', oauth_router);
 app.use('/datamodel', isAuthenticated, datamodeldefination);
+
 app.use(function(req, res, next) {
     var err = new Error('Resource not found');
     err.status = 404;

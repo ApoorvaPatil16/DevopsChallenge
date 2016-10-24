@@ -115,6 +115,21 @@ datamodel_router.get('/conf', function(req, res) {
     };
     return res.status(200).send(data);
 })
+// datamodel_router.post('/patterns/:modelname', function(req, res) {
+            //     console.log("patterns", req.body);
+            //     try {
+            //         datamodelProcessor.datamodelpost(req.email, req.body, function(code, result) {
+            //             return res.status(code).send(result);
+            //         }, function(code, err) {
+            //             return res.status(code).send({ error: err });
+            //         })
+            //     } catch (exception) {
+            //         return res.status(500).send({ error: "Internal server error" });
+            //     }
+            // })
+
+
+
 datamodel_router.post('/', function(req, res) {
     try {
         datamodelProcessor.datamodelpost(req.email, req.body, function(code, result) {
