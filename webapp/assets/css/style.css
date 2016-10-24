@@ -221,16 +221,45 @@ md-list-item._md-button-wrap>div.md-button:first-child ._md-list-item-inner {
     height: 250;
 }
 
+<<<<<<< HEAD
 #name {
     padding-top: 30px;
 }
 
 #pattern {
     padding-top: 40px;
+=======
+.stats-card {
+    width: 200;
+    height: 200;
+    background-color: black;
+    opacity: 0.9;
+    margin-left: 10;
+    margin-bottom: 5;
+    margin-top: 20;
+    color: white;
+    text-align: left;
+    text-align: left;
+}
+
+.stats-card p {
+    font-size: 28;
+    margin-top: 8;
+    margin-left: 15;
+    margin-bottom: 0;
+}
+
+.stats-card span {
+    margin-top: 0;
+    color: white;
+    margin-left: 15;
+    font-size: 100;
+>>>>>>> 3b071d4b76ace734126dac226f4ee3eda674be52
 }
 
 
-/*.text-area {
-    min-height: 700px;
+/*.numbers {
+    font-family: 'Open Sans Condensed';
+    font-size: 56;
 }
 */

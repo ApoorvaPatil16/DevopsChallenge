@@ -1,6 +1,6 @@
 module.exports = {
     MONGO_HOST: process.env.MONGO_HOST || "mongodb://localhost",
-    MONGO_PORT: process.env.MONGO_PORT || 27018,
+    MONGO_PORT: process.env.MONGO_PORT || 27017,
     MONGO_DB: "datamill_demo_1",
     REDIS_HOST: process.env.REDIS_HOST || "localhost",
     REDIS_POST: process.env.REDIS_POST || 6379,

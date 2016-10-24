@@ -25,8 +25,7 @@ datasource_router.post('/', function(req, res) {
     }
 });
 datasource_router.patch('/', function(req, res) {
-    try 
-    {
+    try {
         req.body.email = req.email;
         datasourceProcessor.patchDataSource(req.body, function(success) {
             res.status(201).json(success);
@@ -34,8 +33,7 @@ datasource_router.patch('/', function(req, res) {
             console.log("error occurred in errorcallback from patching datasource");
             res.status(501).json({ error: "Internal Server Error in patching" });
         });
-    } catch (error) 
-    {
+    } catch (error) {
         console.log("error occurred in patching data source");
         res.status(500).json({ error: "Internal Error Recorded" });
     }
@@ -54,4 +52,18 @@ datasource_router.get('/', function(req, res) {
         res.status(500).json({ error: "Internal Error Recorded" });
     }
 });
+// datasource_router.get('/email', function(req, res) {
+//     console.log("getting the data", email);
+//     try {
+//         datasourceSchema.find({ email: req.email }, function(err, result) {
+//             if (err) return errorcallback(err);
+//             return successcallback(result);
+//             console.log("email of user is =", email);
+//         });
+
+//     } catch (err) {
+//         console.log("error", err);
+//     }
+
+// });
 module.exports = datasource_router;

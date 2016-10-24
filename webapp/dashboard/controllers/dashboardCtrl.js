@@ -1,121 +1,110 @@
 angular.module('datamill')
-    .controller('dashboardCtrl', ['$mdDialog', '$scope', '$http', '$log', 'listDataModelsService', 'datamodeldefinationservice', '$location', function($mdDialog, $scope, $http, $log, listDataModelsService, datamodeldefinationservice, $location) {
-        listDataModelsService.getDatamodelsList().then(function(res) {
-            console.log(res);
-            $scope.datamodel = res;
-            $scope.datamodel.forEach(function(obj, i) {
-                datamodeldefinationservice.getStructure(obj.name).then(function(res) {
-                    if (res && res.attributes[0]) $scope.datamodel[i]['attributes'] = res.attributes;
-                    else $scope.datamodel[i]['attributes'] = [];
-                })
-            })
-        });
-        //console.log($scope.datamodel);
-        $scope.searchAll = function() {
-            $scope.count = 0;
-            $scope.status = true;
+    .controller('dashboardCtrl', ['$mdDialog', '$scope', '$http', '$log',
+        'listDataModelsService', 'datamodeldefinationservice',
+        'datamillshareservice',
+        function($mdDialog, $scope, $http, $log, listDataModelsService, datamodeldefinationservice, datamillshareservice) {
             listDataModelsService.getDatamodelsList().then(function(res) {
+                console.log(res);
                 $scope.datamodel = res;
                 $scope.datamodel.forEach(function(obj, i) {
                     datamodeldefinationservice.getStructure(obj.name).then(function(res) {
-                        if (res && res.attributes[0]) $scope.dataModel[i]['attributes'] = res.attributes;
-                        else $scope.dataModel[i]['attributes'] = [];
+                        if (res && res.attributes[0]) $scope.datamodel[i]['attributes'] = res.attributes;
+                        else $scope.datamodel[i]['attributes'] = [];
                     })
                 })
-            })
-        }
-
-        $scope.searchDataFunction = function() {
-            $scope.count = 0;
-            $scope.status = true;
-            listDataModelsService.getDatamodelSearch($scope.searchData).then(function(res) {
-                $scope.datamodel = res;
-
-            })
-        }
-        $scope.searchInputFunction = function() {
-            $scope.searchData = "";
-            $scope.closeStyle = {
-                'background': 'rgb(221,240,221)'
+            });
+            //console.log($scope.datamodel);
+            $scope.searchAll = function() {
+                $scope.count = 0;
+                $scope.status = true;
+                listDataModelsService.getDatamodelsList().then(function(res) {
+                    $scope.datamodel = res;
+                    $scope.datamodel.forEach(function(obj, i) {
+                        datamodeldefinationservice.getStructure(obj.name).then(function(res) {
+                            if (res && res.attributes[0]) $scope.dataModel[i]['attributes'] = res.attributes;
+                            else $scope.dataModel[i]['attributes'] = [];
+                        })
+                    })
+                })
             }
+
+            $scope.searchDataFunction = function() {
+                $scope.count = 0;
+                $scope.status = true;
+                listDataModelsService.getDatamodelSearch($scope.searchData).then(function(res) {
+                    $scope.datamodel = res;
+
+                })
+            }
+            $scope.searchInputFunction = function() {
+                $scope.searchData = "";
+                $scope.closeStyle = {
+                    'background': 'rgb(221,240,221)'
+                }
+            }
+            $scope.showDownload = function(ev, datamodel) {
+                $mdDialog.show({
+                        controller: downloadDialogCtrl,
+                        templateUrl: '/dashboard/templates/downloaddialog.html',
+                        locals: {
+                            datamodel: datamodel
+                        },
+                        parent: angular.element(document.body),
+                        targetEvent: ev,
+                        clickOutsideToClose: false,
+                        fullscreen: $scope.customFullscreen
+                    })
+                    .then(function(answer) {
+                        $scope.status = answer;
+                    }, function() {
+                        $log.info('You cancelled the dialog.');
+                    });
+            };
+            $scope.showFeed = function(ev, datamodel) {
+                $mdDialog.show({
+                        controller: feedDialogCtrl,
+                        templateUrl: '/dashboard/templates/feeddialog.html',
+                        locals: {
+                            datamodel: datamodel
+                        },
+                        parent: angular.element(document.body),
+                        targetEvent: ev,
+                        clickOutsideToClose: false,
+                        fullscreen: $scope.customFullscreen
+                    })
+                    .then(function(answer) {
+                        $scope.status = answer;
+                    }, function() {
+                        $log.info('You cancelled the dialog.');
+                    });
+            };
+
+            $scope.showShare = function(ev, datamodel) {
+                var shareURL = datamillshareservice.constructShareURL('dm', datamodel.email, datamodel.name);
+                console.log("sharing datamodel url: ", shareURL);
+                $mdDialog.show({
+                        controller: sharedialogCtrl,
+                        url: '/share',
+                        templateUrl: '/dashboard/templates/sharedialog.html',
+                        locals: {
+                            shareURL: shareURL
+                        },
+                        parent: angular.element(document.body),
+                        targetEvent: ev,
+                        clickOutsideToClose: true,
+                        fullscreen: $scope.customFullscreen
+                    })
+                    .then(function(answer) {
+                        $scope.status = answer;
+                    }, function() {
+                        $log.info('You cancelled the dialog.');
+                    });
+
+
+
+            };
         }
-        $scope.showDownload = function(ev, datamodel) {
-            $mdDialog.show({
-                    controller: downloadDialogCtrl,
-                    templateUrl: '/dashboard/templates/downloaddialog.html',
-                    locals: {
-                        datamodel: datamodel
-                    },
-                    parent: angular.element(document.body),
-                    targetEvent: ev,
-                    clickOutsideToClose: false,
-                    fullscreen: $scope.customFullscreen
-                })
-                .then(function(answer) {
-                    $scope.status = answer;
-                }, function() {
-                    $log.info('You cancelled the dialog.');
-                });
-        };
-        $scope.showFeed = function(ev, datamodel) {
-            $mdDialog.show({
-                    controller: feedDialogCtrl,
-                    templateUrl: '/dashboard/templates/feeddialog.html',
-                    locals: {
-                        datamodel: datamodel
-                    },
-                    parent: angular.element(document.body),
-                    targetEvent: ev,
-                    clickOutsideToClose: false,
-                    fullscreen: $scope.customFullscreen
-                })
-                .then(function(answer) {
-                    $scope.status = answer;
-                }, function() {
-                    $log.info('You cancelled the dialog.');
-                });
-        };
-
-        $scope.showShare = function(ev, datamodel) {
-
-            //construct the URL
-            //var appBaseURL = $location.protocol() + '://' + $location.host() + ':' + $location.port() + '/';
-            //var appBaseURL = 'http://datamill.stackroute.in';
-            //console.log(appBaseURL);
-            //var appBaseURL = 'http://localhost:8080';
-            //   var shareURL = appBaseURL + '/#/datamill/share?' + '&d=' + datamodel.name + 'u=' + datamodel.email;
-            // var shareURL = '/#/datamill/share?' + '&d=' + datamodel.name + 'u=' + datamodel.email;
-
-            //for FACEBOOK
-            var shareURL = 'https://datamill.stackroute.in?' + 'd=' + datamodel.name + ';u=' + datamodel.email;
-            console.log(shareURL);
-            var myvalue = $location.search();
-            console.log("...................", myvalue);
-
-            // }
-
-            $mdDialog.show({
-                    controller: sharedialogCtrl,
-                    url: '/share',
-                    templateUrl: '/dashboard/templates/sharedialog.html',
-                    locals: {
-                        shareURL: shareURL
-                    },
-                    parent: angular.element(document.body),
-                    targetEvent: ev,
-                    clickOutsideToClose: true,
-                    fullscreen: $scope.customFullscreen
-                })
-                .then(function(answer) {
-                    $scope.status = answer;
-                }, function() {
-                    $log.info('You cancelled the dialog.');
-                });
-
-
-
-        };
-    }]);
+    ]);
 
 function downloadDialogCtrl($scope, $mdDialog, datamodel, datamodeldefinationservice, $filter) {
     $scope.datamodeldialog = angular.copy(datamodel);

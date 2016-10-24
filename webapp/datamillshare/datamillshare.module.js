@@ -3,6 +3,12 @@ angular.module('datamill')
         function($stateProvider, $urlRouterProvider, $locationProvider) {
             $stateProvider.state('datamill.datamillshare', {
                 url: "/datamillshare",
+                params: {
+                    d: null,
+                    e: null,
+                    o: null,
+                    n: null
+                },
                 views: {
                     "content@": {
                         templateUrl: "/datamillshare/templates/datamillshare.html",
@@ -10,6 +16,6 @@ angular.module('datamill')
                     }
                 }
             });
-            // $locationProvider.html5Mode(true);
+            $locationProvider.html5Mode(true);
         }
     ]);

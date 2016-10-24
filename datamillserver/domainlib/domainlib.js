@@ -18,11 +18,10 @@ var schema = new Schema({
         value: { type: String }
     }]
 });
-schema.index(
-{
-	email:1,
-	name:1
-},{
-	unique:true
+schema.index({
+    email: 1,
+    name: 1
+}, {
+    unique: true
 });
 module.exports = mongoose.model('DomainLib', schema, 'domainlibs');
