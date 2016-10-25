@@ -39,7 +39,7 @@ var datamodelProcessor = {
             if (err) {
                 return errorCallback(500, err);
             }
-            console.log("result", result)
+            console.log("result", result);
             return successCallback(200, result);
         })
     },
