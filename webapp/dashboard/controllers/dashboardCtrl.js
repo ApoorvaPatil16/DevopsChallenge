@@ -187,7 +187,7 @@ function feedDialogCtrl($scope, $mdDialog, datamodel, datamodeldefinationservice
         console.log("we are with data model:", $scope.datamodeldialog);
         socket.emit('feed', JSON.stringify($scope.datamodeldialog));
         var onEventName = "feed_" + $scope.datamodeldialog.email + "_" + $scope.datamodeldialog.name;
-        console.log('listener name is :', onEventName);
+
         socket.on(onEventName, function(data) {
             console.log("Packets:", data);
             $scope.data.push(data);

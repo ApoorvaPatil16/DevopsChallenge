@@ -97,6 +97,7 @@ footer {
     /*box-shadow: 0 7px 8px -4px rgba(0, 0, 0, 0.2),
       0 13px 19px 2px rgba(0, 0, 0, 0.14),
       0 5px 24px 4px rgba(0, 0, 0, 0.12);*/
+<<<<<<< HEAD
 }
 
 .notification-button {
@@ -258,5 +259,160 @@ md-list-item._md-button-wrap>div.md-button:first-child ._md-list-item-inner {
 
 /*#txtarea::-webkit-placeholder {
     color: red;
+=======
+    }
+    
+    .notification-button {
+        min-width: 0px;
+    }
+    /*Styling for randomdomain.css*/
+    
+    .errorForDomain {
+        color: #ba2e2e;
+    }
+    
+    .domainLibraryContent {
+        margin-top: 10px;
+    }
+    
+    .base-type-style {
+        margin-bottom: 18px;
+    }
+    
+    .domainNameStyle {
+        margin-top: 40px;
+    }
+    
+    .patternStyle {
+        margin-top: 25px;
+    }
+    
+    .contentSettings {
+        max-height: none;
+    }
+    
+    #randomSubheader {
+        padding-left: 20px;
+    }
+    /*Styling for range templates*/
+    
+    .rangeHeading {
+        margin-top: 30px;
+    }
+    
+    .wrap-content {
+        padding: 10%;
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+    }
+    
+    pre {
+        white-space: pre-wrap;
+    }
+    /*Styling for listdomain templates*/
+    
+    .searchBorderStyle {
+        border-radius: 20px;
+        border: 1px solid rgb(47, 85, 47);
+        padding: 5px;
+    }
+    
+    md-list-item._md-button-wrap>div.md-button:first-child ._md-list-item-inner {
+        height: inherit;
+    }
+    
+    #domainListItems {
+        cursor: pointer;
+    }
+    
+    #domainListItems md-list-item {
+        padding-top: 10px;
+    }
+    
+    .searchInput {
+        border: none;
+        background: none;
+        width: 80%;
+    }
+    
+    .searchInput:focus {
+        outline: none;
+    }
+    /*Styling for real domain template*/
+    
+    #realSubheader {
+        padding-left: 20px;
+    }
+    
+    .material-icons.green {
+        color: #5BA45B;
+    }
+    
+    #datamillHeading {
+        cursor: pointer;
+    }
+    
+    #googleplus {
+        padding-left: 50px;
+    }
+    
+    #twitter {
+        padding-left: 90px;
+    }
+    
+    #facebook {
+        padding-left: 50px;
+    }
+    
+    #slack {
+        padding-left: 90px;
+    }
+    
+    .card {
+        height: 400;
+    }
+    
+    .card-content {
+        height: 250;
+    }
+    
+    #name {
+        padding-top: 30px;
+    }
+    
+    #pattern {
+        padding-top: 40px;
+    }
+    
+    .stats-card {
+        width: 200;
+        height: 200;
+        background-color: black;
+        opacity: 0.9;
+        margin-left: 10;
+        margin-bottom: 5;
+        margin-top: 20;
+        color: white;
+        text-align: left;
+        text-align: left;
+    }
+    
+    .stats-card p {
+        font-size: 28;
+        margin-top: 8;
+        margin-left: 15;
+        margin-bottom: 0;
+    }
+    
+    .stats-card span {
+        margin-top: 0;
+        color: white;
+        margin-left: 15;
+        font-size: 100;
+    }
+    /*.numbers {
+    font-family: 'Open Sans Condensed';
+    font-size: 56;
+>>>>>>> 0bca1e56b107009b44e01b0d2ff53b179b7170af
 }
 */

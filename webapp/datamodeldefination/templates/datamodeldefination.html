@@ -27,7 +27,6 @@
                         </div>
                     </md-input-container flex-gt-xs="20">
                     <md-switch ng-model="dataModel.ispublic" aria-label="Switch 1">
-                        visible to all
                     </md-switch>
                 </div>
                 <md-input-container>
@@ -95,12 +94,18 @@
         </form>
     </div>
     <div flex-gt-md="30" class="md-whiteframe-3dp" style="max-height:none;" layout="column" layout-padding="20px" layout-padding-top="20px">
+<<<<<<< HEAD
+        <!-- <div> -->
+=======
+>>>>>>> aa4e15d7b215bd3e60f9fcea3ffb6252167c0568
         <md-input-container>
             <textarea ng-model="uploadjsontext" style="min-height:500;" name="textarea" required area-invalid="true" placeholder="PASTE JSON DATA">
             </textarea>
         </md-input-container>
+        <!-- </div> -->
         <div layout="row" layout-align="center center">
             <md-button class="md-raised" ng-click=" uploadJson(uploadjsontext)">parse</md-button>
         </div>
     </div>
+</div>
 </div>
