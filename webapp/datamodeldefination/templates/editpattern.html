@@ -1,20 +1,18 @@
 <div layout-gt-xs="row" layout-xs="column">
     <md-toolbar>
         <div class="md-toolbar-tools">
-            <h3>Define new pattern</h3>
+            <h3>Edit  pattern</h3>
         </div>
     </md-toolbar>
 </div>
 <form ng-submit="Okay()">
-    <div layout-gt-sm="row" layout="column" layout-margin="2px" id="pattern">
+    <div layout-gt-sm="row" layout="column" layout-margin="2px" id="name">
         <md-input-container flex-gt-sm="20">
             <label>Name</label>
-            <input ng-model="patterns.name" required>
+            <input ng-model="patternName" required>
         </md-input-container>
     </div>
-    <div>
-        <datamill-model id="pattern" model-name="New" attrs="patternstruct" form-title="Patterns"> </datamill-model>
-    </div>
+    <datamill-model id="pattern" model-name="edit" attrs="patternStructure" form-title="Patterns"> </datamill-model>
     <div layout="row" layout-align="end center">
         <md-button class="md-ink-ripple md-raised md-accent " ng-click="cancel()">
             Cancel

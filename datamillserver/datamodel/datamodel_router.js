@@ -19,9 +19,15 @@ datamodel_router.get('/', function(req, res) {
         return res.status(500).send({ error: "Internal server error", 'exception': exception });
     }
 });
+<<<<<<< HEAD
 datamodel_router.get('/fulldatamodel/:datamodelname/:email', function(req, res) {
+=======
+datamodel_router.get('/fulldatamodel/:datamodelname', function(req, res) {
+
+>>>>>>> d637e05e6388b87abec11e3d53b5d77adfbc2d7d
     try {
         datamodelProcessor.getfulldatamodel(req.email, req.params.datamodelname, function(code, result) {
+            console.log("patternstructure", result);
             return res.status(code).send(result);
         }, function(code, err) {
             return res.status(code).send({ error: err });
@@ -51,6 +57,8 @@ datamodel_router.get('/transporttype', function(req, res) {
 })
 datamodel_router.get('/patterns/:modelname', function(req, res) {
     var query = { datamodelname: req.params.modelname, email: req.email, name: { $ne: req.params.modelname } }
+
+    console.log("patternquery", query);
     try {
         datamodelProcessor.datamodelstructurefind(query, function(code, result) {
             return res.status(code).send(result);
@@ -63,7 +71,11 @@ datamodel_router.get('/patterns/:modelname', function(req, res) {
 });
 datamodel_router.get('/structure/:modelname', function(req, res) {
     var query = { datamodelname: req.params.modelname, email: req.email, name: req.params.modelname }
+<<<<<<< HEAD
         //console.log("QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ", query);
+=======
+
+>>>>>>> d637e05e6388b87abec11e3d53b5d77adfbc2d7d
     try {
         datamodelProcessor.datamodelstructurefind(query, function(code, result) {
             return res.status(code).send(result[0]);
@@ -116,6 +128,7 @@ datamodel_router.get('/conf', function(req, res) {
     };
     return res.status(200).send(data);
 })
+
 datamodel_router.post('/', function(req, res) {
     try {
         datamodelProcessor.datamodelpost(req.email, req.body, function(code, result) {

@@ -19,17 +19,23 @@ angular.module('datamill')
                     //   http://<datamill domain name>?e=<entity name>&o=<owner name>&n=<name of the entity instance>
                     //
                     //   Eg: http://datamill.com?d=1477114395&e=dm&o=ramgraospeeking@gmail.com&n=Name
-                    var shareURL = 'http://localhost:8080?';
+                    var shareURL = 'http://datamill.stackroute.in?';
                     // var hash = makeHash(secret, entityType, ownerName, entityName);
                     // shareURL += '?h=' + hash;
 
                     const dateTime = Date.now();
                     const timestamp = Math.floor(dateTime / 1000);
                     shareURL += 'd=' + timestamp;
+<<<<<<< HEAD
                     shareURL += '&e=' + entityType;
                     shareURL += '&o=' + ownerName;
                     shareURL += '&n=' + entityName;
 
+=======
+                    shareURL += ';e=' + entityType;
+                    shareURL += ';o=' + ownerName;
+                    shareURL += ';n=' + entityName;
+>>>>>>> d637e05e6388b87abec11e3d53b5d77adfbc2d7d
                     return (shareURL);
                 },
 

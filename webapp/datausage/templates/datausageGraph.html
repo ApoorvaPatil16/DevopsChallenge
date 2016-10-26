@@ -1,0 +1,24 @@
+<div flex-gt-sm="auto" layout-gt-sm="row" layout-sm="column" layout-wrap>
+    <md-card class="card" flex-gt-sm="100" flex-sm="100" flex-xs="100">
+        <md-toolbar class="md-hue-1">
+            <md-card-header>
+                <md-card-header-text>
+                    <span class="md-headline">Data Usage Statistics</span>
+                </md-card-header-text>
+            </md-card-header>
+        </md-toolbar>
+        <md-divider></md-divider>
+        <md-card-content>
+            <div layout="row">
+                <div class="stats-card" ng-repeat="(key,val) in $ctrl.stats">
+                    <p>
+                        {{key}}
+                    </p>
+                    <span>
+                        {{val}}
+                    </span>
+                </div>
+            </div>
+        </md-card-content>
+    </md-card>
+</div>

@@ -14,10 +14,17 @@ angular.module('datamill')
         //...........................................//
         if ($stateParams.mode === 'edit') {
             $scope.dataModel = $stateParams.dataModel;
+<<<<<<< HEAD
             //console.log("99999999999999999999999999999999999999999999", $scope.dataModel);
+=======
+            console.log("array of edit", $scope.dataModel);
+>>>>>>> d637e05e6388b87abec11e3d53b5d77adfbc2d7d
             updateMaster($scope.dataModel);
 
             $scope.isedit = true;
+            if (!$scope.dataModel.patternstruct) {
+                $scope.dataModel.patternstruct = [];
+            }
             if ($stateParams.dataModel.name === $stateParams.datamodelname) {
                 $scope.dataModel = $stateParams.dataModel;
                 updateMaster($scope.dataModel);
@@ -32,6 +39,7 @@ angular.module('datamill')
             } else {
                 datamodeldefinationservice.getFullDatamodel($stateParams.datamodelname).then(function(res) {
                         $scope.dataModel = res;
+
                     })
                     // @TODO for direct URL work
             }
@@ -40,12 +48,9 @@ angular.module('datamill')
                 "name": '',
                 "description": '',
                 "attributes": [],
-
-
                 "patterns": [],
                 "patternstruct": [],
-
-                "username": "vishal"
+                "username": "lokesh"
             }
             updateMaster($scope.dataModel);
             $scope.isedit = false;
@@ -92,12 +97,6 @@ angular.module('datamill')
             console.log("dataModel we request for edit", $scope.dataModel);
             if ($stateParams.datamodelname) {
                 datamodeldefinationservice.patchDataModel($scope.dataModel, $stateParams.datamodelname).then(function(res) {
-
-                        console.log("AA", res);
-                        console.log("stateParams", $stateParams.datamodelname);
-
-                        console.log(res);
-
                         showSuccessAlert(res.name);
                     },
                     function(res) {
@@ -146,7 +145,37 @@ angular.module('datamill')
                 });
         }
 
+        $scope.showAdvanced = function(ev, object) {
+            if (!$scope.dataModel.patternstruct) {
+                $scope.dataModel.patternstruct = [];
+            }
+            var array = $scope.dataModel.patternstruct;
+            console.log("array", array);
+            var len = array.length;
+            for (var i = 0; i < len; i++) {
+                if (array[i].name == object.name) {
+                    $scope.val = array[i];
+                    break;
+                }
+            }
+            $mdDialog.show({
+                controller: 'editPatternCtrl',
+                templateUrl: '/datamodeldefination/templates/editpattern.html',
+                locals: {
+                    object: object,
+                    patternattributes: $scope.val.attributes
+                },
+                parent: angular.element(document.body),
+                targetEvent: ev,
+                clickOutsideToClose: true,
+                fullscreen: $scope.customFullscreen
+            }).then(function(result) {
+                console.log("data from dialog", result);
 
+            }, function(result) {
+
+            });
+        };
         $scope.showDialog = function(ev) {
             $mdDialog.show({
                     controller: 'patterndialogCtrl',
@@ -160,15 +189,13 @@ angular.module('datamill')
                     fullscreen: $scope.customFullscreen // Only for -xs, -sm breakpoints.
                 })
                 .then(function(result) {
-                    console.log("Data from dialog on save: ", JSON.stringify(result.name));
                     var mix = null;
                     var len = 0;
-                    if (!$scope.dataModel.patternstruct) {
-                        $scope.dataModel.patternstruct = [];
-                    }
+                    // if (!$scope.dataModel.patternstruct) {
+                    //     $scope.dataModel.patternstruct = [];
+                    // }
 
-                    $scope.dataModel.patternstruct.push(result);
-
+                    $scope.dataModel.patternstruct.push({ "name": result.name, "attributes": result.structure });
                     $scope.dataModel.patterns.push({ "name": result.name, "mix": 0 });
                     if ($scope.dataModel.patterns) {
                         len = $scope.dataModel.patterns.length;
@@ -191,6 +218,7 @@ angular.module('datamill')
                     console.log("Data from dialog on cancel: ", result);
                 });
         };
+
         $scope.uploadJson = function(json) {
             var dataobject = parseString(json);
             var outputData = [];

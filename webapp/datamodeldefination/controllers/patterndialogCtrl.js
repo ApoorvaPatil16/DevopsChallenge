@@ -1,19 +1,15 @@
 angular.module('datamill')
     .controller('patterndialogCtrl', function($scope, attributes, $mdDialog) {
-        $scope.dataModelStructure = JSON.parse(JSON.stringify(attributes));
-
+        $scope.patternstruct = JSON.parse(JSON.stringify(attributes));
         var ctrl = this;
-
-        $scope.save = function() {
+        $scope.Okay = function() {
             var data = {};
             data = {
-                "structure": $scope.dataModelStructure,
+                "structure": $scope.patternstruct,
                 "name": $scope.patterns.name
             };
-            console.log("datamodelattr" + $scope.dataModelStructure);
+            console.log("datamodelattr" + data.structure);
             $mdDialog.hide(data);
-
-
         };
         $scope.cancel = function() {
             $mdDialog.hide();

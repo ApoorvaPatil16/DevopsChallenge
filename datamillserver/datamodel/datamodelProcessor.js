@@ -11,8 +11,11 @@ var datamodelProcessor = {
         })
     },
     getfulldatamodel: function(email, datamodelname, successCallback, errorCallback) {
+<<<<<<< HEAD
         console.log("....................email ", email);
         console.log("....................modelname ", datamodelname);
+=======
+>>>>>>> d637e05e6388b87abec11e3d53b5d77adfbc2d7d
 
         datamodelModel.find({ email: email, name: datamodelname }, function(err, result) {
             console.log("....................email ", email);
@@ -22,6 +25,7 @@ var datamodelProcessor = {
                 return errorCallback(500, err)
             }
             var doc = Object.assign({}, result[0]['_doc'])
+                //console.log("doc", doc);
             datamodelstructure.find({ email: email, datamodelname: datamodelname, name: datamodelname }, function(err, result1) {
                 if (err) {
                     return errorCallback(500, err);
@@ -33,7 +37,7 @@ var datamodelProcessor = {
                         return errorCallback(500, err);
                     }
                     doc["patternstruct"] = Object.assign([], result2);
-                    console.log(doc)
+                    console.log(doc, "document");
                     return successCallback(200, doc);
                 })
             })
@@ -45,12 +49,12 @@ var datamodelProcessor = {
             if (err) {
                 return errorCallback(500, err);
             }
-            console.log("result", result)
+            console.log("result", result);
             return successCallback(200, result);
         })
     },
     datamodelpatch: function(email, datamodelname, object, successCallback, errorCallback) {
-        console.log("My object:", object)
+        console.log("My object:", object);
         datamodelstructure.remove({ email: email, datamodelname: datamodelname }, function(err) {
             if (err) {
                 return errorCallback(500, "unable to remove structures/patterns");
@@ -61,20 +65,10 @@ var datamodelProcessor = {
             docs.push({ name: object.name, email: email, datamodelname: object.name, attributes: object.attributes })
             if (object.patternstruct) {
                 object.patternstruct.forEach(function(pattern) {
-                    console.log("patterns is:", pattern);
-                    docs.push({ name: pattern.name, email: email, datamodelname: object.name, attributes: object.attributes })
+                    docs.push({ name: pattern.name, email: email, datamodelname: object.name, attributes: pattern.attributes })
                 });
             }
-            // object.structname = object.name;
-            // object.email = email;
-            // var docs = [];
-            // docs.push({ name: object.name, email: email, datamodelname: object.name, attributes: object.attributes }) if (object.patternstruct) {
-            //     object.patternstruct.forEach(function(pattern) {
-            //         docs.push({ name: pattern.name, email: email, datamodelname: object.name, attributes: pattern.attributes })
-            //     });
-            // }
             datamodelstructure.insertMany(docs, function(err, docs) {
-
                 if (err) {
                     return errorCallback(500, "insert many failed");
                 } else {
@@ -88,7 +82,6 @@ var datamodelProcessor = {
                 }
             })
         });
-
     },
     datamodelpost: function(email, object, successCallback, errorCallback) {
         datamodelModel.find({ name: object.name, email: email }, function(err, result) {
@@ -102,8 +95,6 @@ var datamodelProcessor = {
                 var datamodeldata = new datamodelModel(object);
                 var docs = [];
 
-                console.log("Data : " + JSON.stringify(object.attributes));
-
                 //Create a default or primary pattern of the datamodel 
                 docs.push({
                     name: object.name,
@@ -113,7 +104,7 @@ var datamodelProcessor = {
                 });
                 if (object.patternstruct) {
                     object.patternstruct.forEach(function(pattern) {
-                        docs.push({ name: pattern.name, email: email, datamodelname: object.name, attributes: object.attributes })
+                        docs.push({ name: pattern.name, email: email, datamodelname: object.name, attributes: pattern.attributes });
                     });
                 }
                 datamodelstructure.insertMany(docs, function(err, docs) {
@@ -133,7 +124,6 @@ var datamodelProcessor = {
                 return errorCallback(409, "already exist the data model");
             }
         })
-
     },
     datamodeldelete: function(email, datamodelname, successCallback, errorCallback) {
         datamodelstructure.remove({ email: email, datamodelname: datamodelname }, function(err) {
