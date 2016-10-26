@@ -7,18 +7,6 @@ var io = require('socket.io-client');
 var socket = io.connect('http://localhost:8080/');
 
 function startGeneration(datamodel, cb) {
-<<<<<<< HEAD
-    tickerObj = getTicker(datamodel)
-    generatorFunc = getGeneratorFunc(datamodel, tickerObj);
-    console.log("now to ", (new Date()));
-    // console.log("pattern struct is", datamodel.patternstructure);
-    console.log("the ticker obj is:", tickerObj)
-    if (datamodel.delivery == 'download') globalactivedatasources.registerDataSource(datamodel);
-    else { globalactivedatasources.registerDataSource(datamodel); }
-    genPipeline = pipeliner.attrPipeline(datamodel.attributes);
-    consumePipeline = consumepipeliner.consumePipeline(datamodel);
-    var disconnectEvent = datamodel.delivery + "_" + datamodel.email + "_" + datamodel.name + "_disconnect";
-=======
     //@TODO from the specified datamodel name, go fetch the object and ensure 
 
     if (datamodel.patterns.length > 0) {
@@ -81,29 +69,19 @@ function startDataGeneration(datamodel, cb) {
     consumePipeline = consumepipeliner.consumePipeline(datamodel);
     var disconnectEvent = datamodel.delivery + "_" + datamodel.email + "_" +
         datamodel.name + "_disconnect";
->>>>>>> 0bca1e56b107009b44e01b0d2ff53b179b7170af
     socket.on(disconnectEvent, function(msg) {
         tickerObj.stop(function() {
             globalactivedatasources.unregisterDataSource(datamodel);
         })
     })
     process.nextTick(function() {
-<<<<<<< HEAD
-        highland(generatorFunc).pipe(genPipeline).pipe(consumePipeline).each(function(data) {
-            //console.log("done", data);
-            if (cb) cb(data);
-        })
-=======
         highland(generatorFunc).pipe(genPipeline).pipe(consumePipeline).each(
             function(data) {
                 //console.log("done", data);
                 if (cb) cb(data);
             })
->>>>>>> 0bca1e56b107009b44e01b0d2ff53b179b7170af
     })
 }
-
-
 
 // generate a ticker object
 function getTicker(datamodel) {
@@ -123,19 +101,12 @@ function getTicker(datamodel) {
             interval = datamodel['datafeed']['flow']['bursts']['occurrences'];
         } else if (datamodel['datafeed']['flow']['type'] == 'continuous') {
             mode = 'continuous';
-<<<<<<< HEAD
-            interval = datamodel['datafeed']['flow']['frequency']['time'] * unit[datamodel['datafeed']['flow']['frequency']['unit']];
-        }
-    }
-    return new ticker(datamodel.name + "_" + datamodel.email, null, end, mode, interval)
-=======
             interval = datamodel['datafeed']['flow']['frequency']['time'] * unit[
                 datamodel['datafeed']['flow']['frequency']['unit']];
         }
     }
     return new ticker(datamodel.name + "_" + datamodel.email, null, end, mode,
         interval)
->>>>>>> 0bca1e56b107009b44e01b0d2ff53b179b7170af
 }
 // generate a generator function for highland
 function getGeneratorFunc(datamodel, tickerObj) {
@@ -144,28 +115,6 @@ function getGeneratorFunc(datamodel, tickerObj) {
         packets = datamodel["download"]["packets"]
     } else if (datamodel.delivery == 'feed') {
         if (datamodel['datafeed']['flow']['type'] == 'sporadic') {
-<<<<<<< HEAD
-            packets = datamodel['datafeed']['flow']['bursts']['totalpackets'] / datamodel['datafeed']['flow']['bursts']['occurrences'];
-        } else if (datamodel['datafeed']['flow']['type'] == 'continuous') {
-            packets = datamodel['datafeed']['flow']['frequency']['packets'];
-        }
-    }
-
-    return function(push, next) {
-        tickerObj.start(function() {
-            for (var i = 0; i < packets; i++) {
-                push(null, {});
-            }
-            if (datamodel.delivery == 'download') {
-                console.log("this is download type")
-                push(null, null)
-                push(null, highland.nil)
-            }
-        }, function() {
-            globalactivedatasources.unregisterDataSource(datamodel);
-        })
-    }
-=======
             packets = datamodel['datafeed']['flow']['bursts']['totalpackets'] /
                 datamodel['datafeed']['flow']['bursts']['occurrences'];
         } else if (datamodel['datafeed']['flow']['type'] == 'continuous') {
@@ -222,7 +171,6 @@ function getPatternGeneratorFunc(datamodel, patternObj, patternMix, tickerObj) {
             globalactivedatasources.unregisterDataSource(datamodel);
         })
     }
->>>>>>> 0bca1e56b107009b44e01b0d2ff53b179b7170af
 }
 
 module.exports = {
