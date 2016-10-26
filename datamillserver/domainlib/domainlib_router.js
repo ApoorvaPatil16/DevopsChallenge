@@ -87,6 +87,42 @@ var primitive = [{
         min: 1472668200,
         max: 1474569000
     }]
+}, {
+    email: "admin",
+    name: "SequentialDate",
+    description: "Base type Date",
+    type: "Primitive",
+    base: "SequentialDate",
+    pattern: null,
+    range: [{
+        rangeOf: "value",
+        min: 1472668200,
+        max: 1474569000
+    }]
+}, {
+    email: "admin",
+    name: "SequentialTimeStamp",
+    description: "Base type TimeStamp",
+    type: "Primitive",
+    base: "SequentialTimeStamp",
+    pattern: null,
+    range: [{
+        rangeOf: "value",
+        min: 1472668200,
+        max: 1474569000
+    }]
+}, {
+    email: "admin",
+    name: "SequentialNumber",
+    description: "Base type Number",
+    type: "Primitive",
+    base: "SequentialNumber",
+    pattern: null,
+    range: [{
+        rangeOf: "value",
+        min: 1000,
+        max: 10000
+    }]
 }]
 DomainLib.insertMany(primitive, function(err, res) {
     console.log("err", err);
@@ -99,7 +135,9 @@ domainlib_router.post('/', function(req, res) {
             res.status(201).json(success);
         }, function(err) {
             console.log("Error occurred in adding new domain: ", err);
-            res.status(500).json({ error: "Internal error occurred, please report" });
+            res.status(500).json({
+                error: "Internal error occurred, please report"
+            });
         });
     } catch (err) {
         console.log("Error occurred in adding new domain:", err);
@@ -115,7 +153,9 @@ domainlib_router.get('/:type', function(req, res) {
             res.status(201).json(success);
         }, function(err) {
             console.log("Error occurred in getting domain: ", err);
-            res.status(500).json({ error: "Internal error occurred, please report" });
+            res.status(500).json({
+                error: "Internal error occurred, please report"
+            });
         })
     } catch (err) {
         console.log("Error occurred in getting domain: ", err);
@@ -131,7 +171,9 @@ domainlib_router.patch('/updateData', function(req, res) {
             res.status(201).json(success);
         }, function(err) {
             console.log("Error occurred in updating domain: ", err);
-            res.status(500).json({ error: "Internal error occurred, please report" });
+            res.status(500).json({
+                error: "Internal error occurred, please report"
+            });
         })
     } catch (err) {
         console.log("Error occurred in updating domain: ", err);
