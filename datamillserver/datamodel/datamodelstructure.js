@@ -31,8 +31,8 @@ var schema = new mongoose.Schema({
 });
 schema.index({
     name: 1,
-    email: 1
-    datamodelname: 1,
+    email: 1,
+    datamodelname: 1
 }, {
     unique: true
 });

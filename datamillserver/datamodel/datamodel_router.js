@@ -27,7 +27,7 @@ datamodel_router.get('/', function(req, res) {
     }
 });
 
-datamodel_router.get('/fulldatamodel/:datamodelname/:email', function(req, res) {
+datamodel_router.get('/fulldatamodel/:datamodelname/', function(req, res) {
     try {
         datamodelProcessor.getfulldatamodel(req.email, req.params.datamodelname,
             function(code, result) {

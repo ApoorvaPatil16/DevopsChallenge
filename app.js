@@ -23,11 +23,10 @@ var profile_router = require('./datamillserver/users/profile_router');
 var validate = require('./datamillserver/datasource/validate');
 var dataSourceCache = require('./generatorloops/dataSourceCache');
 var scheduledatasrc = require('./generatorloops/schedulestart');
-<<<<<<< HEAD
-var datamodelshare_router = require('./datamillserver/datamodelshare/datamillshare_router');
-=======
+var datamodelshare_router = require(
+    './datamillserver/datamodelshare/datamillshare_router');
 var datausage_router = require('./datamillserver/datausage/datausageRouter');
->>>>>>> d637e05e6388b87abec11e3d53b5d77adfbc2d7d
+
 //Express App created
 var app = express();
 dataSourceCache.startBufferring();
@@ -60,13 +59,8 @@ app.post('/login', function(req, res) {
 });
 app.use('/', oauth_router);
 app.use('/datamodel', isAuthenticated, datamodeldefination);
-<<<<<<< HEAD
 app.use('/shareddatamodel', datamodelshare_router);
-=======
-
 app.use('/stats', isAuthenticated, datausage_router);
-
->>>>>>> d637e05e6388b87abec11e3d53b5d77adfbc2d7d
 app.use(function(req, res, next) {
     var err = new Error('Resource not found');
     err.status = 404;
