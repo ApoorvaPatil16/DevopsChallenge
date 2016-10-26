@@ -50,13 +50,14 @@ function startDataPatternGeneration(datamodel, cb) {
                         datamodel.name, " by ", datamodel.email
                     );
 
-                    generatorFunc = getPatternGeneratorFunc(datamodel, pattern,
+                    var generatorFunc = getPatternGeneratorFunc(datamodel, pattern,
                         patternMix.mix,
                         tickerObj);
 
                     //Attribute pipeline is for the pattern's attribute
-                    genPipeline = pipeliner.attrPipeline(pattern.attributes);
-                    consumePipeline = consumepipeliner.consumePipeline(datamodel);
+                    var genPipeline = pipeliner.attrPipeline(pattern.attributes);
+                    var consumePipeline = consumepipeliner.consumePipeline(
+                        datamodel);
 
                     process.nextTick(function() {
                         highland(generatorFunc).pipe(genPipeline).pipe(
