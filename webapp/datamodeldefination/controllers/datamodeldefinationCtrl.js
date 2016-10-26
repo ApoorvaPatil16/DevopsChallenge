@@ -14,8 +14,12 @@ angular.module('datamill')
         //...........................................//
         if ($stateParams.mode === 'edit') {
             $scope.dataModel = $stateParams.dataModel;
+            console.log("array of edit", $scope.dataModel);
             updateMaster($scope.dataModel);
             $scope.isedit = true;
+            if (!$scope.dataModel.patternstruct) {
+                $scope.dataModel.patternstruct = [];
+            }
             if ($stateParams.dataModel.name === $stateParams.datamodelname) {
                 $scope.dataModel = $stateParams.dataModel;
                 updateMaster($scope.dataModel);
@@ -29,6 +33,7 @@ angular.module('datamill')
             } else {
                 datamodeldefinationservice.getFullDatamodel($stateParams.datamodelname).then(function(res) {
                         $scope.dataModel = res;
+
                     })
                     // @TODO for direct URL work
             }
@@ -134,7 +139,11 @@ angular.module('datamill')
         }
 
         $scope.showAdvanced = function(ev, object) {
+            if (!$scope.dataModel.patternstruct) {
+                $scope.dataModel.patternstruct = [];
+            }
             var array = $scope.dataModel.patternstruct;
+            console.log("array", array);
             var len = array.length;
             for (var i = 0; i < len; i++) {
                 if (array[i].name == object.name) {
@@ -175,9 +184,10 @@ angular.module('datamill')
                 .then(function(result) {
                     var mix = null;
                     var len = 0;
-                    if (!$scope.dataModel.patternstruct) {
-                        $scope.dataModel.patternstruct = [];
-                    }
+                    // if (!$scope.dataModel.patternstruct) {
+                    //     $scope.dataModel.patternstruct = [];
+                    // }
+
                     $scope.dataModel.patternstruct.push({ "name": result.name, "attributes": result.structure });
                     $scope.dataModel.patterns.push({ "name": result.name, "mix": 0 });
                     if ($scope.dataModel.patterns) {

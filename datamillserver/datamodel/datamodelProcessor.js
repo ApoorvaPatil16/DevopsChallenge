@@ -11,11 +11,13 @@ var datamodelProcessor = {
         })
     },
     getfulldatamodel: function(email, datamodelname, successCallback, errorCallback) {
+
         datamodelModel.find({ email: email, name: datamodelname }, function(err, result) {
             if (err) {
                 return errorCallback(500, err)
             }
             var doc = Object.assign({}, result[0]['_doc'])
+                //console.log("doc", doc);
             datamodelstructure.find({ email: email, datamodelname: datamodelname, name: datamodelname }, function(err, result1) {
                 if (err) {
                     return errorCallback(500, err);
@@ -27,7 +29,7 @@ var datamodelProcessor = {
                         return errorCallback(500, err);
                     }
                     doc["patternstruct"] = Object.assign([], result2);
-                    console.log(doc)
+                    console.log(doc, "document");
                     return successCallback(200, doc);
                 })
             })
@@ -39,7 +41,7 @@ var datamodelProcessor = {
             if (err) {
                 return errorCallback(500, err);
             }
-            console.log("result", result)
+            console.log("result", result);
             return successCallback(200, result);
         })
     },

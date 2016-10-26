@@ -1,5 +1,5 @@
 angular.module('datamill')
-    .controller('patterndialogCtrl', function($scope, attributes, $mdDialog, datamodeldefinationservice) {
+    .controller('patterndialogCtrl', function($scope, attributes, $mdDialog) {
         $scope.patternstruct = JSON.parse(JSON.stringify(attributes));
         var ctrl = this;
         $scope.Okay = function() {
