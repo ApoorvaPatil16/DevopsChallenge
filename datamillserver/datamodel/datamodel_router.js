@@ -5,7 +5,9 @@ var datamodelstructure = require('./datamodelstructure');
 var datamodelProcessor = require('./datamodelProcessor')
 
 datamodel_router.get('/', function(req, res) {
-    var query = { email: req.email };
+    var query = {
+        email: req.email
+    };
     if (req.query && req.query.q) {
         query.name = req.query.q;
     }
@@ -13,23 +15,34 @@ datamodel_router.get('/', function(req, res) {
         datamodelProcessor.datamodelfind(query, function(code, result) {
             return res.status(code).send(result);
         }, function(code, err) {
-            return res.status(code).send({ error: err })
+            return res.status(code).send({
+                error: err
+            })
         })
     } catch (exception) {
-        return res.status(500).send({ error: "Internal server error", 'exception': exception });
+        return res.status(500).send({
+            error: "Internal server error",
+            'exception': exception
+        });
     }
 });
-datamodel_router.get('/fulldatamodel/:datamodelname', function(req, res) {
 
+datamodel_router.get('/fulldatamodel/:datamodelname/:email', function(req, res) {
     try {
-        datamodelProcessor.getfulldatamodel(req.email, req.params.datamodelname, function(code, result) {
-            console.log("patternstructure", result);
-            return res.status(code).send(result);
-        }, function(code, err) {
-            return res.status(code).send({ error: err });
-        })
+        datamodelProcessor.getfulldatamodel(req.email, req.params.datamodelname,
+            function(code, result) {
+                console.log("patternstructure", result);
+                return res.status(code).send(result);
+            },
+            function(code, err) {
+                return res.status(code).send({
+                    error: err
+                });
+            })
     } catch (exception) {
-        return res.status(500).send({ error: "Internal server error" });
+        return res.status(500).send({
+            error: "Internal server error"
+        });
     }
 })
 datamodel_router.get('/transporttype', function(req, res) {
@@ -52,30 +65,50 @@ datamodel_router.get('/transporttype', function(req, res) {
     return res.status(200).send(transporttype);
 })
 datamodel_router.get('/patterns/:modelname', function(req, res) {
-    var query = { datamodelname: req.params.modelname, email: req.email, name: { $ne: req.params.modelname } }
+    var query = {
+        datamodelname: req.params.modelname,
+        email: req.email,
+        name: {
+            $ne: req.params.modelname
+        }
+    }
 
     console.log("patternquery", query);
     try {
-        datamodelProcessor.datamodelstructurefind(query, function(code, result) {
+        datamodelProcessor.datamodelstructurefind(query, function(code,
+            result) {
             return res.status(code).send(result);
         }, function(code, err) {
-            return res.status(code).send({ error: err });
+            return res.status(code).send({
+                error: err
+            });
         })
     } catch (exception) {
-        return res.status(500).send({ error: "Internal server error" });
+        return res.status(500).send({
+            error: "Internal server error"
+        });
     }
 });
 datamodel_router.get('/structure/:modelname', function(req, res) {
-    var query = { datamodelname: req.params.modelname, email: req.email, name: req.params.modelname }
+    var query = {
+        datamodelname: req.params.modelname,
+        email: req.email,
+        name: req.params.modelname
+    }
 
     try {
-        datamodelProcessor.datamodelstructurefind(query, function(code, result) {
+        datamodelProcessor.datamodelstructurefind(query, function(code,
+            result) {
             return res.status(code).send(result[0]);
         }, function(code, err) {
-            return res.status(code).send({ error: err });
+            return res.status(code).send({
+                error: err
+            });
         })
     } catch (exception) {
-        return res.status(500).send({ error: "Internal server error" });
+        return res.status(500).send({
+            error: "Internal server error"
+        });
     }
 });
 datamodel_router.get('/conf', function(req, res) {
@@ -123,35 +156,54 @@ datamodel_router.get('/conf', function(req, res) {
 
 datamodel_router.post('/', function(req, res) {
     try {
-        datamodelProcessor.datamodelpost(req.email, req.body, function(code, result) {
+        datamodelProcessor.datamodelpost(req.email, req.body, function(
+            code, result) {
             return res.status(code).send(result);
         }, function(code, err) {
-            return res.status(code).send({ error: err });
+            return res.status(code).send({
+                error: err
+            });
         })
     } catch (exception) {
-        return res.status(500).send({ error: "Internal server error" });
+        return res.status(500).send({
+            error: "Internal server error"
+        });
     }
 })
 datamodel_router.patch('/update/:datamodelname', function(req, res) {
     try {
-        datamodelProcessor.datamodelpatch(req.email, req.params.datamodelname, req.body, function(code, result) {
-            return res.status(code).send(result);
-        }, function(code, err) {
-            return res.status(code).send({ error: err });
-        });
+        datamodelProcessor.datamodelpatch(req.email, req.params.datamodelname,
+            req.body,
+            function(code, result) {
+                return res.status(code).send(result);
+            },
+            function(code, err) {
+                return res.status(code).send({
+                    error: err
+                });
+            });
     } catch (exception) {
-        return res.status(500).send({ "error": "Internal Server Error" });
+        return res.status(500).send({
+            "error": "Internal Server Error"
+        });
     }
 })
 datamodel_router.delete('/delete/:datamodelname', function(req, res) {
     try {
-        datamodelProcessor.datamodeldelete(req.email, req.params.datamodelname, function(code, result) {
-            return res.status(code).send(result);
-        }, function(code, err) {
-            return res.status(code).send({ error: err });
-        });
+        datamodelProcessor.datamodeldelete(req.email, req.params.datamodelname,
+            function(code, result) {
+                return res.status(code).send(result);
+            },
+            function(code, err) {
+                return res.status(code).send({
+                    error: err
+                });
+            });
     } catch (exception) {
-        return res.status(500).send({ error: "internal server error", exception: exception })
+        return res.status(500).send({
+            error: "internal server error",
+            exception: exception
+        })
     }
 })
 module.exports = datamodel_router;

@@ -7,7 +7,17 @@ angular.module('datamill')
                     d: null,
                     e: null,
                     o: null,
-                    n: null
+                    n: null,
+                    mode: "edit",
+                    datamodelname: undefined,
+                    dataModel: {
+                        "name": '',
+                        "description": '',
+                        "attributes": [],
+                        "patterns": [],
+                        "patternstruct": [],
+                        "username": "vishal"
+                    }
                 },
                 views: {
                     "content@": {
