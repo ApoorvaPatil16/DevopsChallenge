@@ -3,6 +3,8 @@ var highland = require('highland')
 var pipeliner = require('./pipelining/attrpipeline');
 var consumepipeliner = require('./pipelining/consumepipeline');
 var globalactivedatasources = require('../generatorloops/activedatasrc');
+var datamodelProcessor = require(
+    '../datamillserver/datamodel/datamodelProcessor');
 var io = require('socket.io-client');
 var socket = io.connect('http://localhost:8080/');
 
@@ -32,27 +34,48 @@ function startDataPatternGeneration(datamodel, cb) {
     });
 
     //Get All the Patterns Definition of the Datamodel 
-    var datamodelPatterns = [];
+    datamodelProcessor.getDatamodelPatterns(datamodel.email, datamodel.name,
+        function(patternColln) {
 
-    datamodelPatterns.forEach(function(pattern) {
-        //Calculate volume of packets to generate using the specified mix
-        var patternMix = 0; //Extract pattern mix value for the current pattern
+            patternColln.forEach(function(pattern) {
+                //Skip the pattern of datamodel name
+                if (pattern.name != datamodel.name) {
+                    //Extract pattern mix value for the current pattern
+                    var patternMix = datamodel.patterns.find(function(item) {
+                        return (item.name === pattern.name);
+                    });
 
-        generatorFunc = getPatternGeneratorFunc(datamodel, pattern, patternMix,
-            tickerObj);
+                    console.log("Generation for pattern: ", pattern.name,
+                        " with mix: ", patternMix.mix, " of data model: ",
+                        datamodel.name, " by ", datamodel.email
+                    );
 
-        //Attribute pipeline is for the pattern's attribute
-        genPipeline = pipeliner.attrPipeline(pattern.attributes);
-        consumePipeline = consumepipeliner.consumePipeline(datamodel);
+                    generatorFunc = getPatternGeneratorFunc(datamodel, pattern,
+                        patternMix.mix,
+                        tickerObj);
 
-        process.nextTick(function() {
-            highland(generatorFunc).pipe(genPipeline).pipe(consumePipeline).each(
-                function(data) {
-                    //console.log("done", data);
-                    if (cb) cb(data);
-                });
+                    //Attribute pipeline is for the pattern's attribute
+                    genPipeline = pipeliner.attrPipeline(pattern.attributes);
+                    consumePipeline = consumepipeliner.consumePipeline(datamodel);
+
+                    process.nextTick(function() {
+                        highland(generatorFunc).pipe(genPipeline).pipe(
+                            consumePipeline).each(
+                            function(data) {
+                                //console.log("done", data);
+                                if (cb) cb(data);
+                            });
+                    });
+                }
+            });
+        },
+        function(err) {
+            console.log("Error in fetching patterns of ", datamodel.name, " by ",
+                datamodel.email);
+            tickerObj.stop(function() {
+                globalactivedatasources.unregisterDataSource(datamodel);
+            });
         });
-    });
 }
 
 function startDataGeneration(datamodel, cb) {
