@@ -1,72 +1,72 @@
 <div layout="row">
-  <div style="max-height:none" flex="100" flex-xs="100" layout="column">
-    <div style="background-color:lightgrey">
-      <div class="md-toolbar-tools">
-        <h3>
+    <div style="max-height:none" flex="100" flex-xs="100" layout="column">
+        <div style="background-color:lightgrey">
+            <div class="md-toolbar-tools">
+                <h3>
            Data Sources
          </h3>
-        <span flex></span>
-        <div layout-padding>
-          <md-button class="md-fab md-mini" aria-label="edit">
-            <md-icon ui-sref="datamill.datasource">list</md-icon>
-          </md-button>
+                <span flex></span>
+                <div layout-padding>
+                    <md-button class="md-fab md-mini" aria-label="edit">
+                        <md-icon ui-sref="datamill.datasource">list</md-icon>
+                    </md-button>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </div>
 <md-divider></md-divider>
 </div>
 <div layout="row" ng-controller="createdatasourceController" layout-padding layout-align="center center">
-  <div layout-padding style="max-height:none" flex="95" flex-xs="100" layout="column">
-    <div md-padding>
-      <form name="userForm">
-        <div>
-          <md-input-container class="md-block" flex-gt-sm="">
-            <label>Source Name</label>
-            <input md-maxlength="30" required="" name="name" type="text" ng-model="ctrl.user.name" capitalize-first ng-disabled="{{ctrl.mode=='edit'}}">
-            <div ng-messages="userForm.name.$error">
-              <div ng-message="required">Name is required.</div>
-              <div ng-message="md-maxlength">The name has to be less than 30 characters long.</div>
-              <p ng-show="ctrl.nameexistserror" id="errorid" style="color:red">This name already Exists.</p>
-            </div>
-          </md-input-container>
-        </div>
-        <div layout-gt-gm="row" layout-padding>
-          <md-chips ng-model="ctrl.user.tags" name="tags" ng-required="" md-max-chips="5" placeholder="Add tags" ng-error="ctrl.user.tags
+    <div layout-padding style="max-height:none" flex="95" flex-xs="100" layout="column">
+        <div md-padding>
+            <form name="userForm">
+                <div>
+                    <md-input-container class="md-block" flex-gt-sm="">
+                        <label>Source Name</label>
+                        <input md-maxlength="30" required="" name="name" type="text" ng-model="ctrl.user.name" capitalize-first ng-disabled="{{ctrl.mode=='edit'}}">
+                        <div ng-messages="userForm.name.$error">
+                            <div ng-message="required">Name is required.</div>
+                            <div ng-message="md-maxlength">The name has to be less than 30 characters long.</div>
+                            <p ng-show="ctrl.nameexistserror" id="errorid" style="color:red">This name already Exists.</p>
+                        </div>
+                    </md-input-container>
+                </div>
+                <div layout-gt-gm="row" layout-padding>
+                    <md-chips ng-model="ctrl.user.tags" name="tags" ng-required="" md-max-chips="5" placeholder="Add tags" ng-error="ctrl.user.tags
 .length==0">
-            <md-chip-template>
-              <strong>{{$chip}}</strong>
-            </md-chip-template>
-          </md-chips>
-          <div ng-messages="userForm.tags.$error" ng-if="userForm.$dirty">
-            <div ng-message="md-max-chips">You reached the maximum amount of chips</div>
-            <div ng-message="required">Required</div>
-            <p ng-show="ctrl.showerror" id="errorid" style="color:red">You have to give atleast one tag.</p>
-          </div>
+                        <md-chip-template>
+                            <strong>{{$chip}}</strong>
+                        </md-chip-template>
+                    </md-chips>
+                    <div ng-messages="userForm.tags.$error" ng-if="userForm.$dirty">
+                        <div ng-message="md-max-chips">You reached the maximum amount of chips</div>
+                        <div ng-message="required">Required</div>
+                        <p ng-show="ctrl.showerror" id="errorid" style="color:red">You have to give atleast one tag.</p>
+                    </div>
+                </div>
+                <div flex="100" layout="column" layout-margin>
+                    <span></span>
+                </div>
+                <div>
+                    <md-input-container class="md-block" flex-gt-sm="">
+                        <label>Source Description</label>
+                        <input md-maxlength="100" required="" name="description" type="text" ng-model="ctrl.user.description">
+                        <div ng-messages="userForm.description.$error">
+                            <div ng-message="required">Description is required.</div>
+                            <div ng-message="md-maxlength">The Description has to be less than 30 characters long.</div>
+                        </div>
+                    </md-input-container>
+                </div>
+                <div layout="column" layout-margin>
+                    <textarea placeholder="Json Data Here" style="width:100%;height:300px" ng-model="ctrl.user.json" ng-hide="{{ctrl.mode=='edit'}}"></textarea>
+                    <p ng-show="ctrl.jsonerror" style="color:red">Invalid Json Format.</p>
+                </div>
+                <div layout="row" layout-align="end center">
+                    <md-button ui-sref="datamill.datasource" class="md-raised md-accent"><b>Cancel</b></md-button>
+                    <md-button type="submit" class="md-raised md-primary" ng-click="ctrl.add()"><b>Save</b></md-button>
+                </div>
+            </form>
         </div>
-        <div flex="100" layout="column" layout-margin>
-          <span></span>
-        </div>
-        <div>
-          <md-input-container class="md-block" flex-gt-sm="">
-            <label>Source Description</label>
-            <input md-maxlength="100" required="" name="description" type="text" ng-model="ctrl.user.description">
-            <div ng-messages="userForm.description.$error">
-              <div ng-message="required">Description is required.</div>
-              <div ng-message="md-maxlength">The Description has to be less than 30 characters long.</div>
-            </div>
-          </md-input-container>
-        </div>
-        <div layout="column" layout-margin>
-          <textarea placeholder="Json Data Here" style="width:100%;height:300px" ng-model="ctrl.user.json" ng-hide="{{ctrl.mode=='edit'}}"></textarea>
-          <p ng-show="ctrl.jsonerror" style="color:red">Invalid Json Format.</p>
-        </div>
-        <div layout="row" layout-align="end center">
-          <md-button ui-sref="datamill.datasource" class="md-raised md-accent"><b>Cancel</b></md-button>
-          <md-button type="submit" class="md-raised md-primary" ng-click="ctrl.add()"><b>Save</b></md-button>
-        </div>
-      </form>
     </div>
-  </div>
 </div>

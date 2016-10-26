@@ -1,11 +1,46 @@
-<h1>Copying shared {{sharedEntityName}} <h1>
-
-<h3 ng-if="errorMessage" style='color:red'>{{errorMessage}}</h3>
+<h2 ng-if="errorMessage" style='color:red'>{{errorMessage}}</h2>
+<div ng-cloak>
+    <div class='md-padding' layout-gt-sm="row" layout-sm="column" layout-wrap>
+        <!-- <div ng-repeat="copiedDataModel in datamodel" flex-gt-sm="33" flex-sm="100" style="max-height:none">
+ -->
+        <md-card>
+            <md-card-title style="padding:7px;" md-colors="::{backgroundColor: 'default-primary-300'} ">
+                <ng-avatar string="{{copiedDataModel.name | avatarstring}} " auto-color="true " text-color="white " round-shape="true "></ng-avatar>
+                <md-card-title-text style="padding:5px;">
+                    <span style="color:white;" class="md-headline ">{{entityName}}</span>
+                </md-card-title-text>
+            </md-card-title>
+            <md-card-content class="wrap-content" style="padding:30px">
+                <p>Description : {{copiedDataModel.description}}</p>
+                <p>Shared By : {{ownerName}}</p>
+                <p>Datamodel Used : {{copiedDataModel.email}}</p>
+                <p>Shared Type : {{entityType}}</p>
+                <p>Instance Shared was: {{entityName}}</p>
+                <p>Shared On : {{sharedDate}}</p>
+                <span>Delivery Type : {{copiedDataModel.delivery }}</span>
+                <pre>{{ obj | json|generationjson|json }}</pre>
+            </md-card-content>
+            <md-card-actions>
+                <div layout="row " layout-align="end center ">
+                    <md-button aria-label="edit " class="md-icon-button " ui-sref="datamill.datamodeldefination({dataModel:copiedDataModel,mode:'edit',datamodelname:copiedDataModel.name})">
+                        <md-icon class="material-icons green">mode_edit</md-icon>
+                    </md-button>
+                    <md-button aria-label="download " class="md-primary" ng-click="showDownload($event,copiedDataModel)">
+                        Download
+                    </md-button>
+                    <md-button aria-label="feed " class="md-primary" ng-click="showFeed($event,copiedDataModel)" ng-if="copiedDataModel.delivery=='feed'">
+                        Show Feed
+                    </md-button>
+                </div>
+            </md-card-actions>
+        </md-card>
+    </div>
+</div>
+<!-- <h1>Copying shared {{sharedEntityName}} </h1>
 
 <h3> This was shared by : {{ownerName}}</h3>
-
 <h3> This was shared for : {{entityType}} </h3>
-
 <h3> The instance shared was : {{entityName}} </h3>
-
 <h3> This was shared on : {{sharedDate}} </h3>
+<h3> This is the shared datamodel details  :{{copiedDataModel}}  </h3>
+ -->

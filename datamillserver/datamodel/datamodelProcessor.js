@@ -11,7 +11,13 @@ var datamodelProcessor = {
         })
     },
     getfulldatamodel: function(email, datamodelname, successCallback, errorCallback) {
+        console.log("....................email ", email);
+        console.log("....................modelname ", datamodelname);
+
         datamodelModel.find({ email: email, name: datamodelname }, function(err, result) {
+            console.log("....................email ", email);
+            console.log("....................modelname ", datamodelname);
+
             if (err) {
                 return errorCallback(500, err)
             }

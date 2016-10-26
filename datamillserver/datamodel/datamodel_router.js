@@ -19,7 +19,7 @@ datamodel_router.get('/', function(req, res) {
         return res.status(500).send({ error: "Internal server error", 'exception': exception });
     }
 });
-datamodel_router.get('/fulldatamodel/:datamodelname', function(req, res) {
+datamodel_router.get('/fulldatamodel/:datamodelname/:email', function(req, res) {
     try {
         datamodelProcessor.getfulldatamodel(req.email, req.params.datamodelname, function(code, result) {
             return res.status(code).send(result);
@@ -63,6 +63,7 @@ datamodel_router.get('/patterns/:modelname', function(req, res) {
 });
 datamodel_router.get('/structure/:modelname', function(req, res) {
     var query = { datamodelname: req.params.modelname, email: req.email, name: req.params.modelname }
+        //console.log("QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ", query);
     try {
         datamodelProcessor.datamodelstructurefind(query, function(code, result) {
             return res.status(code).send(result[0]);

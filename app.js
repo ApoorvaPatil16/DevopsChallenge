@@ -20,6 +20,7 @@ var profile_router = require('./datamillserver/users/profile_router');
 var validate = require('./datamillserver/datasource/validate');
 var dataSourceCache = require('./generatorloops/dataSourceCache');
 var scheduledatasrc = require('./generatorloops/schedulestart');
+var datamodelshare_router = require('./datamillserver/datamodelshare/datamillshare_router');
 //Express App created
 var app = express();
 dataSourceCache.startBufferring();
@@ -49,6 +50,7 @@ app.post('/login', function(req, res) {
 });
 app.use('/', oauth_router);
 app.use('/datamodel', isAuthenticated, datamodeldefination);
+app.use('/shareddatamodel', datamodelshare_router);
 app.use(function(req, res, next) {
     var err = new Error('Resource not found');
     err.status = 404;

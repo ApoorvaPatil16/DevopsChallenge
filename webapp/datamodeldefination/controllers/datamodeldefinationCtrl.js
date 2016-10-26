@@ -14,21 +14,20 @@ angular.module('datamill')
         //...........................................//
         if ($stateParams.mode === 'edit') {
             $scope.dataModel = $stateParams.dataModel;
+            //console.log("99999999999999999999999999999999999999999999", $scope.dataModel);
             updateMaster($scope.dataModel);
+
             $scope.isedit = true;
             if ($stateParams.dataModel.name === $stateParams.datamodelname) {
                 $scope.dataModel = $stateParams.dataModel;
                 updateMaster($scope.dataModel);
                 datamodeldefinationservice.getStructure($stateParams.datamodelname).then(function(res) {
-
-
-
                     console.log("Here we getting getStructure", res);
-
                     if (res && res.attributes[0]) $scope.dataModel.attributes = res.attributes;
+
                     else $scope.dataModel.attributes = [];
                     updateMaster($scope.dataModel);
-                    //console.log("changed the value", $scope.dataModel.attributes)
+                    ///console.log("changed the value", $scope.dataModel.attributes)
                 })
             } else {
                 datamodeldefinationservice.getFullDatamodel($stateParams.datamodelname).then(function(res) {
@@ -138,7 +137,8 @@ angular.module('datamill')
             alert = $mdDialog.alert()
                 .title('Attention')
                 .textContent('Error Occurred:' + Error)
-                .ok('Close');
+
+            .ok('Close');
             $mdDialog
                 .show(alert)
                 .finally(function() {
