@@ -5,6 +5,7 @@ var morgan = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var appconf = require('./appconf');
+var datamillWSServer = require('./websockserver');
 
 // var jsonServer = require('json-server');
 var mongoose = require('mongoose');
@@ -29,6 +30,9 @@ dataSourceCache.startBufferring();
 //scheduledatasrc.sdatamodecheduledatasource();
 app.onAppStart = function(addr) {
     // logger.info("DataMill web app is now Running on port:",addr.port);
+
+    //On app startup, start the web socket server, which outputs the feed data 
+    datamillWSServer(appconf.WEB_SOCK_SERVER_HOST, appconf.WEB_SOCK_SERVER_PORT);
 }
 
 app.use(morgan('dev'));
