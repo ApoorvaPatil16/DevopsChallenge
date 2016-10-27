@@ -14,28 +14,25 @@ angular.module('datamill')
                     return false;
                 },
 
-
                 constructShareURL: function(entityType, ownerName, entityName) {
                     //FORMAT of the URL is 
                     //   http://<datamill domain name>?e=<entity name>&o=<owner name>&n=<name of the entity instance>
                     //
                     //   Eg: http://datamill.com?d=1477114395&e=dm&o=ramgraospeeking@gmail.com&n=Name
-                    var shareURL = 'http://datamill.stackroute.in?';
+                    var shareURL = 'http://datamill.stackroute.in/';
                     // var hash = makeHash(secret, entityType, ownerName, entityName);
                     // shareURL += '?h=' + hash;
 
                     const dateTime = Date.now();
                     const timestamp = Math.floor(dateTime / 1000);
-                    shareURL += 'd=' + timestamp;
-                    /*<<<<<<< HEAD
-                                        shareURL += '&e=' + entityType;
-                                        shareURL += '&o=' + ownerName;
-                                        shareURL += '&n=' + entityName;
 
-                    =======*/
-                    shareURL += ';e=' + entityType;
-                    shareURL += ';o=' + ownerName;
-                    shareURL += ';n=' + entityName;
+                    shareURL += '#datamill/?';
+                    shareURL += '&d=' + timestamp;
+                    shareURL += '&e=' + entityType;
+                    shareURL += '&o=' + ownerName;
+                    shareURL += '&n=' + entityName;
+
+                    shareURL = encodeURIComponent(shareURL);
 
                     return (shareURL);
                 },
@@ -44,10 +41,9 @@ angular.module('datamill')
                     sharedDataModelName) {
                     //Make a API call to copy the Data model from sharedByOwner to copyToUser
                     return $q(function(resolve, reject) {
-                        console.log("datamodel which we have to share=",
-                            sharedDataModelName);
-                        console.log("datamodel which is shared by =", sharedByOwner);
-                        console.log("datamodel which is used by =", copyToUser);
+        /*console.log("datamodel which we have to share=", sharedDataModelName);
+                console.log("datamodel which is shared by =", sharedByOwner);
+                console.log("datamodel which is used by =", copyToUser);*/
 
 
                         $http.get("/shareddatamodel/sharedmodel/" +

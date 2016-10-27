@@ -1,7 +1,10 @@
 angular.module('datamill')
-    .controller('datamillshareCtrl', ['$scope', 'datamodeldefinationservice', 'listDataModelsService', 'datamillshareservice', '$state', '$stateParams',
+    .controller('datamillshareCtrl', ['$scope', 'datamodeldefinationservice',
+        'listDataModelsService', 'datamillshareservice', '$state',
+        '$stateParams',
         '$auth',
-        function($scope, datamodeldefinationservice, listDataModelsService, datamillshareservice, $state, $stateParams,
+        function($scope, datamodeldefinationservice, listDataModelsService,
+            datamillshareservice, $state, $stateParams,
             $auth) {
             $scope.sharedEntityName = "";
             $scope.errorMessage = "";
@@ -10,7 +13,8 @@ angular.module('datamill')
             $scope.entityName = $stateParams.n;
             $scope.sharedDate = $stateParams.d;
 
-            if ($scope.entityType !== null && $scope.ownerName !== null && $scope.entityName !== null) {
+            if ($scope.entityType !== null && $scope.ownerName !== null && $scope.entityName !==
+                null) {
                 //this is a valid shared URL state access
                 //If the shared owner and current logged in user are different, copy the shared entity to current user
                 if ($scope.ownerName !== $auth.getPayload().email) {
@@ -20,9 +24,11 @@ angular.module('datamill')
                         console.log("recived by", $auth.getPayload().email);
                         //How to share data model?
                         //Copy the data model from original user to current logged in user 
-                        datamillshareservice.copySharedDataModel($auth.getPayload().email, $scope.ownerName, $scope.entityName)
+                        datamillshareservice.copySharedDataModel($auth.getPayload().email,
+                                $scope.ownerName, $scope.entityName)
                             .then(function(copiedDataModel) {
                                 //---------------------------------
+                                console.log("copiedDataModel ", copiedDataModel);
                                 $scope.copiedDataModel = copiedDataModel;
                             }, function(err) {
                                 //Error in sharing the datamodel 

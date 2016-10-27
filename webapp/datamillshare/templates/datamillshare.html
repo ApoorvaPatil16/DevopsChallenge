@@ -11,26 +11,22 @@
                 </md-card-title-text>
             </md-card-title>
             <md-card-content class="wrap-content" style="padding:30px">
-                <p>Description : {{copiedDataModel.description}}</p>
-                <p>Shared By : {{ownerName}}</p>
-                <p>Datamodel Used : {{copiedDataModel.email}}</p>
-                <p>Shared Type : {{entityType}}</p>
-                <p>Instance Shared was: {{entityName}}</p>
-                <p>Shared On : {{sharedDate}}</p>
-                <span>Delivery Type : {{copiedDataModel.delivery }}</span>
-                <pre>{{ obj | json|generationjson|json }}</pre>
+                <p>Description: {{copiedDataModel.description}}</p>
+                <span>Delivery Type : {{copiedDataModel.delivery}}</span>
+                <!-- <pre>{{ copiedDataModel  | json|generationjson|json }}</pre>
+ -->
             </md-card-content>
             <md-card-actions>
                 <div layout="row " layout-align="end center ">
                     <md-button aria-label="edit " class="md-icon-button " ui-sref="datamill.datamodeldefination({dataModel:copiedDataModel,mode:'edit',datamodelname:copiedDataModel.name})">
                         <md-icon class="material-icons green">mode_edit</md-icon>
                     </md-button>
-                    <md-button aria-label="download " class="md-primary" ng-click="showDownload($event,copiedDataModel)">
+                    <!-- <md-button aria-label="download " class="md-primary" ng-click="showDownload($event,copiedDataModel)">
                         Download
                     </md-button>
                     <md-button aria-label="feed " class="md-primary" ng-click="showFeed($event,copiedDataModel)" ng-if="copiedDataModel.delivery=='feed'">
                         Show Feed
-                    </md-button>
+                    </md-button> -->
                 </div>
             </md-card-actions>
         </md-card>
