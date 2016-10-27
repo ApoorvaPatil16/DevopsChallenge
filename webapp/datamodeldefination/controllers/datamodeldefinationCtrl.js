@@ -26,6 +26,11 @@ angular.module('datamill')
                 $scope.isedit = true;
                 if (!$scope.dataModel.patternstruct) {
                     $scope.dataModel.patternstruct = [];
+                    datamodeldefinationservice.getFullDatamodel($stateParams.datamodelname)
+                        .then(function(res) {
+                            // $scope.dataModel = res;
+                            $scope.dataModel.patternstruct = res.patternstruct;
+                        })
                 }
                 if ($stateParams.dataModel.name === $stateParams.datamodelname) {
                     $scope.dataModel = $stateParams.dataModel;
