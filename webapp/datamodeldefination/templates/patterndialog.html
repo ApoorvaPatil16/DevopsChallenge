@@ -5,22 +5,24 @@
         </div>
     </md-toolbar>
 </div>
-<form ng-submit="Okay()">
-    <div layout-gt-sm="row" layout="column" layout-margin="2px" id="pattern">
-        <md-input-container flex-gt-sm="20">
-            <label>Name</label>
-            <input ng-model="patterns.name" required>
-        </md-input-container>
-    </div>
-    <div>
-        <datamill-model id="pattern" model-name="New" attrs="patternstruct" form-title="Patterns"> </datamill-model>
-    </div>
-    <div layout="row" layout-align="end center">
-        <md-button class="md-ink-ripple md-raised md-accent " ng-click="cancel()">
-            Cancel
-        </md-button>
-        <md-button type="submit " class="md-ink-ripple md-raised md-primary">
-            Okay
-        </md-button>
-    </div>
+<form ng-submit="submit()">
+    <md-dialog-content>
+        <div layout-gt-sm="row" layout="column" layout-margin="2px" id="pattern" style="margin-top: 15px">
+            <md-input-container flex-gt-sm="20">
+                <label>Name</label>
+                <input ng-model="patterns.name" required>
+            </md-input-container>
+        </div>
+        <datamill-model id="pattern" model-name="New" attrs="patternstruct" form-title=""> </datamill-model>
+    </md-dialog-content>
+    <md-dialog-actions layout="row">
+        <div layout="row" layout-align="end center">
+            <md-button class="md-ink-ripple md-raised md-accent " ng-click="cancel()">
+                Cancel
+            </md-button>
+            <md-button type="submit " class="md-ink-ripple md-raised md-primary">
+                Ok
+            </md-button>
+        </div>
+    </md-dialog-actions>
 </form>

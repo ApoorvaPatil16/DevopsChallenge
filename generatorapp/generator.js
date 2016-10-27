@@ -183,7 +183,7 @@ function getPatternGeneratorFunc(datamodel, patternObj, patternMix, tickerObj) {
 
     return function(push, next) {
         tickerObj.start(function() {
-            for (var i = 0; i < packets; i++) {
+            for (var i = 0; i < patternPacketSize; i++) {
                 push(null, {});
             }
             if (datamodel.delivery == 'download') {
